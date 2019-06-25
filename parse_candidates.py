@@ -5,13 +5,18 @@ import re,  datetime, HTMLParser
 BLOCK_TAGS = ['h1', 'h2', 'h3', 'p', 'div', 'article', 'header', 'section', 'li', 'blockquote']
 INLINE_TAGS = ['span', 'a', 'i', 'b', 'strong', 'figure', 'img', 'ul']
 
+def file_as_string(html_file):
+    contents = ''
+    for l in html_file:
+        contents += l.replace("'<div", '')
+    return contents
+
 class ContentHTMLParser(HTMLParser.HTMLParser):
     def __init__(self, html_file, content_tag, lines):
         HTMLParser.HTMLParser.__init__(self)
         self.tag = content_tag
         self.file_as_string = ""
-        for l in html_file:
-            self.file_as_string += l
+        self.file_as_string = file_as_string(html_file)
         self.tags = []
         self.lines = lines
 
@@ -41,8 +46,7 @@ class NavigationHTMLParser(HTMLParser.HTMLParser):
         HTMLParser.HTMLParser.__init__(self)
         self.tag = navigation_tag
         self.file_as_string = ""
-        for l in html_file:
-            self.file_as_string += l
+        self.file_as_string = file_as_string(html_file)
         self.tags = []
         self.links = links
 
@@ -79,6 +83,8 @@ class Candidate(object):
         cp.feed(cp.file_as_string)
 
     def load_lines(self):
+        if not self.content_tag:
+            return
         c_lines = []
         cp = ContentHTMLParser(open('%s.html' % self.name), self.content_tag, c_lines)
         cp.feed(cp.file_as_string)
@@ -86,20 +92,20 @@ class Candidate(object):
         self.lines = [l for l in lines if l]
 
 def test_navigation():
-    c = Candidate('biden', 'nav', '')
-    cp = NavigationHTMLParser(open('biden.html'), c.navigation_tag, c.links)
+    c = Candidate('booker', 'nav', '')
+    cp = NavigationHTMLParser(open('booker.html'), c.navigation_tag, c.links)
     cp.feed(cp.file_as_string)
     for link in sorted(list(c.links)):
         print link
 
 def test_content():
-    c = Candidate('biden', 'nav', 'article')
+    c = Candidate('booker', 'nav', 'article')
     c_lines = []
-    cp = ContentHTMLParser(open('biden.html'), c.content_tag, c_lines)
+    cp = ContentHTMLParser(open('booker.html'), c.content_tag, c_lines)
     cp.feed(cp.file_as_string)
     lines = [l.strip() for l in c_lines]
     for line in [l for l in lines if l]:
         print line
 if __name__ == '__main__':
-#    test_navigation()
-    test_content()
+    test_navigation()
+#    test_content()

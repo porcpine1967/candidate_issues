@@ -6,6 +6,7 @@ from parse_candidates import Candidate
 CANDIDATES = (
     ('bennet', 'nav', 'article'),
     ('biden', 'nav', 'article'),
+    ('booker', 'nav', None),
 )
 
 def pickle_candidates():
