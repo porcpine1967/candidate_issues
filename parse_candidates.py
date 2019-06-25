@@ -65,7 +65,6 @@ class NavigationHTMLParser(HTMLParser.HTMLParser):
 
     def handle_data(self, data):
         pass
-    
 
 class Candidate(object):
     def __init__(self, name, navigation_tag, content_tag):
@@ -73,7 +72,18 @@ class Candidate(object):
         self.navigation_tag = navigation_tag
         self.content_tag = content_tag
         self.links = set()
-        self.lines = set()
+        self.lines = []
+
+    def load_links(self):
+        cp = NavigationHTMLParser(open('%s.html' % self.name), self.navigation_tag, self.links)
+        cp.feed(cp.file_as_string)
+
+    def load_lines(self):
+        c_lines = []
+        cp = ContentHTMLParser(open('%s.html' % self.name), self.content_tag, c_lines)
+        cp.feed(cp.file_as_string)
+        lines = [l.strip() for l in c_lines]
+        self.lines = [l for l in lines if l]
 
 def test_navigation():
     c = Candidate('biden', 'nav', '')
