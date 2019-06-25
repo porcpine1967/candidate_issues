@@ -4,14 +4,15 @@ import pickle
 from parse_candidates import Candidate
 
 CANDIDATES = (
-    ('bennet', 'nav', 'article'),
-    ('biden', 'nav', 'article'),
-    ('booker', 'nav', None),
+    ('bennet', 'nav', None, 'article', None,),
+    ('biden', 'nav',  None, 'article', None,),
+    ('booker', 'nav', None,  None, None),
+    ('buttigieg', 'nav', ('class', 'nav',), 'div', ('class', 'IssuesMain',),),
 )
 
 def pickle_candidates():
-    for name, nav_tag, c_tag in CANDIDATES:
-        c = Candidate(name, nav_tag, c_tag)
+    for name, nav_tag, nav_attr, c_tag, c_attr in CANDIDATES:
+        c = Candidate(name, nav_tag, nav_attr, c_tag, c_attr)
         c.load_links()
         pickle.dump(c.links, open('%s.links' % name, 'wb'))
         c.load_lines()
@@ -21,8 +22,8 @@ def pickle_candidates():
         line_file.close()
 
 def test_candidates():
-    for name, nav_tag, c_tag in CANDIDATES:
-        c = Candidate(name, nav_tag, c_tag)
+    for name, nav_tag, nav_attr, c_tag, c_attr in CANDIDATES:
+        c = Candidate(name, nav_tag, nav_attr, c_tag, c_attr)
         c.load_links()
         test_links = pickle.load(open('%s.links' % name))
         if test_links != c.links:

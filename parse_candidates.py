@@ -2,8 +2,8 @@
 
 import re,  datetime, HTMLParser
 
-BLOCK_TAGS = ['h1', 'h2', 'h3', 'p', 'div', 'article', 'header', 'section', 'li', 'blockquote']
-INLINE_TAGS = ['span', 'a', 'i', 'b', 'strong', 'figure', 'img', 'ul']
+BLOCK_TAGS = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'div', 'article', 'header', 'section', 'li', 'blockquote', 'nav', 'title', 'footer',]
+INLINE_TAGS = ['span', 'a', 'i', 'b', 'strong', 'figure', 'img', 'ul', 'style', 'polygon', 'g', 'svg', 'path', 'button', 'ol', 'script',]
 
 def file_as_string(html_file):
     contents = ''
@@ -12,15 +12,28 @@ def file_as_string(html_file):
     return contents
 
 class ContentHTMLParser(HTMLParser.HTMLParser):
-    def __init__(self, html_file, content_tag, lines):
+    def __init__(self, html_file, content_tag, content_attr, lines):
         HTMLParser.HTMLParser.__init__(self)
         self.tag = content_tag
         self.file_as_string = ""
         self.file_as_string = file_as_string(html_file)
         self.tags = []
         self.lines = lines
+        if content_attr:
+            self.attr_key, self.attr_value = content_attr
+        else:
+            self.attr_key = None
 
     def handle_starttag(self, tag, attrs):
+        if self.attr_key and tag == self.tag and not self.tags:
+            found = False
+            for key, value in attrs:
+                if key == self.attr_key:
+                    for subvalue in value.split():
+                        if subvalue == self.attr_value:
+                            found = True
+            if not found:
+                return
         if len(self.tags) or tag == self.tag:
             self.tags.append(tag)
             self.lines.append('')
@@ -42,15 +55,28 @@ class ContentHTMLParser(HTMLParser.HTMLParser):
                 
 
 class NavigationHTMLParser(HTMLParser.HTMLParser):
-    def __init__(self, html_file, navigation_tag, links):
+    def __init__(self, html_file, navigation_tag, navigation_attr, links):
         HTMLParser.HTMLParser.__init__(self)
         self.tag = navigation_tag
+        if navigation_attr:
+            self.attr_key, self.attr_value = navigation_attr
+        else:
+            self.attr_key = None
         self.file_as_string = ""
         self.file_as_string = file_as_string(html_file)
         self.tags = []
         self.links = links
 
     def handle_starttag(self, tag, attrs):
+        if self.attr_key and tag == self.tag and not self.tags:
+            found = False
+            for key, value in attrs:
+                if key == self.attr_key:
+                    for subvalue in value.split():
+                        if subvalue == self.attr_value:
+                            found = True
+            if not found:
+                return
         if len(self.tags) or tag == self.tag:
             self.tags.append(tag)
             if tag == 'a':
@@ -71,41 +97,43 @@ class NavigationHTMLParser(HTMLParser.HTMLParser):
         pass
 
 class Candidate(object):
-    def __init__(self, name, navigation_tag, content_tag):
+    def __init__(self, name, navigation_tag, navigation_attr, content_tag, content_attr):
         self.name = name
         self.navigation_tag = navigation_tag
+        self.navigation_attr = navigation_attr
         self.content_tag = content_tag
+        self.content_attr = content_attr
         self.links = set()
         self.lines = []
 
     def load_links(self):
-        cp = NavigationHTMLParser(open('%s.html' % self.name), self.navigation_tag, self.links)
+        cp = NavigationHTMLParser(open('%s.html' % self.name), self.navigation_tag, self.navigation_attr, self.links)
         cp.feed(cp.file_as_string)
 
     def load_lines(self):
         if not self.content_tag:
             return
         c_lines = []
-        cp = ContentHTMLParser(open('%s.html' % self.name), self.content_tag, c_lines)
+        cp = ContentHTMLParser(open('%s.html' % self.name), self.content_tag, self.content_attr, c_lines)
         cp.feed(cp.file_as_string)
         lines = [l.strip() for l in c_lines]
         self.lines = [l for l in lines if l]
 
 def test_navigation():
-    c = Candidate('booker', 'nav', '')
-    cp = NavigationHTMLParser(open('booker.html'), c.navigation_tag, c.links)
+    c = Candidate('buttigieg', 'nav', ('class', 'nav',), None, None)
+    cp = NavigationHTMLParser(open('buttigieg.html'), c.navigation_tag, c.navigation_attr, c.links)
     cp.feed(cp.file_as_string)
     for link in sorted(list(c.links)):
         print link
 
 def test_content():
-    c = Candidate('booker', 'nav', 'article')
+    c = Candidate('buttigieg', 'nav', ('class', 'nav',), 'div', None)
     c_lines = []
-    cp = ContentHTMLParser(open('booker.html'), c.content_tag, c_lines)
+    cp = ContentHTMLParser(open('buttigieg.html'), c.content_tag, c.content_attr, c_lines)
     cp.feed(cp.file_as_string)
     lines = [l.strip() for l in c_lines]
     for line in [l for l in lines if l]:
         print line
 if __name__ == '__main__':
     test_navigation()
-#    test_content()
+    test_content()
