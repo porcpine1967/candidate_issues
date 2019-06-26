@@ -48,14 +48,17 @@ class ContentHTMLParser(HTMLParser.HTMLParser):
     def handle_endtag(self, tag):
         if not self.tags:
             return
-        if self.tags == [self.tag] or (tag == 'article' and self.bad):
+        if self.tags == [self.tag]:
             self.tags = []
             return
         self.tags.pop()
         if tag in BLOCK_TAGS:
             self.lines.append('')
         elif tag not in INLINE_TAGS:
-            raise StandardError(tag)
+            if self.bad:
+                self.tags = []
+            else:
+                raise StandardError(tag)
 
     def handle_data(self, data):
         if self.tags:
@@ -132,14 +135,14 @@ class Candidate(object):
         self.lines = [l for l in lines if l]
 
 def test_navigation():
-    c = Candidate('sanders', 'ul', ('id', 'menu-main-header',), None, None, True)
+    c = Candidate('swalwell', 'div', ('class', 'site-nav',), None, None, True)
     cp = NavigationHTMLParser(open('%s.html' % c.name), c.navigation_tag, c.navigation_attr, c.links)
     cp.feed(cp.file_as_string)
     for link in sorted(list(c.links)):
         print link
 
 def test_content():
-    c = Candidate('sanders2', None, None, 'article', None)
+    c = Candidate('swalwell', None, None, 'div', ('class', 'content-wrap',), True,)
     c_lines = []
     cp = ContentHTMLParser(open('%s.html' % c.name), c.content_tag, c.content_attr, c_lines, c.bad)
     cp.feed(cp.file_as_string)
