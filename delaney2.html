@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="en-US">
+<!--
+	
+		      ::::::::   ::::::::         ::::::::::: ::::::::  :::    ::: ::::    :::          ::::::::   ::::::::  ::: 
+		    :+:    :+: :+:    :+:            :+:    :+:    :+: :+:    :+: :+:+:   :+:         :+:    :+: :+:    :+: :+:  
+		   +:+        +:+    +:+            +:+    +:+    +:+ +:+    +:+ :+:+:+  +:+         +:+        +:+    +:+ +:+   
+		  :#:        +#+    +:+            +#+    +#+    +:+ +#++:++#++ +#+ +:+ +#+         :#:        +#+    +:+ +#+    
+		 +#+   +#+# +#+    +#+            +#+    +#+    +#+ +#+    +#+ +#+  +#+#+#         +#+   +#+# +#+    +#+ +#+     
+		#+#    #+# #+#    #+#        #+# #+#    #+#    #+# #+#    #+# #+#   #+#+#         #+#    #+# #+#    #+#          
+		########   ########          #####      ########  ###    ### ###    ####          ########   ########  ###     
+
+		Looking under the hood, eh? Thanks!
+		Let us know if you have any questions. website@johnkdelaney.com
+
+-->
+
+<head>
+	<meta charset="UTF-8"><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o||n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({1:[function(e,n,t){function r(){}function o(e,n,t){return function(){return i(e,[c.now()].concat(u(arguments)),n?null:this,t),n?void 0:this}}var i=e("handle"),a=e(3),u=e(4),f=e("ee").get("tracer"),c=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,n){s[n]=o(d+n,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,o="function"==typeof n;return i(l+"tracer",[c.now(),e,t],r),function(){if(f.emit((o?"":"no-")+"fn-start",[c.now(),r,o],t),o)try{return n.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],t),e}finally{f.emit("fn-end",[c.now()],t)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=o(l+n)}),newrelic.noticeError=function(e,n){"string"==typeof e&&(e=new Error(e)),i("err",[e,c.now(),!1,n])}},{}],2:[function(e,n,t){function r(e,n){if(!o)return!1;if(e!==o)return!1;if(!n)return!0;if(!i)return!1;for(var t=i.split("."),r=n.split("."),a=0;a<r.length;a++)if(r[a]!==t[a])return!1;return!0}var o=null,i=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var u=navigator.userAgent,f=u.match(a);f&&u.indexOf("Chrome")===-1&&u.indexOf("Chromium")===-1&&(o="Safari",i=f[1])}n.exports={agent:o,version:i,match:r}},{}],3:[function(e,n,t){function r(e,n){var t=[],r="",i=0;for(r in e)o.call(e,r)&&(t[i]=n(r,e[r]),i+=1);return t}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],4:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(o<0?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=r},{}],5:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function o(e){function n(e){return e&&e instanceof r?e:e?f(e,u,i):i()}function t(t,r,o,i){if(!d.aborted||i){e&&e(t,r,o);for(var a=n(o),u=v(t),f=u.length,c=0;c<f;c++)u[c].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function l(e,n){h[e]=v(e).concat(n)}function m(e,n){var t=h[e];if(t)for(var r=0;r<t.length;r++)t[r]===n&&t.splice(r,1)}function v(e){return h[e]||[]}function g(e){return p[e]=p[e]||o(t)}function w(e,n){c(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var h={},y={},b={on:l,addEventListener:l,removeEventListener:m,emit:t,get:g,listeners:v,context:n,buffer:w,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",f=e("gos"),c=e(3),s={},p={},d=n.exports=o();d.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(o.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){o.buffer([e],r),o.emit(e,n,t)}var o=e("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!E++){var e=x.info=NREUM.info,n=l.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();c(y,function(n,t){e[n]||(e[n]=t)}),f("mark",["onload",a()+x.offset],null,"api");var t=l.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function o(){"complete"===l.readyState&&i()}function i(){f("mark",["domContent",a()+x.offset],null,"api")}function a(){return O.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-x.offset}var u=(new Date).getTime(),f=e("handle"),c=e(3),s=e("ee"),p=e(2),d=window,l=d.document,m="addEventListener",v="attachEvent",g=d.XMLHttpRequest,w=g&&g.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:g,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var h=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1123.min.js"},b=g&&w&&w[m]&&!/CriOS/.test(navigator.userAgent),x=n.exports={offset:u,now:a,origin:h,features:{},xhrWrappable:b,userAgent:p};e(1),l[m]?(l[m]("DOMContentLoaded",i,!1),d[m]("load",r,!1)):(l[v]("onreadystatechange",o),d[v]("onload",r)),f("mark",["firstbyte",u],null,"api");var E=0,O=e(5)},{}]},{},["loader"]);</script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="profile" href="https://gmpg.org/xfn/11">	
+
+  <link rel="icon" type="image/ico" href="https://www.johndelaney.com/wp-content/themes/jkd/assets/images/favicon.ico" sizes="16x16" />
+  <link rel="icon" type="image/png" href="https://www.johndelaney.com/wp-content/themes/jkd/assets/images/favicon-16x16.png" sizes="16x16" />
+	<link rel="icon" type="image/png" href="https://www.johndelaney.com/wp-content/themes/jkd/assets/images/favicon-32x32.png" sizes="32x32" />
+
+	<title>John Delaney&#039;s Plan for $2 Trillion Infrastructure Plan | John Delaney for President</title>
+
+<!-- Google Tag Manager for WordPress by gtm4wp.com -->
+<script data-cfasync="false" type="text/javascript">//<![CDATA[
+	var gtm4wp_datalayer_name = "dataLayer";
+	var dataLayer = dataLayer || [];
+
+	var gtm4wp_scrollerscript_debugmode         = false;
+	var gtm4wp_scrollerscript_callbacktime      = 100;
+	var gtm4wp_scrollerscript_readerlocation    = 150;
+	var gtm4wp_scrollerscript_contentelementid  = "main";
+	var gtm4wp_scrollerscript_scannertime       = 60;
+//]]>
+</script>
+<!-- End Google Tag Manager for WordPress by gtm4wp.com --><meta name="description" content="Not only is infrastructure funding necessary to improve the system, investing in rebuilding infrastructure is a job creator and will boost the economy."/>
+<link rel="canonical" href="https://www.johndelaney.com/issues/infrastructure/" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="John Delaney&#039;s Plan for $2 Trillion Infrastructure Plan | John Delaney for President" />
+<meta property="og:description" content="Not only is infrastructure funding necessary to improve the system, investing in rebuilding infrastructure is a job creator and will boost the economy." />
+<meta property="og:url" content="https://www.johndelaney.com/issues/infrastructure/" />
+<meta property="og:site_name" content="John Delaney for President" />
+<meta property="article:publisher" content="https://www.facebook.com/JohnKDelaneyJKD" />
+<meta property="og:image" content="https://www.johndelaney.com/wp-content/uploads/2019/05/issues-banner-infrastructure.jpg" />
+<meta property="og:image:secure_url" content="https://www.johndelaney.com/wp-content/uploads/2019/05/issues-banner-infrastructure.jpg" />
+<meta property="og:image:width" content="1600" />
+<meta property="og:image:height" content="900" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="Not only is infrastructure funding necessary to improve the system, investing in rebuilding infrastructure is a job creator and will boost the economy." />
+<meta name="twitter:title" content="John Delaney&#039;s Plan for $2 Trillion Infrastructure Plan | John Delaney for President" />
+<meta name="twitter:site" content="@johndelaney" />
+<meta name="twitter:image" content="https://www.johndelaney.com/wp-content/uploads/2019/05/issues-banner-infrastructure.jpg" />
+<meta name="twitter:creator" content="@johndelaney" />
+<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://www.johndelaney.com/#organization","name":"John Delaney for President","url":"https://www.johndelaney.com/","sameAs":["https://www.facebook.com/JohnKDelaneyJKD","https://www.instagram.com/johndelaney/","https://twitter.com/johndelaney"],"logo":{"@type":"ImageObject","@id":"https://www.johndelaney.com/#logo","url":"https://www.johndelaney.com/wp-content/uploads/2019/02/Delaney-for-President_Logo_Horizontal_Color.png","width":1200,"height":308,"caption":"John Delaney for President"},"image":{"@id":"https://www.johndelaney.com/#logo"}},{"@type":"WebSite","@id":"https://www.johndelaney.com/#website","url":"https://www.johndelaney.com/","name":"John Delaney for President","publisher":{"@id":"https://www.johndelaney.com/#organization"},"potentialAction":{"@type":"SearchAction","target":"https://www.johndelaney.com/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"WebPage","@id":"https://www.johndelaney.com/issues/infrastructure/#webpage","url":"https://www.johndelaney.com/issues/infrastructure/","inLanguage":"en-US","name":"John Delaney&#039;s Plan for $2 Trillion Infrastructure Plan | John Delaney for President","isPartOf":{"@id":"https://www.johndelaney.com/#website"},"image":{"@type":"ImageObject","@id":"https://www.johndelaney.com/issues/infrastructure/#primaryimage","url":"https://www.johndelaney.com/wp-content/uploads/2019/05/issues-banner-infrastructure.jpg","width":1600,"height":900},"primaryImageOfPage":{"@id":"https://www.johndelaney.com/issues/infrastructure/#primaryimage"},"datePublished":"2019-05-29T08:30:38+00:00","dateModified":"2019-06-13T19:15:51+00:00","description":"Not only is infrastructure funding necessary to improve the system, investing in rebuilding infrastructure is a job creator and will boost the economy."}]}</script>
+<link rel='dns-prefetch' href='//www.johndelaney.com' />
+<link rel='dns-prefetch' href='//use.typekit.net' />
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel="alternate" type="application/rss+xml" title="John Delaney for President &raquo; Feed" href="https://www.johndelaney.com/feed/" />
+<link rel="alternate" type="application/rss+xml" title="John Delaney for President &raquo; Comments Feed" href="https://www.johndelaney.com/comments/feed/" />
+<link rel='stylesheet' id='wp-block-library-css'  href='https://www.johndelaney.com/wp-includes/css/dist/block-library/style.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='typekit-css'  href='//use.typekit.net/iko3ttm.css' type='text/css' media='all' />
+<link rel='stylesheet' id='jkd-style-css'  href='https://www.johndelaney.com/wp-content/themes/jkd/style.css' type='text/css' media='all' />
+<script type='text/javascript' src='https://www.johndelaney.com/wp-content/themes/jkd/assets/js/jquery-2.2.4.min.js'></script>
+<script type='text/javascript' src='https://www.johndelaney.com/wp-content/plugins/duracelltomi-google-tag-manager/js/gtm4wp-form-move-tracker.js'></script>
+<script type='text/javascript' src='https://www.johndelaney.com/wp-content/plugins/duracelltomi-google-tag-manager/js/analytics-talk-content-tracking.js'></script>
+<link rel='https://api.w.org/' href='https://www.johndelaney.com/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.johndelaney.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://www.johndelaney.com/wp-includes/wlwmanifest.xml" /> 
+
+<link rel='shortlink' href='https://www.johndelaney.com/?p=3384' />
+<link rel="alternate" type="application/json+oembed" href="https://www.johndelaney.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.johndelaney.com%2Fissues%2Finfrastructure%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://www.johndelaney.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.johndelaney.com%2Fissues%2Finfrastructure%2F&#038;format=xml" />
+
+<!-- Google Tag Manager for WordPress by gtm4wp.com -->
+<script data-cfasync="false" type="text/javascript">//<![CDATA[
+	dataLayer.push({"visitorDoNotTrack":0,"pageTitle":"John Delaney&#039;s Plan for $2 Trillion Infrastructure Plan | John Delaney for President","pagePostType":"page","pagePostType2":"single-page","pagePostAuthor":"Greg Hauenstein","postID":3384});//]]>
+</script>
+<script data-cfasync="false">//<![CDATA[
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.'+'js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WZLZ4WC');//]]>
+</script>
+<!-- End Google Tag Manager -->
+<!-- End Google Tag Manager for WordPress by gtm4wp.com --><link rel="icon" href="https://www.johndelaney.com/wp-content/uploads/2018/11/favicon-32x32.png" sizes="32x32" />
+<link rel="icon" href="https://www.johndelaney.com/wp-content/uploads/2018/11/favicon-32x32.png" sizes="192x192" />
+<link rel="apple-touch-icon-precomposed" href="https://www.johndelaney.com/wp-content/uploads/2018/11/favicon-32x32.png" />
+<meta name="msapplication-TileImage" content="https://www.johndelaney.com/wp-content/uploads/2018/11/favicon-32x32.png" />
+</head>
+
+<body class="page-template page-template-single-issue-page page-template-single-issue-page-php page page-id-3384 page-child parent-pageid-1319 single-issue-page no-sidebar has-featured-image">
+
+	
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WZLZ4WC"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+	<a href="#main" class="sr-only">Skip to main content</a>
+
+	<header id="header" role="banner" class="clearfix pride">
+				<nav class="navbar navbar-expand-lg fixed-top">
+			<div class="container">
+				
+				<a class="navbar-brand"
+	 href="https://www.johndelaney.com"
+	 title="John Delaney for President - Happy Pride Month!">
+	<h1 class="sr-only">John Delaney for President</h1>
+	<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 244.76 62.93"><defs><style>.cls-2{fill:none;}.cls-3{fill:#7f3f98;}.cls-4{fill:#ed1c24;}.cls-5{fill:#21409a;}.cls-6{fill:#f26522;}.cls-7{fill:#00a14b;}.cls-8{fill:#ffde17;}</style></defs><title>inline-logo_pride</title><path class="cls-1" d="M75.26,34.66C72,41.65,66.46,45.21,59,45.21a16.59,16.59,0,0,1-12.68-5.37,17.64,17.64,0,0,1-4.93-12.42,17.17,17.17,0,0,1,5.12-12.3A17.52,17.52,0,0,1,58.84,9.87c10.68,0,18,7.68,18,20.17V31.1H51.53c.88,3.56,3.44,5.43,7.75,5.43a7.34,7.34,0,0,0,5.12-1.87ZM66.89,24.11c-1.18-3.44-4-5.31-7.92-5.31-4.13,0-7.06,2.12-7.75,5.31Z"/><path class="cls-1" d="M91.62,0V44.4H81.81V0Z"/><path class="cls-1" d="M123,40.65a13,13,0,0,1-9.93,3.93,15.23,15.23,0,0,1-10.49-3.93,17,17,0,0,1-5.86-13.17A17,17,0,0,1,102.11,15a15.55,15.55,0,0,1,11.17-4.62c4.06,0,7.18,1.38,9.43,4.25V10.87h9.86V44.4H123Zm-7.74-5a7.92,7.92,0,0,0,7.8-8.12,8.15,8.15,0,0,0-8.18-8.43,8.3,8.3,0,0,0-8.3,8.31C106.6,32.1,110.22,35.66,115.28,35.66Z"/><path class="cls-1" d="M139.13,44.4V10.87h9.36l-.12,4.5c2.06-3.37,5.18-5.12,9.61-5.12,6.93,0,11.43,4.37,11.43,12.05V44.4h-9.87V26.23c0-4.68-1-6.81-4.8-6.81s-5.94,2.31-5.94,6.81V44.4Z"/><path class="cls-1" d="M207.8,34.66c-3.25,7-8.8,10.55-16.29,10.55a16.59,16.59,0,0,1-12.68-5.37,17.69,17.69,0,0,1-4.93-12.42A17.17,17.17,0,0,1,179,15.12a17.52,17.52,0,0,1,12.36-5.25c10.68,0,18,7.68,18,20.17V31.1H184.08c.87,3.56,3.43,5.43,7.74,5.43a7.33,7.33,0,0,0,5.12-1.87Zm-8.36-10.55c-1.19-3.44-4-5.31-7.93-5.31-4.12,0-7.06,2.12-7.74,5.31Z"/><path class="cls-1" d="M217,55.26l5.06-12.92L209.8,10.87h10.92L227,30.41l7.12-19.54h10.61L227,55.26Z"/><path class="cls-1" d="M29,52.47h5v1.38H30.47v3h3.58v1.34H30.47v4.49H29Z"/><path class="cls-1" d="M39.93,53.76a5,5,0,0,1,3.62-1.49,5.08,5.08,0,0,1,3.68,1.5,5.45,5.45,0,0,1,.21,7.43,5.13,5.13,0,0,1-3.91,1.73,5,5,0,0,1-3.87-1.76,5.32,5.32,0,0,1-1.33-3.63A5.23,5.23,0,0,1,39.93,53.76Zm1,6.55a3.71,3.71,0,0,0,2.62,1.15A3.87,3.87,0,0,0,46.26,55a3.54,3.54,0,0,0-2.73-1.22A3.46,3.46,0,0,0,41,54.83a3.94,3.94,0,0,0-1.13,2.72A4,4,0,0,0,40.91,60.31Z"/><path class="cls-1" d="M53,62.73V52.47h3c2.49,0,3.79,1.2,3.79,3.32a2.93,2.93,0,0,1-2.91,3l2.91,3.94H57.91L54.51,58v4.76Zm2.25-4.93c2,0,3-.65,3-2s-.89-1.92-2.69-1.92H54.51V57.8Z"/><path class="cls-1" d="M71.06,62.73V52.47h2.38a4.69,4.69,0,0,1,2.45.44,3,3,0,0,1,1.4,2.56c0,1.85-1.31,3.13-3.58,3.13H72.53v4.13Zm2.55-5.5c1.46,0,2.18-.46,2.18-1.67s-.71-1.71-2.13-1.71H72.53v3.38Z"/><path class="cls-1" d="M81.36,62.73V52.47h3c2.5,0,3.79,1.2,3.79,3.32a2.92,2.92,0,0,1-2.91,3l2.91,3.94H86.24L82.84,58v4.76Zm2.25-4.93c2,0,3-.65,3-2s-.9-1.92-2.7-1.92H82.84V57.8Z"/><path class="cls-1" d="M92.39,62.73V52.47h5.32v1.38H93.87v3h3.84v1.34H93.87v3.07h3.84v1.42Z"/><path class="cls-1" d="M103.2,59.77a1.65,1.65,0,1,0,3.29,0c0-1.14-.62-1.44-1.75-1.79a3.1,3.1,0,0,1-2.06-1.18,2.58,2.58,0,0,1-.52-1.57A2.73,2.73,0,0,1,105,52.29a2.61,2.61,0,0,1,2.7,2.72H106.3A1.34,1.34,0,0,0,105,53.64a1.39,1.39,0,0,0-1.39,1.5,1.24,1.24,0,0,0,.29.82c.43.51,1.17.54,2,.83a2.88,2.88,0,0,1,2.07,2.84,3,3,0,0,1-3.09,3.3,2.93,2.93,0,0,1-3-3.16Z"/><path class="cls-1" d="M112.14,62.73V52.47h1.49V62.73Z"/><path class="cls-1" d="M118.23,62.73V52.47h3.3a4.89,4.89,0,0,1,5.15,5.17,5,5,0,0,1-2.06,4.18,5.44,5.44,0,0,1-3.51.91Zm3.24-1.37a3.44,3.44,0,0,0,3.71-3.71c0-2.32-1.44-3.78-4-3.78h-1.53v7.49Z"/><path class="cls-1" d="M130.93,62.73V52.47h5.32v1.38h-3.83v3h3.83v1.34h-3.83v3.07h3.83v1.42Z"/><path class="cls-1" d="M141,62.73V52.47h1.53l5,7.76-.07-7.76h1.47V62.73h-1.43l-5.14-8,.1,8Z"/><path class="cls-1" d="M154.72,62.73V53.86H152.8V52.47h5.32v1.39h-1.91v8.87Z"/><path class="cls-1" d="M169,62.73V61.3l3.59-3.45c.85-.82,1.47-1.39,1.47-2.32a1.8,1.8,0,0,0-1.86-1.84c-1.12,0-1.8.75-1.8,2v.12H169v0a3.24,3.24,0,0,1,3.33-3.53,3.16,3.16,0,0,1,3.19,3.18A3.78,3.78,0,0,1,174,58.3l-3.19,3h4.64v1.43Z"/><path class="cls-1" d="M179.87,56.09a3.64,3.64,0,0,1,.62-2.42,3.7,3.7,0,0,1,5.84.1,3.76,3.76,0,0,1,.55,2.27v3.13a3.81,3.81,0,0,1-.56,2.33,3.54,3.54,0,0,1-2.95,1.43,3.63,3.63,0,0,1-2.91-1.38,3.84,3.84,0,0,1-.59-2.43Zm1.53,3.45a1.87,1.87,0,0,0,.24,1.15,2,2,0,0,0,1.71.83c1.34,0,2-.72,2-2.2V55.89a2.25,2.25,0,0,0-.25-1.35,2.2,2.2,0,0,0-3.42,0,2.37,2.37,0,0,0-.27,1.39v3.66Z"/><path class="cls-1" d="M191.25,62.73V61.3l3.59-3.45c.85-.82,1.47-1.39,1.47-2.32a1.81,1.81,0,0,0-1.86-1.84c-1.13,0-1.8.75-1.8,2v.12h-1.4v0a3.23,3.23,0,0,1,3.33-3.53,3.16,3.16,0,0,1,3.18,3.18,3.78,3.78,0,0,1-1.48,2.83l-3.19,3h4.65v1.43Z"/><path class="cls-1" d="M202.13,56.09a3.64,3.64,0,0,1,.62-2.42,3.52,3.52,0,0,1,2.89-1.38,3.47,3.47,0,0,1,3,1.48,3.76,3.76,0,0,1,.55,2.27v3.13a3.81,3.81,0,0,1-.56,2.33,3.54,3.54,0,0,1-2.94,1.43,3.61,3.61,0,0,1-2.91-1.38,3.77,3.77,0,0,1-.6-2.43Zm1.53,3.45a1.87,1.87,0,0,0,.25,1.15,2,2,0,0,0,1.7.83c1.34,0,2-.72,2-2.2V55.89a2.25,2.25,0,0,0-.25-1.35,2,2,0,0,0-1.73-.84,2,2,0,0,0-1.68.79,2.29,2.29,0,0,0-.28,1.39v3.66Z"/><path class="cls-2" d="M27.44,22a14.25,14.25,0,0,0-1.79-7.47L19.5,34.18C24.87,33,27.44,29.08,27.44,22Z"/><path class="cls-1" d="M31.75,5.3C27.13.94,22.2,0,15.16,0H0V22.39l10.85-5.54V9.54h4.31a14.14,14.14,0,0,1,6.9,1.57l1.76,1.24.53.5,1.3,1.7A14.25,14.25,0,0,1,27.44,22c0,7.06-2.57,10.93-7.94,12.16L16.31,44.35h.34c6.24,0,10.42-.88,15.16-5.49,4.24-4.18,6.42-9.73,6.42-16.47C38.23,15.09,36,9.29,31.75,5.3Z"/><polygon class="cls-2" points="27.4 8.27 27.31 8.35 27.39 8.3 27.4 8.27"/><polygon class="cls-2" points="27.58 8.16 27.68 8.02 27.4 8.27 27.39 8.3 27.58 8.16"/><polygon class="cls-2" points="27.27 8.64 27.82 8 27.58 8.16 27.27 8.64"/><polygon class="cls-2" points="27.82 8 28.23 7.52 27.68 8.02 27.58 8.16 27.82 8"/><path class="cls-2" d="M24.92,13.46l2.16-4.53-2.59,4C24.62,13.07,24.76,13.25,24.92,13.46Z"/><polygon class="cls-2" points="27.39 8.3 27.16 8.78 27.27 8.64 27.58 8.16 27.39 8.3"/><polygon class="cls-2" points="27.08 8.93 27.27 8.64 27.16 8.78 27.08 8.93"/><path class="cls-2" d="M24,12.44a4.82,4.82,0,0,1,.46.49l2.59-4,.08-.15Z"/><path class="cls-2" d="M23.88,12.31a1.12,1.12,0,0,1,.15.13l3.13-3.66.23-.48-.08,0-4,3.57A4,4,0,0,1,23.88,12.31Z"/><path class="cls-2" d="M27.31,8.35,22.72,11.5a6.9,6.9,0,0,1,.63.42Z"/><path class="cls-3" d="M10.15,44.34h6.16L19.5,34.18l6.15-19.63c-.26-.43-.51-.79-.73-1.09Z"/><path class="cls-4" d="M22.06,11.11,10.85,16.85,0,22.39v4.7L22.72,11.5Z"/><path class="cls-5" d="M24.49,12.93,4.09,44.34h6.06L24.92,13.46C24.76,13.25,24.62,13.07,24.49,12.93Z"/><path class="cls-6" d="M22.72,11.5,0,27.09V33L23.35,11.92A6.9,6.9,0,0,0,22.72,11.5Z"/><path class="cls-7" d="M24,12.44,0,40.59v3.75H4.09l20.4-31.41A4.82,4.82,0,0,0,24,12.44Z"/><path class="cls-8" d="M23.88,12.31a4,4,0,0,0-.53-.39L0,33v7.61L24,12.44A1.12,1.12,0,0,0,23.88,12.31Z"/></svg> 
+	<h2 id="tagline">Focus on the Future</h2>
+</a>
+
+<button type="button" id="nav-toggler" class="navbar-toggler ml-auto collapsed" data-toggle="collapse" data-target="#header-left">
+  Menu <i class="fas fa-bars"></i>
+</button>
+
+<nav id="header-left" class="collapse navbar-collapse"><ul id="main-navigation" class="navbar-nav"><li id="menu-item-146" class="menu-about menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children nav-item nav-item-146  dropdown"><a title="About" href="https://www.johndelaney.com/about/" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-haspopup="true">About</a>
+<div role="menu" class=" dropdown-menu">
+<a title="Meet John" href="https://www.johndelaney.com/about/" class="menu-item menu-item-type-post_type menu-item-object-page dropdown-item" id="menu-item-1861">Meet John</a><a title="Meet April" href="https://www.johndelaney.com/about/april/" class="menu-item menu-item-type-post_type menu-item-object-page dropdown-item" id="menu-item-1860">Meet April</a></div>
+</li><li id="menu-item-1539" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children nav-item nav-item-1539  dropdown"><a title="States" href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-haspopup="true">States</a>
+<div role="menu" class=" dropdown-menu">
+<a title="Iowa" href="https://www.johndelaney.com/states/iowa/" class="menu-item menu-item-type-post_type menu-item-object-page dropdown-item" id="menu-item-1568">Iowa</a><a title="New Hampshire" href="https://www.johndelaney.com/states/new-hampshire/" class="menu-item menu-item-type-post_type menu-item-object-page dropdown-item" id="menu-item-1802">New Hampshire</a></div>
+</li><li id="menu-item-1364" class="menu-item menu-item-type-post_type menu-item-object-page current-page-ancestor nav-item nav-item-1364"><a title="Issues" href="https://www.johndelaney.com/issues/" class="nav-link">Issues</a></li><li id="menu-item-1208" class="menu-events menu-item menu-item-type-post_type menu-item-object-page nav-item nav-item-1208"><a title="Events" href="https://www.johndelaney.com/events/" class="nav-link">Events</a></li><li id="menu-item-144" class="menu-news menu-item menu-item-type-post_type menu-item-object-page nav-item nav-item-144"><a title="News" href="https://www.johndelaney.com/news/" class="nav-link">News</a></li><li id="menu-item-2430" class="menu-item menu-item-type-custom menu-item-object-custom nav-item nav-item-2430"><a title="Store" href="https://store.johndelaney.com" class="nav-link">Store</a></li><li id="menu-item-3169" class="menu-item menu-item-type-post_type menu-item-object-page nav-item nav-item-3169"><a title="En Español" href="https://www.johndelaney.com/es/" class="nav-link">En Español</a></li></ul></nav>
+<nav id="header-right" class="menu-header-menu-right-container"><ul id="action-navigation" class="navbar-nav ml-auto d-none d-md-flex"><li id="menu-item-45" class="ltblue menu-item menu-item-type-custom menu-item-object-custom nav-item nav-item-45"><a title="Get Involved" href="https://go.johndelaney.com/page/s/volunteer" class="nav-link">Get Involved</a></li><li id="menu-item-44" class="red menu-item menu-item-type-custom menu-item-object-custom nav-item nav-item-44"><a title="Contribute" target="_blank" href="https://secure.actblue.com/donate/john-delaney-2?refcode=website_header" class="nav-link">Contribute</a></li></ul></nav>
+			</div><!-- /.container -->
+		</nav>
+	</header>
+
+	<main id="main" role="main">
+
+	<article id="post-3384" class="post-3384 page type-page status-publish has-post-thumbnail hentry">
+		
+		
+			
+			<header class="hero hero-primary loading">
+				<figure>
+					<picture>
+						<source media="(min-width: 768px)"
+			  				  	srcset="https://www.johndelaney.com/wp-content/uploads/2019/05/issues-banner-infrastructure.jpg" />
+			    	<img srcset="https://www.johndelaney.com/wp-content/uploads/2019/05/issues-banner-infrastructure-1024x576.jpg" alt="" width="100%" class="hero-img" />
+			    </picture>
+				</figure>
+				
+				<div class="container">
+					<h1 class="entry-title">
+												$2 Trillion Infrastructure Plan												</h1>
+					</h1>
+				</div>
+			</header>
+
+			
+	<nav class="breadcrumb"><div class="container"><a href="https://www.johndelaney.com">Home</a><span class="delimiter"> &raquo; </span><a href="https://www.johndelaney.com/issues/">John's Vision for America</a><span class="delimiter"> &raquo; </span>$2 Trillion Infrastructure Plan</div></nav>
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-lg-10 col-xl-8">		
+
+					<main class="entry-content">
+						
+<p class="lead">Investment in infrastructure is long overdue as spending on infrastructure in relation to GDP has steadily dropped over the past several decades, with most funding coming from state and local governments. The American Society of Civil Engineers gave the U.S. a D+ average on our infrastructure.</p>
+
+
+
+<p>Not only is infrastructure funding necessary to improve the system, investing in rebuilding crumbling infrastructure is a job creator and will boost the economy. Infrastructure has the second highest return on investment for the government. </p>
+
+
+
+<p>Delaney will pay for his plan by raising the corporate tax rate to 27% and increasing the federal gas tax to account for inflation since the last increase and indexing it for inflation going forward. Projects supported through Delaney’s infrastructure plan will be governed by federal labor protections including paying workers prevailing wages.</p>
+
+
+
+<h3>Infrastructure Bank</h3>
+
+
+
+<p>Delaney has been an ardent supporter of the need to create an Infrastructure Bank. While in Congress, he introduced bipartisan legislation that would create an Infrastructure Bank to make it easier and cheaper for states and local governments to invest in local infrastructure in the categories of transportation, water, energy, communications, and school facilities. As part of his infrastructure plan, Delaney proposes capitalizing an Infrastructure Bank with $50 billion which can leverage $750 billion of infrastructure projects around the country while encouraging public-private partnerships.</p>
+
+
+
+<h3><strong>Highway Trust Fund</strong></h3>
+
+
+
+<p>American roads and mass transit have been systematically underfunded which has led to the American Society of Civil Engineers (ASCE) giving our roads a D on their annual report card with mass transit receiving a D-.<sup>1</sup></p>
+
+
+
+<p>Not only does the Highway Trust Fund, the main source of federal funding for roads and mass transit, struggle to remain solvent but the current level of funding still leaves massive shortfalls in meeting total needs for surface transportation. To address these deficiencies, Delaney proposes increasing the HTF with a one-time boost of $200 billion, bringing the Fund to almost $850 billion over the next 10 years. It is paid for by retroactively indexing the gas tax to inflation and by raising the corporate tax rate to 27%. <strong>Delaney’s plan will increase direct investment by the Highway Trust Fund by 50% over the next decade. </strong></p>
+
+
+
+<h3><strong>Climate Infrastructure Fund</strong></h3>
+
+
+
+<p>Climate change has led to more frequent and dangerous storms, which have resulted in widespread damage across the country. These storms have had devastating effects including increased forest fires and flooding. What meteorologists deem as 100- year floods have been occurring with more frequency, leading to widespread destruction to land, people’s homes, and public infrastructure. Recently in Iowa when the levees broke along the Missouri River, communities were flooded resulting in billions of dollars in damage and forcing people from their homes.<sup>2</sup></p>
+
+
+
+<p>We also need to make our energy transmission systems more efficient to better conserve energy and avoid waste. We need to invest in and improve climate resilient infrastructure to protect communities against the effects of climate change, which is why Delaney proposes the creation of a $60 billion Climate Infrastructure Fund that will allow state and local governments to invest in and prioritize projects that will expand and improve climate resilient infrastructure in addition to improving energy efficiency in our systems. This will also pay for Delaney’s previously announced Carbon Throughway, an infrastructure project that will transport captured carbon from the Midwest and transport it for permanent sequestration and reuse in the Permian Basin.</p>
+
+
+
+<hr class="wp-block-separator"/>
+
+
+
+<p class="lead">In addition to the Infrastructure Bank, increasing the Highway Trust Fund, and increasing funding for climate infrastructure, Delaney proposes creating five funds that match state and local investments 4:1 in specific categories.</p>
+
+
+
+<h3>Water Infrastructure Matching Fund</h3>
+
+
+
+<p>While cracked roads and bridges are readily apparent to anyone who looks around, equally important infrastructure exists below ground that we can’t see. Around the country, too many cities are suffering from poor water quality and crumbling water systems. The crisis in Flint, Michigan is just one tragic example of the serious health effects of not ensuring that every American has access to clean water. Aging water systems have led to nearly six billion gallons of treated drinking water lost daily due to leaking pipes.<sup>3</sup></p>
+
+
+
+<p>ASCE rated American water infrastructure a D while wastewater received a D+. In addition, American ports and harbors have been underinvested in, even while they facilitate almost 99% of overseas trade and are responsible for $4.6 trillion in economic activity.<sup>4</sup> To facilitate changes in shipping and the size of the ships, ports need continued investment to modernize and maintain operability. </p>
+
+
+
+<p>To address the insufficient focus on water infrastructure, Delaney proposes supplementing WIFIA and the existing state revolving funds with the creation of a new $40 billion Water Infrastructure Matching Fund to allow state and local governments to have dedicated funding to invest in ports and harbors and fix aging water systems to ensure a Flint water crisis never happens again. </p>
+
+
+
+<h3>School Infrastructure Matching Fund</h3>
+
+
+
+<p>In too many districts, America’s public schools are overcrowded and outdated. Public school buildings on average are more than 40 years old, and structural deficiencies in school buildings are associated with poor health and decreased academic performance.<sup>5</sup></p>
+
+
+
+<p>No child should have to attend school without adequate air conditioning, with crumbling ceilings, or with drinking fountains with water too contaminated to drink. Delaney’s $40 billion School Infrastructure Matching Fund will allow state and local governments to build new schools to keep pace with growing populations and to make necessary improvements to existing facilities. </p>
+
+
+
+<h3>Deferred Maintenance Matching Fund</h3>
+
+
+
+<p>Years of partisanship and government gridlock have meant that we only address major infrastructure problems through expensive new projects or in response to a crisis or an emergency. We need to confront the deferred maintenance needs of existing infrastructure to keep systems in good repair and prevent disasters. Demand is growing for freight and passenger rail capacity, and our current system is ridden with maintenance backlogs on projects with an average age of 111 years.<sup>6</sup></p>
+
+
+
+<p>In addition, there are more than 47,000 structurally deficient bridges in the US, and at the current rate of maintenance work it would take more than 80 years to make the needed repairs.<sup>7</sup></p>
+
+
+
+<p>Delaney will address this problem by creating a $40 billion Deferred Maintenance Matching Fund to assist states and municipalities in taking care of the infrastructure we already have. </p>
+
+
+
+<h3>Areas Left Behind Matching Fund</h3>
+
+
+
+<p>State governments have limited capacity for new infrastructure projects and face significant financial constraints, which means that projects in prosperous areas often receive priority while disadvantaged communities can have their needs neglected. Lack of investment is a problem for both urban and rural communities.</p>
+
+
+
+<p>Struggling urban neighborhoods need robust transit networks, like the canceled Red Line light rail project that would have served inner-city Baltimore, and rural communities have transportation infrastructure needs, including bridges and tunnels, that are passed over in favor of larger projects in more populous areas. We need to consider the cost of not investing in struggling communities and to address the persistent funding gap. To encourage states to invest in the infrastructure needs of economically-distressed communities, Delaney will create a $40 billion matching fund dedicated to projects in areas that have been left behind.</p>
+
+
+
+<h3>Rural Broadband Matching Fund </h3>
+
+
+
+<p>Access to high-speed, reliable broadband is a necessity in the 21st century. Communities rely on it for employment and academic opportunities and to connect people to telemedicine providers.</p>
+
+
+
+<p>However, almost 40% of those in rural areas lack access to reliable broadband, putting them at a disadvantage to the rest of the country.<sup>8</sup></p>
+
+
+
+<p>To close the gap and ensure rural America has access to the necessary technology, Delaney will create a $40 billion Rural Broadband Matching Fund dedicated to building broadband infrastructure.</p>
+
+
+
+<hr class="wp-block-separator"/>
+
+
+
+<ol><li><a rel="noreferrer noopener" aria-label="&quot;Infrastructure Report Card.&quot; (opens in a new tab)" href="https://www.infrastructurereportcard.org/" target="_blank">&#8220;Infrastructure Report Card.&#8221;</a> American Society of Civil Engineers, 2017.</li><li><a rel="noreferrer noopener" aria-label="&quot;Missouri River levee repairs leave flooded Iowa communities stressed.&quot; (opens in a new tab)" href="https://www.desmoinesregister.com/story/news/2019/05/15/iowa-flooding-levee-repairs-leave-riverside-communities-stressed/3678703002/" target="_blank">&#8220;Missouri River levee repairs leave flooded Iowa communities stressed.&#8221;</a> Des Moines Register, 2019.</li><li><a rel="noreferrer noopener" aria-label="&quot;Infrastructure Report Card: Drinking Water.&quot; (opens in a new tab)" href="https://www.infrastructurereportcard.org/wp-content/uploads/2017/01/Drinking-Water-Final.pdf" target="_blank">&#8220;Infrastructure Report Card: Drinking Water.&#8221;</a> American Society of Civil Engineers, 2017.</li><li> <a rel="noreferrer noopener" aria-label="&quot;Infrastructure Report Card: Ports.&quot; (opens in a new tab)" href="https://www.infrastructurereportcard.org/cat-item/ports/" target="_blank">&#8220;Infrastructure Report Card: Ports.&#8221;</a> American Society of Civil Engineers, 2017.</li><li><a rel="noreferrer noopener" aria-label="&quot;State of Our Schools: America’s K-12 Facilities.&quot; (opens in a new tab)" href="https://centerforgreenschools.org/state-our-schools" target="_blank">&#8220;State of Our Schools: America’s K-12 Facilities.&#8221;</a> 21st Century School Fund, National Council on School Facilities, and The Center for Green Schools, 2016. </li><li><a rel="noreferrer noopener" aria-label="&quot;Infrastructure Report Card: Rail.&quot; (opens in a new tab)" href="https://www.infrastructurereportcard.org/wp-content/uploads/2017/01/Rail-Final.pdf" target="_blank">&#8220;Infrastructure Report Card: Rail.&#8221;</a> American Society of Civil Engineers, 2017. </li><li> <a rel="noreferrer noopener" aria-label="&quot;Bridge Report.&quot; (opens in a new tab)" href="https://artbabridgereport.org/" target="_blank">&#8220;Bridge Report.&#8221;</a> American Road &amp; Transportation Builders Association, 2019.</li><li><a href="https://www.fcc.gov/reports-research/reports/broadband-progress-reports/2016-broadband-progress-report" target="_blank" rel="noreferrer noopener" aria-label="&quot;2016 Broadband Progress Report.&quot; (opens in a new tab)">&#8220;2016 Broadband Progress Report.&#8221;</a> Federal Communications Commission, 2016.</li></ol>
+					</main>
+
+				</div>
+			</div>
+		</div>
+
+		<footer class="mt-5">
+			<div class="container">
+
+								
+								<div class="row justify-content-center">
+					<div class="col col-lg-10 col-xl-8">
+						<h4 class="h5 mb-3">Related Posts</h4>
+						
+						<ul class="related-posts">
+													<li>
+								<a href="https://www.johndelaney.com/2019/05/29/delaney-announces-2-trillion-infrastructure-plan/" rel="bookmark">Delaney Announces $2 Trillion Infrastructure Plan</a> &mdash; <span>May 29, 2019</span>
+							</li>
+													<li>
+								<a href="https://www.johndelaney.com/2018/10/23/delaney-as-china-opens-worlds-longest-sea-bridge-american-infrastructure-stalls/" rel="bookmark">Delaney: As China Opens World’s Longest Sea Bridge, American Infrastructure Stalls </a> &mdash; <span>October 23, 2018</span>
+							</li>
+													<li>
+								<a href="https://www.johndelaney.com/2017/02/18/delaney-authors-legislation-to-improve-metro/" rel="bookmark">Delaney Authors Legislation to Improve Metro</a> &mdash; <span>February 18, 2017</span>
+							</li>
+												</ul>
+					</div>
+				</div>
+							</div>
+			<div class="container-fluid text-center mt-5">
+		  	<div class="post-nav row">
+		  		<div class="prev-post col py-5 px-3 px-lg-5">
+						
+						<span>Back to</span>
+						<h3 class="h6 my-3">Issues Page</h3>
+						<a href="https://www.johndelaney.com/issues/"><span class="sr-only">Back to issues page</span></a>
+					</div>
+					
+					
+							
+							
+										<div class="next-post col py-5 px-3 px-lg-5">
+						
+						<span>Next Issue</span>
+						<h3 class="h6 my-3">Prescription Drugs</h3>
+						<a href="https://www.johndelaney.com/issues/prescription-drugs/"><span class="sr-only">Read more</span></a>
+
+					</div>
+									</div>
+			</div>
+		</footer>
+		
+		<div class="share-nav">
+      <div class="share-nav-inner">
+        <div class="button">
+        	<i class="fa fa-share-alt" aria-hidden="true"></i>
+        </div>
+        <div class="share-nav-slider">
+          <div class="menu">
+						<ul>
+							<li>
+								<a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.johndelaney.com/issues/infrastructure/"><i class="fab fa-facebook fa-2x"></i><span class="sr-only"> Share</span></a>
+							</li>
+							<li>
+								<a target="_blank" href="https://www.twitter.com/intent/tweet?text=$2+Trillion+Infrastructure+Plan&url=https%3A%2F%2Fwww.johndelaney.com%2Fissues%2Finfrastructure%2F&via=johnkdelaney"><i class="fab fa-twitter fa-2x"></i><span class="sr-only"> Tweet</span></a>
+							</li>
+							<li>
+								<a target="_blank" href="mailto:?subject=Check out this post from John Delaney&body=$2 Trillion Infrastructure Plan&#32;&#32;https://www.johndelaney.com/issues/infrastructure/"><i class="far fa-envelope fa-2x"></i><span class="sr-only">Email</span></a>
+							</li>
+						</ul>
+					</div>
+        </div>
+        
+      </div>
+    </div>
+
+	</article>
+
+
+	</main><!-- #main -->
+
+	<footer id="footer" class="site-footer">
+		
+			<div id="footer-actions" class="menu-header-menu-right-container"><ul id="menu-header-menu-right" class=""><li class="ltblue menu-item menu-item-type-custom menu-item-object-custom nav-item nav-item-45"><a title="Get Involved" href="https://go.johndelaney.com/page/s/volunteer" class="nav-link">Get Involved</a></li><li class="red menu-item menu-item-type-custom menu-item-object-custom nav-item nav-item-44"><a title="Contribute" target="_blank" href="https://secure.actblue.com/donate/john-delaney-2?refcode=website_header" class="nav-link">Contribute</a></li></ul></div>		
+		<div class="container">
+						<div class="row">
+				
+				<div class="widget_text col-6 col-md-2 mb-5 mb-md-0"><h2 class="h5">Learn</h2><div class="textwidget custom-html-widget"><ul class="list-unstyled">
+	<li><a href="/about">Meet John</a></li>
+	<li><a href="/about/april">Meet April</a></li>
+	<li><a href="/issues">Issues</a></li>
+	<li><a href="/news">News</a></li>
+</ul></div></div><div class="widget_text col-6 col-md-2 mb-5 mb-md-0"><h2 class="h5">States</h2><div class="textwidget custom-html-widget"><ul class="list-unstyled">
+	<li><a href="/states/iowa">Iowa</a></li>
+	<li><a href="/states/new-hampshire">New Hampshire</a></li>
+</ul></div></div><div class="widget_text col-6 col-md-2 mb-5 mb-md-0"><h2 class="h5">Get Involved</h2><div class="textwidget custom-html-widget"><ul class="list-unstyled">
+	<li><a href="https://go.johndelaney.com/page/s/website-signup">Sign Up</a></li>
+	<li><a href="https://go.johndelaney.com/page/s/volunteer">Volunteer</a></li>
+	<li><a href="https://secure.actblue.com/donate/john-delaney-2?refcode=website_footer_column">Contribute</a></li>
+	<li><a href="/events">Events</a></li>
+	<li><a href="https://go.johndelaney.com/page/s/job-application">Jobs</a></li>
+	<li><a href="https://store.johndelaney.com">Store</a></li>
+</ul></div></div><div class="widget_text col-6 col-md-2 mb-5 mb-md-0"><h2 class="h5">Media</h2><div class="textwidget custom-html-widget"><ul class="list-unstyled">
+	<li><a href="mailto:press@johnkdelaney.com?subject=Press event registration">Register for an Event</a></li>
+	<li><a href="/category/press-release">Press Releases</a></li>
+	<li><a href="/media-kit">Media Kit</a></li>
+</ul></div></div>
+				<div class="col-sm col-md-4 pl-md-5">
+					<h2 class="h5">Connect</h2>
+					<ul class="list-inline">
+						<li class="list-inline-item mr-3"><a target="_blank" href="https://www.facebook.com/johnkdelaneyjkd"><i class="fab fa-facebook fa-lg"></i></a></li>
+						<li class="list-inline-item mr-3"><a target="_blank" href="https://www.twitter.com/johndelaney"><i class="fab fa-twitter fa-lg"></i></a></li>
+						<li class="list-inline-item mr-3"><a target="_blank" href="https://www.instagram.com/johndelaney"><i class="fab fa-instagram fa-lg"></i></a></li>
+						<li class="list-inline-item mr-3"><a target="_blank" href="https://www.youtube.com/channel/UCc7fDpVPrm9B9e-ChkXdVtA"><i class="fab fa-youtube fa-lg"></i></a></li>
+						<li class="list-inline-item"><a target="_blank" href="https://medium.com/@JohnDelaneyJKD"><i class="fab fa-medium fa-lg mr-2"></i></a></li>
+						<li class="list-inline-item"><a target="_blank" href="mailto:info@johndelaney.com"><i class="fa fa-envelope fa-lg"></i></a></li>
+					</ul>
+					<p class="text-left">info@johndelaney.com<br />General: 301-500-8643 <br /> Press: 301-500-8642<br />PO Box 70835, Bethesda, MD 20813</p>
+				</div>
+			</div>
+			
+			<span class="disclaimer">
+				Paid for by Friends of John Delaney.
+			</span>
+			
+							<span>John is refusing <u>any</u> corporate PAC money. This campaign is driven by grassroots supporters like <strong>you</strong>.<br />*Opt out of text messages from Team Delaney at any time. Message and data rates may apply.</span>
+
+				<span>
+					<a class="sub-links" href="https://www.johndelaney.com/privacy-policy">Privacy Policy</a>
+				</span>
+			
+		</div>
+	</footer><!-- #footer -->
+
+<script type='text/javascript' src='https://www.johndelaney.com/wp-content/themes/jkd/assets/js/main.min.js'></script>
+<script type='text/javascript' src='https://www.johndelaney.com/wp-includes/js/wp-embed.min.js'></script>
+
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"82920e9ea9","applicationID":"258621444","transactionName":"ZlAAZxQHWhIFBRFaXV8aI1ASD1sPSxUMXVVdUE9aFRVBBEkWBFRX","queueTime":0,"applicationTime":206,"atts":"ShcDEVwdSRw=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>
