@@ -17,6 +17,8 @@ CANDIDATES = (
     ('gillibrand2', None, None, 'article', None),
     ('harris', 'nav', ('class', 'primary',), 'div', ('class', 'content',),),
     ('hickenlooper', 'nav', ('class', 'elementor-nav-menu__container',), 'div', ('class', 'elementor-widget-text-editor',),),
+    ('inslee', 'nav', ('class', 'primary',), 'article', None,),
+    ('inslee2', None, None, 'div', ('class', 'main',),),
 )
 
 def pickle_candidates():

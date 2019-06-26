@@ -81,7 +81,7 @@ class NavigationHTMLParser(HTMLParser.HTMLParser):
             self.tags.append(tag)
             if tag == 'a':
                 for attr, value in attrs:
-                    if attr == 'href' and not value.startswith('#') and value not in ('',):
+                    if attr == 'href' and not value.startswith('#') and value not in ('', '/',):
                         self.links.add(value)
 
     def handle_endtag(self, tag):
@@ -120,14 +120,14 @@ class Candidate(object):
         self.lines = [l for l in lines if l]
 
 def test_navigation():
-    c = Candidate('hickenlooper', 'nav', ('class', 'elementor-nav-menu__container',), None, None)
+    c = Candidate('inslee', 'nav', ('class', 'primary',), None, None)
     cp = NavigationHTMLParser(open('%s.html' % c.name), c.navigation_tag, c.navigation_attr, c.links)
     cp.feed(cp.file_as_string)
     for link in sorted(list(c.links)):
         print link
 
 def test_content():
-    c = Candidate('hickenlooper', None, None, 'div', ('class', 'elementor-widget-text-editor',))
+    c = Candidate('inslee2', None, None, 'div', ('class', 'main'))
     c_lines = []
     cp = ContentHTMLParser(open('%s.html' % c.name), c.content_tag, c.content_attr, c_lines)
     cp.feed(cp.file_as_string)
