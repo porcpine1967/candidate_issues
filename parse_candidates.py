@@ -2,23 +2,30 @@
 
 import re,  datetime, HTMLParser
 
-BLOCK_TAGS = ('h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'div', 'article', 'header', 'section', 'li', 'blockquote', 'nav', 'title', 'footer', 'br', 'main', 'aside',)
+BLOCK_TAGS = ('h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'div', 'article', 'header', 'section', 'li', 'blockquote', 'nav', 'title', 'footer', 'br', 'main', 'aside', 'iframe',)
 INLINE_TAGS = ('span', 'a', 'i', 'b', 'strong', 'figure', 'img', 'ul', 'style', 'polygon', 'g', 'svg', 'path', 'button', 'ol', 'script', 'source', 'picture', 'sup', 'hr', 'em',)
 
 def file_as_string(html_file):
     contents = ''
+    in_head = True
     for l in html_file:
-        contents += l.replace("'<div", '').replace('\xc3\xa1', 'a').replace('&quot;', '').replace('</di/v>', '</div>').replace('&hellip;', '...')
+        if in_head and '</head>' in l:
+            in_head = False
+        if in_head:
+            contents += l.replace('\xc3\xa1', 'a').replace('&quot;', '').replace('&hellip;', '...').replace('\xe2\x80\x9c', '"').replace('\xe2\x80\x9d', '"').replace("'<div", '').replace('</di/v>', '</div>').replace('&hellip;', '...')
+        else:
+            contents += l.replace("'<div", '').replace('</di/v>', '</div>').replace('&hellip;', '...').replace('&quot;', '')
     return contents
 
 class ContentHTMLParser(HTMLParser.HTMLParser):
-    def __init__(self, html_file, content_tag, content_attr, lines):
+    def __init__(self, html_file, content_tag, content_attr, lines, bad = False):
         HTMLParser.HTMLParser.__init__(self)
         self.tag = content_tag
         self.file_as_string = ""
         self.file_as_string = file_as_string(html_file)
         self.tags = []
         self.lines = lines
+        self.bad = bad
         if content_attr:
             self.attr_key, self.attr_value = content_attr
         else:
@@ -41,7 +48,7 @@ class ContentHTMLParser(HTMLParser.HTMLParser):
     def handle_endtag(self, tag):
         if not self.tags:
             return
-        if self.tags == [self.tag]:
+        if self.tags == [self.tag] or (tag == 'article' and self.bad):
             self.tags = []
             return
         self.tags.pop()
@@ -101,7 +108,7 @@ class NavigationHTMLParser(HTMLParser.HTMLParser):
         pass
 
 class Candidate(object):
-    def __init__(self, name, navigation_tag, navigation_attr, content_tag, content_attr):
+    def __init__(self, name, navigation_tag, navigation_attr, content_tag, content_attr, bad=False):
         self.name = name
         self.navigation_tag = navigation_tag
         self.navigation_attr = navigation_attr
@@ -109,6 +116,7 @@ class Candidate(object):
         self.content_attr = content_attr
         self.links = set()
         self.lines = []
+        self.bad = bad
 
     def load_links(self):
         cp = NavigationHTMLParser(open('%s.html' % self.name), self.navigation_tag, self.navigation_attr, self.links)
@@ -118,27 +126,27 @@ class Candidate(object):
         if not self.content_tag:
             return
         c_lines = []
-        cp = ContentHTMLParser(open('%s.html' % self.name), self.content_tag, self.content_attr, c_lines)
+        cp = ContentHTMLParser(open('%s.html' % self.name), self.content_tag, self.content_attr, c_lines, self.bad)
         cp.feed(cp.file_as_string)
         lines = [l.strip() for l in c_lines]
         self.lines = [l for l in lines if l]
 
 def test_navigation():
-    c = Candidate('klobuchar', 'ul', ('id', 'menu-main-menu',), None, None)
+    c = Candidate('orourke', 'nav', ('class', 'header__nav',), None, None, True)
     cp = NavigationHTMLParser(open('%s.html' % c.name), c.navigation_tag, c.navigation_attr, c.links)
     cp.feed(cp.file_as_string)
     for link in sorted(list(c.links)):
         print link
 
 def test_content():
-    c = Candidate('klobuchar', None, None, 'div', ('class', 'article'))
+    c = Candidate('orourke', None, None, 'div', ('class', 'main__container'))
     c_lines = []
-    cp = ContentHTMLParser(open('%s.html' % c.name), c.content_tag, c.content_attr, c_lines)
+    cp = ContentHTMLParser(open('%s.html' % c.name), c.content_tag, c.content_attr, c_lines, c.bad)
     cp.feed(cp.file_as_string)
     lines = [l.strip() for l in c_lines]
     for line in [l for l in lines if l]:
         print line
 if __name__ == '__main__':
-    test_navigation()
+#    test_navigation()
 
-#    test_content()
+    test_content()

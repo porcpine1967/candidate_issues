@@ -4,27 +4,28 @@ import pickle
 from parse_candidates import Candidate
 
 CANDIDATES = (
-    ('bennet', 'nav', None, 'article', None,),
-    ('biden', 'nav',  None, 'article', None,),
-    ('booker', 'nav', None,  None, None),
-    ('buttigieg', 'nav', ('class', 'nav',), 'div', ('class', 'IssuesMain',),),
-    ('castro', 'ul', ('class', 'header__nav',),'div', ('class', 'blog__posts',),),
-    ('deblasio', 'ul', ('class', 'header__nav--list',),None, None,),
-    ('delaney', 'ul', ('id', 'main-navigation',), 'main', ('id', 'main',),),
-    ('delaney2', None, None, 'main', ('id', 'main',),),
-    ('gabbard', 'div', ('class', 'main-menus',), 'article', ('class', 's-article',),),
-    ('gillibrand', 'nav', ('id', 'nav-header',), 'article', None),
-    ('gillibrand2', None, None, 'article', None),
-    ('harris', 'nav', ('class', 'primary',), 'div', ('class', 'content',),),
-    ('hickenlooper', 'nav', ('class', 'elementor-nav-menu__container',), 'div', ('class', 'elementor-widget-text-editor',),),
-    ('inslee', 'nav', ('class', 'primary',), 'article', None,),
-    ('inslee2', None, None, 'div', ('class', 'main',),),
-    ('klobuchar', 'ul', ('id', 'menu-main-menu',), 'div', ('class', 'article'),),
+    ('bennet', 'nav', None, 'article', None, False,),
+    ('biden', 'nav',  None, 'article', None, False,),
+    ('booker', 'nav', None,  None, None, False,),
+    ('buttigieg', 'nav', ('class', 'nav',), 'div', ('class', 'IssuesMain',), False,),
+    ('castro', 'ul', ('class', 'header__nav',),'div', ('class', 'blog__posts',), False,),
+    ('deblasio', 'ul', ('class', 'header__nav--list',),None, None, False,),
+    ('delaney', 'ul', ('id', 'main-navigation',), 'main', ('id', 'main',), False,),
+    ('delaney2', None, None, 'main', ('id', 'main',), False,),
+    ('gabbard', 'div', ('class', 'main-menus',), 'article', ('class', 's-article',), False,),
+    ('gillibrand', 'nav', ('id', 'nav-header',), 'article', None, False,),
+    ('gillibrand2', None, None, 'article', None, False,),
+    ('harris', 'nav', ('class', 'primary',), 'div', ('class', 'content',), False,),
+    ('hickenlooper', 'nav', ('class', 'elementor-nav-menu__container',), 'div', ('class', 'elementor-widget-text-editor',), False,),
+    ('inslee', 'nav', ('class', 'primary',), 'article', None, False,),
+    ('inslee2', None, None, 'div', ('class', 'main',), False,),
+    ('klobuchar', 'ul', ('id', 'menu-main-menu',), 'div', ('class', 'article'), False,),
+    ('orourke', 'nav', ('class', 'header__nav',), 'article', None, True,),
 )
 
 def pickle_candidates():
-    for name, nav_tag, nav_attr, c_tag, c_attr in CANDIDATES:
-        c = Candidate(name, nav_tag, nav_attr, c_tag, c_attr)
+    for name, nav_tag, nav_attr, c_tag, c_attr, bad in CANDIDATES:
+        c = Candidate(name, nav_tag, nav_attr, c_tag, c_attr, bad)
         c.load_links()
         pickle.dump(c.links, open('%s.links' % name, 'wb'))
         c.load_lines()
@@ -34,8 +35,8 @@ def pickle_candidates():
         line_file.close()
 
 def test_candidates():
-    for name, nav_tag, nav_attr, c_tag, c_attr in CANDIDATES:
-        c = Candidate(name, nav_tag, nav_attr, c_tag, c_attr)
+    for name, nav_tag, nav_attr, c_tag, c_attr, bad in CANDIDATES:
+        c = Candidate(name, nav_tag, nav_attr, c_tag, c_attr, bad)
         c.load_links()
         test_links = pickle.load(open('%s.links' % name))
         if test_links != c.links:
