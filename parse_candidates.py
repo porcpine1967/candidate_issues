@@ -2,13 +2,13 @@
 
 import re,  datetime, HTMLParser
 
-BLOCK_TAGS = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'div', 'article', 'header', 'section', 'li', 'blockquote', 'nav', 'title', 'footer', 'br', 'main', 'aside',]
-INLINE_TAGS = ['span', 'a', 'i', 'b', 'strong', 'figure', 'img', 'ul', 'style', 'polygon', 'g', 'svg', 'path', 'button', 'ol', 'script', 'source', 'picture', 'sup', 'hr',]
+BLOCK_TAGS = ('h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'div', 'article', 'header', 'section', 'li', 'blockquote', 'nav', 'title', 'footer', 'br', 'main', 'aside',)
+INLINE_TAGS = ('span', 'a', 'i', 'b', 'strong', 'figure', 'img', 'ul', 'style', 'polygon', 'g', 'svg', 'path', 'button', 'ol', 'script', 'source', 'picture', 'sup', 'hr', 'em',)
 
 def file_as_string(html_file):
     contents = ''
     for l in html_file:
-        contents += l.replace("'<div", '').replace('\xc3\xa1', 'a').replace('&quot;', '')
+        contents += l.replace("'<div", '').replace('\xc3\xa1', 'a').replace('&quot;', '').replace('</di/v>', '</div>')
     return contents
 
 class ContentHTMLParser(HTMLParser.HTMLParser):
@@ -120,14 +120,14 @@ class Candidate(object):
         self.lines = [l for l in lines if l]
 
 def test_navigation():
-    c = Candidate('gillibrand', 'nav', ('id', 'nav-header',), None, None)
+    c = Candidate('harris', 'nav', ('class', 'primary',), None, None)
     cp = NavigationHTMLParser(open('%s.html' % c.name), c.navigation_tag, c.navigation_attr, c.links)
     cp.feed(cp.file_as_string)
     for link in sorted(list(c.links)):
         print link
 
 def test_content():
-    c = Candidate('gillibrand2', None, None, 'article', None)
+    c = Candidate('harris', None, None, 'div', ('class', 'content',))
     c_lines = []
     cp = ContentHTMLParser(open('%s.html' % c.name), c.content_tag, c.content_attr, c_lines)
     cp.feed(cp.file_as_string)
@@ -135,6 +135,6 @@ def test_content():
     for line in [l for l in lines if l]:
         print line
 if __name__ == '__main__':
-    test_navigation()
+#    test_navigation()
 
-#    test_content()
+    test_content()

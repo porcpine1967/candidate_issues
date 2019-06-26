@@ -15,6 +15,7 @@ CANDIDATES = (
     ('gabbard', 'div', ('class', 'main-menus',), 'article', ('class', 's-article',),),
     ('gillibrand', 'nav', ('id', 'nav-header',), 'article', None),
     ('gillibrand2', None, None, 'article', None),
+    ('harris', 'nav', ('class', 'primary',), 'div', ('class', 'content',),),
 )
 
 def pickle_candidates():
