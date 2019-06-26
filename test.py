@@ -9,6 +9,7 @@ CANDIDATES = (
     ('booker', 'nav', None,  None, None),
     ('buttigieg', 'nav', ('class', 'nav',), 'div', ('class', 'IssuesMain',),),
     ('castro', 'ul', ('class', 'header__nav',),'div', ('class', 'blog__posts',),),
+    ('deblasio', 'ul', ('class', 'header__nav--list',),None, None,),
 )
 
 def pickle_candidates():
@@ -50,6 +51,6 @@ def test_candidates():
                 if l not in test_lines:
                     print '%s disappeared' % l
 if __name__ == '__main__':
-#    pickle_candidates()
+    pickle_candidates()
     test_candidates()
 

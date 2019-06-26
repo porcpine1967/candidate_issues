@@ -120,20 +120,20 @@ class Candidate(object):
         self.lines = [l for l in lines if l]
 
 def test_navigation():
-    c = Candidate('castro', 'ul', ('class', 'header__nav',), None, None)
-    cp = NavigationHTMLParser(open('castro.html'), c.navigation_tag, c.navigation_attr, c.links)
+    c = Candidate('deblasio', 'ul', ('class', 'header__nav--list',), None, None)
+    cp = NavigationHTMLParser(open('deblasio.html'), c.navigation_tag, c.navigation_attr, c.links)
     cp.feed(cp.file_as_string)
     for link in sorted(list(c.links)):
         print link
 
 def test_content():
-    c = Candidate('castro', 'nav', ('class', 'nav',), 'div', ('class', 'blog__posts',))
+    c = Candidate('deblasio', 'nav', ('class', 'nav',), None, None)
     c_lines = []
-    cp = ContentHTMLParser(open('castro.html'), c.content_tag, c.content_attr, c_lines)
+    cp = ContentHTMLParser(open('deblasio.html'), c.content_tag, c.content_attr, c_lines)
     cp.feed(cp.file_as_string)
     lines = [l.strip() for l in c_lines]
     for line in [l for l in lines if l]:
         print line
 if __name__ == '__main__':
-#    test_navigation()
+    test_navigation()
     test_content()
