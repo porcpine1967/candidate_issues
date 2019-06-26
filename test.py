@@ -21,6 +21,7 @@ CANDIDATES = (
     ('inslee2', None, None, 'div', ('class', 'main',), False,),
     ('klobuchar', 'ul', ('id', 'menu-main-menu',), 'div', ('class', 'article'), False,),
     ('orourke', 'nav', ('class', 'header__nav',), 'article', None, True,),
+    ('ryan', 'nav', None, 'div', ('class', 'wpb_wrapper',), False),
 )
 
 def pickle_candidates():

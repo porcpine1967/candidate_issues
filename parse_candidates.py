@@ -3,7 +3,7 @@
 import re,  datetime, HTMLParser
 
 BLOCK_TAGS = ('h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'div', 'article', 'header', 'section', 'li', 'blockquote', 'nav', 'title', 'footer', 'br', 'main', 'aside', 'iframe',)
-INLINE_TAGS = ('span', 'a', 'i', 'b', 'strong', 'figure', 'img', 'ul', 'style', 'polygon', 'g', 'svg', 'path', 'button', 'ol', 'script', 'source', 'picture', 'sup', 'hr', 'em',)
+INLINE_TAGS = ('span', 'a', 'i', 'b', 'strong', 'figure', 'img', 'ul', 'style', 'polygon', 'g', 'svg', 'path', 'button', 'ol', 'script', 'source', 'picture', 'sup', 'hr', 'em', 'video',)
 
 def file_as_string(html_file):
     contents = ''
@@ -132,14 +132,14 @@ class Candidate(object):
         self.lines = [l for l in lines if l]
 
 def test_navigation():
-    c = Candidate('orourke', 'nav', ('class', 'header__nav',), None, None, True)
+    c = Candidate('ryan', 'nav', None, None, None, True)
     cp = NavigationHTMLParser(open('%s.html' % c.name), c.navigation_tag, c.navigation_attr, c.links)
     cp.feed(cp.file_as_string)
     for link in sorted(list(c.links)):
         print link
 
 def test_content():
-    c = Candidate('orourke', None, None, 'div', ('class', 'main__container'))
+    c = Candidate('ryan', None, None, 'div', ('class', 'wpb_wrapper'))
     c_lines = []
     cp = ContentHTMLParser(open('%s.html' % c.name), c.content_tag, c.content_attr, c_lines, c.bad)
     cp.feed(cp.file_as_string)
@@ -147,6 +147,6 @@ def test_content():
     for line in [l for l in lines if l]:
         print line
 if __name__ == '__main__':
-#    test_navigation()
+    test_navigation()
 
     test_content()
