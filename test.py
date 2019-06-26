@@ -8,6 +8,7 @@ CANDIDATES = (
     ('biden', 'nav',  None, 'article', None,),
     ('booker', 'nav', None,  None, None),
     ('buttigieg', 'nav', ('class', 'nav',), 'div', ('class', 'IssuesMain',),),
+    ('castro', 'ul', ('class', 'header__nav',),'div', ('class', 'blog__posts',),),
 )
 
 def pickle_candidates():

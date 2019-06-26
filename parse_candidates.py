@@ -8,7 +8,7 @@ INLINE_TAGS = ['span', 'a', 'i', 'b', 'strong', 'figure', 'img', 'ul', 'style', 
 def file_as_string(html_file):
     contents = ''
     for l in html_file:
-        contents += l.replace("'<div", '')
+        contents += l.replace("'<div", '').replace('\xc3\xa1', 'a')
     return contents
 
 class ContentHTMLParser(HTMLParser.HTMLParser):
@@ -120,20 +120,20 @@ class Candidate(object):
         self.lines = [l for l in lines if l]
 
 def test_navigation():
-    c = Candidate('buttigieg', 'nav', ('class', 'nav',), None, None)
-    cp = NavigationHTMLParser(open('buttigieg.html'), c.navigation_tag, c.navigation_attr, c.links)
+    c = Candidate('castro', 'ul', ('class', 'header__nav',), None, None)
+    cp = NavigationHTMLParser(open('castro.html'), c.navigation_tag, c.navigation_attr, c.links)
     cp.feed(cp.file_as_string)
     for link in sorted(list(c.links)):
         print link
 
 def test_content():
-    c = Candidate('buttigieg', 'nav', ('class', 'nav',), 'div', None)
+    c = Candidate('castro', 'nav', ('class', 'nav',), 'div', ('class', 'blog__posts',))
     c_lines = []
-    cp = ContentHTMLParser(open('buttigieg.html'), c.content_tag, c.content_attr, c_lines)
+    cp = ContentHTMLParser(open('castro.html'), c.content_tag, c.content_attr, c_lines)
     cp.feed(cp.file_as_string)
     lines = [l.strip() for l in c_lines]
     for line in [l for l in lines if l]:
         print line
 if __name__ == '__main__':
-    test_navigation()
+#    test_navigation()
     test_content()
