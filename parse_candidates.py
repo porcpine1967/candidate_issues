@@ -132,14 +132,14 @@ class Candidate(object):
         self.lines = [l for l in lines if l]
 
 def test_navigation():
-    c = Candidate('ryan', 'nav', None, None, None, True)
+    c = Candidate('sanders', 'ul', ('id', 'menu-main-header',), None, None, True)
     cp = NavigationHTMLParser(open('%s.html' % c.name), c.navigation_tag, c.navigation_attr, c.links)
     cp.feed(cp.file_as_string)
     for link in sorted(list(c.links)):
         print link
 
 def test_content():
-    c = Candidate('ryan', None, None, 'div', ('class', 'wpb_wrapper'))
+    c = Candidate('sanders2', None, None, 'article', None)
     c_lines = []
     cp = ContentHTMLParser(open('%s.html' % c.name), c.content_tag, c.content_attr, c_lines, c.bad)
     cp.feed(cp.file_as_string)
