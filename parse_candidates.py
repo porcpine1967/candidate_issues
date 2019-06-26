@@ -3,7 +3,7 @@
 import re,  datetime, HTMLParser
 
 BLOCK_TAGS = ('h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'div', 'article', 'header', 'section', 'li', 'blockquote', 'nav', 'title', 'footer', 'br', 'main', 'aside', 'iframe',)
-INLINE_TAGS = ('span', 'a', 'i', 'b', 'strong', 'figure', 'img', 'ul', 'style', 'polygon', 'g', 'svg', 'path', 'button', 'ol', 'script', 'source', 'picture', 'sup', 'hr', 'em', 'video',)
+INLINE_TAGS = ('span', 'a', 'i', 'b', 'strong', 'figure', 'img', 'ul', 'style', 'polygon', 'g', 'svg', 'path', 'button', 'ol', 'script', 'source', 'picture', 'sup', 'hr', 'em', 'video', 'cite', 'q',)
 
 def file_as_string(html_file):
     contents = ''
@@ -12,7 +12,7 @@ def file_as_string(html_file):
         if in_head and '</head>' in l:
             in_head = False
         if in_head:
-            contents += l.replace('\xc3\xa1', 'a').replace('&quot;', '').replace('&hellip;', '...').replace('\xe2\x80\x9c', '"').replace('\xe2\x80\x9d', '"').replace("'<div", '').replace('</di/v>', '</div>').replace('&hellip;', '...')
+            contents += l.replace('\xc3\xa1', '').replace('&quot;', '').replace('&hellip;', '').replace('\xe2\x80\x9c', '').replace('\xe2\x80\x9d', '').replace("'<div", '').replace('</di/v>', '').replace('&hellip;', '').replace('&#039;', '')
         else:
             contents += l.replace("'<div", '').replace('</di/v>', '</div>').replace('&hellip;', '...').replace('&quot;', '')
     return contents
@@ -137,7 +137,7 @@ class Candidate(object):
         self.lines = [l for l in lines if l]
 
 def test_navigation():
-    c = Candidate('williamson', 'nav', None, None, None, True)
+    c = Candidate('yang', 'nav', ('class', 'nav-primary',), None, None, True)
     cp = NavigationHTMLParser(open('%s.html' % c.name), c.navigation_tag, c.navigation_attr, c.links)
     cp.feed(cp.file_as_string)
     for link in sorted(list(c.links)):
@@ -145,7 +145,7 @@ def test_navigation():
             print link
 
 def test_content():
-    c = Candidate('williamson2', None, None, 'div', ('class', 'issues-section',), False,)
+    c = Candidate('yang2', None, None, 'div', ('class', 'entry-content',), False,)
     c_lines = []
     cp = ContentHTMLParser(open('%s.html' % c.name), c.content_tag, c.content_attr, c_lines, c.bad)
     cp.feed(cp.file_as_string)
