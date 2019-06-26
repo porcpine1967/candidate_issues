@@ -26,6 +26,8 @@ CANDIDATES = (
     ('sanders2', None, None, 'article', None, False,),
     ('swalwell', 'div', ('class', 'site-nav',), 'div', ('class', 'content-wrap'), True),
     ('warren', 'nav', ('id', 'js-takeover-menu',), 'section', ('class', 'issues-lp__accordion'), True),
+    ('williamson', 'nav', None, 'div', ('class', 'issues',), False,),
+    ('williamson2', None, None, 'div', ('class', 'issues-section',), False,),
 )
 
 def pickle_candidates():
