@@ -13,6 +13,8 @@ CANDIDATES = (
     ('delaney', 'ul', ('id', 'main-navigation',), 'main', ('id', 'main',),),
     ('delaney2', None, None, 'main', ('id', 'main',),),
     ('gabbard', 'div', ('class', 'main-menus',), 'article', ('class', 's-article',),),
+    ('gillibrand', 'nav', ('id', 'nav-header',), 'article', None),
+    ('gillibrand2', None, None, 'article', None),
 )
 
 def pickle_candidates():

@@ -2,7 +2,7 @@
 
 import re,  datetime, HTMLParser
 
-BLOCK_TAGS = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'div', 'article', 'header', 'section', 'li', 'blockquote', 'nav', 'title', 'footer', 'br', 'main',]
+BLOCK_TAGS = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'div', 'article', 'header', 'section', 'li', 'blockquote', 'nav', 'title', 'footer', 'br', 'main', 'aside',]
 INLINE_TAGS = ['span', 'a', 'i', 'b', 'strong', 'figure', 'img', 'ul', 'style', 'polygon', 'g', 'svg', 'path', 'button', 'ol', 'script', 'source', 'picture', 'sup', 'hr',]
 
 def file_as_string(html_file):
@@ -81,7 +81,7 @@ class NavigationHTMLParser(HTMLParser.HTMLParser):
             self.tags.append(tag)
             if tag == 'a':
                 for attr, value in attrs:
-                    if attr == 'href' and value not in ('#', ''):
+                    if attr == 'href' and not value.startswith('#') and value not in ('',):
                         self.links.add(value)
 
     def handle_endtag(self, tag):
@@ -120,14 +120,14 @@ class Candidate(object):
         self.lines = [l for l in lines if l]
 
 def test_navigation():
-    c = Candidate('gabbard', 'div', ('class', 'main-menus',), None, None)
+    c = Candidate('gillibrand', 'nav', ('id', 'nav-header',), None, None)
     cp = NavigationHTMLParser(open('%s.html' % c.name), c.navigation_tag, c.navigation_attr, c.links)
     cp.feed(cp.file_as_string)
     for link in sorted(list(c.links)):
         print link
 
 def test_content():
-    c = Candidate('gabbard', None, None, 'article', ('class', 's-article',))
+    c = Candidate('gillibrand2', None, None, 'article', None)
     c_lines = []
     cp = ContentHTMLParser(open('%s.html' % c.name), c.content_tag, c.content_attr, c_lines)
     cp.feed(cp.file_as_string)
@@ -137,4 +137,4 @@ def test_content():
 if __name__ == '__main__':
     test_navigation()
 
-    test_content()
+#    test_content()
