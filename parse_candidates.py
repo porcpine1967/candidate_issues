@@ -8,7 +8,7 @@ INLINE_TAGS = ('span', 'a', 'i', 'b', 'strong', 'figure', 'img', 'ul', 'style', 
 def file_as_string(html_file):
     contents = ''
     for l in html_file:
-        contents += l.replace("'<div", '').replace('\xc3\xa1', 'a').replace('&quot;', '').replace('</di/v>', '</div>')
+        contents += l.replace("'<div", '').replace('\xc3\xa1', 'a').replace('&quot;', '').replace('</di/v>', '</div>').replace('&hellip;', '...')
     return contents
 
 class ContentHTMLParser(HTMLParser.HTMLParser):
@@ -36,6 +36,7 @@ class ContentHTMLParser(HTMLParser.HTMLParser):
                 return
         if len(self.tags) or tag == self.tag:
             self.tags.append(tag)
+        if len(self.lines) == 0:
             self.lines.append('')
     def handle_endtag(self, tag):
         if not self.tags:
@@ -51,7 +52,10 @@ class ContentHTMLParser(HTMLParser.HTMLParser):
 
     def handle_data(self, data):
         if self.tags:
-            self.lines[-1] += data
+            if data.isspace():
+                self.lines[-1] += ' '
+            else:
+                self.lines[-1] += data
                 
 
 class NavigationHTMLParser(HTMLParser.HTMLParser):
@@ -120,14 +124,14 @@ class Candidate(object):
         self.lines = [l for l in lines if l]
 
 def test_navigation():
-    c = Candidate('inslee', 'nav', ('class', 'primary',), None, None)
+    c = Candidate('klobuchar', 'ul', ('id', 'menu-main-menu',), None, None)
     cp = NavigationHTMLParser(open('%s.html' % c.name), c.navigation_tag, c.navigation_attr, c.links)
     cp.feed(cp.file_as_string)
     for link in sorted(list(c.links)):
         print link
 
 def test_content():
-    c = Candidate('inslee2', None, None, 'div', ('class', 'main'))
+    c = Candidate('klobuchar', None, None, 'div', ('class', 'article'))
     c_lines = []
     cp = ContentHTMLParser(open('%s.html' % c.name), c.content_tag, c.content_attr, c_lines)
     cp.feed(cp.file_as_string)

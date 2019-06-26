@@ -19,6 +19,7 @@ CANDIDATES = (
     ('hickenlooper', 'nav', ('class', 'elementor-nav-menu__container',), 'div', ('class', 'elementor-widget-text-editor',),),
     ('inslee', 'nav', ('class', 'primary',), 'article', None,),
     ('inslee2', None, None, 'div', ('class', 'main',),),
+    ('klobuchar', 'ul', ('id', 'menu-main-menu',), 'div', ('class', 'article'),),
 )
 
 def pickle_candidates():
@@ -55,10 +56,10 @@ def test_candidates():
             print '%s has unmatching lines' % name
             for l in test_lines:
                 if l not in c.lines:
-                    print '%s not current' % l
+                    print 'test: %s' % l
             for l in c.lines:
                 if l not in test_lines:
-                    print '%s disappeared' % l
+                    print 'current: %s' % l
 if __name__ == '__main__':
 #    pickle_candidates()
     test_candidates()
