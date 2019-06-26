@@ -12,6 +12,7 @@ CANDIDATES = (
     ('deblasio', 'ul', ('class', 'header__nav--list',),None, None,),
     ('delaney', 'ul', ('id', 'main-navigation',), 'main', ('id', 'main',),),
     ('delaney2', None, None, 'main', ('id', 'main',),),
+    ('gabbard', 'div', ('class', 'main-menus',), 'article', ('class', 's-article',),),
 )
 
 def pickle_candidates():
