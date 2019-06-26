@@ -2,11 +2,11 @@ c__builtin__
 set
 p0
 ((lp1
-S'https://store.johndelaney.com'
+S'https://www.johndelaney.com/issues/'
 p2
-aS'https://www.johndelaney.com/issues/'
-p3
 aS'https://www.johndelaney.com/es/'
+p3
+aS'https://www.johndelaney.com/about/'
 p4
 aS'https://www.johndelaney.com/states/new-hampshire/'
 p5
@@ -18,7 +18,7 @@ aS'https://www.johndelaney.com/states/iowa/'
 p8
 aS'https://www.johndelaney.com/events/'
 p9
-aS'https://www.johndelaney.com/about/'
+aS'https://store.johndelaney.com'
 p10
 atp11
 Rp12

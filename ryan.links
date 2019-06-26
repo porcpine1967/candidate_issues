@@ -2,7 +2,7 @@ c__builtin__
 set
 p0
 ((lp1
-S'/taxes'
+S'https://timryanforamerica.com/meet-tim/'
 p2
 aS'//secure.timryanforamerica.com/page/s/sign-up-to-volunteer'
 p3
@@ -10,12 +10,10 @@ aS'//store.timryanforamerica.com/'
 p4
 aS'https://timryanforamerica.com/events/'
 p5
-aS'https://timryanforamerica.com/meet-tim/'
+aS'/taxes'
 p6
 aS'https://timryanforamerica.com/issues/'
 p7
-aVhttps://secure.actblue.com/donate/tr-ctr-website?refcode=TR_Website_ContrBTN&amount=25&amounts=1,25,50,100,500,1000,2800#contribute
-p8
-atp9
-Rp10
+atp8
+Rp9
 .
