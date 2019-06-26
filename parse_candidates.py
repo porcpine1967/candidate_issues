@@ -68,7 +68,7 @@ class NavigationHTMLParser(HTMLParser.HTMLParser):
         self.links = links
 
     def handle_starttag(self, tag, attrs):
-        if self.attr_key and tag == self.tag: #and not self.tags:
+        if self.attr_key and tag == self.tag and not self.tags:
             found = False
             for key, value in attrs:
                 if key == self.attr_key:
@@ -120,14 +120,14 @@ class Candidate(object):
         self.lines = [l for l in lines if l]
 
 def test_navigation():
-    c = Candidate('harris', 'nav', ('class', 'primary',), None, None)
+    c = Candidate('hickenlooper', 'nav', ('class', 'elementor-nav-menu__container',), None, None)
     cp = NavigationHTMLParser(open('%s.html' % c.name), c.navigation_tag, c.navigation_attr, c.links)
     cp.feed(cp.file_as_string)
     for link in sorted(list(c.links)):
         print link
 
 def test_content():
-    c = Candidate('harris', None, None, 'div', ('class', 'content',))
+    c = Candidate('hickenlooper', None, None, 'div', ('class', 'elementor-widget-text-editor',))
     c_lines = []
     cp = ContentHTMLParser(open('%s.html' % c.name), c.content_tag, c.content_attr, c_lines)
     cp.feed(cp.file_as_string)
@@ -135,6 +135,6 @@ def test_content():
     for line in [l for l in lines if l]:
         print line
 if __name__ == '__main__':
-#    test_navigation()
+    test_navigation()
 
-    test_content()
+#    test_content()
