@@ -6,7 +6,7 @@
 -->
   <head>
     <meta charset="utf-8" /><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o||n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({1:[function(e,n,t){function r(){}function o(e,n,t){return function(){return i(e,[c.now()].concat(u(arguments)),n?null:this,t),n?void 0:this}}var i=e("handle"),a=e(3),u=e(4),f=e("ee").get("tracer"),c=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,n){s[n]=o(d+n,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,o="function"==typeof n;return i(l+"tracer",[c.now(),e,t],r),function(){if(f.emit((o?"":"no-")+"fn-start",[c.now(),r,o],t),o)try{return n.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],t),e}finally{f.emit("fn-end",[c.now()],t)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=o(l+n)}),newrelic.noticeError=function(e,n){"string"==typeof e&&(e=new Error(e)),i("err",[e,c.now(),!1,n])}},{}],2:[function(e,n,t){function r(e,n){if(!o)return!1;if(e!==o)return!1;if(!n)return!0;if(!i)return!1;for(var t=i.split("."),r=n.split("."),a=0;a<r.length;a++)if(r[a]!==t[a])return!1;return!0}var o=null,i=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var u=navigator.userAgent,f=u.match(a);f&&u.indexOf("Chrome")===-1&&u.indexOf("Chromium")===-1&&(o="Safari",i=f[1])}n.exports={agent:o,version:i,match:r}},{}],3:[function(e,n,t){function r(e,n){var t=[],r="",i=0;for(r in e)o.call(e,r)&&(t[i]=n(r,e[r]),i+=1);return t}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],4:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(o<0?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=r},{}],5:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function o(e){function n(e){return e&&e instanceof r?e:e?f(e,u,i):i()}function t(t,r,o,i){if(!d.aborted||i){e&&e(t,r,o);for(var a=n(o),u=v(t),f=u.length,c=0;c<f;c++)u[c].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function l(e,n){h[e]=v(e).concat(n)}function m(e,n){var t=h[e];if(t)for(var r=0;r<t.length;r++)t[r]===n&&t.splice(r,1)}function v(e){return h[e]||[]}function g(e){return p[e]=p[e]||o(t)}function w(e,n){c(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var h={},y={},b={on:l,addEventListener:l,removeEventListener:m,emit:t,get:g,listeners:v,context:n,buffer:w,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",f=e("gos"),c=e(3),s={},p={},d=n.exports=o();d.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(o.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){o.buffer([e],r),o.emit(e,n,t)}var o=e("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!E++){var e=x.info=NREUM.info,n=l.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();c(y,function(n,t){e[n]||(e[n]=t)}),f("mark",["onload",a()+x.offset],null,"api");var t=l.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function o(){"complete"===l.readyState&&i()}function i(){f("mark",["domContent",a()+x.offset],null,"api")}function a(){return O.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-x.offset}var u=(new Date).getTime(),f=e("handle"),c=e(3),s=e("ee"),p=e(2),d=window,l=d.document,m="addEventListener",v="attachEvent",g=d.XMLHttpRequest,w=g&&g.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:g,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var h=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1123.min.js"},b=g&&w&&w[m]&&!/CriOS/.test(navigator.userAgent),x=n.exports={offset:u,now:a,origin:h,features:{},xhrWrappable:b,userAgent:p};e(1),l[m]?(l[m]("DOMContentLoaded",i,!1),d[m]("load",r,!1)):(l[v]("onreadystatechange",o),d[v]("onload",r)),f("mark",["firstbyte",u],null,"api");var E=0,O=e(5)},{}]},{},["loader"]);</script>
-<script src="/sites/default/files/hotjar/hotjar.script.js?ptn7rj"></script>
+<script src="/sites/default/files/hotjar/hotjar.script.js?ptqhui"></script>
 <meta name="title" content="About | TULSI 2020" />
 <link rel="canonical" href="https://www.tulsi2020.com/about" />
 <meta name="twitter:site" content="@TulsiGabbard" />
@@ -28,11 +28,11 @@
 <link rel="alternate" hreflang="en" href="https://www.tulsi2020.com/about" />
 <link rel="alternate" hreflang="es" href="https://www.tulsi2020.com/es/acerca" />
 <link rel="revision" href="https://www.tulsi2020.com/about" />
-<script src="/sites/default/files/google_tag/google_tag.script.js?ptn7rj"></script>
+<script src="/sites/default/files/google_tag/google_tag.script.js?ptqhui"></script>
 
     <title>About | TULSI 2020</title>
-    <link rel="stylesheet" media="all" href="/sites/default/files/css/css_vXgn_NRf0KBvN2UyJzYvSsI9S0CO1HBKLuM7XpIrWqo.css?ptn7rj" />
-<link rel="stylesheet" media="all" href="/sites/default/files/css/css_dsGC1NAzcKmSEQtw7h_YCz8u1kBRhDUBtjWe16gUU5c.css?ptn7rj" />
+    <link rel="stylesheet" media="all" href="/sites/default/files/css/css_vXgn_NRf0KBvN2UyJzYvSsI9S0CO1HBKLuM7XpIrWqo.css?ptqhui" />
+<link rel="stylesheet" media="all" href="/sites/default/files/css/css_s9UrwEJLPER75eQZHDMwXJvWFogC64DIkgD8-6Bxxb4.css?ptqhui" />
 <link rel="stylesheet" media="all" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" />
 
     
@@ -65,10 +65,13 @@
         <a href="/about" class="about js-megamenu-trigger is-active" data-megamenu="mm-one" data-drupal-link-system-path="node/1">About</a>
               </li>
                 <li class="menu-item">
+        <a href="/vision" data-drupal-link-system-path="node/158">Vision</a>
+              </li>
+                <li class="menu-item">
         <a href="/volunteer" class="volunteer js-megamenu-trigger" data-megamenu="mm-three" data-drupal-link-system-path="node/4">Join Us</a>
               </li>
                 <li class="menu-item">
-        <a href="" class="more js-megamenu-trigger" data-megamenu="mm-four">Events &amp; Press</a>
+        <a href="https://secure.ngpvan.com/p/uEk71xTbu0iDkh_D4IJSuw2?ms=web-events-nav" class="more js-megamenu-trigger" data-megamenu="mm-four">Events</a>
               </li>
                 <li class="menu-item">
         <a href="https://shop.tulsi2020.com" class="shop">Shop</a>
@@ -106,6 +109,12 @@
           <p>Love for others, for her community, and her country has inspired Tulsi to live a life defined by service.</p>
           <ul class="vertical menu strong">
             <li><a href="/about">Read Tulsi's Bio <i class="fas fa-caret-right fa-sm"></i></a></li>
+            <li>
+                <a href="/vision">Tulsi's Vision for America
+                    <i class="fas fa-caret-right fa-sm"></i>
+                </a>
+            </li>
+
           </ul>
 
           
@@ -360,6 +369,28 @@
 
             </div>
 
+      <div class="o-blade o-blade-- o-blade--nmb paragraph paragraph--type--blade-actblue-buttons paragraph--view-mode--default">
+                    <div class="o-blade__media"></div>
+
+            <div class="o-blade__body">
+
+                
+
+                <section class="c-actblue">
+                    <div class="c-actblue__inner">
+                        <div class="c-actblue__cta">
+                            <h3>Chip in to help us reach 130,000 donors &amp; qualify for the next set of debates.</h3>
+                        </div>
+                        <div class="c-actblue__form" data-ab-amount="3,19,25,100,n" data-ab-button data-ab-refcode="web-component-embed" data-ab-style="background-color: #005ed5; border-radius: 3px;" data-ab-token="VXXJaZy8YqtfvXEikGHtugxx">
+                            <a class="button large secondary contribute" href="https://secure.actblue.com/donate/tulsi2020?refcode=web-component-fallback">Donate Now</a>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+
+            </div>
+
     <div class="o-blade o-blade--transparent paragraph paragraph--type--blade-text paragraph--view-mode--default">
           <div class="o-blade__media"></div>
 
@@ -408,10 +439,10 @@
       <div class="o-blade__body">
         <div class="container">
           <article class="s-article">
-              <p>Surrounded by swaying palm trees, pounding surf, and luscious mountain ranges on Tutuila Island, Tulsi was born to Carol and Mike Gabbard as the fourth of five children. Her mother was born in Indiana and grew up in Michigan, was raised Methodist and later found her way to Hinduism. Her father grew up in the Deep South, the son of an Air Force Sergeant. Mike went to Catholic seminary as a young man and remains a lector in the Catholic church, while also practicing yoga meditation. Some of Tulsi’s earliest memories are of the bright colors, beautiful sounds, and fragrant aromas of both Christian and Hindu celebrations.</p>
+              <p>Surrounded by swaying palm trees, pounding surf, and luscious mountain ranges on Tutuila Island, Tulsi was born to Carol and Mike Gabbard as the fourth of five children. Her mother was born in Indiana and grew up in Michigan, was raised Methodist and later found her way to Hinduism. Her father grew up in the Deep South, the son of an Air Force Sergeant. Mike went to Catholic seminary as a young man and remains a lector in the Catholic church, while also practicing yoga meditation. Some of Tulsi’s earliest memories are of the bright colors, beautiful sounds, and fragrant aromas of both Christian and Hindu celebrations. Tulsi’s interfaith, interracial family is a reflection of the story of America, which taught her to accept and embody diverse perspectives and identities.</p>
 
 <blockquote class="pull">
-<p>Tulsi’s interfaith, interracial family is a reflection of the story of America, which taught her to accept and embody diverse perspectives and identities.</p>
+<p>As is typical of many residents of Hawaii, she is of mixed ethnicity. She is of Southeast Asian (25.6%) French and German (24.6%), and Polynesian descent—as well as a mixture of 9 other ethnicities.</p>
 </blockquote>
 
 <p>When Tulsi was two years old, her family moved to Hawaii. She grew up with sand between her toes—swimming, surfing, and playing on beautiful beaches with her four siblings and their friends.</p>
@@ -1000,6 +1031,28 @@
       </div>
       </div>
 
+      <div class="o-blade o-blade-- o-blade--nmb paragraph paragraph--type--blade-actblue-buttons paragraph--view-mode--default">
+                    <div class="o-blade__media"></div>
+
+            <div class="o-blade__body">
+
+                
+
+                <section class="c-actblue">
+                    <div class="c-actblue__inner">
+                        <div class="c-actblue__cta">
+                            <h3>Chip in to help us reach 130,000 donors &amp; qualify for the next set of debates.</h3>
+                        </div>
+                        <div class="c-actblue__form" data-ab-amount="3,19,25,100,n" data-ab-button data-ab-refcode="web-component-embed" data-ab-style="background-color: #005ed5; border-radius: 3px;" data-ab-token="VXXJaZy8YqtfvXEikGHtugxx">
+                            <a class="button large secondary contribute" href="https://secure.actblue.com/donate/tulsi2020?refcode=web-component-fallback">Donate Now</a>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+
+            </div>
+
     <div class="o-blade o-blade--transparent paragraph paragraph--type--blade-text paragraph--view-mode--default">
           <div class="o-blade__media"></div>
 
@@ -1014,7 +1067,7 @@
 
 <p>Regime change wars are bankrupting our country and our moral authority. We need to redirect those resources into a renewable, sustainable economy that works for everyone and bring about an era of peace. We must put service above self and reclaim our great democracy from the forces of hatred and division.</p>
 
-<p>Will you join us?</p>
+<p><strong>Will you join us?</strong></p>
 
 
           </article>
@@ -1770,24 +1823,6 @@
             </div>
             </div>
 
-  
-  <div class="o-blade o-blade--flush paragraph paragraph--type--blade-video paragraph--view-mode--default">
-          <div class="c-section--video">
-
-        <div class="video responsive-embed ultrawidescreen u-mb-0x">
-            <div class="video-embed-field-provider-youtube"><iframe width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen" src="https://www.youtube.com/embed/FPi4VAJtPL4?autoplay=0&amp;start=0&amp;rel=0"></iframe>
-</div>
-
-
-        </div>
-        <div class="loader">
-          <img src="/themes/custom/tulsi/img/tail-spin.svg" alt="Video loading...">
-        </div>
-      </div>
-
-
-      </div>
-
 
   </div>
 
@@ -2031,8 +2066,12 @@
 
                 <ul class="nav-list large vertical menu">
               <li class="menu-item">
-              <a href="/about" data-drupal-link-system-path="/about">About</a>
-        </li>
+                <a href="/about" data-drupal-link-system-path="/about">About</a>
+              </li>
+              <li class="menu-item">
+                <a href="/vision"data-drupal-link-system-path="/vision">Vision</a>
+              </li>
+
                 <li class="menu-item">
         <a href="/volunteer" data-drupal-link-system-path="node/4" data-screen="volunteer" class="js-mobile-nav-screen-trigger">
           Get Involved
@@ -2061,9 +2100,6 @@
                 <li class="menu-item">
         <a href="https://shop.tulsi2020.com">Shop</a>
               </li>
-              <li class="menu-item">
-                <a href="/contact">Contact</a>
-            </li>
         </ul>
       </div>
 
@@ -2226,13 +2262,18 @@
 <iframe frameborder="0" scrolling="no" src="//pd.trysera.com/p/14797942988700909568" style="width:1px;height:1px;border:0;"></iframe>
 
 
+
   </div>
 
     
     <script type="application/json" data-drupal-selector="drupal-settings-json">{"path":{"baseUrl":"\/","scriptPath":null,"pathPrefix":"","currentPath":"node\/1","currentPathIsAdmin":false,"isFront":false,"currentLanguage":"en"},"pluralDelimiter":"\u0003","blazy":{"loadInvisible":false,"offset":100,"saveViewportOffsetDelay":50,"validateDelay":25},"photoswipe":{"options":{"showAnimationDuration":333,"hideAnimationDuration":333,"showHideOpacity":false,"bgOpacity":1,"spacing":0.12,"allowPanToNext":true,"maxSpreadZoom":2,"loop":true,"pinchToClose":true,"closeOnScroll":true,"closeOnVerticalDrag":true,"mouseUsed":false,"escKey":true,"arrowKeys":true,"history":true,"errorMsg":"\u003Cdiv class=\u0022pswp__error-msg\u0022\u003E\u003Ca href=\u0022%url%\u0022 target=\u0022_blank\u0022\u003EThe image\u003C\/a\u003E could not be loaded.\u003C\/div\u003E","preload":[1,1],"mainClass":null,"focus":true,"modal":true},"container":"\u003Cdiv class=\u0022pswp\u0022 tabindex=\u0022-1\u0022 role=\u0022dialog\u0022 aria-hidden=\u0022true\u0022\u003E\n\n    \u003Cdiv class=\u0022pswp__bg\u0022\u003E\u003C\/div\u003E\n\n    \u003Cdiv class=\u0022pswp__scroll-wrap\u0022\u003E\n\n    \n    \u003Cdiv class=\u0022pswp__container\u0022\u003E\n      \u003Cdiv class=\u0022pswp__item\u0022\u003E\u003C\/div\u003E\n      \u003Cdiv class=\u0022pswp__item\u0022\u003E\u003C\/div\u003E\n      \u003Cdiv class=\u0022pswp__item\u0022\u003E\u003C\/div\u003E\n    \u003C\/div\u003E\n\n        \u003Cdiv class=\u0022pswp__ui pswp__ui--hidden\u0022\u003E\n\n      \u003Cdiv class=\u0022pswp__top-bar\u0022\u003E\n\n        \n        \u003Cdiv class=\u0022pswp__counter\u0022\u003E\u003C\/div\u003E\n\n        \u003Cbutton class=\u0022pswp__button pswp__button--close\u0022 title=\u0022Close (Esc)\u0022\u003E\u003C\/button\u003E\n\n        \u003Cbutton class=\u0022pswp__button pswp__button--share\u0022 title=\u0022Share\u0022\u003E\u003C\/button\u003E\n\n        \u003Cbutton class=\u0022pswp__button pswp__button--fs\u0022 title=\u0022Toggle fullscreen\u0022\u003E\u003C\/button\u003E\n\n        \u003Cbutton class=\u0022pswp__button pswp__button--zoom\u0022 title=\u0022Zoom in\/out\u0022\u003E\u003C\/button\u003E\n\n        \n        \u003Cdiv class=\u0022pswp__preloader\u0022\u003E\n          \u003Cdiv class=\u0022pswp__preloader__icn\u0022\u003E\n            \u003Cdiv class=\u0022pswp__preloader__cut\u0022\u003E\n              \u003Cdiv class=\u0022pswp__preloader__donut\u0022\u003E\u003C\/div\u003E\n            \u003C\/div\u003E\n          \u003C\/div\u003E\n        \u003C\/div\u003E\n      \u003C\/div\u003E\n\n      \u003Cdiv class=\u0022pswp__share-modal pswp__share-modal--hidden pswp__single-tap\u0022\u003E\n        \u003Cdiv class=\u0022pswp__share-tooltip\u0022\u003E\u003C\/div\u003E\n      \u003C\/div\u003E\n\n      \u003Cbutton class=\u0022pswp__button pswp__button--arrow--left\u0022 title=\u0022Previous (arrow left)\u0022\u003E\n      \u003C\/button\u003E\n\n      \u003Cbutton class=\u0022pswp__button pswp__button--arrow--right\u0022 title=\u0022Next (arrow right)\u0022\u003E\n      \u003C\/button\u003E\n\n      \u003Cdiv class=\u0022pswp__caption\u0022\u003E\n        \u003Cdiv class=\u0022pswp__caption__center\u0022\u003E\u003C\/div\u003E\n      \u003C\/div\u003E\n\n    \u003C\/div\u003E\n\n  \u003C\/div\u003E\n\n\u003C\/div\u003E\n"},"user":{"uid":0,"permissionsHash":"f9165ecc0d06fd5f3d3802ee842bba544be9f63f48de08054ab3ef7372888d45"}}</script>
 <script src="/sites/default/files/js/js_KarbpRkqhBA_mYZKPEODRaEqU_86wdl2UtO4BcRbw28.js"></script>
+<script src="https://tag.brandcdn.com/autoscript/tulsi2020_vg5wrk5vmvjqvda9/reagan_iowa.js"></script>
+<script src="https://tag.brandcdn.com/autoscript/tulsi2020_vg5wrk5vmvjqvda9/reagan_newhampshire.js"></script>
+<script src="https://tag.brandcdn.com/autoscript/tulsi2020_vg5wrk5vmvjqvda9/reagan_southcarolina.js"></script>
 <script src="https://d1aqhv4sn5kxtx.cloudfront.net/actiontag/at.js" crossorigin="anonymous"></script>
-<script src="/sites/default/files/js/js_F0rZpWu3tPB393EHftfjZ5yhyFne7BQXF6EvLK-xrx0.js"></script>
+<script src="/sites/default/files/js/js_vCKrChNW59mozSroucXADQaDcEaAkcpSIGU9PiA92jQ.js"></script>
+<script src="https://secure.actblue.com/cf/assets/actblue.js"></script>
 
-  <script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"877e78ad18","applicationID":"229453582","transactionName":"ZlYBY0RZVkRQB0JdCl8cIlRCUVdZHiBEQRVQXz90WUpda3wBWEE5dVYFVkNUTHpUCkN4DF9YN0VTXXVWXw1GQQlQRwxFRRUGUFQKU0YERVYqWVJdQHZfAGVbF0U=","queueTime":0,"applicationTime":1396,"atts":"ShECFQxDRUo=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+  <script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"877e78ad18","applicationID":"229453582","transactionName":"ZlYBY0RZVkRQB0JdCl8cIlRCUVdZHhRXUwBuUAJUXl0=","queueTime":0,"applicationTime":18,"atts":"ShECFQxDRUo=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
 </html>

@@ -1,36 +1,8 @@
 #!/usr/bin/env python
 import pickle
 
+from candidates import CANDIDATES
 from parse_candidates import Candidate
-
-CANDIDATES = (
-    ('bennet', 'nav', None, 'article', None, False,),
-    ('biden', 'nav',  None, 'article', None, False,),
-    ('booker', 'nav', None,  None, None, False,),
-    ('buttigieg', 'nav', ('class', 'nav',), 'div', ('class', 'IssuesMain',), False,),
-    ('castro', 'ul', ('class', 'header__nav',),'div', ('class', 'blog__posts',), False,),
-    ('deblasio', 'ul', ('class', 'header__nav--list',),None, None, False,),
-    ('delaney', 'ul', ('id', 'main-navigation',), 'main', ('id', 'main',), False,),
-    ('delaney2', None, None, 'main', ('id', 'main',), False,),
-    ('gabbard', 'div', ('class', 'main-menus',), 'article', ('class', 's-article',), False,),
-    ('gillibrand', 'nav', ('id', 'nav-header',), 'article', None, False,),
-    ('gillibrand2', None, None, 'article', None, False,),
-    ('harris', 'nav', ('class', 'primary',), 'div', ('class', 'content',), False,),
-    ('hickenlooper', 'nav', ('class', 'elementor-nav-menu__container',), 'div', ('class', 'elementor-widget-text-editor',), False,),
-    ('inslee', 'nav', ('class', 'primary',), 'article', None, False,),
-    ('inslee2', None, None, 'div', ('class', 'main',), False,),
-    ('klobuchar', 'ul', ('id', 'menu-main-menu',), 'div', ('class', 'article'), False,),
-    ('orourke', 'nav', ('class', 'header__nav',), 'article', None, True,),
-    ('ryan', 'nav', None, 'div', ('class', 'wpb_wrapper',), False),
-    ('sanders', 'nav', ('id', 'menu-main-header',), 'article', None, False,),
-    ('sanders2', None, None, 'article', None, False,),
-    ('swalwell', 'div', ('class', 'site-nav',), 'div', ('class', 'content-wrap'), True),
-    ('warren', 'nav', ('id', 'js-takeover-menu',), 'section', ('class', 'issues-lp__accordion'), True),
-    ('williamson', 'nav', None, 'div', ('class', 'issues',), False,),
-    ('williamson2', None, None, 'div', ('class', 'issues-section',), False,),
-    ('yang', 'nav', ('class', 'nav-primary',), 'article', ('class', 'page',), False,),
-    ('yang2', None, None, 'div', ('class', 'entry-content',), False,),
-)
 
 def pickle_candidates():
     for name, nav_tag, nav_attr, c_tag, c_attr, bad in CANDIDATES:
@@ -52,10 +24,10 @@ def test_candidates():
             print '%s has unmatching links' % name
             for l in test_links:
                 if l not in c.links:
-                    print '%s not current' % l
+                    print '%s disappeared' % l
             for l in c.links:
                 if l not in test_links:
-                    print '%s disappeared' % l
+                    print '%s new' % l
         c.load_lines()
         test_lines = []
         line_file = open('%s.lines' % name)
@@ -70,6 +42,7 @@ def test_candidates():
             for l in c.lines:
                 if l not in test_lines:
                     print 'current: %s' % l
+
 if __name__ == '__main__':
 #    pickle_candidates()
     test_candidates()

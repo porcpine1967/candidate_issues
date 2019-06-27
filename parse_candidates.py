@@ -1,9 +1,11 @@
 #!/usr/bin/env python
 
-import urllib2, HTMLParser
+import urllib2, HTMLParser, sys
+
+from candidates import CANDIDATES
 
 BLOCK_TAGS = ('h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'div', 'article', 'header', 'section', 'li', 'blockquote', 'nav', 'title', 'footer', 'br', 'main', 'aside', 'iframe',)
-INLINE_TAGS = ('span', 'a', 'i', 'b', 'strong', 'figure', 'img', 'ul', 'style', 'polygon', 'g', 'svg', 'path', 'button', 'ol', 'script', 'source', 'picture', 'sup', 'hr', 'em', 'video', 'cite', 'q',)
+INLINE_TAGS = ('span', 'a', 'i', 'b', 'strong', 'figure', 'img', 'ul', 'style', 'polygon', 'g', 'svg', 'path', 'button', 'ol', 'script', 'source', 'picture', 'sup', 'hr', 'em', 'video', 'cite', 'q', 'u',)
 
 def file_as_string(html_file):
     contents = ''
@@ -12,9 +14,9 @@ def file_as_string(html_file):
         if in_head and '</head>' in l:
             in_head = False
         if in_head:
-            contents += l.replace('\xc3\xa1', '').replace('&quot;', '').replace('&hellip;', '').replace('\xe2\x80\x9c', '').replace('\xe2\x80\x9d', '').replace("'<div", '').replace('</di/v>', '').replace('&hellip;', '').replace('&#039;', '')
+            contents += l.replace('\xc3\xa1', '').replace('&quot;', '').replace('&hellip;', '').replace('\xe2\x80\x9c', '').replace('\xe2\x80\x9d', '').replace("'<div", '').replace('</di/v>', '').replace('&hellip;', '').replace('&#039;', '').replace('&#8217;', '')
         else:
-            contents += l.replace("'<div", '').replace('</di/v>', '</div>').replace('&hellip;', '...').replace('&quot;', '').replace('\\"', '').replace('font-weight: 400;', '')
+            contents += l.replace("'<div", '').replace('</di/v>', '</div>').replace('&hellip;', '...').replace('&quot;', '').replace('\\"', '').replace('font-weight: 400;', '').replace("\n", ' ')
     html_file.close()
     return contents
 
@@ -126,7 +128,7 @@ class Candidate(object):
         c_links = set()
         cp = NavigationHTMLParser(file_as_string(open('%s.html' % self.name)), self.navigation_tag, self.navigation_attr, c_links)
         cp.feed(cp.file_as_string)
-        self.links = set([l for l in c_links if 'actblue.com' not in l])
+        self.links = set([l for l in c_links if 'actblue.com' not in l and '/cdn-cgi/l/email-protection' not in l])
 
     def load_lines(self):
         if not self.content_tag:
@@ -158,7 +160,17 @@ class Candidate(object):
         
 
 def test_navigation():
-    c = Candidate('warren', 'nav', ('id', 'js-takeover-menu',), 'section', ('class', 'issues-lp__accordion'), True)
+    if len(sys.argv) > 1:
+        found = False
+        for name, nav_tag, nav_attr, c_tag, c_attr, bad in CANDIDATES:
+            if name == sys.argv[1]:
+                c = Candidate(name, nav_tag, nav_attr, c_tag, c_attr, bad)
+                found = True
+        if not found:
+            print 'No such candidate', sys.argv[1]
+            sys.exit(1)
+    else:
+        c = Candidate('gabbard', 'nav', ('id', 'js-takeover-menu',), 'section', ('class', 'issues-lp__accordion'), True)
     html = file_as_string(open('%s.html' % c.name))
     cp = NavigationHTMLParser(html, c.navigation_tag, c.navigation_attr, c.links)
     cp.feed(cp.file_as_string)
@@ -167,7 +179,17 @@ def test_navigation():
             print link
 
 def test_content():
-    c = Candidate('yang2', None, None, 'div', ('class', 'entry-content',), False,)
+    if len(sys.argv) > 1:
+        found = False
+        for name, nav_tag, nav_attr, c_tag, c_attr, bad in CANDIDATES:
+            if name == sys.argv[1]:
+                c = Candidate(name, nav_tag, nav_attr, c_tag, c_attr, bad)
+                found = True
+        if not found:
+            print 'No such candidate', sys.argv[1]
+            sys.exit(1)
+    else:
+        c = Candidate('gabbard', 'nav', ('id', 'js-takeover-menu',), 'section', ('class', 'issues-lp__accordion'), True)
     c_lines = []
     html = file_as_string(open('%s.html' % c.name))
     cp = ContentHTMLParser(html, c.content_tag, c.content_attr, c_lines, c.bad)
