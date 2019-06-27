@@ -6,7 +6,7 @@
 -->
   <head>
     <meta charset="utf-8" /><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o||n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({1:[function(e,n,t){function r(){}function o(e,n,t){return function(){return i(e,[c.now()].concat(u(arguments)),n?null:this,t),n?void 0:this}}var i=e("handle"),a=e(3),u=e(4),f=e("ee").get("tracer"),c=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,n){s[n]=o(d+n,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,o="function"==typeof n;return i(l+"tracer",[c.now(),e,t],r),function(){if(f.emit((o?"":"no-")+"fn-start",[c.now(),r,o],t),o)try{return n.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],t),e}finally{f.emit("fn-end",[c.now()],t)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=o(l+n)}),newrelic.noticeError=function(e,n){"string"==typeof e&&(e=new Error(e)),i("err",[e,c.now(),!1,n])}},{}],2:[function(e,n,t){function r(e,n){if(!o)return!1;if(e!==o)return!1;if(!n)return!0;if(!i)return!1;for(var t=i.split("."),r=n.split("."),a=0;a<r.length;a++)if(r[a]!==t[a])return!1;return!0}var o=null,i=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var u=navigator.userAgent,f=u.match(a);f&&u.indexOf("Chrome")===-1&&u.indexOf("Chromium")===-1&&(o="Safari",i=f[1])}n.exports={agent:o,version:i,match:r}},{}],3:[function(e,n,t){function r(e,n){var t=[],r="",i=0;for(r in e)o.call(e,r)&&(t[i]=n(r,e[r]),i+=1);return t}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],4:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(o<0?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=r},{}],5:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function o(e){function n(e){return e&&e instanceof r?e:e?f(e,u,i):i()}function t(t,r,o,i){if(!d.aborted||i){e&&e(t,r,o);for(var a=n(o),u=v(t),f=u.length,c=0;c<f;c++)u[c].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function l(e,n){h[e]=v(e).concat(n)}function m(e,n){var t=h[e];if(t)for(var r=0;r<t.length;r++)t[r]===n&&t.splice(r,1)}function v(e){return h[e]||[]}function g(e){return p[e]=p[e]||o(t)}function w(e,n){c(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var h={},y={},b={on:l,addEventListener:l,removeEventListener:m,emit:t,get:g,listeners:v,context:n,buffer:w,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",f=e("gos"),c=e(3),s={},p={},d=n.exports=o();d.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(o.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){o.buffer([e],r),o.emit(e,n,t)}var o=e("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!E++){var e=x.info=NREUM.info,n=l.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();c(y,function(n,t){e[n]||(e[n]=t)}),f("mark",["onload",a()+x.offset],null,"api");var t=l.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function o(){"complete"===l.readyState&&i()}function i(){f("mark",["domContent",a()+x.offset],null,"api")}function a(){return O.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-x.offset}var u=(new Date).getTime(),f=e("handle"),c=e(3),s=e("ee"),p=e(2),d=window,l=d.document,m="addEventListener",v="attachEvent",g=d.XMLHttpRequest,w=g&&g.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:g,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var h=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1123.min.js"},b=g&&w&&w[m]&&!/CriOS/.test(navigator.userAgent),x=n.exports={offset:u,now:a,origin:h,features:{},xhrWrappable:b,userAgent:p};e(1),l[m]?(l[m]("DOMContentLoaded",i,!1),d[m]("load",r,!1)):(l[v]("onreadystatechange",o),d[v]("onload",r)),f("mark",["firstbyte",u],null,"api");var E=0,O=e(5)},{}]},{},["loader"]);</script>
-<script src="/sites/default/files/hotjar/hotjar.script.js?ptqhui"></script>
+<script src="/sites/default/files/hotjar/hotjar.script.js?ptrxcj"></script>
 <meta name="title" content="About | TULSI 2020" />
 <link rel="canonical" href="https://www.tulsi2020.com/about" />
 <meta name="twitter:site" content="@TulsiGabbard" />
@@ -28,11 +28,11 @@
 <link rel="alternate" hreflang="en" href="https://www.tulsi2020.com/about" />
 <link rel="alternate" hreflang="es" href="https://www.tulsi2020.com/es/acerca" />
 <link rel="revision" href="https://www.tulsi2020.com/about" />
-<script src="/sites/default/files/google_tag/google_tag.script.js?ptqhui"></script>
+<script src="/sites/default/files/google_tag/google_tag.script.js?ptrxcj"></script>
 
     <title>About | TULSI 2020</title>
-    <link rel="stylesheet" media="all" href="/sites/default/files/css/css_vXgn_NRf0KBvN2UyJzYvSsI9S0CO1HBKLuM7XpIrWqo.css?ptqhui" />
-<link rel="stylesheet" media="all" href="/sites/default/files/css/css_s9UrwEJLPER75eQZHDMwXJvWFogC64DIkgD8-6Bxxb4.css?ptqhui" />
+    <link rel="stylesheet" media="all" href="/sites/default/files/css/css_vXgn_NRf0KBvN2UyJzYvSsI9S0CO1HBKLuM7XpIrWqo.css?ptrxcj" />
+<link rel="stylesheet" media="all" href="/sites/default/files/css/css_pGWffRzvQri6fyC6-F-kwq1S-3AoXZaOvNyINjx0L4s.css?ptrxcj" />
 <link rel="stylesheet" media="all" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" />
 
     
@@ -49,17 +49,19 @@
     <noscript aria-hidden="true"><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TBBPL6B" height="0" width="0" title="Google Tag Manager"></iframe></noscript>
       <div class="dialog-off-canvas-main-canvas" data-off-canvas-main-canvas>
     
+
+
 <header class="main-header u-show-for-large u-no-focus js-main-header is-sticky is-compressed" tabindex="-1">
-  <div class="main-header__inner">
-              <a href="/" title="TULSI 2020" rel="home" class="logo" >
+    <div class="main-header__inner">
+                  <a href="/" title="TULSI 2020" rel="home" class="logo" >
       <svg id="T2020Logo" data-name="T2020Logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1247.77 520.85"><title>TULSI 2020</title><path d="M76.86,84.14H8.44A7.58,7.58,0,0,1,.86,76.56V13.62A7.57,7.57,0,0,1,8.44,6.05H246.93a7.57,7.57,0,0,1,7.57,7.57V76.56a7.57,7.57,0,0,1-7.57,7.58H178.06a7.57,7.57,0,0,0-7.57,7.57v215a9.85,9.85,0,0,1-9.84,9.85H141.22a56.8,56.8,0,0,1-56.79-56.8V91.71A7.57,7.57,0,0,0,76.86,84.14Z"/><path d="M301.45,180.39V13.62A7.57,7.57,0,0,1,309,6.05h71.8a7.57,7.57,0,0,1,7.57,7.57v165c0,44.81,15.66,66.1,50.27,66.1,35,0,50.7-20.4,50.7-63.88V13.62A7.57,7.57,0,0,1,497,6.05h71.8a7.57,7.57,0,0,1,7.57,7.57V178.17c0,99.81-50.26,144.17-138.54,144.17C349.94,322.34,301.45,277.54,301.45,180.39Z"/><path d="M634.85,6.05h70.92a7.57,7.57,0,0,1,7.57,7.57V224a7.57,7.57,0,0,0,7.57,7.57H843.65a7.57,7.57,0,0,1,7.57,7.57V309a7.57,7.57,0,0,1-7.57,7.58H634.85a7.57,7.57,0,0,1-7.57-7.58V13.62A7.57,7.57,0,0,1,634.85,6.05Z"/><path d="M1081.25,84.93a7.58,7.58,0,0,1-10,4.08c-10.21-4.41-28-10.46-35.27-12.7a106.87,106.87,0,0,0-25.46-4.2c-3.64-.07-17.87-.24-25.12,5.36-6.26,4.83-7.9,10.82-7.18,16.5.67,5.31,2.41,9.6,5.9,12.79a41.8,41.8,0,0,0,13.35,7.94,108,108,0,0,0,18.15,5.13q10,2,19.89,4.37,39.45,9.58,59,29.48T1117,208q1.93,23.19-4.28,42.63a87.91,87.91,0,0,1-20.1,34.1q-13.86,14.66-35,23.87T1008.8,320.1c-49.14,4.11-89.72-15.1-122.49-32.9a7.57,7.57,0,0,1-3.34-9.64l22.52-55.44a6.06,6.06,0,0,1,9-2.65c10.5,7.21,40.29,19.4,50.29,22.85a110.55,110.55,0,0,0,37.8,5.48c8.27-.34,20.37-1.48,27-8,4.81-4.72,6.29-10.29,5.67-17.76a27.08,27.08,0,0,0-3.39-11.59,25.7,25.7,0,0,0-8.76-8.53,64.54,64.54,0,0,0-15.25-6.58q-9.3-2.84-22.46-6.17-15.6-3.52-30.68-8.1a93.54,93.54,0,0,1-27.27-13.22A71.52,71.52,0,0,1,907,145.23q-8.22-14-10.09-36.4t4-41.2A90.64,90.64,0,0,1,919.07,34.7a93,93,0,0,1,31.1-22.94Q969,2.94,993,.94a190.94,190.94,0,0,1,47.29,2.27c14.64,2.45,42.53,9.6,58,19.86A7.53,7.53,0,0,1,1101,32.2Z"/><path d="M1169.85,6.05H1241a7.3,7.3,0,0,1,7.3,7.3V259.78a56.8,56.8,0,0,1-56.79,56.8h-19.43a9.85,9.85,0,0,1-9.84-9.85V13.62A7.57,7.57,0,0,1,1169.85,6.05Z"/><path d="M350.39,498.38H305.47a.36.36,0,0,1-.37-.26.37.37,0,0,1,.12-.44l18.47-15.4c18-14.69,29-24.95,29-43.51v-.32c0-20.43-15.11-34.16-37.6-34.16-20,0-30.66,8.77-40.44,21.94a3.41,3.41,0,0,0,.63,4.69l10.81,8.48a3.36,3.36,0,0,0,2.52.69,3.44,3.44,0,0,0,2.26-1.29c8.06-10.3,14.46-14.32,22.81-14.32,9.82,0,16.16,6.1,16.16,15.54,0,8.81-4.47,15.18-19.95,28.39l-37,31.48a3.37,3.37,0,0,0-1.2,2.58v12.39a3.39,3.39,0,0,0,3.39,3.39h75.3a3.39,3.39,0,0,0,3.39-3.39V501.77A3.39,3.39,0,0,0,350.39,498.38Z"/><path d="M529.38,404C513,404,498,410.08,487,421.17a57.8,57.8,0,0,0-16.51,40.89v.31c0,32.93,25.17,57.76,58.54,57.76,16.39,0,31.43-6.1,42.35-17.19a57.8,57.8,0,0,0,16.51-40.88v-.32C587.93,428.81,562.76,404,529.38,404Zm-35.69,57.76c0-21.15,15.21-37.1,35.38-37.1,20.35,0,35.7,16.08,35.7,37.42v.31c0,21.06-15.21,36.94-35.39,36.94-20.35,0-35.69-16-35.69-37.25Z"/><path d="M788.92,498.38H744a.37.37,0,0,1-.37-.26.37.37,0,0,1,.12-.44l18.47-15.4c18-14.69,29-24.95,29-43.51v-.32c0-20.43-15.11-34.16-37.6-34.16-20,0-30.66,8.77-40.44,21.94a3.41,3.41,0,0,0,.63,4.69l10.81,8.48a3.37,3.37,0,0,0,2.52.69,3.4,3.4,0,0,0,2.26-1.29c8.06-10.3,14.46-14.32,22.81-14.32,9.82,0,16.16,6.1,16.16,15.54,0,8.81-4.47,15.18-20,28.39l-37,31.48a3.37,3.37,0,0,0-1.2,2.58v12.39a3.4,3.4,0,0,0,3.4,3.39h75.29a3.39,3.39,0,0,0,3.39-3.39V501.77A3.39,3.39,0,0,0,788.92,498.38Z"/><path d="M968.8,404c-16.39,0-31.43,6.1-42.35,17.19a57.8,57.8,0,0,0-16.51,40.89v.31c0,32.93,25.17,57.76,58.55,57.76,16.39,0,31.43-6.1,42.34-17.19a57.8,57.8,0,0,0,16.51-40.88v-.32C1027.34,428.81,1002.17,404,968.8,404Zm35.38,58.39c0,21.06-15.21,36.94-35.38,36.94-20.35,0-35.7-16-35.7-37.25v-.32c0-21.15,15.21-37.1,35.39-37.1,20.35,0,35.69,16.08,35.69,37.42Z"/></svg>
     </a>
     
 
 
-    <div class="main-menus">
+        <div class="main-menus">
 
-          
+                
               <ul class="nav-list menu js-primary-menu">
                     <li class="menu-item menu-item--active-trail">
         <a href="/about" class="about js-megamenu-trigger is-active" data-megamenu="mm-one" data-drupal-link-system-path="node/1">About</a>
@@ -83,92 +85,97 @@
 
 
 
-      <ul class="menu menu--language">
-          <li>
-              <a class="lang-switcher" href="/es/node/1">en Español</a>
-          </li>
-      </ul>
+            <ul class="menu menu--language">
+                <li>
+                    <a class="lang-switcher" href="/es/node/1">en Español</a>
+                </li>
+            </ul>
 
-
-    </div>
-
-    
-
-            <a href="https://secure.actblue.com/donate/tulsi2020?refcode=web-nav" class="contribute button large secondary u-mb-0x" target="_blank">Contribute</a>
-
-
-
-
-    
-  </div>
-  <div class="main-header__dropdown js-megamenu-container">
-    <nav data-megamenu="mm-one" class="c-megamenu js-megamenu">
-      <div class="c-megamenu__container">
-        <div class="c-megamenu__body">
-          <h4>Aloha</h4>
-          <p>Love for others, for her community, and her country has inspired Tulsi to live a life defined by service.</p>
-          <ul class="vertical menu strong">
-            <li><a href="/about">Read Tulsi's Bio <i class="fas fa-caret-right fa-sm"></i></a></li>
-            <li>
-                <a href="/vision">Tulsi's Vision for America
-                    <i class="fas fa-caret-right fa-sm"></i>
-                </a>
-            </li>
-
-          </ul>
-
-          
 
         </div>
-        <footer class="c-megamenu__footer">
-          <ul class="c-share-menu c-share-menu--dark">
-            <li class="facebook">
-              <a href="https://facebook.com/tulsigabbard" target="_blank">
-                <span class="icon">
-                  <i class="fab fa-facebook-f"></i>
-                </span>
-                <span class="show-for-sr">Facebook</span>
-              </a>
-            </li>
-            <li class="instagram">
-              <a href="https://instagram.com/tulsigabbard" target="_blank">
-                <span class="icon">
-                  <i class="fab fa-instagram"></i>
-                </span>
-                <span class="show-for-sr">Instagram</span>
-              </a>
-            </li>
-            <li class="twitter">
-              <a href="https://twitter.com/tulsigabbard" target="_blank">
-                <span class="icon">
-                  <i class="fab fa-twitter"></i>
-                </span>
-                <span class="show-for-sr">Twitter</span>
-              </a>
-            </li>
-            <li class="medium">
-              <a href="https://medium.com/@TulsiGabbard" target="_blank">
-                <span class="icon">
-                  <i class="fab fa-medium"></i>
-                </span>
-                <span class="show-for-sr">Medium</span>
-              </a>
-            </li>
-            <li class="twitter">
-              <a href="https://www.youtube.com/tulsigabbard" target="_blank">
-                <span class="icon">
-                  <i class="fab fa-youtube"></i>
-                </span>
-                <span class="show-for-sr">YouTube</span>
-              </a>
-            </li>
-          </ul>
-          <ul class="vertical menu centered">
-            <li><a href="/splash/tulsitv?ms=web-main-drop" class="has-text-centered">Get notified when Tulsi is in your area</a></li>
-          </ul>
-        </footer>
-        </footer>
-      </div>
+
+
+                <a href="https://secure.actblue.com/donate/tulsi2020?refcode=web-nav" class="contribute button large secondary u-mb-0x" target="_blank">Contribute</a>
+
+
+
+
+        
+    </div>
+    <div class="main-header__dropdown js-megamenu-container">
+        <nav class="c-megamenu js-megamenu" data-megamenu="mm-one">
+            <div class="c-megamenu__container">
+                <div class="c-megamenu__body">
+                    <h4>Aloha</h4>
+                    <p>Love for others, for her community, and her country has inspired Tulsi to live a life defined by service.</p>
+                    <ul class="vertical menu strong">
+                        <li>
+                            <a href="/about">Read Tulsi's Bio
+                                <i class="fas fa-caret-right fa-sm"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/vision">Tulsi's Vision for America
+                                <i class="fas fa-caret-right fa-sm"></i>
+                            </a>
+                        </li>
+
+                    </ul>
+
+                    
+
+                </div>
+                <footer class="c-megamenu__footer">
+                    <ul class="c-share-menu c-share-menu--dark">
+                        <li class="facebook">
+                            <a href="https://facebook.com/tulsigabbard" target="_blank">
+                                <span class="icon">
+                                    <i class="fab fa-facebook-f"></i>
+                                </span>
+                                <span class="show-for-sr">Facebook</span>
+                            </a>
+                        </li>
+                        <li class="instagram">
+                            <a href="https://instagram.com/tulsigabbard" target="_blank">
+                                <span class="icon">
+                                    <i class="fab fa-instagram"></i>
+                                </span>
+                                <span class="show-for-sr">Instagram</span>
+                            </a>
+                        </li>
+                        <li class="twitter">
+                            <a href="https://twitter.com/tulsigabbard" target="_blank">
+                                <span class="icon">
+                                    <i class="fab fa-twitter"></i>
+                                </span>
+                                <span class="show-for-sr">Twitter</span>
+                            </a>
+                        </li>
+                        <li class="medium">
+                            <a href="https://medium.com/@TulsiGabbard" target="_blank">
+                                <span class="icon">
+                                    <i class="fab fa-medium"></i>
+                                </span>
+                                <span class="show-for-sr">Medium</span>
+                            </a>
+                        </li>
+                        <li class="twitter">
+                            <a href="https://www.youtube.com/tulsigabbard" target="_blank">
+                                <span class="icon">
+                                    <i class="fab fa-youtube"></i>
+                                </span>
+                                <span class="show-for-sr">YouTube</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="vertical menu centered">
+                        <li>
+                            <a class="has-text-centered" href="/splash/tulsitv?ms=web-main-drop">Get notified when Tulsi is in your area</a>
+                        </li>
+                    </ul>
+                </footer>
+            </footer>
+        </div>
     </nav>
 
     <nav class="c-megamenu js-megamenu c-megamenu--no-footer" data-megamenu="mm-two">
@@ -183,76 +190,102 @@
     </nav>
 
 
-    <nav data-megamenu="mm-three" class="c-megamenu js-megamenu">
-      <div class="c-megamenu__container">
-        <div class="c-megamenu__body">
-          <h4>Get Involved</h4>
-          <ul class="vertical menu strong">
-            <li><a href="/join-us">Sign up &amp; join us</a></li>
-            <li><a href="/volunteer">Volunteer</a></li>
-            <li><a href="https://shop.tulsi2020.com">Merchandise</a></li>
-            <li><a href="https://jobs.lever.co/tulsi2020" target="_blank">Jobs</a></li>
-          </ul>
+    <nav class="c-megamenu js-megamenu" data-megamenu="mm-three">
+        <div class="c-megamenu__container">
+            <div class="c-megamenu__body">
+                <h4>Get Involved</h4>
+                <ul class="vertical menu strong">
+                    <li>
+                        <a href="/join-us">Sign up &amp; join us</a>
+                    </li>
+                    <li>
+                        <a href="/volunteer">Volunteer</a>
+                    </li>
+                    <li>
+                        <a href="https://shop.tulsi2020.com">Merchandise</a>
+                    </li>
+                    <li>
+                        <a href="https://jobs.lever.co/tulsi2020" target="_blank">Jobs</a>
+                    </li>
+                </ul>
 
-          
+                
 
+            </div>
+            <footer class="c-megamenu__footer">
+                <h5>Our campaign does not accept PAC money. This is a movement powered by you, the people.</h5>
+                <a class="button secondary fluid" href="https://secure.actblue.com/donate/tulsi2020?refcode=web-main-drop-button" target="_blank">Donate</a>
+                <a class="button inline transparent fluid transparent--lod" href="https://tulsi.to/donate-today" target="_blank">Alternate form</a>
+                <ul class="vertical menu centered">
+                    <li>
+                        <a href="https://tulsi.to/mail" target="_blank">or download a form &amp; donate by mail.</a>
+                    </li>
+                </ul>
+            </footer>
         </div>
-        <footer class="c-megamenu__footer">
-          <h5>Our campaign does not accept PAC money. This is a movement powered by you, the people.</h5>
-          <a class="button secondary fluid" href="https://secure.actblue.com/donate/tulsi2020?refcode=web-main-drop-button" target="_blank">Donate</a> <a class="button inline transparent fluid transparent--lod" href="https://tulsi.to/donate-today" target="_blank">Alternate form</a>
-          <ul class="vertical menu centered">
-            <li><a href="https://tulsi.to/mail" target="_blank">or download a form &amp; donate by mail.</a></li>
-          </ul>
-        </footer>
-      </div>
     </nav>
 
-    <nav data-megamenu="mm-four" class="c-megamenu js-megamenu">
-      <div class="c-megamenu__container">
-        <div class="c-megamenu__body">
-          <h4>Events</h4>
-          <ul class="vertical menu strong">
-            <li><a href="https://secure.ngpvan.com/p/uEk71xTbu0iDkh_D4IJSuw2">View All Events</a></li>
-            <li><a href="https://secure.ngpvan.com/p/mpB17nVX0kSTuM1pBYwkBQ2">Official Events</a></li>
-            <li><a href="https://secure.ngpvan.com/p/jA6r9eftj0KWJMIbUssWYA2">Supporter-hosted Events</a></li>
-            <li><a href="https://secure.ngpvan.com/C-Ri-IqpgEuDGm2uX8cjkA2">Host an Event</a></li>
-          </ul>
+    <nav class="c-megamenu js-megamenu" data-megamenu="mm-four">
+        <div class="c-megamenu__container">
+            <div class="c-megamenu__body">
+                <h4>Events</h4>
+                <ul class="vertical menu strong">
+                    <li>
+                        <a href="https://secure.ngpvan.com/p/uEk71xTbu0iDkh_D4IJSuw2">View All Events</a>
+                    </li>
+                    <li>
+                        <a href="https://secure.ngpvan.com/p/mpB17nVX0kSTuM1pBYwkBQ2">Official Events</a>
+                    </li>
+                    <li>
+                        <a href="https://secure.ngpvan.com/p/jA6r9eftj0KWJMIbUssWYA2">Supporter-hosted Events</a>
+                    </li>
+                    <li>
+                        <a href="https://secure.ngpvan.com/C-Ri-IqpgEuDGm2uX8cjkA2">Host an Event</a>
+                    </li>
+                </ul>
 
-          
+                
 
+            </div>
+            <footer class="c-megamenu__footer">
+                <h5>Press &amp; Scheduling</h5>
+                <div class="columns">
+                    <div class="column">
+                        <ul class="vertical menu">
+                            <li>
+                                <a href="/press/request">Press Request</a>
+                            </li>
+                            <li>
+                                <a href="/press">Press Releases</a>
+                            </li>
+                            <li>
+                                <a href="/join-our-press-list">Join Our List</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="column">
+                        <ul class="vertical menu">
+                            <li>
+                                <a href="/s/event">Request a Speaking or Event Appearance</a>
+                            </li>
+                            <li>
+                                <a href="/s/meeting">Request a Meeting</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </footer>
         </div>
-        <footer class="c-megamenu__footer">
-          <h5>Press &amp; Scheduling</h5>
-          <div class="columns">
-            <div class="column">
-              <ul class="vertical menu">
-                <li><a href="/press/request">Press Request</a></li>
-                <li><a href="/press">Press Releases</a></li>
-                <li><a href="/join-our-press-list">Join Our List</a></li>
-              </ul>
-            </div>
-            <div class="column">
-              <ul class="vertical menu">
-                <li><a href="/s/event">Request a Speaking or Event Appearance</a></li>
-                <li><a href="/s/meeting">Request a Meeting</a></li>
-              </ul>
-            </div>
-          </div>
-        </footer>
-      </div>
     </nav>
-  </div>
-</header>
-
-<header class="mini-header u-hide-for-large js-mini-header">
-  <ul class="menu">
+</div></header><header class="mini-header u-hide-for-large js-mini-header">
+<ul class="menu">
     <li class="more u-hide-for-large">
-      <a href="#" tab-index="-1" class="js-mobile-nav-trigger">
-        <span class="c-burger js-burger"></span>
-      </a>
+        <a class="js-mobile-nav-trigger" href="#" tab-index="-1">
+            <span class="c-burger js-burger"></span>
+        </a>
     </li>
     <li class="logo menu-text u-uppercase u-text-center">
-        <div>
+          <div>
           <a href="/" title="TULSI 2020" rel="home" class="logo" >
       <svg id="T2020Logo" data-name="T2020Logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1247.77 520.85"><title>TULSI 2020</title><path d="M76.86,84.14H8.44A7.58,7.58,0,0,1,.86,76.56V13.62A7.57,7.57,0,0,1,8.44,6.05H246.93a7.57,7.57,0,0,1,7.57,7.57V76.56a7.57,7.57,0,0,1-7.57,7.58H178.06a7.57,7.57,0,0,0-7.57,7.57v215a9.85,9.85,0,0,1-9.84,9.85H141.22a56.8,56.8,0,0,1-56.79-56.8V91.71A7.57,7.57,0,0,0,76.86,84.14Z"/><path d="M301.45,180.39V13.62A7.57,7.57,0,0,1,309,6.05h71.8a7.57,7.57,0,0,1,7.57,7.57v165c0,44.81,15.66,66.1,50.27,66.1,35,0,50.7-20.4,50.7-63.88V13.62A7.57,7.57,0,0,1,497,6.05h71.8a7.57,7.57,0,0,1,7.57,7.57V178.17c0,99.81-50.26,144.17-138.54,144.17C349.94,322.34,301.45,277.54,301.45,180.39Z"/><path d="M634.85,6.05h70.92a7.57,7.57,0,0,1,7.57,7.57V224a7.57,7.57,0,0,0,7.57,7.57H843.65a7.57,7.57,0,0,1,7.57,7.57V309a7.57,7.57,0,0,1-7.57,7.58H634.85a7.57,7.57,0,0,1-7.57-7.58V13.62A7.57,7.57,0,0,1,634.85,6.05Z"/><path d="M1081.25,84.93a7.58,7.58,0,0,1-10,4.08c-10.21-4.41-28-10.46-35.27-12.7a106.87,106.87,0,0,0-25.46-4.2c-3.64-.07-17.87-.24-25.12,5.36-6.26,4.83-7.9,10.82-7.18,16.5.67,5.31,2.41,9.6,5.9,12.79a41.8,41.8,0,0,0,13.35,7.94,108,108,0,0,0,18.15,5.13q10,2,19.89,4.37,39.45,9.58,59,29.48T1117,208q1.93,23.19-4.28,42.63a87.91,87.91,0,0,1-20.1,34.1q-13.86,14.66-35,23.87T1008.8,320.1c-49.14,4.11-89.72-15.1-122.49-32.9a7.57,7.57,0,0,1-3.34-9.64l22.52-55.44a6.06,6.06,0,0,1,9-2.65c10.5,7.21,40.29,19.4,50.29,22.85a110.55,110.55,0,0,0,37.8,5.48c8.27-.34,20.37-1.48,27-8,4.81-4.72,6.29-10.29,5.67-17.76a27.08,27.08,0,0,0-3.39-11.59,25.7,25.7,0,0,0-8.76-8.53,64.54,64.54,0,0,0-15.25-6.58q-9.3-2.84-22.46-6.17-15.6-3.52-30.68-8.1a93.54,93.54,0,0,1-27.27-13.22A71.52,71.52,0,0,1,907,145.23q-8.22-14-10.09-36.4t4-41.2A90.64,90.64,0,0,1,919.07,34.7a93,93,0,0,1,31.1-22.94Q969,2.94,993,.94a190.94,190.94,0,0,1,47.29,2.27c14.64,2.45,42.53,9.6,58,19.86A7.53,7.53,0,0,1,1101,32.2Z"/><path d="M1169.85,6.05H1241a7.3,7.3,0,0,1,7.3,7.3V259.78a56.8,56.8,0,0,1-56.79,56.8h-19.43a9.85,9.85,0,0,1-9.84-9.85V13.62A7.57,7.57,0,0,1,1169.85,6.05Z"/><path d="M350.39,498.38H305.47a.36.36,0,0,1-.37-.26.37.37,0,0,1,.12-.44l18.47-15.4c18-14.69,29-24.95,29-43.51v-.32c0-20.43-15.11-34.16-37.6-34.16-20,0-30.66,8.77-40.44,21.94a3.41,3.41,0,0,0,.63,4.69l10.81,8.48a3.36,3.36,0,0,0,2.52.69,3.44,3.44,0,0,0,2.26-1.29c8.06-10.3,14.46-14.32,22.81-14.32,9.82,0,16.16,6.1,16.16,15.54,0,8.81-4.47,15.18-19.95,28.39l-37,31.48a3.37,3.37,0,0,0-1.2,2.58v12.39a3.39,3.39,0,0,0,3.39,3.39h75.3a3.39,3.39,0,0,0,3.39-3.39V501.77A3.39,3.39,0,0,0,350.39,498.38Z"/><path d="M529.38,404C513,404,498,410.08,487,421.17a57.8,57.8,0,0,0-16.51,40.89v.31c0,32.93,25.17,57.76,58.54,57.76,16.39,0,31.43-6.1,42.35-17.19a57.8,57.8,0,0,0,16.51-40.88v-.32C587.93,428.81,562.76,404,529.38,404Zm-35.69,57.76c0-21.15,15.21-37.1,35.38-37.1,20.35,0,35.7,16.08,35.7,37.42v.31c0,21.06-15.21,36.94-35.39,36.94-20.35,0-35.69-16-35.69-37.25Z"/><path d="M788.92,498.38H744a.37.37,0,0,1-.37-.26.37.37,0,0,1,.12-.44l18.47-15.4c18-14.69,29-24.95,29-43.51v-.32c0-20.43-15.11-34.16-37.6-34.16-20,0-30.66,8.77-40.44,21.94a3.41,3.41,0,0,0,.63,4.69l10.81,8.48a3.37,3.37,0,0,0,2.52.69,3.4,3.4,0,0,0,2.26-1.29c8.06-10.3,14.46-14.32,22.81-14.32,9.82,0,16.16,6.1,16.16,15.54,0,8.81-4.47,15.18-20,28.39l-37,31.48a3.37,3.37,0,0,0-1.2,2.58v12.39a3.4,3.4,0,0,0,3.4,3.39h75.29a3.39,3.39,0,0,0,3.39-3.39V501.77A3.39,3.39,0,0,0,788.92,498.38Z"/><path d="M968.8,404c-16.39,0-31.43,6.1-42.35,17.19a57.8,57.8,0,0,0-16.51,40.89v.31c0,32.93,25.17,57.76,58.55,57.76,16.39,0,31.43-6.1,42.34-17.19a57.8,57.8,0,0,0,16.51-40.88v-.32C1027.34,428.81,1002.17,404,968.8,404Zm35.38,58.39c0,21.06-15.21,36.94-35.38,36.94-20.35,0-35.7-16-35.7-37.25v-.32c0-21.15,15.21-37.1,35.39-37.1,20.35,0,35.69,16.08,35.69,37.42Z"/></svg>
     </a>
@@ -261,24 +294,15 @@
 
     </li>
     <li class="contribute">
-      <a href="https://secure.actblue.com/donate/tulsi2020?refcode=web-m-nav" class="button secondary fluid" target="_blank">Donate</a>
+        <a class="button secondary fluid" href="https://secure.actblue.com/donate/tulsi2020?refcode=web-m-nav" target="_blank">Donate</a>
     </li>
-  </ul>
-</header>
-
-
-
-<div id="content-top" class="js-content" tabindex="-1"></div>   
-  
-    <div>
+</ul></header><div class="js-content" id="content-top" tabindex="-1"></div>  <div>
     <div data-drupal-messages-fallback class="hidden"></div>
 
   </div>
-
-
 <main class="content-main " role="main">
-  
-    <div>
+
+  <div>
     <div id="block-tulsi-content" class="block block--system block--block-tulsi-content">
   
     
@@ -1832,19 +1856,16 @@
 
   </div>
 
-  
-</main>
-
-<footer class="main-footer">
-  <div class="o-blade o-blade--black o-blade--night">
+</main><footer class="main-footer">
+<div class="o-blade o-blade--black o-blade--night">
     <div class="o-blade__media"></div>
     <div class="o-blade__body">
-      <div class="columns">
-        <div class="column is-7-desktop is-order-2-tablet">
+        <div class="columns">
+            <div class="column is-7-desktop is-order-2-tablet">
 
-          <aside class="secondary">
+                <aside class="secondary">
 
-              <div class="footer-brand">
+                      <div class="footer-brand">
           <a href="/" title="Home" rel="home" class="logo">
       <svg id="T2020Logo" data-name="T2020Logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1247.77 520.85"><title>TULSI 2020</title><path d="M76.86,84.14H8.44A7.58,7.58,0,0,1,.86,76.56V13.62A7.57,7.57,0,0,1,8.44,6.05H246.93a7.57,7.57,0,0,1,7.57,7.57V76.56a7.57,7.57,0,0,1-7.57,7.58H178.06a7.57,7.57,0,0,0-7.57,7.57v215a9.85,9.85,0,0,1-9.84,9.85H141.22a56.8,56.8,0,0,1-56.79-56.8V91.71A7.57,7.57,0,0,0,76.86,84.14Z"/><path d="M301.45,180.39V13.62A7.57,7.57,0,0,1,309,6.05h71.8a7.57,7.57,0,0,1,7.57,7.57v165c0,44.81,15.66,66.1,50.27,66.1,35,0,50.7-20.4,50.7-63.88V13.62A7.57,7.57,0,0,1,497,6.05h71.8a7.57,7.57,0,0,1,7.57,7.57V178.17c0,99.81-50.26,144.17-138.54,144.17C349.94,322.34,301.45,277.54,301.45,180.39Z"/><path d="M634.85,6.05h70.92a7.57,7.57,0,0,1,7.57,7.57V224a7.57,7.57,0,0,0,7.57,7.57H843.65a7.57,7.57,0,0,1,7.57,7.57V309a7.57,7.57,0,0,1-7.57,7.58H634.85a7.57,7.57,0,0,1-7.57-7.58V13.62A7.57,7.57,0,0,1,634.85,6.05Z"/><path d="M1081.25,84.93a7.58,7.58,0,0,1-10,4.08c-10.21-4.41-28-10.46-35.27-12.7a106.87,106.87,0,0,0-25.46-4.2c-3.64-.07-17.87-.24-25.12,5.36-6.26,4.83-7.9,10.82-7.18,16.5.67,5.31,2.41,9.6,5.9,12.79a41.8,41.8,0,0,0,13.35,7.94,108,108,0,0,0,18.15,5.13q10,2,19.89,4.37,39.45,9.58,59,29.48T1117,208q1.93,23.19-4.28,42.63a87.91,87.91,0,0,1-20.1,34.1q-13.86,14.66-35,23.87T1008.8,320.1c-49.14,4.11-89.72-15.1-122.49-32.9a7.57,7.57,0,0,1-3.34-9.64l22.52-55.44a6.06,6.06,0,0,1,9-2.65c10.5,7.21,40.29,19.4,50.29,22.85a110.55,110.55,0,0,0,37.8,5.48c8.27-.34,20.37-1.48,27-8,4.81-4.72,6.29-10.29,5.67-17.76a27.08,27.08,0,0,0-3.39-11.59,25.7,25.7,0,0,0-8.76-8.53,64.54,64.54,0,0,0-15.25-6.58q-9.3-2.84-22.46-6.17-15.6-3.52-30.68-8.1a93.54,93.54,0,0,1-27.27-13.22A71.52,71.52,0,0,1,907,145.23q-8.22-14-10.09-36.4t4-41.2A90.64,90.64,0,0,1,919.07,34.7a93,93,0,0,1,31.1-22.94Q969,2.94,993,.94a190.94,190.94,0,0,1,47.29,2.27c14.64,2.45,42.53,9.6,58,19.86A7.53,7.53,0,0,1,1101,32.2Z"/><path d="M1169.85,6.05H1241a7.3,7.3,0,0,1,7.3,7.3V259.78a56.8,56.8,0,0,1-56.79,56.8h-19.43a9.85,9.85,0,0,1-9.84-9.85V13.62A7.57,7.57,0,0,1,1169.85,6.05Z"/><path d="M350.39,498.38H305.47a.36.36,0,0,1-.37-.26.37.37,0,0,1,.12-.44l18.47-15.4c18-14.69,29-24.95,29-43.51v-.32c0-20.43-15.11-34.16-37.6-34.16-20,0-30.66,8.77-40.44,21.94a3.41,3.41,0,0,0,.63,4.69l10.81,8.48a3.36,3.36,0,0,0,2.52.69,3.44,3.44,0,0,0,2.26-1.29c8.06-10.3,14.46-14.32,22.81-14.32,9.82,0,16.16,6.1,16.16,15.54,0,8.81-4.47,15.18-19.95,28.39l-37,31.48a3.37,3.37,0,0,0-1.2,2.58v12.39a3.39,3.39,0,0,0,3.39,3.39h75.3a3.39,3.39,0,0,0,3.39-3.39V501.77A3.39,3.39,0,0,0,350.39,498.38Z"/><path d="M529.38,404C513,404,498,410.08,487,421.17a57.8,57.8,0,0,0-16.51,40.89v.31c0,32.93,25.17,57.76,58.54,57.76,16.39,0,31.43-6.1,42.35-17.19a57.8,57.8,0,0,0,16.51-40.88v-.32C587.93,428.81,562.76,404,529.38,404Zm-35.69,57.76c0-21.15,15.21-37.1,35.38-37.1,20.35,0,35.7,16.08,35.7,37.42v.31c0,21.06-15.21,36.94-35.39,36.94-20.35,0-35.69-16-35.69-37.25Z"/><path d="M788.92,498.38H744a.37.37,0,0,1-.37-.26.37.37,0,0,1,.12-.44l18.47-15.4c18-14.69,29-24.95,29-43.51v-.32c0-20.43-15.11-34.16-37.6-34.16-20,0-30.66,8.77-40.44,21.94a3.41,3.41,0,0,0,.63,4.69l10.81,8.48a3.37,3.37,0,0,0,2.52.69,3.4,3.4,0,0,0,2.26-1.29c8.06-10.3,14.46-14.32,22.81-14.32,9.82,0,16.16,6.1,16.16,15.54,0,8.81-4.47,15.18-20,28.39l-37,31.48a3.37,3.37,0,0,0-1.2,2.58v12.39a3.4,3.4,0,0,0,3.4,3.39h75.29a3.39,3.39,0,0,0,3.39-3.39V501.77A3.39,3.39,0,0,0,788.92,498.38Z"/><path d="M968.8,404c-16.39,0-31.43,6.1-42.35,17.19a57.8,57.8,0,0,0-16.51,40.89v.31c0,32.93,25.17,57.76,58.55,57.76,16.39,0,31.43-6.1,42.34-17.19a57.8,57.8,0,0,0,16.51-40.88v-.32C1027.34,428.81,1002.17,404,968.8,404Zm35.38,58.39c0,21.06-15.21,36.94-35.38,36.94-20.35,0-35.7-16-35.7-37.25v-.32c0-21.15,15.21-37.1,35.39-37.1,20.35,0,35.69,16.08,35.69,37.42Z"/></svg>
     </a>
@@ -1897,16 +1918,16 @@
   </div>
 
 
-          </aside>
+                </aside>
 
-        </div>
-        <div class="column is-5-desktop is-order-1-tablet">
+            </div>
+            <div class="column is-5-desktop is-order-1-tablet">
 
-          <div class="primary">
-            <div class="columns is-mobile">
+                <div class="primary">
+                    <div class="columns is-mobile">
 
-              <div class="column">
-                  <div>
+                        <div class="column">
+                              <div>
     <div id="block-footeraction">
   
     
@@ -1947,10 +1968,10 @@
 
   </div>
 
-              </div>
+                        </div>
 
-              <div class="column">
-                  <div>
+                        <div class="column">
+                              <div>
     <div id="block-footer">
   
     
@@ -1991,17 +2012,17 @@
 
   </div>
 
-              </div>
+                        </div>
 
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
 
-      <div class="c-colophon c-colophon--dark c-colophon--bordered">
-        <div class="c-colophon__body">
+        <div class="c-colophon c-colophon--dark c-colophon--bordered">
+            <div class="c-colophon__body">
 
-            <div class="footer__colophon">
+                  <div class="footer__colophon">
     <div id="block-mobiledisclaimer" class="mobile-disclaimer">
   
     
@@ -2020,7 +2041,7 @@
 
   </div>
 
-            <div class="footer__legal">
+                  <div class="footer__legal">
     <div id="block-footerlegal">
   
     
@@ -2038,81 +2059,82 @@
   </div>
 
 
-          <p class="paid-for">
-            Paid for by Tulsi Now          </p>
+                <p class="paid-for">
+                    Paid for by Tulsi Now                </p>
 
-          <p class="copyright u-mb-0x">
-            &copy; 2019 TULSI 2020 <span>|</span> <a class="lang-switcher" href="/es/node/1">en Español</a>
-          </p>
+                <p class="copyright u-mb-0x">
+                    &copy;
+                    2019
+                    TULSI 2020
+                    <span>|</span>
+                    <a class="lang-switcher" href="/es/node/1">en Español</a>
+                </p>
 
+            </div>
         </div>
-      </div>
 
-      <div class="c-footer-tools">
-        <div class="c-footer-tools__body">
-            
+        <div class="c-footer-tools">
+            <div class="c-footer-tools__body">
+                
+            </div>
         </div>
-      </div>
 
     </div>
-  </div>
-</footer>
-
-<!-- Mobile navigation menu -->
-<nav class="c-mobile-nav is-invisible js-mobile-nav">
-  <div data-screen="top" class="c-mobile-nav__screen js-mobile-nav-screen show">
+</div></footer><!-- Mobile navigation menu --><nav class="c-mobile-nav is-invisible js-mobile-nav">
+<div class="c-mobile-nav__screen js-mobile-nav-screen show" data-screen="top">
     <div class="c-mobile-nav__body c-mobile-nav__body--cols">
-      <div class="top">
+        <div
+            class="top">
 
-                <ul class="nav-list large vertical menu">
-              <li class="menu-item">
-                <a href="/about" data-drupal-link-system-path="/about">About</a>
-              </li>
-              <li class="menu-item">
-                <a href="/vision"data-drupal-link-system-path="/vision">Vision</a>
-              </li>
+                        <ul class="nav-list large vertical menu">
+                <li class="menu-item">
+                    <a data-drupal-link-system-path="/about" href="/about">About</a>
+                </li>
+                <li class="menu-item">
+                    <a data-drupal-link-system-path="/vision" href="/vision">Vision</a>
+                </li>
 
                 <li class="menu-item">
-        <a href="/volunteer" data-drupal-link-system-path="node/4" data-screen="volunteer" class="js-mobile-nav-screen-trigger">
-          Get Involved
-          <span class='icon'>
-            <i class="fas fa-caret-right fa-sm"></i>
-          </span>
-        </a>
-              </li>
-              <li class="menu-item has-screen">
-                  <a class="js-mobile-nav-screen-trigger"  data-screen="events" href="https://tulsi.to/events">
-                      Events
-                      <span class='icon'>
-                          <i class="fas fa-caret-right fa-sm"></i>
-                      </span>
-                  </a>
-              </li>
+                    <a class="js-mobile-nav-screen-trigger" data-drupal-link-system-path="node/4" data-screen="volunteer" href="/volunteer">
+                        Get Involved
+                        <span class='icon'>
+                            <i class="fas fa-caret-right fa-sm"></i>
+                        </span>
+                    </a>
+                </li>
+                <li class="menu-item has-screen">
+                    <a class="js-mobile-nav-screen-trigger" data-screen="events" href="https://tulsi.to/events">
+                        Events
+                        <span class='icon'>
+                            <i class="fas fa-caret-right fa-sm"></i>
+                        </span>
+                    </a>
+                </li>
 
-              <li class="menu-item has-screen">
-      <a href="/press" data-screen="press" class="js-mobile-nav-screen-trigger">
-        Press
-        <span class='icon'>
-          <i class="fas fa-caret-right fa-sm"></i>
-        </span>
-      </a>
-            </li>
+                <li class="menu-item has-screen">
+                    <a class="js-mobile-nav-screen-trigger" data-screen="press" href="/press">
+                        Press
+                        <span class='icon'>
+                            <i class="fas fa-caret-right fa-sm"></i>
+                        </span>
+                    </a>
+                </li>
                 <li class="menu-item">
-        <a href="https://shop.tulsi2020.com">Shop</a>
-              </li>
-        </ul>
-      </div>
-
-      <div class="bottom">
-        <div class="cta">
-                  <a href="https://secure.actblue.com/donate/tulsi2020?refcode=web-m-nav" class="contribute button secondary u-mb-0x" target="_blank">Donate</a> 
-
-
-
+                    <a href="https://shop.tulsi2020.com">Shop</a>
+                </li>
+            </ul>
         </div>
 
-        <div class="c-mobile-nav__footer">
-                      <ul class="c-share-menu">
+        <div class="bottom">
+            <div class="cta">
+                        <a href="https://secure.actblue.com/donate/tulsi2020?refcode=web-m-nav" class="contribute button secondary u-mb-0x" target="_blank">Donate</a> 
+
+
+
+            </div>
+
+            <div class="c-mobile-nav__footer">
+                            <ul class="c-share-menu">
       <li class="facebook">
         <a href="https://facebook.com/tulsigabbard" target="_blank">
           <span class="icon">
@@ -2159,109 +2181,120 @@
 
 
 
-          <a class="lang-switcher" href="/es/node/1">en Español</a>
+                <a class="lang-switcher" href="/es/node/1">en Español</a>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
+</div>
 
-  <div class="c-mobile-nav__screen js-mobile-nav-screen" data-screen="events">
-      <div class="c-mobile-nav__body">
-
-          <ul class="nav-list large vertical menu">
-              <li class="menu-item">
-                  <a class="js-mobile-nav-screen-trigger" data-screen="top" href="#">
-                      <span class='icon'>
-                          <i class="fas fa-caret-left fa-sm"></i>
-                      </span>
-                      Back</a>
-              </li>
-          </ul>
-
-          <ul class="nav-list sub vertical menu">
-              <li><a href="https://secure.ngpvan.com/p/uEk71xTbu0iDkh_D4IJSuw2">View All Events</a></li>
-              <li><a href="https://secure.ngpvan.com/p/mpB17nVX0kSTuM1pBYwkBQ2">Official Events</a></li>
-              <li><a href="https://secure.ngpvan.com/p/jA6r9eftj0KWJMIbUssWYA2">Supporter-hosted Events</a></li>
-              <li><a href="https://secure.ngpvan.com/C-Ri-IqpgEuDGm2uX8cjkA2">Host an Event</a></li>
-          </ul>
-
-
-      </div>
-  </div>
-
-
-  <div data-screen="press" class="c-mobile-nav__screen js-mobile-nav-screen">
+<div class="c-mobile-nav__screen js-mobile-nav-screen" data-screen="events">
     <div class="c-mobile-nav__body">
 
-      <ul class="nav-list large vertical menu">
-        <li class="menu-item">
-          <a href="#" data-screen="top" class="js-mobile-nav-screen-trigger">
-            <span class='icon'>
-            <i class="fas fa-caret-left fa-sm"></i>
-          </span>
-          Back</a>
-        </li>
-      </ul>
+        <ul class="nav-list large vertical menu">
+            <li class="menu-item">
+                <a class="js-mobile-nav-screen-trigger" data-screen="top" href="#">
+                    <span class='icon'>
+                        <i class="fas fa-caret-left fa-sm"></i>
+                    </span>
+                    Back</a>
+            </li>
+        </ul>
 
-      <ul class="nav-list sub vertical menu">
-        <li class="menu-item"><a href="/s/event">Event Request</a></li>
-        <li class="menu-item"><a href="/s/meeting">Meeting Request</a></li>
-        <li class="menu-item"><a href="/press">Press Releases</a></li>
-        <li class="menu-item"><a href="/a/press-list">Join Our Press List</a></li>
-        <li class="menu-item"><a href="/press/request">Press Request</a></li>
-      </ul>
+        <ul class="nav-list sub vertical menu">
+            <li>
+                <a href="https://secure.ngpvan.com/p/uEk71xTbu0iDkh_D4IJSuw2">View All Events</a>
+            </li>
+            <li>
+                <a href="https://secure.ngpvan.com/p/mpB17nVX0kSTuM1pBYwkBQ2">Official Events</a>
+            </li>
+            <li>
+                <a href="https://secure.ngpvan.com/p/jA6r9eftj0KWJMIbUssWYA2">Supporter-hosted Events</a>
+            </li>
+            <li>
+                <a href="https://secure.ngpvan.com/C-Ri-IqpgEuDGm2uX8cjkA2">Host an Event</a>
+            </li>
+        </ul>
+
 
     </div>
-  </div>
+</div>
 
-  <div data-screen="volunteer" class="c-mobile-nav__screen js-mobile-nav-screen">
+
+<div class="c-mobile-nav__screen js-mobile-nav-screen" data-screen="press">
     <div class="c-mobile-nav__body">
 
-      <ul class="nav-list large vertical menu">
-        <li class="menu-item">
-          <a href="#" data-screen="top" class="js-mobile-nav-screen-trigger">
-            <span class='icon'>
-            <i class="fas fa-caret-left fa-sm"></i>
-          </span>
-          Back</a>
-        </li>
-      </ul>
+        <ul class="nav-list large vertical menu">
+            <li class="menu-item">
+                <a class="js-mobile-nav-screen-trigger" data-screen="top" href="#">
+                    <span class='icon'>
+                        <i class="fas fa-caret-left fa-sm"></i>
+                    </span>
+                    Back</a>
+            </li>
+        </ul>
 
-      <ul class="nav-list sub vertical menu">
-        <li class="menu-item">
-          <a href="https://secure.actblue.com/donate/tulsi2020?refcode=web-m-nav2">Contribute</a>
-        </li>
-        <li class="menu-item">
-          <a href="/join-us">Sign Up</a>
-        </li>
-        <li class="menu-item">
-          <a href="/volunteer">Volunteer</a>
-        </li>
-        <li class="menu-item">
-          <a href="https://shop.tulsi2020.com" target="_blank">Merchandise</a>
-        </li>
-
-        <li class="menu-item">
-          <a href="https://tulsi.to/donate-today" target="_blank">Alternate Donation Form</a>
-        </li>
-        <li class="menu-item">
-          <a href="https://tulsi.to/mail" target="_blank">Mail Donation Form</a>
-        </li>
-        <li class="menu-item">
-            <a href="https://jobs.lever.co/tulsi2020" target="_blank">Jobs</a>
-        </li>
-
-      </ul>
+        <ul class="nav-list sub vertical menu">
+            <li class="menu-item">
+                <a href="/s/event">Event Request</a>
+            </li>
+            <li class="menu-item">
+                <a href="/s/meeting">Meeting Request</a>
+            </li>
+            <li class="menu-item">
+                <a href="/press">Press Releases</a>
+            </li>
+            <li class="menu-item">
+                <a href="/a/press-list">Join Our Press List</a>
+            </li>
+            <li class="menu-item">
+                <a href="/press/request">Press Request</a>
+            </li>
+        </ul>
 
     </div>
-  </div>
-</nav>
+</div>
 
+<div class="c-mobile-nav__screen js-mobile-nav-screen" data-screen="volunteer">
+    <div class="c-mobile-nav__body">
 
+        <ul class="nav-list large vertical menu">
+            <li class="menu-item">
+                <a class="js-mobile-nav-screen-trigger" data-screen="top" href="#">
+                    <span class='icon'>
+                        <i class="fas fa-caret-left fa-sm"></i>
+                    </span>
+                    Back</a>
+            </li>
+        </ul>
 
-<iframe frameborder="0" scrolling="no" src="//pd.trysera.com/p/14797942988700909568" style="width:1px;height:1px;border:0;"></iframe>
+        <ul class="nav-list sub vertical menu">
+            <li class="menu-item">
+                <a href="https://secure.actblue.com/donate/tulsi2020?refcode=web-m-nav2">Contribute</a>
+            </li>
+            <li class="menu-item">
+                <a href="/join-us">Sign Up</a>
+            </li>
+            <li class="menu-item">
+                <a href="/volunteer">Volunteer</a>
+            </li>
+            <li class="menu-item">
+                <a href="https://shop.tulsi2020.com" target="_blank">Merchandise</a>
+            </li>
 
+            <li class="menu-item">
+                <a href="https://tulsi.to/donate-today" target="_blank">Alternate Donation Form</a>
+            </li>
+            <li class="menu-item">
+                <a href="https://tulsi.to/mail" target="_blank">Mail Donation Form</a>
+            </li>
+            <li class="menu-item">
+                <a href="https://jobs.lever.co/tulsi2020" target="_blank">Jobs</a>
+            </li>
 
+        </ul>
+
+    </div>
+</div></nav><iframe frameborder="0" scrolling="no" src="//pd.trysera.com/p/14797942988700909568" style="width:1px;height:1px;border:0;"></iframe>
 
   </div>
 
@@ -2275,5 +2308,5 @@
 <script src="/sites/default/files/js/js_vCKrChNW59mozSroucXADQaDcEaAkcpSIGU9PiA92jQ.js"></script>
 <script src="https://secure.actblue.com/cf/assets/actblue.js"></script>
 
-  <script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"877e78ad18","applicationID":"229453582","transactionName":"ZlYBY0RZVkRQB0JdCl8cIlRCUVdZHhRXUwBuUAJUXl0=","queueTime":0,"applicationTime":18,"atts":"ShECFQxDRUo=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+  <script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"877e78ad18","applicationID":"229453582","transactionName":"ZlYBY0RZVkRQB0JdCl8cIlRCUVdZHhRXUwBuUAJUXl0=","queueTime":0,"applicationTime":20,"atts":"ShECFQxDRUo=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
 </html>

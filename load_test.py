@@ -1,6 +1,9 @@
 #!/usr/bin/env python
 
+import re
 import urllib2
+
+SEC_PATTERN = re.compile(r'#[a-f0-9]{46}')
 
 CANDIDATES = (
     ('bennet', 'https://michaelbennet.com/vision/drive-economic-opportunity/',),
@@ -40,7 +43,7 @@ def load_test_files():
             web = urllib2.urlopen(req)
             f = open('%s.html' % name, 'wb')
             for l in web:
-                f.write(l)
+                f.write(re.sub(SEC_PATTERN, '', l))
             f.close()
             web.close()
         except StandardError as e:

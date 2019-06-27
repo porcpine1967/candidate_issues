@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 import pickle
+import sys
 
 from candidates import CANDIDATES
 from parse_candidates import Candidate
@@ -44,6 +45,7 @@ def test_candidates():
                     print 'current: %s' % l
 
 if __name__ == '__main__':
-#    pickle_candidates()
+    if len(sys.argv) > 1 and sys.argv[1] == 'p':
+        pickle_candidates()
     test_candidates()
 
