@@ -126,7 +126,7 @@ class Candidate(object):
 
     def load_links(self):
         c_links = set()
-        cp = NavigationHTMLParser(file_as_string(open('%s.html' % self.name)), self.navigation_tag, self.navigation_attr, c_links)
+        cp = NavigationHTMLParser(file_as_string(open('data/test/%s.html' % self.name)), self.navigation_tag, self.navigation_attr, c_links)
         cp.feed(cp.file_as_string)
         self.links = set([l for l in c_links if 'actblue.com' not in l and '/cdn-cgi/l/email-protection' not in l])
 
@@ -134,7 +134,7 @@ class Candidate(object):
         if not self.content_tag:
             return
         c_lines = []
-        cp = ContentHTMLParser(file_as_string(open('%s.html' % self.name)), self.content_tag, self.content_attr, c_lines, self.bad)
+        cp = ContentHTMLParser(file_as_string(open('data/test/%s.html' % self.name)), self.content_tag, self.content_attr, c_lines, self.bad)
         cp.feed(cp.file_as_string)
         lines = [l.strip() for l in c_lines]
         self.lines = [l for l in lines if l]
@@ -171,7 +171,7 @@ def test_navigation():
             sys.exit(1)
     else:
         c = Candidate('gabbard', 'nav', ('id', 'js-takeover-menu',), 'section', ('class', 'issues-lp__accordion'), True)
-    html = file_as_string(open('%s.html' % c.name))
+    html = file_as_string(open('data/test/%s.html' % c.name))
     cp = NavigationHTMLParser(html, c.navigation_tag, c.navigation_attr, c.links)
     cp.feed(cp.file_as_string)
     for link in sorted(list(c.links)):
@@ -191,7 +191,7 @@ def test_content():
     else:
         c = Candidate('gabbard', 'nav', ('id', 'js-takeover-menu',), 'section', ('class', 'issues-lp__accordion'), True)
     c_lines = []
-    html = file_as_string(open('%s.html' % c.name))
+    html = file_as_string(open('data/test/%s.html' % c.name))
     cp = ContentHTMLParser(html, c.content_tag, c.content_attr, c_lines, c.bad)
     cp.feed(cp.file_as_string)
     lines = [l.strip() for l in c_lines]
