@@ -14,7 +14,7 @@ def file_as_string(html_file):
         if in_head:
             contents += l.replace('\xc3\xa1', '').replace('&quot;', '').replace('&hellip;', '').replace('\xe2\x80\x9c', '').replace('\xe2\x80\x9d', '').replace("'<div", '').replace('</di/v>', '').replace('&hellip;', '').replace('&#039;', '')
         else:
-            contents += l.replace("'<div", '').replace('</di/v>', '</div>').replace('&hellip;', '...').replace('&quot;', '')
+            contents += l.replace("'<div", '').replace('</di/v>', '</div>').replace('&hellip;', '...').replace('&quot;', '').replace('\\"', '').replace('font-weight: 400;', '')
     return contents
 
 class ContentHTMLParser(HTMLParser.HTMLParser):
@@ -137,7 +137,7 @@ class Candidate(object):
         self.lines = [l for l in lines if l]
 
 def test_navigation():
-    c = Candidate('yang', 'nav', ('class', 'nav-primary',), None, None, True)
+    c = Candidate('warren', 'nav', ('id', 'js-takeover-menu',), 'section', ('class', 'issues-lp__accordion'), True)
     cp = NavigationHTMLParser(open('%s.html' % c.name), c.navigation_tag, c.navigation_attr, c.links)
     cp.feed(cp.file_as_string)
     for link in sorted(list(c.links)):
