@@ -62,14 +62,14 @@ class ContentHTMLParser(HTMLParser.HTMLParser):
             self.ignore_tag = None
         if not self.tags:
             return
-        if self.tags == [self.tag] or (self.bad > 0 and self.tag == tag):
+        if self.tags == [self.tag] or (self.bad == 'nested' and self.tag == tag):
             self.tags = []
             return
         self.tags.pop()
         if tag in BLOCK_TAGS:
             self.lines.append('')
         elif tag not in INLINE_TAGS and tag not in IGNORE_TAGS:
-            if self.bad < 0:
+            if self.bad == 'not nested':
                 self.tags = []
             elif not self.ignore_tag:
                 raise StandardError(tag)
