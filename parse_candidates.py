@@ -8,7 +8,8 @@ import urllib2
 from candidates import CANDIDATES
 
 BLOCK_TAGS = ('h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'div', 'article', 'header', 'section', 'li', 'blockquote', 'nav', 'title', 'footer', 'br', 'main', 'aside', 'iframe',)
-INLINE_TAGS = ('span', 'a', 'i', 'b', 'strong', 'figure', 'img', 'ul', 'style', 'polygon', 'g', 'svg', 'path', 'button', 'ol', 'script', 'source', 'picture', 'sup', 'hr', 'em', 'video', 'cite', 'q', 'u', 'ins', 'small', 'noscript',)
+INLINE_TAGS = ('span', 'a', 'i', 'b', 'strong', 'figure', 'img', 'ul', 'style', 'polygon', 'g', 'svg', 'path', 'ol', 'script', 'source', 'picture', 'sup', 'hr', 'em', 'video', 'cite', 'q', 'u', 'ins', 'small', 'noscript', 'link',)
+IGNORE_TAGS = ('form', 'script', 'style', 'button', 'svg',)
 
 def file_as_string(html_file):
     contents = ''
@@ -33,12 +34,15 @@ class ContentHTMLParser(HTMLParser.HTMLParser):
         self.tags = []
         self.lines = lines
         self.bad = bad
+        self.ignore_tag = None
         if content_attr:
             self.attr_key, self.attr_value = content_attr
         else:
             self.attr_key = None
 
     def handle_starttag(self, tag, attrs):
+        if tag in IGNORE_TAGS and not self.ignore_tag:
+            self.ignore_tag = tag
         if self.attr_key and tag == self.tag and not self.tags:
             found = False
             for key, value in attrs:
@@ -52,23 +56,26 @@ class ContentHTMLParser(HTMLParser.HTMLParser):
             self.tags.append(tag)
         if len(self.lines) == 0:
             self.lines.append('')
+
     def handle_endtag(self, tag):
+        if tag == self.ignore_tag:
+            self.ignore_tag = None
         if not self.tags:
             return
-        if self.tags == [self.tag]:
+        if self.tags == [self.tag] or (self.bad > 0 and self.tag == tag):
             self.tags = []
             return
         self.tags.pop()
         if tag in BLOCK_TAGS:
             self.lines.append('')
-        elif tag not in INLINE_TAGS:
-            if self.bad:
+        elif tag not in INLINE_TAGS and tag not in IGNORE_TAGS:
+            if self.bad < 0:
                 self.tags = []
-            else:
+            elif not self.ignore_tag:
                 raise StandardError(tag)
 
     def handle_data(self, data):
-        if self.tags:
+        if self.tags and not self.ignore_tag:
             if data.isspace():
                 self.lines[-1] += ' '
             else:
@@ -155,8 +162,10 @@ class Candidate(object):
             req = urllib2.Request(url)
             req.add_header('user-agent', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36')
             html = file_as_string(urllib2.urlopen(req))
-            cp = NavigationHTMLParser(html, self.navigation_tag, self.navigation_attr, self.links)
+            c_links = set()
+            cp = NavigationHTMLParser(html, self.navigation_tag, self.navigation_attr, c_links)
             cp.feed(cp.file_as_string)
+            self.links.update(set([l for l in c_links if 'actblue.com' not in l and '/cdn-cgi/l/email-protection' not in l]))
             c_lines = []
             cp = ContentHTMLParser(html, self.content_tag, self.content_attr, c_lines, self.bad)
             cp.feed(cp.file_as_string)
@@ -170,7 +179,7 @@ class Candidate(object):
 def test_navigation():
     if len(sys.argv) > 1:
         found = False
-        for name, nav_tag, nav_attr, c_tag, c_attr, bad in CANDIDATES:
+        for name, nav_tag, nav_attr, c_tag, c_attr, bad, _ in CANDIDATES:
             if name == sys.argv[1]:
                 c = Candidate(name, nav_tag, nav_attr, c_tag, c_attr, bad)
                 found = True
@@ -189,7 +198,7 @@ def test_navigation():
 def test_content():
     if len(sys.argv) > 1:
         found = False
-        for name, nav_tag, nav_attr, c_tag, c_attr, bad in CANDIDATES:
+        for name, nav_tag, nav_attr, c_tag, c_attr, bad, _ in CANDIDATES:
             if name == sys.argv[1]:
                 c = Candidate(name, nav_tag, nav_attr, c_tag, c_attr, bad)
                 found = True
