@@ -41,7 +41,7 @@ def load_test_files():
             req = urllib2.Request(url)
             req.add_header('user-agent', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36')
             web = urllib2.urlopen(req)
-            f = open('%s.html' % name, 'wb')
+            f = open('data/test/%s.html' % name, 'wb')
             for l in web:
                 f.write(re.sub(SEC_PATTERN, 'email-protection', l))
             f.close()

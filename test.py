@@ -37,12 +37,12 @@ def test_candidates():
         line_file.close()
         if test_lines != c.lines:
             print '%s has unmatching lines' % name
-            for l in test_lines:
-                if l not in c.lines:
-                    print 'test: %s' % l
-            for l in c.lines:
-                if l not in test_lines:
-                    print 'current: %s' % l
+            # for l in test_lines:
+            #     if l not in c.lines:
+            #         print 'test: %s' % l
+            # for l in c.lines:
+            #     if l not in test_lines:
+            #         print 'current: %s' % l
 
 if __name__ == '__main__':
     if len(sys.argv) > 1 and sys.argv[1] == 'p':

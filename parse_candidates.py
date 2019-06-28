@@ -1,24 +1,29 @@
 #!/usr/bin/env python
 
-import urllib2, HTMLParser, sys
+import HTMLParser
+import re
+import sys
+import urllib2
 
 from candidates import CANDIDATES
 
 BLOCK_TAGS = ('h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'div', 'article', 'header', 'section', 'li', 'blockquote', 'nav', 'title', 'footer', 'br', 'main', 'aside', 'iframe',)
-INLINE_TAGS = ('span', 'a', 'i', 'b', 'strong', 'figure', 'img', 'ul', 'style', 'polygon', 'g', 'svg', 'path', 'button', 'ol', 'script', 'source', 'picture', 'sup', 'hr', 'em', 'video', 'cite', 'q', 'u',)
+INLINE_TAGS = ('span', 'a', 'i', 'b', 'strong', 'figure', 'img', 'ul', 'style', 'polygon', 'g', 'svg', 'path', 'button', 'ol', 'script', 'source', 'picture', 'sup', 'hr', 'em', 'video', 'cite', 'q', 'u', 'ins', 'small', 'noscript',)
 
 def file_as_string(html_file):
     contents = ''
+    t = ''
     in_head = True
     for l in html_file:
+        t += l
         if in_head and '</head>' in l:
             in_head = False
         if in_head:
-            contents += l.replace('\xc3\xa1', '').replace('&quot;', '').replace('&hellip;', '').replace('\xe2\x80\x9c', '').replace('\xe2\x80\x9d', '').replace("'<div", '').replace('</di/v>', '').replace('&hellip;', '').replace('&#039;', '').replace('&#8217;', '')
+            contents += l.replace('\xc3\xa1', '').replace('&quot;', '').replace('&hellip;', '').replace('\xe2\x80\x9c', '').replace('\xe2\x80\x9d', '').replace("'<div", '').replace('</di/v>', '').replace('&hellip;', '').replace('&#039;', '').replace('&#8217;', '').replace('&nbsp;', '')
         else:
             contents += l.replace("'<div", '').replace('</di/v>', '</div>').replace('&hellip;', '...').replace('&quot;', '').replace('\\"', '').replace('font-weight: 400;', '').replace("\n", ' ')
     html_file.close()
-    return contents
+    return re.sub(r'data-main="[^"]+"', '', contents)
 
 class ContentHTMLParser(HTMLParser.HTMLParser):
     def __init__(self, html, content_tag, content_attr, lines, bad = False):
@@ -140,15 +145,18 @@ class Candidate(object):
         self.lines = [l for l in lines if l]
 
     def load_pages(self):
+        print self.name
         if not self.urls:
             return
         for url in self.urls:
             page = { 'url': url }
-            c_links = set()
-            html = file_as_string(urllib2.urlopen(url))
-            cp = NavigationHTMLParser(html, self.navigation_tag, self.navigation_attr, c_links)
+            page['filename'] = [part for part in url.split('/') if part][-1]
+            print page['filename']
+            req = urllib2.Request(url)
+            req.add_header('user-agent', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36')
+            html = file_as_string(urllib2.urlopen(req))
+            cp = NavigationHTMLParser(html, self.navigation_tag, self.navigation_attr, self.links)
             cp.feed(cp.file_as_string)
-            page['links'] = set([l for l in c_links if 'actblue.com' not in l])
             c_lines = []
             cp = ContentHTMLParser(html, self.content_tag, self.content_attr, c_lines, self.bad)
             cp.feed(cp.file_as_string)
