@@ -19,9 +19,7 @@ def file_as_string(html_file):
         t += l
         if in_head and '</head>' in l:
             in_head = False
-        if in_head:
-            contents += l.replace('\xc3\xa1', '').replace('&quot;', '').replace('&hellip;', '').replace('\xe2\x80\x9c', '').replace('\xe2\x80\x9d', '').replace("'<div", '').replace('</di/v>', '').replace('&hellip;', '').replace('&#039;', '').replace('&#8217;', '').replace('&nbsp;', '')
-        else:
+        if not in_head:
             contents += l.replace("'<div", '').replace('</di/v>', '</div>').replace('&hellip;', '...').replace('&quot;', '').replace('\\"', '').replace('font-weight: 400;', '').replace("\n", ' ')
     html_file.close()
     return re.sub(r'data-main="[^"]+"', '', contents)
