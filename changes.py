@@ -26,7 +26,7 @@ class CandidatesManager(object):
 
     def load_candidate(self, c):
         c.load_pages()
-        self.working_dir = 'data/changes/{}'.format(c.name)
+        self.working_dir = '{}/data/changes/{}'.format(os.path.dirname(os.path.realpath(__file__)), c.name)
         if not os.path.exists(self.working_dir):
             os.mkdir(self.working_dir)
         self.write_candidate_links(c)
