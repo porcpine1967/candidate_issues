@@ -17,7 +17,13 @@ def pickle_candidates():
         line_file.close()
 
 def test_candidates():
+    search = len(sys.argv) > 1 and sys.argv[1] != 'p'
+    found = False
     for name, nav_tag, nav_attr, c_tag, c_attr, bad, _ in CANDIDATES:
+        if search and name != sys.argv[1]:
+            print 'skipping', name
+            continue
+        found = True
         c = Candidate(name, nav_tag, nav_attr, c_tag, c_attr, bad)
         c.load_links()
         test_links = pickle.load(open('data/test/%s.links' % name))
@@ -49,6 +55,8 @@ def test_candidates():
                     ctr += 1
             if ctr:
                 print ' {} new lines'.format(ctr)
+    if search and not found:
+        print 'no such candidate', sys.argv[1]
 
 if __name__ == '__main__':
     if len(sys.argv) > 1 and sys.argv[1] == 'p':

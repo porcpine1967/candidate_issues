@@ -9,20 +9,23 @@ from candidates import CANDIDATES
 
 BLOCK_TAGS = ('h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'div', 'article', 'header', 'section', 'li', 'blockquote', 'nav', 'title', 'footer', 'br', 'main', 'aside', 'iframe',)
 INLINE_TAGS = ('span', 'a', 'i', 'b', 'strong', 'figure', 'img', 'ul', 'style', 'polygon', 'g', 'svg', 'path', 'ol', 'script', 'source', 'picture', 'sup', 'hr', 'em', 'video', 'cite', 'q', 'u', 'ins', 'small', 'noscript', 'link',)
-IGNORE_TAGS = ('form', 'script', 'style', 'button', 'svg',)
+REPLACEMENTS = ((re.compile(r'<head.*</head>'), '',),
+                (re.compile(r'<script.*?</script>'), '',),
+                (re.compile(r'<style.*?</style>'), '',),
+                (re.compile(r'<form.*?</form>'), '',),
+                (re.compile(r'<button.*?</button>'), '',),
+                (re.compile(r'<svg.*?</svg>'), '',),
+                (re.compile(r'="[^"]*&[^"]*;[^"]*'), '="',),
+                ('</di/v>', '</div>',),)
 
 def file_as_string(html_file):
     contents = ''
-    t = ''
-    in_head = True
     for l in html_file:
-        t += l
-        if in_head and '</head>' in l:
-            in_head = False
-        if not in_head:
-            contents += l.replace("'<div", '').replace('</di/v>', '</div>').replace('&hellip;', '...').replace('&quot;', '').replace('\\"', '').replace('font-weight: 400;', '').replace("\n", ' ')
+        contents += l.replace('\n', ' ')
     html_file.close()
-    return re.sub(r'data-main="[^"]+"', '', contents)
+    for pattern, replacement in REPLACEMENTS:
+        contents = re.sub(pattern, replacement, contents)
+    return contents
 
 class ContentHTMLParser(HTMLParser.HTMLParser):
     def __init__(self, html, content_tag, content_attr, lines, bad = False):
@@ -32,15 +35,12 @@ class ContentHTMLParser(HTMLParser.HTMLParser):
         self.tags = []
         self.lines = lines
         self.bad = bad
-        self.ignore_tag = None
         if content_attr:
             self.attr_key, self.attr_value = content_attr
         else:
             self.attr_key = None
 
     def handle_starttag(self, tag, attrs):
-        if tag in IGNORE_TAGS and not self.ignore_tag:
-            self.ignore_tag = tag
         if self.attr_key and tag == self.tag and not self.tags:
             found = False
             for key, value in attrs:
@@ -56,8 +56,6 @@ class ContentHTMLParser(HTMLParser.HTMLParser):
             self.lines.append('')
 
     def handle_endtag(self, tag):
-        if tag == self.ignore_tag:
-            self.ignore_tag = None
         if not self.tags:
             return
         if self.tags == [self.tag] or (self.bad == 'nested' and self.tag == tag):
@@ -66,14 +64,14 @@ class ContentHTMLParser(HTMLParser.HTMLParser):
         self.tags.pop()
         if tag in BLOCK_TAGS:
             self.lines.append('')
-        elif tag not in INLINE_TAGS and tag not in IGNORE_TAGS:
+        elif tag not in INLINE_TAGS:
             if self.bad == 'not nested':
                 self.tags = []
-            elif not self.ignore_tag:
+            else:
                 raise StandardError(tag)
 
     def handle_data(self, data):
-        if self.tags and not self.ignore_tag:
+        if self.tags:
             if data.isspace():
                 self.lines[-1] += ' '
             else:
