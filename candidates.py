@@ -65,6 +65,7 @@ CANDIDATES = (
     ('hickenlooper', 'nav', ('class', 'elementor-nav-menu__container',), 'div', ('data-id', '4ea4085',), False, ('https://www.hickenlooper.com/issues/',),),
     ('inslee', 'nav', ('class', 'primary',), 'article', None, False, ('https://jayinslee.com/issues',),),
     ('inslee2', None, None, 'div', ('class', 'main',), False, ('https://jayinslee.com/issues/100clean',
+                                                                   'https://jayinslee.com/issues/ready-for-the-future',
                                                                    'https://jayinslee.com/issues/evergreen-economy',
                                                                    'https://jayinslee.com/issues/climate-corp',
                                                                    'https://jayinslee.com/issues/americas-promise',
