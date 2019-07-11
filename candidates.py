@@ -110,7 +110,6 @@ CANDIDATES = (
                                                           'https://berniesanders.com/issues/get-big-money-out-of-politics-and-restore-democracy/',
                                                           'https://berniesanders.com/issues/fair-banking-for-all/',
                                                           'https://berniesanders.com/issues/revitalizing-rural-america/',),),
-    ('swalwell', 'div', ('class', 'site-nav',), 'div', ('class', 'content-wrap'), 'not nested', ('https://ericswalwell.com/my-plan/',),),
     ('warren', 'nav', ('id', 'js-takeover-menu',), 'section', ('class', 'issues-lp__accordion'), 'nested', ('https://elizabethwarren.com/issues',),),
     ('williamson', 'nav', None, 'div', ('class', 'issues',), False, ('https://www.marianne2020.com/issues',),),
     ('williamson2', None, None, 'div', ('class', 'issues-section',), 'not nested', ('https://www.marianne2020.com/issues/child-advocacy',
