@@ -84,6 +84,7 @@ CANDIDATES = (
                                                                               'https://betoorourke.com/lgbtq/',
                                                                               'https://betoorourke.com/choice/',
                                                                               'https://betoorourke.com/small-business/',
+                                                                              'https://betoorourke.com/social-security/',
                                                                               'https://betoorourke.com/veterans/',
                                                                               'https://betoorourke.com/votingrights/',),),
     ('ryan', 'nav', None, 'div', ('class', 'wpb_wrapper',), False, ('https://timryanforamerica.com/issues/',),),
