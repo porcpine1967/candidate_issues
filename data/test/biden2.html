@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en-US" prefix="og: http://ogp.me/ns#" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o||n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({1:[function(e,n,t){function r(){}function o(e,n,t){return function(){return i(e,[c.now()].concat(u(arguments)),n?null:this,t),n?void 0:this}}var i=e("handle"),a=e(3),u=e(4),f=e("ee").get("tracer"),c=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,n){s[n]=o(d+n,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,o="function"==typeof n;return i(l+"tracer",[c.now(),e,t],r),function(){if(f.emit((o?"":"no-")+"fn-start",[c.now(),r,o],t),o)try{return n.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],t),e}finally{f.emit("fn-end",[c.now()],t)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=o(l+n)}),newrelic.noticeError=function(e,n){"string"==typeof e&&(e=new Error(e)),i("err",[e,c.now(),!1,n])}},{}],2:[function(e,n,t){function r(e,n){if(!o)return!1;if(e!==o)return!1;if(!n)return!0;if(!i)return!1;for(var t=i.split("."),r=n.split("."),a=0;a<r.length;a++)if(r[a]!==t[a])return!1;return!0}var o=null,i=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var u=navigator.userAgent,f=u.match(a);f&&u.indexOf("Chrome")===-1&&u.indexOf("Chromium")===-1&&(o="Safari",i=f[1])}n.exports={agent:o,version:i,match:r}},{}],3:[function(e,n,t){function r(e,n){var t=[],r="",i=0;for(r in e)o.call(e,r)&&(t[i]=n(r,e[r]),i+=1);return t}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],4:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(o<0?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=r},{}],5:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function o(e){function n(e){return e&&e instanceof r?e:e?f(e,u,i):i()}function t(t,r,o,i){if(!d.aborted||i){e&&e(t,r,o);for(var a=n(o),u=v(t),f=u.length,c=0;c<f;c++)u[c].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function l(e,n){h[e]=v(e).concat(n)}function m(e,n){var t=h[e];if(t)for(var r=0;r<t.length;r++)t[r]===n&&t.splice(r,1)}function v(e){return h[e]||[]}function g(e){return p[e]=p[e]||o(t)}function w(e,n){c(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var h={},y={},b={on:l,addEventListener:l,removeEventListener:m,emit:t,get:g,listeners:v,context:n,buffer:w,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",f=e("gos"),c=e(3),s={},p={},d=n.exports=o();d.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(o.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){o.buffer([e],r),o.emit(e,n,t)}var o=e("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!E++){var e=x.info=NREUM.info,n=l.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();c(y,function(n,t){e[n]||(e[n]=t)}),f("mark",["onload",a()+x.offset],null,"api");var t=l.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function o(){"complete"===l.readyState&&i()}function i(){f("mark",["domContent",a()+x.offset],null,"api")}function a(){return O.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-x.offset}var u=(new Date).getTime(),f=e("handle"),c=e(3),s=e("ee"),p=e(2),d=window,l=d.document,m="addEventListener",v="attachEvent",g=d.XMLHttpRequest,w=g&&g.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:g,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var h=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1130.min.js"},b=g&&w&&w[m]&&!/CriOS/.test(navigator.userAgent),x=n.exports={offset:u,now:a,origin:h,features:{},xhrWrappable:b,userAgent:p};e(1),l[m]?(l[m]("DOMContentLoaded",i,!1),d[m]("load",r,!1)):(l[v]("onreadystatechange",o),d[v]("onload",r)),f("mark",["firstbyte",u],null,"api");var E=0,O=e(5)},{}]},{},["loader"]);</script>
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-M96J785');</script>
+  <!-- End Google Tag Manager -->
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://joebiden.com/wp-content/themes/bexc/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://joebiden.com/wp-content/themes/bexc/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://joebiden.com/wp-content/themes/bexc/favicons/favicon-16x16.png">
+  <link rel="manifest" href="https://joebiden.com/wp-content/themes/bexc/favicons/site.webmanifest">
+  <link rel="mask-icon" href="https://joebiden.com/wp-content/themes/bexc/favicons/safari-pinned-tab.svg" color="#233f94">
+  <link rel="shortcut icon" href="https://joebiden.com/wp-content/themes/bexc/favicons/favicon.ico">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-config" content="https://joebiden.com/wp-content/themes/bexc/favicons/browserconfig.xml">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>Justice &ndash; Joe Biden for President</title>
+  <script src="https://use.typekit.net/lwk5jsx.js"></script>
+  <script>try{Typekit.load({ async: false });}catch(e){}</script>
+  
+<!-- This site is optimized with the Yoast SEO plugin v11.1.1 - https://yoast.com/wordpress/plugins/seo/ -->
+<link rel="canonical" href="https://joebiden.com/justice/" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Justice &ndash; Joe Biden for President" />
+<meta property="og:description" content="The Biden Plan for Strengthening America’s Commitment to Justice Equality, equity, justice – these ideas form the American creed. We have never lived up to it and we haven’t always gotten it right, but we’ve never stopped trying. This is especially true when it comes to our criminal justice system. Today, too many people are &hellip;" />
+<meta property="og:url" content="https://joebiden.com/justice/" />
+<meta property="og:site_name" content="Joe Biden for President" />
+<meta property="og:image" content="https://joebiden.com/wp-content/uploads/2019/04/biden-share-1200x630.jpg" />
+<meta property="og:image:secure_url" content="https://joebiden.com/wp-content/uploads/2019/04/biden-share-1200x630.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="The Biden Plan for Strengthening America’s Commitment to Justice Equality, equity, justice – these ideas form the American creed. We have never lived up to it and we haven’t always gotten it right, but we’ve never stopped trying. This is especially true when it comes to our criminal justice system. Today, too many people are [&hellip;]" />
+<meta name="twitter:title" content="Justice &ndash; Joe Biden for President" />
+<meta name="twitter:image" content="https://joebiden.com/wp-content/uploads/2019/04/biden-share-1200x630.jpg" />
+<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://joebiden.com/#organization","name":"","url":"https://joebiden.com/","sameAs":[]},{"@type":"WebSite","@id":"https://joebiden.com/#website","url":"https://joebiden.com/","name":"Joe Biden for President","publisher":{"@id":"https://joebiden.com/#organization"},"potentialAction":{"@type":"SearchAction","target":"https://joebiden.com/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"WebPage","@id":"https://joebiden.com/justice/#webpage","url":"https://joebiden.com/justice/","inLanguage":"en-US","name":"Justice &ndash; Joe Biden for President","isPartOf":{"@id":"https://joebiden.com/#website"},"datePublished":"2019-07-23T09:47:26-04:00","dateModified":"2019-07-23T12:05:03-04:00"}]}</script>
+<!-- / Yoast SEO plugin. -->
+
+<link rel='dns-prefetch' href='//joebiden.com' />
+<link rel='stylesheet' id='bexc-main-css'  href='https://joebiden.com/wp-content/themes/bexc/css/main.css?ver=0.45' type='text/css' media='all' />
+<script type='text/javascript' src='https://joebiden.com/wp-content/themes/bexc/js/min/modernizr.min.js?ver=3.6.0'></script>
+<link rel="alternate" type="application/json+oembed" href="https://joebiden.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fjoebiden.com%2Fjustice%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://joebiden.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fjoebiden.com%2Fjustice%2F&#038;format=xml" />
+<link rel="alternate" href="https://joebiden.com/justice/" hreflang="en" />
+<link rel="alternate" href="https://joebiden.com/es/el-plan-biden-para-fortalecer-el-compromiso-de-estados-unidos-con-la-justicia/" hreflang="es" />
+
+</head>
+
+<body class="page-template-default page page-id-1093 language-en">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M96J785"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <a class="skip-link screen-reader-text" href="#main-content">Skip to content</a>
+
+  
+  <div class="site-header-wrapper">
+    <header id="site-header" class="clearfix">
+              <div class="site-title">
+          <a href="https://joebiden.com/" rel="home">
+                        <img src="https://joebiden.com/wp-content/themes/bexc/img/logo.svg" width="135" height="56" alt="Logo for Joe Biden for President">
+          </a>
+        </div>
+            <nav id="nav-header">
+        <ul class="top">
+          <li id="menu-item-34" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-34"><a href="https://joebiden.com/joes-story/">Joe&#8217;s Story</a></li>
+<li id="menu-item-33" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-33"><a href="https://joebiden.com/joes-vision/">Joe&#8217;s Vision</a></li>
+<li id="menu-item-134" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-134"><a href="https://www.mobilize.us/joebiden/">Events</a></li>
+<li id="menu-item-35" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-35"><a href="https://store.joebiden.com/">Store</a></li>
+<li id="menu-item-32" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-32"><a href="https://joebiden.com/join/">Join the Team</a></li>
+                                                                              <li class="translation"><a href="https://joebiden.com/es/el-plan-biden-para-fortalecer-el-compromiso-de-estados-unidos-con-la-justicia/">En Español</a></li>
+                                    
+                                <li class="social">
+              <ul>
+                                                      <li><a href="https://twitter.com/joebiden">
+                      <span class="icon-twitter"></span>
+                      <span class="element-invisible">Twitter</span>
+                    </a></li>
+                                                                        <li><a href="https://www.facebook.com/joebiden">
+                      <span class="icon-facebook"></span>
+                      <span class="element-invisible">Facebook</span>
+                    </a></li>
+                                                                        <li><a href="https://www.instagram.com/joebiden">
+                      <span class="icon-instagram"></span>
+                      <span class="element-invisible">Instagram</span>
+                    </a></li>
+                                                                        <li><a href="https://www.youtube.com/joebiden">
+                      <span class="icon-youtube"></span>
+                      <span class="element-invisible">Youtube</span>
+                    </a></li>
+                                                </ul>
+            </li>
+                  </ul>
+      </nav>
+                        <a href="https://secure.actblue.com/donate/joe2020?refcode=frontpage" class="button red donate-button">Donate</a>
+                    <a class="burger" href="#nav-header">
+        <span class="open">Menu</span>
+        <span class="close">Close</span>
+      </a>
+    </header><!-- #site-header -->
+  </div>
+
+  <div id="main-content">
+
+<main id="main">
+
+                    <div id="donate-bar">
+    <div class="donate-bar">
+              <h2>Support Joe</h2>
+            <ul>
+              <li><a href="https://secure.actblue.com/donate/joe2020?refcode=frontpage?amount=5" class="button red donate">$5</a></li>
+              <li><a href="https://secure.actblue.com/donate/joe2020?refcode=frontpage?amount=10" class="button red donate">$10</a></li>
+              <li><a href="https://secure.actblue.com/donate/joe2020?refcode=frontpage?amount=20" class="button red donate">$20</a></li>
+              <li><a href="https://secure.actblue.com/donate/joe2020?refcode=frontpage?amount=50" class="button red donate">$50</a></li>
+              <li><a href="https://secure.actblue.com/donate/joe2020?refcode=frontpage?amount=100" class="button red donate">$100</a></li>
+              <li><a href="https://secure.actblue.com/donate/joe2020?refcode=frontpage?amount=250" class="button red donate">$250</a></li>
+              <li><a href="https://secure.actblue.com/donate/joe2020?refcode=frontpage?amount=500" class="button red donate">$500</a></li>
+            <li class="other"><a href="https://secure.actblue.com/donate/joe2020?refcode=frontpage" class="button red donate">Other</a></li>
+      </ul>
+    </div>
+  </div>
+
+    <article class="view-page post-1093 page type-page status-publish hentry">
+
+    <header class="entry-header">
+      <h1 class="entry-title">Justice</h1>
+    </header>
+    <div class="entry-content">
+      <figure class="video-wrapper" style="padding: 56.2% 0 0;"><iframe title="The Biden Plan for Strengthening America’s Commitment to Justice" width="500" height="281" src="https://www.youtube.com/embed/XvGUMwRugtY?feature=oembed&#038;rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></figure>
+<p><b>The Biden Plan for Strengthening America’s Commitment to Justice</b></p>
+<p><span style="font-weight: 400;">Equality, equity, justice </span><span style="font-weight: 400;">–</span><span style="font-weight: 400;"> these ideas form the American creed. We have never lived up to it and we haven’t always gotten it right, but we’ve never stopped trying. This is especially true when it comes to our criminal justice system.</span></p>
+<p><span style="font-weight: 400;">Today, too many people are incarcerated in the United States </span><span style="font-weight: 400;">–</span><span style="font-weight: 400;"> and too many of them are black and brown. </span><span style="font-weight: 400;">To build safe and healthy communities, we need to rethink who we’re sending to jail, how we treat those in jail, and how we help them get the health care, education, jobs, and housing they need to successfully rejoin society after they serve their time</span><span style="font-weight: 400;">. </span><b>As president, Joe Biden will strengthen America’s commitment to justice and reform our criminal justice system. </b></p>
+<p><span style="font-weight: 400;">The Biden Plan for Strengthening America’s Commitment to Justice is based on several core principles:</span></p>
+<ul>
+<li style="font-weight: 400;"><strong>We can and must reduce the number of people incarcerated in this country while also reducing crime.</strong> <span style="font-weight: 400;">No one should be incarcerated for drug use alone. Instead, they should be diverted to drug courts and treatment.</span> <span style="font-weight: 400;">Reducing the number of incarcerated individuals will reduce federal spending on incarceration. These savings should be reinvested in the communities impacted by mass incarceration.</span></li>
+<li style="font-weight: 400;"><strong>Our criminal justice system cannot be just unless we root out the racial, gender, and income-based disparities in the system.</strong><span style="font-weight: 400;"> Black mothers and fathers should feel confident that their children are safe walking the streets of America. And, when a police officer pins on that shield and walks out the door, the officer’s family should know they’ll come home at the end of the day. Additionally, women and children are uniquely impacted by the criminal justice system, and the system needs to address their unique needs.</span></li>
+<li style="font-weight: 400;"><strong>Our criminal justice system must be focused on redemption and rehabilitation.</strong><span style="font-weight: 400;"> Making sure formerly incarcerated individuals have the opportunity to be productive members of our society is not only the right thing to do, it will also grow our economy.</span></li>
+<li style="font-weight: 400;"><strong>No one should be profiteering off of our criminal justice system.</strong></li>
+</ul>
+<p><span style="font-weight: 400;">Biden calls for the immediate passage of Congressman Bobby Scott’s </span><a href="https://bobbyscott.house.gov/SAFEJusticeAct"><span style="font-weight: 400;">SAFE Justice Act</span></a><span style="font-weight: 400;">, an evidence-based, comprehensive bill to reform our criminal justice system “</span><a href="https://bobbyscott.house.gov/SAFEJusticeAct"><span style="font-weight: 400;">from front-end sentencing reform to back-end release policies</span></a><span style="font-weight: 400;">.” The Biden Plan will also go further. Biden will take bold action to reduce our prison population, create a more just society, and make our communities safer, by:</span></p>
+<ul>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Preventing crime and providing opportunities for all.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Eliminating racial disparities and ensuring fair sentences.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Offering second chances.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Reducing violence in our communities and supporting survivors of violence.</span></li>
+</ul>
+<p><b>PREVENTING CRIME AND PROVIDING OPPORTUNITIES FOR ALL </b></p>
+<p><span style="font-weight: 400;">Preventing crime is the best way to make our communities safer and reduce incarceration. </span></p>
+<p><span style="font-weight: 400;">Evidence tell us that certain life experiences are strongly correlated with an increased likelihood of future incarceration. </span></p>
+<ul>
+<li style="font-weight: 400;"><span style="font-weight: 400;">The percentage of girls in our juvenile justice system who have a history of physical or sexual abuse could be as high as </span><a href="https://rights4girls.org/wp-content/uploads/r4g/2015/02/2015_COP_sexual-abuse_layout_web-1.pdf"><span style="font-weight: 400;">80 or 90%</span></a><span style="font-weight: 400;">. </span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Roughly </span><a href="https://jlc.org/news/what-foster-care-prison-pipeline"><span style="font-weight: 400;">1 out of every 4</span></a><span style="font-weight: 400;"> children in foster care will interact with the criminal justice system just two years after exiting foster care. </span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Incarcerated individuals have </span><a href="https://nces.ed.gov/pubs2007/2007473.pdf"><span style="font-weight: 400;">lower literacy levels</span></a><span style="font-weight: 400;"> than individuals not involved in the criminal justice system. </span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Too many people with mental health or substance use disorders end up incarcerated.</span></li>
+</ul>
+<p><span style="font-weight: 400;">We have to address these underlying factors to provide opportunities for all and prevent crime and incarceration.</span></p>
+<p><span style="font-weight: 400;">Focusing on addressing these underlying factors is not just the right thing to do, it is also good for our communities and our economy. It costs the federal government about </span><a href="https://www.federalregister.gov/documents/2018/04/30/2018-09062/annual-determination-of-average-cost-of-incarceration"><span style="font-weight: 400;">$100 per day</span></a><span style="font-weight: 400;"> to hold someone in federal prison. And that dollar amount doesn’t begin to capture “</span><a href="https://nicic.gov/who-pays-true-cost-incarceration-families"><span style="font-weight: 400;">the true cost of incarceration</span></a><span style="font-weight: 400;">” </span><span style="font-weight: 400;">–</span><span style="font-weight: 400;"> emotional and financial </span><span style="font-weight: 400;">–</span> <a href="https://nicic.gov/who-pays-true-cost-incarceration-families"><span style="font-weight: 400;">on families</span></a><span style="font-weight: 400;"> whose loved ones are incarcerated. This dollar amount doesn’t capture the ways in which mass incarceration can tear apart the fabric of a community. And, it doesn’t capture the economic impact of removing incarcerated individuals from the labor force.</span></p>
+<p><span style="font-weight: 400;">The Biden Plan will shift our country&#8217;s focus from incarceration to prevention. As president, Biden will:</span></p>
+<ul>
+<li><b>Create a new $20 billion competitive grant program to spur states to shift from incarceration to prevention. </b><span style="font-weight: 400;">To accelerate criminal justice reform at the state and local levels, Biden will create a new grant program inspired by a </span><a href="https://www.brennancenter.org/sites/default/files/publications/The_Reverse_Mass_Incarceration_Act%20.pdf"><span style="font-weight: 400;">proposal</span></a><span style="font-weight: 400;"> by the Brennan Center. States, counties, and cities will receive funding to invest in efforts proven to reduce crime and incarceration, including efforts to address some of the factors like illiteracy and child abuse that are correlated with incarceration. In order to receive this funding, states will have to eliminate mandatory minimums for non-violent crimes, institute earned credit programs, and take other steps to reduce incarceration rates without impacting public safety.</span></li>
+<li><b>Invest in educational opportunity for all.<span style="font-weight: 400;"> To truly create opportunity and address one of the key underlying drivers of crime, President Biden will ensure that no child’s future is determined by their zip code, parents’ income, race, or disability. He’ll start by making pre-K available to every three- and four-year-old. He’ll triple funding for Title I, the federal program funding schools with a high percentage of students from low-income families. This will eliminate the funding gap between white and non-white districts, and rich and poor districts. Biden will also make sure every high school student graduates with either advanced credits or an industry credential in their pocket. And, he’ll make community college free for all qualified students. </span><i><span style="font-weight: 400;">Read Joe Biden’s full </span></i><a href="https://joebiden.com/education/"><i><span style="font-weight: 400;">Plan for Educators, Students, and our Future</span></i></a><i><span style="font-weight: 400;">.</span></i></b></li>
+<li><strong>Expand federal funding for mental health and substance use disorder services and research.</strong><span style="font-weight: 400;"> People experiencing mental health problems and substance use disorders should have access to affordable, quality care long before their situations escalate and they interact with the criminal justice system. The Biden Plan will </span><a href="https://joebiden.com/healthcare/"><span style="font-weight: 400;">expand health insurance coverage so more Americans have access to treatment, ensure enforcement of mental health parity laws, and expand funding for mental health services</span></a><span style="font-weight: 400;">. In addition, Biden will </span><a href="https://joebiden.com/education/"><span style="font-weight: 400;">double the number of psychologists, guidance counselors, nurses, social workers, and other health professionals in our schools so our kids get the mental health care they need.</span></a></li>
+<li style="font-weight: 400;"><b>Get people who should be supported with social services </b><b>–</b><b> instead of in our prisons </b><b>–</b><b> connected to the help they need.</b> <span style="font-weight: 400;">Too often, those in need of mental health care or rehabilitation for a substance use disorder do not get the care that they need. Instead, they end up having interactions with law enforcement that lead to incarceration. The same is true for homeless individuals. That’s not fair to those individuals, and it’s not fair to police officers. To change the nature of these interactions, the Biden Administration will fund initiatives to partner mental health and substance use disorder experts, social workers, and disability advocates with police departments. These service providers will train police officers to better de-escalate interactions with people in severe emotional distress before they become violent. They’ll also help police officers learn how to better approach individuals with certain disabilities, like those with </span><a href="https://www.usnews.com/news/health-news/articles/2019-05-03/for-people-with-autism-encounters-with-police-can-turn-dangerous"><span style="font-weight: 400;">autism</span> </a><span style="font-weight: 400;">or who are deaf, so misunderstanding does not lead to incarceration. And, these service providers will respond to calls with police officers so individuals who should not be in the criminal justice system are diverted to treatment for addiction or mental health problems, or are provided with the housing or other social services they may need.</span></li>
+</ul>
+<p><b>ELIMINATING RACIAL DISPARITIES AND ENSURING FAIR SENTENCES </b></p>
+<p><span style="font-weight: 400;">We need to confront racial and income-based disparities in our justice system and eliminate overly harsh sentencing for non-violent crimes. As president, Biden will:</span></p>
+<ul>
+<li><b>Expand and use the power of the U.S. Justice Department to address systemic misconduct in police departments and prosecutors’ offices. <span style="font-weight: 400;">Using </span><a href="https://www.justice.gov/crt/law-enforcement-misconduct-statute-42-usc-14141"><span style="font-weight: 400;">authority</span></a><span style="font-weight: 400;"> in legislation spearheaded by Biden as senator, the Obama-Biden Justice Department </span><a href="https://www.justice.gov/crt/file/922421/download"><span style="font-weight: 400;">used</span></a><span style="font-weight: 400;"> pattern-or-practice investigations and consent decrees to address circumstances of “</span><a href="https://www.justice.gov/crt/file/922421/download"><span style="font-weight: 400;">systemic police misconduct</span></a><span style="font-weight: 400;">” and to “</span><a href="https://www.justice.gov/crt/file/922421/download"><span style="font-weight: 400;">restore trust between police and communities</span></a><span style="font-weight: 400;">” in cities such as Ferguson. Yet, the Trump Administration’s Justice Department has </span><a href="https://www.justice.gov/opa/press-release/file/1109621/download"><span style="font-weight: 400;">limited</span></a><span style="font-weight: 400;"> the use of this tool. For example, under the Trump Administration, consent decrees between the Justice Department and police departments must now be signed off on by a political appointee from the Department. And, the Justice Department has set an arbitrary limit on how long such consent decrees can remain in place regardless of whether an end to the agreement is warranted. Under the Biden Administration, the Justice Department will again use its authority to root out unconstitutional or unlawful policing. The Biden Administration will reverse the limitations put in place under President Trump, and Biden will appoint Justice Department leadership who will prioritize the role of using pattern-or-practice investigations to strengthen our justice system. In addition, Biden will push for legislation to clarify that this pattern-or-practice investigation authority can also be used to address systemic misconduct by prosecutors’ offices.</span></b></li>
+<li style="font-weight: 400;"><b>Establish an independent Task Force on Prosecutorial Discretion.</b><span style="font-weight: 400;"> Law enforcement officials’ decisions regarding when to arrest, when to charge, and what charges to bring are critical decision-points in our criminal justice system. The charges, for example, can dramatically impact not only what sentence someone ends up with but also whether they are compelled to take a plea bargain. The Biden Administration will create a new task force, placed outside of the U.S. Department of Justice, to make recommendations for tackling discrimination and other problems in our justice system that results from arrest and charging decisions.</span></li>
+<li style="font-weight: 400;"><b>Invest in public defenders’ offices to ensure defendants’ access to quality counsel. </b><span style="font-weight: 400;">To create a fairer criminal justice system, we must ensure that individuals who cannot afford counsel have quality representation. And, access to counsel should be available starting at the moment someone appears before a judge. But, right now, defenders’ resources and support are too decentralized and too hard to access. And, as Vice President Biden knows from his own experience leaving a law firm to be a public defender, the </span><a href="https://theappeal.org/the-high-costs-of-low-pay-for-public-defenders/"><span style="font-weight: 400;">wage disparity</span></a><span style="font-weight: 400;"> for prosecutors and defenders limits the ability of defenders’ offices to recruit the best and brightest. As president, Biden will expand the Obama-Biden </span><a href="https://www.justice.gov/archives/atj/indigent-defense-grants-training-and-technical-assistance"><span style="font-weight: 400;">effort</span></a><span style="font-weight: 400;"> to expand resources for public defenders’ offices.</span></li>
+<li style="font-weight: 400;"><b>Eliminate mandatory minimums.</b><span style="font-weight: 400;"> Biden supports an end to mandatory minimums. As president, he will work for the passage of legislation to repeal mandatory minimums at the federal level. And, he will give states incentives to repeal their mandatory minimums.</span></li>
+<li style="font-weight: 400;"><b>End, once and for all, the federal crack and powder cocaine disparity. </b><span style="font-weight: 400;">The Obama-Biden Administration successfully </span><a href="https://www.congress.gov/bill/111th-congress/senate-bill/1789"><span style="font-weight: 400;">narrowed</span></a><span style="font-weight: 400;"> the unjustified disparity between crack and powder cocaine sentences. The Biden Administration will eliminate this disparity completely, as then-Senator Biden </span><a href="https://www.aclu.org/letter/aclu-letter-urging-senators-support-s-1711-drug-sentencing-reform-and-cocaine-kingpin"><span style="font-weight: 400;">proposed</span></a><span style="font-weight: 400;"> in 2007. And, Biden will ensure that this change is applied retroactively.</span></li>
+<li><b>Decriminalize the use of cannabis and automatically expunge all prior cannabis use convictions.<span style="font-weight: 400;"> Biden believes no one should be in jail because of cannabis use. As president, he will decriminalize cannabis use and automatically expunge prior convictions. And, he will support the legalization of cannabis for medical purposes, leave decisions regarding legalization for recreational use up to the states, and reschedule cannabis as a schedule II drug so researchers can study its positive and negative impacts.</span></b></li>
+<li><strong>End all incarceration for drug use alone and instead divert individuals to drug courts and treatment.</strong><span style="font-weight: 400;"> Biden believes that no one should be imprisoned for the use of illegal drugs alone. Instead, Biden will require federal courts to divert these individuals to drug courts so they receive treatment to address their substance use disorder. He’ll incentivize states to put the same requirements in place. And, he’ll expand funding for federal, state, and local drug courts.</span></li>
+<li><strong>Expand other effective alternatives to detention.</strong> <span style="font-weight: 400;">The Biden Administration will also take an evidence-based approach to increase federal funding for other </span><a href="https://www.ussc.gov/sites/default/files/pdf/research-and-publications/research-publications/2017/20170928_alternatives.pdf"><span style="font-weight: 400;">alternatives-to-detention courts</span><span style="font-weight: 400;"> an</span></a><span style="font-weight: 400;">d related programs for individuals convicted of non-violent crimes, such as </span><a href="https://www.ussc.gov/sites/default/files/pdf/research-and-publications/research-publications/2017/20170928_alternatives.pdf"><span style="font-weight: 400;">veterans courts and youthful offender courts</span></a><span style="font-weight: 400;">.</span></li>
+<li><strong>Eliminate the death penalty.</strong> <a href="https://deathpenaltyinfo.org/policy-issues/innocence"><span style="font-weight: 400;">Over 160 individuals</span></a><span style="font-weight: 400;"> who’ve been sentenced to death in this country since 1973 have later been exonerated. Because we cannot ensure we get death penalty cases right every time, Biden will work to pass legislation to eliminate the death penalty at the federal level, and incentivize states to follow the federal government’s example. These individuals should instead serve life sentences without probation or parole.</span></li>
+<li><strong>Use the president’s clemency power to secure the release of individuals facing unduly long sentences for certain non-violent and drug crimes.</strong> <span style="font-weight: 400;">President Obama used his clemency power more than any of the </span><a href="https://www.pewresearch.org/fact-tank/2017/01/20/obama-used-more-clemency-power/"><span style="font-weight: 400;">10</span></a><span style="font-weight: 400;"> prior presidents. Biden will continue this tradition and broadly use his clemency power for certain non-violent and drug crimes.</span></li>
+<li><b>End the criminalization of poverty. </b>
+<ul>
+<li style="font-weight: 400;"><i><span style="font-weight: 400;">End cash bail: </span></i><span style="font-weight: 400;">Cash bail is the modern-day debtors’ prison. The cash bail system incarcerates people who are presumed innocent. And, it disproportionately harms low-income individuals. Biden will lead a national effort to end cash bail and reform our pretrial system by putting in place, instead, a system that is fair and does not inject further discrimination or bias into the process.</span></li>
+<li style="font-weight: 400;"><i><span style="font-weight: 400;">Stop jailing people for being too poor to pay fines and fees: </span></i><span style="font-weight: 400;">Some people end up unable to escape our justice system because of the very fines and fees that the system levies. Biden will use the grantmaking power of the federal government to incentivize the end of policies that incarcerate people for failing to pay fines and fees. He’ll also target policies to </span><a href="https://finesandfeesjusticecenter.org/tag/drivers-license-suspension/"><span style="font-weight: 400;">revoke driver’s licenses</span></a><span style="font-weight: 400;"> for unpaid parking or speeding tickets. And, he’ll help individuals incarcerated for six months or longer get a true fresh start by incentivizing states to wipe clean any outstanding traffic fines or fees that would prevent them from obtaining a license. These license-related reforms will not apply to licenses revoked for driving while intoxicated, reckless driving, or other serious driving violations.</span></li>
+</ul>
+</li>
+<li style="font-weight: 400;"><b>Stop corporations from profiteering off of incarceration.<span style="font-weight: 400;"> Biden will end the federal government’s use of private prisons, building off an Obama-Biden Administration’s </span><a href="https://www.justice.gov/archives/opa/file/886311/download"><span style="font-weight: 400;">policy</span></a> <a href="https://www.bop.gov/resources/news/pdfs/20170224_doj_memo.pdf"><span style="font-weight: 400;">rescinded</span></a><span style="font-weight: 400;"> by the Trump Administration. And, he will make clear that the federal government should not use private facilities for any detention, including detention of undocumented immigrants. Biden will also make eliminating private prisons and all other methods of profiteering off of incarceration </span><span style="font-weight: 400;">–</span><span style="font-weight: 400;"> including </span><a href="https://www.nclc.org/images/pdf/criminal-justice/report-commercialized-injustice.pdf"><span style="font-weight: 400;">diversion programs, commercial bail, and electronic monitoring</span></a> <span style="font-weight: 400;">–</span><span style="font-weight: 400;"> a requirement for his new state and local prevention grant program. Finally, Biden will support the passage of </span><a href="https://www.congress.gov/bill/115th-congress/senate-bill/2520/text"><span style="font-weight: 400;">legislation</span></a><span style="font-weight: 400;"> to crack down on the practice of private companies charging incarcerated individuals and their families outrageously high fees to make calls.</span></b></li>
+<li style="font-weight: 400;"><b>Provide for the unique needs of incarcerated women. </b><span style="font-weight: 400;">Women inherently have different basic health care needs than incarcerated men. Biden will condition receipt of federal criminal justice grants on </span><a href="https://www.ncchc.org/womens-health-care"><span style="font-weight: 400;">adequate provision</span></a><span style="font-weight: 400;"> of primary care and gynecological care for women, including care for pregnant women. The Biden Administration will also review the efficacy of programs that allow non-violent offenders who are primary care providers for their children to serve their sentences through in-home monitoring.</span></li>
+<li style="font-weight: 400;"><b>Ensure humane prison conditions.</b><span style="font-weight: 400;"> Biden believes no act can justify the inhumane treatment of an individual in the hands of the government. As president, Biden will call for an overhaul of inhumane prison practices. He’ll start by ending the practice of solitary confinement, with very limited exceptions such as protecting the life of an imprisoned person. And, he’ll require states to fix environmental health problems in prisons, such as a lack of clean water and clean air. </span></li>
+<li style="font-weight: 400;"><b>Encourage states to collect sufficient data so we can make evidence-based criminal justice policies and eliminate disparities. </b><span style="font-weight: 400;">Data is a powerful tool to shine light on and spur action to address biases in our criminal justice system, but we have insufficient data to fully understand these biases. For example, the </span><a href="https://apps.urban.org/features/latino-criminal-justice-data/"><span style="font-weight: 400;">vast majority of states</span></a><span style="font-weight: 400;"> do not collect and report information regarding the ethnicity of individuals who interact with the criminal justice system. This leads to a lack of information regarding how Latinx are impacted by the system. The Biden Administration will encourage states to add information regarding ethnicity to their criminal justice data collection.</span></li>
+</ul>
+<table>
+<tbody>
+<tr>
+<td><b>JUVENILE JUSTICE</b></p>
+<p><span style="font-weight: 400;">As president, Biden will prioritize reform of the juvenile justice system to make sure we give more children a second chance to live up to their potential. His administration will develop and implement policies in this space based upon input from children and young adults who interacted with the criminal justice system as children.</span></p>
+<p><span style="font-weight: 400;">To begin, the Biden Administration will:</span></p>
+<ul>
+<li style="font-weight: 400;"><b>Invest $1 billion per year in juvenile justice reform.</b><span style="font-weight: 400;"> One of the federal government’s most significant tools for shaping juvenile justice policy is through grant programs to fund and incentivize state action. The Juvenile Justice and Delinquency Prevention Act allows states to use funds for </span><a href="https://crsreports.congress.gov/product/pdf/IN/IN11076"><span style="font-weight: 400;">purposes such as</span></a><span style="font-weight: 400;"> providing children with legal representation and helping them seal and expunge records. In return for taking these funds, states have to fulfill </span><a href="https://crsreports.congress.gov/product/pdf/IN/IN11076"><span style="font-weight: 400;">requirements such as</span></a><span style="font-weight: 400;"> prohibiting children from being incarcerated in facilities where they will interact with incarcerated adults and addressing the disproportionate representation of children of color in the juvenile justice system. Congress recently reauthorized this Act at a funding level of </span><a href="https://crsreports.congress.gov/product/pdf/IN/IN11076"><span style="font-weight: 400;">$176 million</span></a><span style="font-weight: 400;"> per year, but only appropriated </span><a href="https://crsreports.congress.gov/product/pdf/IN/IN11076"><span style="font-weight: 400;">$60 million</span></a><span style="font-weight: 400;"> in funds for fiscal year 2019. As president, Biden will push for full funding of the Act and then go further, investing a total of $1 billion per year to reform our juvenile justice system.</span></li>
+<li style="font-weight: 400;"><b>Incentivize states to stop incarcerating kids.</b><span style="font-weight: 400;"> We can cut the population of incarcerated youth by supporting community-based alternatives to incarceration like mentorship, counseling, and jobs. This doesn’t mean ankle bracelets, it means in-person support for our kids. Toward this end, President Biden will create a new grant program to encourage states to (1) place non-violent youth in community-based alternatives to prison, and (2) </span><a href="https://www.urban.org/sites/default/files/transforming_closed_youth_prisons_two_pager.pdf"><span style="font-weight: 400;">repurpose</span></a><span style="font-weight: 400;"> empty prisons for the community’s benefit so they cannot be used in the future for detention. This initiative will begin as a $100 million pilot program in 15-30 states and counties. To receive this grant funding, localities will be required to bring young people and impacted communities to the table as they develop plans for reducing juvenile incarceration.</span></li>
+<li style="font-weight: 400;"><b>Expand funding for after-school programs, community centers, and summer jobs to keep young people active, busy, learning, and having fun. </b><span style="font-weight: 400;">Biden will expand the federal investment in programs that create safe, nurturing spaces for children to spend time when not in school. Biden will also create an expanded national summer jobs program for young adults so they have an opportunity to stay busy, earn an income, and learn new skills. </span></li>
+<li style="font-weight: 400;"><b>End the use of detention as punishment for status offenses. </b><a href="https://www.vera.org/projects/status-offense-reform-center"><span style="font-weight: 400;">Thousands of minors</span></a><span style="font-weight: 400;"> interact with our justice system every year merely because they commit an unlawful act that would be legal if they were older. Children end up incarcerated due to acts such as </span><a href="https://www.vera.org/projects/status-offense-reform-center/learn-more"><span style="font-weight: 400;">truancy, alcohol use, and curfew violations</span></a><span style="font-weight: 400;">. Biden will add to juvenile justice grant programs a requirement that states eliminate detention as a punishment for status offenses, and instead make sure these young people engage in community service, workforce programs, or mentorship and therapy as needed.</span></li>
+<li style="font-weight: 400;"><b>End the school to prison pipeline by focusing on prevention. </b><span style="font-weight: 400;">Biden will focus on investing in prevention in our schools. He’ll start by </span><a href="https://joebiden.com/education/"><span style="font-weight: 400;">doubling the number of mental health professionals in our schools</span></a><span style="font-weight: 400;"> so behavioral and emotional challenges can be addressed by appropriately skilled psychologists, counselors, and social workers, not our criminal justice system. And, he will restore the Obama-Biden Administration </span><a href="https://www.ed.gov/news/press-releases/us-departments-education-and-justice-release-school-discipline-guidance-package-"><span style="font-weight: 400;">guidance</span></a><span style="font-weight: 400;"> to help schools address the high number of suspensions and expulsions that affect students of color at a higher rate than white students. </span></li>
+<li><b>Give children a true second chance by protecting juvenile records.</b><span style="font-weight: 400;"> A fundamental aim of the juvenile justice system is to give minors who commit offenses a real chance to reach their full potential as adults. But, they cannot do so if their criminal records are made public or are otherwise accessible in ways that limit their access to education and/or jobs. </span><a href="https://juvenilerecords.jlc.org/juvenilerecords/#!/map"><span style="font-weight: 400;">In states across the country</span></a><span style="font-weight: 400;">, protections for juvenile records are inadequate. Biden will add to existing juvenile justice grant programs a requirement that states and localities take action to secure these records, including </span><a href="https://juvenilerecords.jlc.org/juvenilerecords/#!/map"><span style="font-weight: 400;">automatic expungement and sealing</span></a><span style="font-weight: 400;"> of juvenile records.</span></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p><b> OFFERING SECOND CHANCES</b></p>
+<p><span style="font-weight: 400;">Biden believes in redemption. After incarcerated individuals serve their time, they should have the opportunity to fully reintegrate into society, earn a good living, and participate in our democracy as our fellow citizens. It will not only benefit them, it will benefit all of society. It is also our best strategy to reduce recidivism. </span></p>
+<p><span style="font-weight: 400;">President Biden will:</span></p>
+<ul>
+<li style="font-weight: 400;"><b>Set a national goal of ensuring 100% of formerly incarcerated individuals have housing upon reentry.</b><span style="font-weight: 400;"> If incarcerated individuals do not find housing upon reentry, that lack of housing can be completely destabilizing and limit their likelihood of successfully staying out of the criminal justice system and fulfilling their potential. Biden will work toward a goal of ensuring 100% of formerly incarcerated individuals &#8211; at the federal and state level &#8211; have housing upon release. He’ll start by directing the U.S. Department of Housing and Urban Development to only contract with entities that are open to housing individuals looking for a second chance. And, he’ll expand funding for transitional housing, which has been </span><a href="https://www.reuters.com/article/us-usa-justice-prisons-exclusive/exclusive-trump-administration-reduces-support-for-prisoner-halfway-houses-idUSKBN1CI2ZA"><span style="font-weight: 400;">drastically cut</span></a><span style="font-weight: 400;"> under the Trump Administration.</span></li>
+<li style="font-weight: 400;"><b>Expand access to mental health and substance use disorder treatment, as well as educational opportunities and job training for individuals during and after incarceration. </b><span style="font-weight: 400;">Jails are not the preferred approach for rehabilitation. That’s why the Biden Administration will expand the use of drug courts and other diversion programs, as described above. But, when individuals end up incarcerated and are experiencing mental health problems or a substance use disorder, they should have access to adequate treatment. And, all incarcerated individuals should have the opportunity to pursue education and skills training so they can more easily find employment after their release. Incarcerated individuals should have the opportunity to learn to read, earn a GED, or learn a new trade while imprisoned. The Biden Administration will expand funding for all of these programs and services, during and after incarceration.</span></li>
+<li style="font-weight: 400;"><b>Eliminate existing barriers preventing formerly incarcerated individuals from fully participating in society. </b><span style="font-weight: 400;">There are numerous provisions existing in federal, state, and local laws that prohibit formerly incarcerated individuals or individuals on probation from accessing resources they need to pursue their second chance. Biden will direct his Cabinet to pursue a comprehensive review to identify these barriers. Then, he will work to eliminate these barriers through executive action, when authorized, and through legislation. For example, Biden will eliminate barriers keeping formerly incarcerated individuals from accessing public assistance such as SNAP, Pell grants, and housing support. He will streamline the process for giving individuals on probation or parole for non-violent offenses access to </span><a href="https://www.jobcorps.gov/"><span style="font-weight: 400;">Job Corps</span></a><span style="font-weight: 400;">. The Biden Administration will incentivize states to automatically restore voting rights for individuals convicted of felonies once they have served their sentences. And, the Biden Administration will expand on the Obama-Biden Administration&#8217;s </span><a href="https://obamawhitehouse.archives.gov/the-press-office/2016/11/30/fact-sheet-white-house-announces-new-commitments-fair-chance-business"><span style="font-weight: 400;">“ban the box” policy</span></a><span style="font-weight: 400;"> by encouraging further adoption of these policies </span><a href="https://www.nelp.org/publication/ban-the-box-fair-chance-hiring-state-and-local-guide/"><span style="font-weight: 400;">at the state and local level</span></a><span style="font-weight: 400;">. This effort will not include any automatic restoration of firearms rights.</span></li>
+</ul>
+<p><b> REDUCING VIOLENCE AND SUPPORTING SURVIVORS OF VIOLENCE</b></p>
+<p><span style="font-weight: 400;">We should pursue evidence-based measures to root out persistent violent crime. Violent offenders need to be held accountable, and survivors need to have access to support to deal with the physical, psychological, and financial consequences of violence.</span></p>
+<p><span style="font-weight: 400;">President Biden will:</span></p>
+<ul>
+<li style="font-weight: 400;"><b>Counter the rise in hate crimes. </b><span style="font-weight: 400;">The number of hate crimes in the United States reached a five-year high in 2016, and then went up another 17% in 2017. Biden will tackle the rise in hate crimes through moral leadership that makes clear such vitriol has no place in the United States. And, in the Biden Administration, the Justice Department will prioritize prosecuting hate crimes.</span></li>
+<li style="font-weight: 400;"><b>Reinvigorate community-oriented policing. </b><span style="font-weight: 400;">Policing works best when officers are out of their cruisers and walking the streets, engaging with and getting to know members of their communities. But in order to do that, police departments need resources to hire a sufficient number of officers. Biden spearheaded the Community Oriented Policing Services (COPS) program, which authorized funding both for the hiring of additional police officers and for training on how to undertake a community policing approach. However, the program has </span><a href="https://fas.org/sgp/crs/misc/RL33308.pdf"><span style="font-weight: 400;">never been funded</span></a><span style="font-weight: 400;"> to fulfill the original vision for community policing. Biden will reinvigorate the COPS program with a $300 million investment. As a condition of the grant, hiring of police officers must mirror the racial diversity of the community they serve. Additionally, as president, Biden will establish a panel to scrutinize what equipment is used by law enforcement in our communities.</span></li>
+<li><b>Defeat the National Rifle Association – again. <span style="font-weight: 400;">In the months ahead, Biden will also detail his plan to tackle the public health epidemic of gun violence in America, starting with universal background checks and bans on assault weapons and high-capacity magazines. Biden’s plan to reduce gun violence will address not only mass shootings but also daily acts of gun violence that don’t make national headlines. Biden has defeated the National Rifle Association on the national stage twice before. As president, he will defeat the NRA again.</span></b></li>
+<li style="font-weight: 400;"><b>Reduce violence against women. </b><span style="font-weight: 400;">As the original author of the Violence Against Women Act, Biden will work to reauthorize and continue to strengthen the Act, accelerating progress in decreasing violence against women and girls and providing survivors with support. He’ll put forward a detailed plan in the months ahead.</span></li>
+<li style="font-weight: 400;"><b>Support survivors of violence, communities experiencing violence, and first responders by addressing the impacts of trauma.</b><span style="font-weight: 400;"> Violence causes ripples of trauma throughout our communities, impacting not just the victims of violence but also their communities and first responders. And, violence can have a traumatic impact on a generation. Fear of school shootings is having a </span><a href="https://www.apa.org/news/press/releases/stress/2018/stress-gen-z.pdf"><span style="font-weight: 400;">noticeable impact</span></a><span style="font-weight: 400;"> on the mental health of Gen Z. In addition to expanding funding for traditional mental health treatment and doubling the number of mental health professionals in our schools, Biden will take three key actions to address the trauma caused by violence. First, he will fund a demonstration project to help schools pursue non-traditional approaches to healing trauma, such as art and sports. Second, he will direct the U.S. Department of Health and Human Services to undertake a comprehensive review of all federal programs to identify how they can be more trauma-informed and support survivors of violence. Third, Biden will work to raise the funding cap for the </span><a href="https://www.ovc.gov/"><span style="font-weight: 400;">Victims of Crime Act programs</span></a><span style="font-weight: 400;"> and replace with direct funding any lost revenue for the program due to proposals in this package. The Victims of Crime Act programs provide </span><a href="https://www.ovc.gov/grants/types.html#formulagrants"><span style="font-weight: 400;">financial support to help</span></a><span style="font-weight: 400;"> victims of crimes pay for expenses including medical and dental costs, counseling, lost wages, and temporary lodging expenses that result from the crime.</span></li>
+</ul>
+    </div>
+  </article>
+
+
+</main><!-- #main -->
+
+
+</div><!-- #main-content -->
+
+<footer id="site-footer">
+        <ul class="social">
+                        <li><a href="https://twitter.com/joebiden">
+            <span class="icon-twitter"></span>
+            <span class="element-invisible">Twitter</span>
+          </a></li>
+                                <li><a href="https://www.facebook.com/joebiden">
+            <span class="icon-facebook"></span>
+            <span class="element-invisible">Facebook</span>
+          </a></li>
+                                <li><a href="https://www.instagram.com/joebiden">
+            <span class="icon-instagram"></span>
+            <span class="element-invisible">Instagram</span>
+          </a></li>
+                                <li><a href="https://www.youtube.com/joebiden">
+            <span class="icon-youtube"></span>
+            <span class="element-invisible">Youtube</span>
+          </a></li>
+                  </ul>
+  
+      <div class="disclaimer">Paid for by Biden for President.</div>
+  
+      <div class="footer-text"><p>Support our presidential campaign to elect Joe Biden by signing up to <a href="https://go.joebiden.com/page/s/volunteer">volunteer</a> or making a <a href="https://joebiden.com/donate">donation</a>.</p>
+</div>
+  
+  <nav id="nav-footer">
+      <ul class="menu">
+      <li id="menu-item-357" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-357"><a href="https://jobs.lever.co/joebiden">Work with Us</a></li>
+<li id="menu-item-801" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-801"><a href="https://go.joebiden.com/page/s/contact-us">Contact Us</a></li>
+<li id="menu-item-61" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-61"><a href="https://joebiden.com/privacy-policy/">Privacy Policy</a></li>
+<li id="menu-item-567" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-567"><a href="https://joebiden.com/terms/">Terms and Conditions</a></li>
+      <li>
+        &copy; Copyright 2019. All rights reserved.      </li>
+    </ul>
+  </nav>
+</footer><!-- #site-footer -->
+
+            <script type="text/javascript">
+      var modal_expires = 0;
+            var modal_cookie = 'modal-lightbox';
+            </script>
+      <div class="modal-wrapper" id="modal">
+        <div class="modal-container">
+          <div class="modal">
+            <div class="modal-outer">
+              <div class="modal-inner">
+                <a class="close modal-close" href="#site-header">Close</a>
+                <h2>
+                                      <div class="title">Say You're On</div>
+                                                        <div class="title light">Team Joe!</div>
+                                  </h2>
+                                                  <div class="body"><p>Joe was AMAZING at the debate!</p>
+<p><strong>Help us get 10,000 new supporters standing with Joe since the debate:</strong></p>
+</div>
+                                                  <form name="signup" class="bsd-signup" action="https://go.joebiden.com/page/s/sign_up_splash" data-ajax="https://go.joebiden.com/page/sapi/sign_up_splash" method="post">
+
+                    <div class="fieldset" id="bsd-field-email">
+                      <div class="label"><label class="field" for="email">Email Address</label></div>
+                      <div class="input"><input type="email" class="text" size="48" id="email" name="email" required="required"></div>
+                    </div>
+
+                    <div class="form-inline clearfix">
+                      <div class="fieldset" id="bsd-field-mobile">
+                        <div class="label"><label class="field" for="mobile">Mobile Phone</label></div>
+                        <div class="input"><input type="tel" class="text" size="15" id="mobile" name="mobile"></div>
+                      </div>
+
+                      <div class="fieldset" id="bsd-field-zip">
+                        <div class="label"><label class="field" for="zip">ZIP Code</label></div>
+                        <div class="input"><input size="8" id="zip" name="zip" type="text" class="text" required="required"></div>
+                      </div>
+                    </div>
+
+                                                                                            <div class="fieldset" id="bsd-field-custom-1571-group">
+                            <div class="input checkbox">
+                              <input id="custom-1571_0" class="custom-1571" name="__custom-1571[0]" type="checkbox" value="1" onclick="if (this.checked) { this.form['custom-1571[0]'].value='Sign up for volunteer updates'; }else { this.form['custom-1571[0]'].value=''; } ">
+                              <label for="custom-1571_0">Sign up for volunteer updates</label>
+                              <input type="hidden" name="custom-1571[0]" value="">
+                            </div>
+                          </div>
+                                                                  
+                                          <input value="Let's go" type="submit" class="button red" data-submitting="Submitting"  data-success="Success">
+                                      </form>
+                                                  <div class="disclaimer"><p>By providing your mobile phone number you consent to receive recurring text messages from Biden for President. Message &amp; Data Rates May Apply. Text HELP for Info. Text STOP to opt out. No purchase necessary. <a href="https://joebiden.com/terms/">Terms and Conditions</a> and <a href="https://joebiden.com/privacy-policy/">Privacy Policy</a>.</p>
+</div>
+                              </div>
+            </div>
+                          <div class="background" style="background-image: url(https://joebiden.com/wp-content/uploads/2019/04/join-overlay-2-optimized.jpg);"></div>
+                      </div>
+        </div>
+      </div>
+      
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+window.jQuery || document.write("<script src='https://joebiden.com/wp-content/themes/bexc/js/min/jquery.min.js'>\x3C/script>")
+//--><!]]>
+</script>
+
+<script type='text/javascript' src='https://joebiden.com/wp-content/themes/bexc/js/min/plugins.min.js?ver=0.45'></script>
+<script type='text/javascript' src='https://joebiden.com/wp-content/themes/bexc/js/min/js.cookie.min.js?ver=2.2.0'></script>
+<script type='text/javascript' src='https://joebiden.com/wp-content/themes/bexc/js/min/bodyScrollLock.min.js?ver=0.45'></script>
+<script type='text/javascript' src='https://joebiden.com/wp-content/themes/bexc/js/min/slick.min.js?ver=0.45'></script>
+<script type='text/javascript' src='https://joebiden.com/wp-content/themes/bexc/js/min/main.min.js?ver=0.45'></script>
+<script type='text/javascript' src='https://joebiden.com/wp-includes/js/wp-embed.min.js?ver=5.2.1'></script>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"853c31a225","applicationID":"143000334","transactionName":"MVxbNkICCxEEVUZaWwgWeAFECgoMSkZTVFE=","queueTime":0,"applicationTime":405,"atts":"HRtYQAoYGB8=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>

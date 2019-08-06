@@ -2,7 +2,7 @@ c__builtin__
 set
 p0
 ((lp1
-S'/es/node/1'
+S'/record'
 p2
 aS'https://secure.ngpvan.com/p/uEk71xTbu0iDkh_D4IJSuw2?ms=web-events-nav'
 p3
@@ -12,7 +12,7 @@ aS'/about'
 p5
 aS'/volunteer'
 p6
-aS'/vision'
+aS'/es/record'
 p7
 atp8
 Rp9

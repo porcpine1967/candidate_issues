@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o||n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({1:[function(e,n,t){function r(){}function o(e,n,t){return function(){return i(e,[c.now()].concat(u(arguments)),n?null:this,t),n?void 0:this}}var i=e("handle"),a=e(3),u=e(4),f=e("ee").get("tracer"),c=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,n){s[n]=o(d+n,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,o="function"==typeof n;return i(l+"tracer",[c.now(),e,t],r),function(){if(f.emit((o?"":"no-")+"fn-start",[c.now(),r,o],t),o)try{return n.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],t),e}finally{f.emit("fn-end",[c.now()],t)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=o(l+n)}),newrelic.noticeError=function(e,n){"string"==typeof e&&(e=new Error(e)),i("err",[e,c.now(),!1,n])}},{}],2:[function(e,n,t){function r(e,n){if(!o)return!1;if(e!==o)return!1;if(!n)return!0;if(!i)return!1;for(var t=i.split("."),r=n.split("."),a=0;a<r.length;a++)if(r[a]!==t[a])return!1;return!0}var o=null,i=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var u=navigator.userAgent,f=u.match(a);f&&u.indexOf("Chrome")===-1&&u.indexOf("Chromium")===-1&&(o="Safari",i=f[1])}n.exports={agent:o,version:i,match:r}},{}],3:[function(e,n,t){function r(e,n){var t=[],r="",i=0;for(r in e)o.call(e,r)&&(t[i]=n(r,e[r]),i+=1);return t}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],4:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(o<0?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=r},{}],5:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function o(e){function n(e){return e&&e instanceof r?e:e?f(e,u,i):i()}function t(t,r,o,i){if(!d.aborted||i){e&&e(t,r,o);for(var a=n(o),u=v(t),f=u.length,c=0;c<f;c++)u[c].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function l(e,n){h[e]=v(e).concat(n)}function m(e,n){var t=h[e];if(t)for(var r=0;r<t.length;r++)t[r]===n&&t.splice(r,1)}function v(e){return h[e]||[]}function g(e){return p[e]=p[e]||o(t)}function w(e,n){c(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var h={},y={},b={on:l,addEventListener:l,removeEventListener:m,emit:t,get:g,listeners:v,context:n,buffer:w,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",f=e("gos"),c=e(3),s={},p={},d=n.exports=o();d.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(o.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){o.buffer([e],r),o.emit(e,n,t)}var o=e("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!E++){var e=x.info=NREUM.info,n=l.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();c(y,function(n,t){e[n]||(e[n]=t)}),f("mark",["onload",a()+x.offset],null,"api");var t=l.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function o(){"complete"===l.readyState&&i()}function i(){f("mark",["domContent",a()+x.offset],null,"api")}function a(){return O.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-x.offset}var u=(new Date).getTime(),f=e("handle"),c=e(3),s=e("ee"),p=e(2),d=window,l=d.document,m="addEventListener",v="attachEvent",g=d.XMLHttpRequest,w=g&&g.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:g,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var h=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1123.min.js"},b=g&&w&&w[m]&&!/CriOS/.test(navigator.userAgent),x=n.exports={offset:u,now:a,origin:h,features:{},xhrWrappable:b,userAgent:p};e(1),l[m]?(l[m]("DOMContentLoaded",i,!1),d[m]("load",r,!1)):(l[v]("onreadystatechange",o),d[v]("onload",r)),f("mark",["firstbyte",u],null,"api");var E=0,O=e(5)},{}]},{},["loader"]);</script>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o||n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({1:[function(e,n,t){function r(){}function o(e,n,t){return function(){return i(e,[c.now()].concat(u(arguments)),n?null:this,t),n?void 0:this}}var i=e("handle"),a=e(3),u=e(4),f=e("ee").get("tracer"),c=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,n){s[n]=o(d+n,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,o="function"==typeof n;return i(l+"tracer",[c.now(),e,t],r),function(){if(f.emit((o?"":"no-")+"fn-start",[c.now(),r,o],t),o)try{return n.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],t),e}finally{f.emit("fn-end",[c.now()],t)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=o(l+n)}),newrelic.noticeError=function(e,n){"string"==typeof e&&(e=new Error(e)),i("err",[e,c.now(),!1,n])}},{}],2:[function(e,n,t){function r(e,n){if(!o)return!1;if(e!==o)return!1;if(!n)return!0;if(!i)return!1;for(var t=i.split("."),r=n.split("."),a=0;a<r.length;a++)if(r[a]!==t[a])return!1;return!0}var o=null,i=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var u=navigator.userAgent,f=u.match(a);f&&u.indexOf("Chrome")===-1&&u.indexOf("Chromium")===-1&&(o="Safari",i=f[1])}n.exports={agent:o,version:i,match:r}},{}],3:[function(e,n,t){function r(e,n){var t=[],r="",i=0;for(r in e)o.call(e,r)&&(t[i]=n(r,e[r]),i+=1);return t}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],4:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(o<0?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=r},{}],5:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function o(e){function n(e){return e&&e instanceof r?e:e?f(e,u,i):i()}function t(t,r,o,i){if(!d.aborted||i){e&&e(t,r,o);for(var a=n(o),u=v(t),f=u.length,c=0;c<f;c++)u[c].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function l(e,n){h[e]=v(e).concat(n)}function m(e,n){var t=h[e];if(t)for(var r=0;r<t.length;r++)t[r]===n&&t.splice(r,1)}function v(e){return h[e]||[]}function g(e){return p[e]=p[e]||o(t)}function w(e,n){c(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var h={},y={},b={on:l,addEventListener:l,removeEventListener:m,emit:t,get:g,listeners:v,context:n,buffer:w,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",f=e("gos"),c=e(3),s={},p={},d=n.exports=o();d.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(o.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){o.buffer([e],r),o.emit(e,n,t)}var o=e("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!E++){var e=x.info=NREUM.info,n=l.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();c(y,function(n,t){e[n]||(e[n]=t)}),f("mark",["onload",a()+x.offset],null,"api");var t=l.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function o(){"complete"===l.readyState&&i()}function i(){f("mark",["domContent",a()+x.offset],null,"api")}function a(){return O.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-x.offset}var u=(new Date).getTime(),f=e("handle"),c=e(3),s=e("ee"),p=e(2),d=window,l=d.document,m="addEventListener",v="attachEvent",g=d.XMLHttpRequest,w=g&&g.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:g,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var h=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1130.min.js"},b=g&&w&&w[m]&&!/CriOS/.test(navigator.userAgent),x=n.exports={offset:u,now:a,origin:h,features:{},xhrWrappable:b,userAgent:p};e(1),l[m]?(l[m]("DOMContentLoaded",i,!1),d[m]("load",r,!1)):(l[v]("onreadystatechange",o),d[v]("onload",r)),f("mark",["firstbyte",u],null,"api");var E=0,O=e(5)},{}]},{},["loader"]);</script>
 
   <link rel="icon" type="image/x-icon" href="/wp-content/themes/cftf/favicon.ico">
   <link rel="stylesheet" href="https://fonts.typotheque.com/WF-032393-010559.css" type="text/css" >
@@ -22,7 +22,7 @@
 <link rel="alternate" hreflang="en" href="https://www.julianforthefuture.com" />
 <link rel="alternate" hreflang="es" href="https://www.julianforthefuture.com/es/" />
 
-<!-- This site is optimized with the Yoast SEO plugin v11.1 - https://yoast.com/wordpress/plugins/seo/ -->
+<!-- This site is optimized with the Yoast SEO plugin v11.5 - https://yoast.com/wordpress/plugins/seo/ -->
 <meta name="description" content="Official campaign website for Julián Castro&#039;s campaign for U.S. President. Sign up to get updates and show your support."/>
 <link rel="canonical" href="https://www.julianforthefuture.com/" />
 <meta property="og:locale" content="en_US" />
@@ -31,29 +31,34 @@
 <meta property="og:description" content="Official campaign website for Julián Castro&#039;s campaign for U.S. President. Sign up to get updates and show your support." />
 <meta property="og:url" content="https://www.julianforthefuture.com/" />
 <meta property="og:site_name" content="Julián 2020" />
-<meta property="og:image" content="https://www.julianforthefuture.com/wp-content/uploads/2019/01/Accent-WP-Meta-Image-ENG-light.png" />
-<meta property="og:image:secure_url" content="https://www.julianforthefuture.com/wp-content/uploads/2019/01/Accent-WP-Meta-Image-ENG-light.png" />
+<meta property="og:image" content="https://www.julianforthefuture.com/wp-content/uploads/2019/07/julian-castro-headshot-2-copy.jpg" />
+<meta property="og:image:secure_url" content="https://www.julianforthefuture.com/wp-content/uploads/2019/07/julian-castro-headshot-2-copy.jpg" />
 <meta property="og:image:width" content="1200" />
-<meta property="og:image:height" content="630" />
+<meta property="og:image:height" content="863" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:description" content="Official campaign website for Julián Castro&#039;s campaign for U.S. President. Sign up to get updates and show your support." />
 <meta name="twitter:title" content="Julián Castro for President 2020" />
 <meta name="twitter:image" content="https://julianforthefuture.com/wp-content/uploads/2019/01/Accent-WP-Meta-Image-ENG-light.png" />
-<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://www.julianforthefuture.com/#organization","name":"","url":"https://www.julianforthefuture.com/","sameAs":[]},{"@type":"WebSite","@id":"https://www.julianforthefuture.com/#website","url":"https://www.julianforthefuture.com/","name":"Juli\u00e1n 2020","publisher":{"@id":"https://www.julianforthefuture.com/#organization"},"potentialAction":{"@type":"SearchAction","target":"https://www.julianforthefuture.com/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"WebPage","@id":"https://www.julianforthefuture.com/#webpage","url":"https://www.julianforthefuture.com/","inLanguage":"en-US","name":"Juli\u00e1n Castro for President 2020","isPartOf":{"@id":"https://www.julianforthefuture.com/#website"},"about":{"@id":"https://www.julianforthefuture.com/#organization"},"datePublished":"2018-12-06T14:22:04+00:00","dateModified":"2019-06-23T21:45:33+00:00","description":"Official campaign website for Juli\u00e1n Castro's campaign for U.S. President. Sign up to get updates and show your support."}]}</script>
+<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://www.julianforthefuture.com/#organization","name":"","url":"https://www.julianforthefuture.com/","sameAs":[]},{"@type":"WebSite","@id":"https://www.julianforthefuture.com/#website","url":"https://www.julianforthefuture.com/","name":"Juli\u00e1n 2020","publisher":{"@id":"https://www.julianforthefuture.com/#organization"},"potentialAction":{"@type":"SearchAction","target":"https://www.julianforthefuture.com/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"WebPage","@id":"https://www.julianforthefuture.com/#webpage","url":"https://www.julianforthefuture.com/","inLanguage":"en-US","name":"Juli\u00e1n Castro for President 2020","isPartOf":{"@id":"https://www.julianforthefuture.com/#website"},"about":{"@id":"https://www.julianforthefuture.com/#organization"},"datePublished":"2018-12-06T14:22:04+00:00","dateModified":"2019-07-31T17:34:21+00:00","description":"Official campaign website for Juli\u00e1n Castro's campaign for U.S. President. Sign up to get updates and show your support."}]}</script>
 <!-- / Yoast SEO plugin. -->
 
 <link rel='dns-prefetch' href='//www.julianforthefuture.com' />
 <link rel='dns-prefetch' href='//s.w.org' />
-<link rel='stylesheet' id='wp-block-library-css'  href='https://www.julianforthefuture.com/wp-includes/css/dist/block-library/style.min.css?ver=5.1.1' type='text/css' media='all' />
-<link rel='stylesheet' id='site-css-css'  href='https://www.julianforthefuture.com/wp-content/themes/cftf/style.css?ver=1561685634' type='text/css' media='all' />
-<script type='text/javascript' src='https://www.julianforthefuture.com/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+<link rel='stylesheet' id='wp-block-library-css'  href='https://www.julianforthefuture.com/wp-includes/css/dist/block-library/style.min.css?ver=5.2.2' type='text/css' media='all' />
+<link rel='stylesheet' id='site-css-css'  href='https://www.julianforthefuture.com/wp-content/themes/cftf/style.css?ver=1565081132' type='text/css' media='all' />
+<script type='text/javascript' src='https://www.julianforthefuture.com/wp-includes/js/jquery/jquery.js?ver=1.12.4-wp'></script>
 <script type='text/javascript' src='https://www.julianforthefuture.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
 <link rel='https://api.w.org/' href='https://www.julianforthefuture.com/wp-json/' />
 <link rel='shortlink' href='https://www.julianforthefuture.com/' />
 <link rel="alternate" type="application/json+oembed" href="https://www.julianforthefuture.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.julianforthefuture.com%2F" />
 <link rel="alternate" type="text/xml+oembed" href="https://www.julianforthefuture.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.julianforthefuture.com%2F&#038;format=xml" />
 <meta name="generator" content="WPML ver:4.1.3 stt:1,2;" />
-
+		<style type="text/css" id="wp-custom-css">
+			/* Hide Featured Image */
+#post-693 .blog__feature-image{ 
+	display: none;
+}		</style>
+		
 </head>
 
 <body class="home page-template-default page page-id-16 wrapper" data-template="base.twig">
@@ -114,9 +119,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <ul class="header__nav nav nav--dark">
                           <li class="nav__item"><a href="https://www.julianforthefuture.com/about/">About</a></li>
                           <li class="nav__item"><a href="https://issues.juliancastro.com">Issues</a></li>
-                          <li class="nav__item"><a href="https://www.julianforthefuture.com/news-events/">News</a></li>
                           <li class="nav__item"><a href="https://mobilize.us/julianforthefuture">Events</a></li>
-                          <li class="nav__item"><a href="https://action.julianforthefuture.com/page/s/get-updates">Updates</a></li>
+                          <li class="nav__item"><a href="https://action.julianforthefuture.com/page/s/take-action">Volunteer</a></li>
                           <li class="nav__item"><a href="https://store.julianforthefuture.com/">Store</a></li>
                       </ul>
                       <div class="header__button">
@@ -142,7 +146,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </picture>
     <div class="hero__content container container--padded">
       <h1 class="hero__title">Julián Castro for President</h1>
-      <p class="hero__text">If we want to see change, we don’t wait for it, we work toward it. Today, more than ever, we must work together to build an America where everyone—no matter who we are or where we come from—can thrive. Working together, I believe we can build a new promise for ourselves and for our future. I’m running for President in 2020. Sign up here to get updates.</p>
+      <p class="hero__text">Today, more than ever, we must work together to build an America where everyone—no matter who we are or where we come from—can thrive. Working together, I believe we can build a new promise for ourselves and for our future. </p>
               <form action="https://action.julianforthefuture.com/page/s/" id="hero_signup" class="js-tools-signup form hero__form form--horiz form--small" data-success="Thank you for signing up.">
     <div class="form__inner">
     <div class="form__field form__field--long input">
@@ -175,7 +179,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="container">
       <div class="donate donate--large">
   <div class="container container--padded">
-    <h2 class="donate__title">"Can I count on your $23 -- or whatever you can spare -- to ensure I meet the donor threshold for future Democratic debates?" - Julián </h2>
+    <h2 class="donate__title">“Pitch in $23 and help me build a campaign that’s in it for the long haul”  - Julián</h2>
     <ul class="donate__buttons">
               <li class="donate__button"><a class="button button--blue button--small" href="https://secure.actblue.com/donate/julianforthefuture?refcode=web_home&amount=5">$5</a></li>
               <li class="donate__button"><a class="button button--blue button--small" href="https://secure.actblue.com/donate/julianforthefuture?refcode=web_home&amount=25">$25</a></li>
@@ -190,12 +194,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="container">
       <div class="featured featured--blue featured--left">
         <div class="featured__media">
-          <img class="featured__image" src="https://www.julianforthefuture.com/wp-content/uploads/2019/06/policing-sa-rally.jpg" alt="" />
+          <img class="featured__image" src="https://www.julianforthefuture.com/wp-content/uploads/2019/07/bio-vid-screenshot.jpg" alt="" />
         </div>
         <div class="featured__text">
-          <h2 class="featured__title"><a href="https://www.julianforthefuture.com/news-events/people-first-policing/">People First Policing</a></h2>
-          <p>People First Policing Plan On the day Julián announced his candidacy for President of the United States, he talked about health care and education, economic prosperity and immigration. And he also talked about the frightening rate at which unarmed black and brown folks have been killed by law enforcement officers&hellip;</p>
-          <a href="https://www.julianforthefuture.com/news-events/people-first-policing/" class="more-link more-link--alt">Read More</a>
+          <h2 class="featured__title"><a href="https://www.julianforthefuture.com/news-events/julian-castro-for-president-2020/">Julián Castro for President 2020</a></h2>
+          <p>Watch to learn more about Julián&hellip;</p>
+          <a href="https://www.julianforthefuture.com/news-events/julian-castro-for-president-2020/" class="more-link more-link--alt">Read More</a>
         </div>
       </div>
     </div>
@@ -208,20 +212,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <a href="https://www.julianforthefuture.com/news-events/" class="more-link">View All</a>
         </header>
                   <article class="post post--small">
-      <p class="post__info">June 19, 2019</p>
-    <h2 class="post__title"><a href="https://www.julianforthefuture.com/news-events/people-first-housing-part-3/">People First Housing</a></h2>
-  <p class="post__preview">Part III: Boost Homeownership and Hold Wall Street Accountable Part of the American Dream is to own a home — a place where we raise our kids and make meals, where we study and relax, and where we gather for celebrations and find comfort amongst family members. Owning a&hellip;</p>
-  <a class="more-link" href="https://www.julianforthefuture.com/news-events/people-first-housing-part-3/">Read More</a>
+      <p class="post__info">August 2, 2019</p>
+    <h2 class="post__title"><a href="https://www.julianforthefuture.com/news-events/endorsed-by-nevadas-top-progressive-leaders/">Endorsed by Nevada&#8217;s Top Progressive Leaders</a></h2>
+  <p class="post__preview">Today, I was endorsed by some of Nevada’s top progressive leaders. I am incredibly honored to have received the support of these lawmakers, activists and local leaders boldly fighting for a more prosperous nation for all Americans. Their support comes at such a critical time of growth for our campaign&hellip;</p>
+  <a class="more-link" href="https://www.julianforthefuture.com/news-events/endorsed-by-nevadas-top-progressive-leaders/">Read More</a>
 </article>                  <article class="post post--small">
-      <p class="post__info">June 18, 2019</p>
-    <h2 class="post__title"><a href="https://www.julianforthefuture.com/news-events/people-first-housing-part-2/">People First Housing</a></h2>
-  <p class="post__preview">Part II: Providing Fair Housing to All Americans and Aligning Housing Policy with Climate Goals Discrimination in housing is nothing new. For centuries, many Americans have been prevented from finding quality, affordable housing because of their race, gender, sexual orientation, legal status, or disability. Additionally, historically discriminatory practices like&hellip;</p>
-  <a class="more-link" href="https://www.julianforthefuture.com/news-events/people-first-housing-part-2/">Read More</a>
+      <p class="post__info">July 31, 2019</p>
+    <h2 class="post__title"><a href="https://www.julianforthefuture.com/news-events/new-opportunities-to-volunteer-with-team-julian/">New Opportunities to Volunteer with Team Julián</a></h2>
+  <p class="post__preview">#TeamJulián is growing larger every day! To keep the momentum going, we&#8217;re calling on his supporters in every state to join our movement and become a volunteer! Build Your Team Our biggest ask of you is to organize your own community. We need you to build your own Team Julián!&hellip;</p>
+  <a class="more-link" href="https://www.julianforthefuture.com/news-events/new-opportunities-to-volunteer-with-team-julian/">Read More</a>
 </article>                  <article class="post post--small">
-      <p class="post__info">June 17, 2019</p>
-    <h2 class="post__title"><a href="https://www.julianforthefuture.com/news-events/people-first-housing-part-1/">People First Housing</a></h2>
-  <p class="post__preview">Part I: Solving the Rental Affordability Crisis and Ending Homelessness Housing is a human right. Housing is also a platform to opportunity, something I know through personal experience, through data, and through the stories of the many people I have met in my 11 years of public service. As Secretary&hellip;</p>
-  <a class="more-link" href="https://www.julianforthefuture.com/news-events/people-first-housing-part-1/">Read More</a>
+      <p class="post__info">July 8, 2019</p>
+    <h2 class="post__title"><a href="https://www.julianforthefuture.com/news-events/130k-donors/">130,000 Donors</a></h2>
+  <p class="post__preview">#TeamJulián is now 130,000 Donors Strong Because of all of you, our campaign now has 130,000 different donors, one of the key requirements to participate in the fall Democratic debate!  Thank you all for your time, energy, and selfless donations. It&#8217;s because of your efforts that our campaign’s message&hellip;</p>
+  <a class="more-link" href="https://www.julianforthefuture.com/news-events/130k-donors/">Read More</a>
 </article>              </div>
     </div>
     </section>
@@ -277,7 +281,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                       <li class="nav__item"><a href="https://www.julianforthefuture.com/about/">About</a></li>
                       <li class="nav__item"><a href="https://www.julianforthefuture.com/news-events/">News</a></li>
                       <li class="nav__item"><a href="https://www.julianforthefuture.com/contact/">Contact</a></li>
-                      <li class="nav__item"><a href="https://recruiting.paylocity.com/recruiting/jobs/List/5552/Julian-For-The-Future-Presidential-Exploratory-Co">Jobs</a></li>
+                      <li class="nav__item"><a href="https://recruiting.paylocity.com/recruiting/jobs/List/5552/Julian-for-the-Future">Jobs</a></li>
+                      <li class="nav__item"><a href="https://action.julianforthefuture.com/page/s/get-updates">Get Updates</a></li>
                   </ul>
       </nav>
       <div class="footer__cta">
@@ -315,9 +320,9 @@ San&nbsp;Antonio, TX
       </div>
     </div>
   </footer>
-  <script type='text/javascript' src='https://www.julianforthefuture.com/wp-content/themes/cftf/assets/js/source.js?ver=1561685634'></script>
-<script type='text/javascript' src='https://www.julianforthefuture.com/wp-includes/js/wp-embed.min.js?ver=5.1.1'></script>
+  <script type='text/javascript' src='https://www.julianforthefuture.com/wp-content/themes/cftf/assets/js/source.js?ver=1565081132'></script>
+<script type='text/javascript' src='https://www.julianforthefuture.com/wp-includes/js/wp-embed.min.js?ver=5.2.2'></script>
 
 </div>
-<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"1bc4e2a25b","applicationID":"259152731","transactionName":"b1cBZkIEXUUCUhVfV1YdIlFEDFxYTEIIWF9NXgJA","queueTime":0,"applicationTime":430,"atts":"QxACEAoeTks=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"1bc4e2a25b","applicationID":"259152731","transactionName":"b1cBZkIEXUUCUhVfV1YdIlFEDFxYTEIIWF9NXgJA","queueTime":0,"applicationTime":350,"atts":"QxACEAoeTks=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
 </html>

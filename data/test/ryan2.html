@@ -1,0 +1,1069 @@
+ <!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8" /><script src="/cdn-cgi/apps/head/2pTW0TqhCahT6Lkd1p_o9j0D1UM.js"></script><script type="cce5b171e4967d826ce65f2b-text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o||n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({1:[function(e,n,t){function r(){}function o(e,n,t){return function(){return i(e,[c.now()].concat(u(arguments)),n?null:this,t),n?void 0:this}}var i=e("handle"),a=e(3),u=e(4),f=e("ee").get("tracer"),c=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,n){s[n]=o(d+n,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,o="function"==typeof n;return i(l+"tracer",[c.now(),e,t],r),function(){if(f.emit((o?"":"no-")+"fn-start",[c.now(),r,o],t),o)try{return n.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],t),e}finally{f.emit("fn-end",[c.now()],t)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=o(l+n)}),newrelic.noticeError=function(e,n){"string"==typeof e&&(e=new Error(e)),i("err",[e,c.now(),!1,n])}},{}],2:[function(e,n,t){function r(e,n){if(!o)return!1;if(e!==o)return!1;if(!n)return!0;if(!i)return!1;for(var t=i.split("."),r=n.split("."),a=0;a<r.length;a++)if(r[a]!==t[a])return!1;return!0}var o=null,i=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var u=navigator.userAgent,f=u.match(a);f&&u.indexOf("Chrome")===-1&&u.indexOf("Chromium")===-1&&(o="Safari",i=f[1])}n.exports={agent:o,version:i,match:r}},{}],3:[function(e,n,t){function r(e,n){var t=[],r="",i=0;for(r in e)o.call(e,r)&&(t[i]=n(r,e[r]),i+=1);return t}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],4:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(o<0?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=r},{}],5:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function o(e){function n(e){return e&&e instanceof r?e:e?f(e,u,i):i()}function t(t,r,o,i){if(!d.aborted||i){e&&e(t,r,o);for(var a=n(o),u=v(t),f=u.length,c=0;c<f;c++)u[c].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function l(e,n){h[e]=v(e).concat(n)}function m(e,n){var t=h[e];if(t)for(var r=0;r<t.length;r++)t[r]===n&&t.splice(r,1)}function v(e){return h[e]||[]}function g(e){return p[e]=p[e]||o(t)}function w(e,n){c(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var h={},y={},b={on:l,addEventListener:l,removeEventListener:m,emit:t,get:g,listeners:v,context:n,buffer:w,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",f=e("gos"),c=e(3),s={},p={},d=n.exports=o();d.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(o.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){o.buffer([e],r),o.emit(e,n,t)}var o=e("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!E++){var e=x.info=NREUM.info,n=l.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();c(y,function(n,t){e[n]||(e[n]=t)}),f("mark",["onload",a()+x.offset],null,"api");var t=l.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function o(){"complete"===l.readyState&&i()}function i(){f("mark",["domContent",a()+x.offset],null,"api")}function a(){return O.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-x.offset}var u=(new Date).getTime(),f=e("handle"),c=e(3),s=e("ee"),p=e(2),d=window,l=d.document,m="addEventListener",v="attachEvent",g=d.XMLHttpRequest,w=g&&g.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:g,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var h=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1130.min.js"},b=g&&w&&w[m]&&!/CriOS/.test(navigator.userAgent),x=n.exports={offset:u,now:a,origin:h,features:{},xhrWrappable:b,userAgent:p};e(1),l[m]?(l[m]("DOMContentLoaded",i,!1),d[m]("load",r,!1)):(l[v]("onreadystatechange",o),d[v]("onload",r)),f("mark",["firstbyte",u],null,"api");var E=0,O=e(5)},{}]},{},["loader"]);</script>
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+<link rel="shortcut icon" type="image/x-icon" href="https://timryanforamerica.com/wp-content/uploads/2019/03/favacon-1.png">
+<link rel="apple-touch-icon" href="https://timryanforamerica.com/wp-content/uploads/2019/03/favacon-1.png" />
+<link rel="profile" href="https://gmpg.org/xfn/11" />
+<link rel="pingback" href="https://timryanforamerica.com/xmlrpc.php" />
+<title>Issues &#8211; Veterans &#8211; Tim Ryan for America </title>
+<link rel='dns-prefetch' href='//timryanforamerica.com' />
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel="alternate" type="application/rss+xml" title="Tim Ryan for America  &raquo; Feed" href="https://timryanforamerica.com/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Tim Ryan for America  &raquo; Comments Feed" href="https://timryanforamerica.com/comments/feed/" />
+<script type="cce5b171e4967d826ce65f2b-text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11.2.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11.2.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/timryanforamerica.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.1.1"}};
+			!function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55358,56760,9792,65039],[55358,56760,8203,9792,65039]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='wp-block-library-css' href='https://timryanforamerica.com/wp-includes/css/dist/block-library/style.min.css?ver=5.1.1' type='text/css' media='all' />
+<link rel='stylesheet' id='rs-plugin-settings-css' href='https://timryanforamerica.com/wp-content/plugins/revslider/public/assets/css/settings.css?ver=5.4.8.3' type='text/css' media='all' />
+<style id='rs-plugin-settings-inline-css' type='text/css'>
+#rs-demo-id {}
+</style>
+<link rel='stylesheet' id='mediaelement-css' href='https://timryanforamerica.com/wp-includes/js/mediaelement/mediaelementplayer-legacy.min.css?ver=4.2.6-78496d1' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-mediaelement-css' href='https://timryanforamerica.com/wp-includes/js/mediaelement/wp-mediaelement.min.css?ver=5.1.1' type='text/css' media='all' />
+<link rel='stylesheet' id='bridge-default-style-css' href='https://timryanforamerica.com/wp-content/themes/bridge/style.css?ver=5.1.1' type='text/css' media='all' />
+<link rel='stylesheet' id='bridge-qode-font_awesome-css' href='https://timryanforamerica.com/wp-content/themes/bridge/css/font-awesome/css/font-awesome.min.css?ver=5.1.1' type='text/css' media='all' />
+<link rel='stylesheet' id='bridge-qode-font_elegant-css' href='https://timryanforamerica.com/wp-content/themes/bridge/css/elegant-icons/style.min.css?ver=5.1.1' type='text/css' media='all' />
+<link rel='stylesheet' id='bridge-qode-linea_icons-css' href='https://timryanforamerica.com/wp-content/themes/bridge/css/linea-icons/style.css?ver=5.1.1' type='text/css' media='all' />
+<link rel='stylesheet' id='bridge-qode-dripicons-css' href='https://timryanforamerica.com/wp-content/themes/bridge/css/dripicons/dripicons.css?ver=5.1.1' type='text/css' media='all' />
+<link rel='stylesheet' id='bridge-stylesheet-css' href='https://timryanforamerica.com/wp-content/themes/bridge/css/stylesheet.min.css?ver=5.1.1' type='text/css' media='all' />
+<style id='bridge-stylesheet-inline-css' type='text/css'>
+   .page-id-1015.disabled_footer_top .footer_top_holder, .page-id-1015.disabled_footer_bottom .footer_bottom_holder { display: none;}
+
+
+</style>
+<link rel='stylesheet' id='bridge-print-css' href='https://timryanforamerica.com/wp-content/themes/bridge/css/print.css?ver=5.1.1' type='text/css' media='all' />
+<link rel='stylesheet' id='bridge-style-dynamic-css' href='https://timryanforamerica.com/wp-content/themes/bridge/css/style_dynamic_callback.php?ver=5.1.1' type='text/css' media='all' />
+<link rel='stylesheet' id='bridge-responsive-css' href='https://timryanforamerica.com/wp-content/themes/bridge/css/responsive.min.css?ver=5.1.1' type='text/css' media='all' />
+<link rel='stylesheet' id='bridge-style-dynamic-responsive-css' href='https://timryanforamerica.com/wp-content/themes/bridge/css/style_dynamic_responsive_callback.php?ver=5.1.1' type='text/css' media='all' />
+<style id='bridge-style-dynamic-responsive-inline-css' type='text/css'>
+.header_top_bottom_holder {
+    border-bottom: 5px solid #D03333;
+}
+.qode-info-card .qode-info-card-text {
+    margin-top: 14px;
+}
+
+.qode-info-card .qode-info-card-text-holder {
+    padding: 25px 25px 30px;
+}
+
+.qode-info-card .qode-info-card-text-holder p {
+    font-size: 15px;
+    line-height: 26px;
+}
+
+@media only screen and (max-width: 768px){
+    .qbutton{
+        padding: 0 40px;
+    }
+}
+
+.q_progress_bar {
+    margin: 0 0 21px;
+}
+.q_team .q_team_image img {
+    width: auto;
+}
+
+.testimonials_c_holder .testimonial_content_inner {
+    background: transparent;
+}
+
+.testimonials_c_holder.light .flex-control-nav li a {
+    background-color: #fbd1bb;
+}
+
+.testimonials_c_holder .testimonial_content_inner .testimonial_author {
+    margin-top: 26px;
+}
+
+.testimonials_c_holder .flex-control-nav {
+    margin-top: 25px;
+}
+
+.testimonials_c_holder .testimonial_content_inner .testimonial_image_holder {
+    margin-bottom: 53px;
+}
+
+.testimonials_c_holder .flex-control-nav li {
+    width: 15px;
+    height: 15px;
+    margin: 0 5px;
+}
+
+ .q_team .q_team_social_holder .q_social_icon_holder {
+background-color: #6cf2aa;
+width: 24px;
+height: 24px;
+line-height: 24px;
+border-radius: 24px;
+    -webkit-transition: all .3s ease-out;
+    -moz-transition: all .3s ease-out;
+    -o-transition: all .3s ease-out;
+    transition: all .3s ease-out;
+}
+.q_team .q_team_social_holder .q_social_icon_holder i.simple_social {
+line-height: inherit;
+}
+
+.q_team .q_team_social_holder .q_social_icon_holder i.simple_social{
+font-size: 13px;
+}
+.q_team .q_team_social_holder .q_social_icon_holder:hover i.simple_social{
+color: #fff  !important;
+}
+.q_team .q_team_social_holder .q_social_icon_holder:hover{
+background-color: #7ccbff;
+} 
+.q_social_icon_holder.normal_social {
+    margin: 0 4px;
+}
+.q_pie_chart_holder {
+    display: inline-block;
+}
+.q_percentage {
+margin:0;
+}
+
+.q_price_table,
+.price_table_inner ul li.table_title .title_content {
+    color:#858793;
+    }
+
+.q_price_table .price_table_inner {
+    background-color: #fff;
+    box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.03);
+}
+
+.q_price_table {
+    border-top: 0px!important;
+}
+
+.price_table_inner ul li.pricing_table_content li {
+    font-size: 15px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    line-height: 25px;
+    color: #858793;
+}
+
+.price_table_inner ul li.pricing_table_content {
+    padding: 20px;
+}
+
+.price_table_inner .price_button {
+    padding: 0 0 40px;
+}
+
+.price_table_inner ul li.table_title .title_content {
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 34px;
+}
+
+.price_table_inner ul li.table_title {
+    padding: 25px 25px 16px;
+}
+
+.q_price_table.active .active_text {
+    font-size: 15px;
+    line-height: 49px;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+@media only screen and (min-width: 767px){
+.q_price_table.active .active_text {
+    top: -18px;
+}
+}
+
+.price_in_table .price {
+    font-size: 54px;
+    line-height: 64px;
+    padding: 0 0px 0px 8px;
+    font-weight: 600;
+    color:#5e5f68;
+}
+
+.price_in_table .mark {
+    vertical-align: bottom;
+    position: relative;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: none;
+    top: -3px;
+}
+
+.price_in_table .value {
+    font-size: 16px;
+    font-weight: 600;
+    top: 8px;
+}
+
+.qode-info-card {
+    box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.03);
+}
+
+input.wpcf7-form-control.wpcf7-text{
+    margin: 2px 0 0;
+}
+
+.q_icon_list {
+    margin-bottom: 0px;
+}
+
+.footer_top .widget_nav_menu ul li{
+    padding: 0px 0 7px;
+}
+
+div.wpcf7-response-output.wpcf7-validation-errors {
+    background-color: #4ce59e;
+}
+
+.side_menu .widget {
+    margin: 0px;
+}
+
+header:not(.with_hover_bg_color) nav.main_menu>ul>li:hover>a{
+    opacity: 1;
+}
+
+@media only screen and (max-width: 768px){
+.qbutton.large {
+    height: 60px;
+    line-height: 60px;
+    padding: 0 50px;
+}
+}
+
+@media only screen and (max-width: 768px){
+.mobile_menu_button span {
+    color: #5e5f68;
+}
+}
+
+@media only screen and (max-width: 768px){
+.testimonials_c_holder .testimonial_content_inner {
+    padding: 60px 0px;
+}
+}
+
+@media only screen and (max-width: 480px){
+.qode-instagram-feed.qode-col-3 li{
+    width: auto;
+}
+}
+
+#back_to_top span i {
+    line-height: 49px;
+}
+
+nav.main_menu ul li a span.underline_dash, nav.vertical_menu ul li a span.underline_dash{
+    bottom: -3px;
+}
+
+ @media only screen and (max-width: 600px) {
+.qode_pricing_tables .q_price_table.active {
+margin-top: 35px;
+margin-bottom: 50px;
+}
+}
+
+.title.title_size_large h1 {
+    font-size: 68px;
+    line-height: 78px;
+    color: #fff;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.page_not_found h2 {
+    margin: 116px 0 20px;
+    font-size: 32px;
+}
+
+.page_not_found p {
+    margin: 15px 8% 35px;
+}
+
+header.sticky nav.main_menu > ul > li:hover > a > span,
+ header.sticky nav.main_menu > ul > li.active > a span
+{
+    color: #858793 !important;
+}
+
+@media only screen and (max-width: 1000px){
+ .footer_top .four_columns .column3 .column_inner>div {
+  margin: 0 0 0 0;
+ }
+}
+
+ nav.main_menu ul li:hover a span.underline_dash {
+background-color: currentColor;
+}
+
+.side_menu_button .fullscreen_search {
+    line-height: 16px;
+}
+</style>
+<link rel='stylesheet' id='js_composer_front-css' href='https://timryanforamerica.com/wp-content/plugins/js_composer/assets/css/js_composer.min.css?ver=5.7' type='text/css' media='all' />
+<link rel='stylesheet' id='bridge-style-handle-google-fonts-css' href='https://fonts.googleapis.com/css?family=Raleway%3A100%2C200%2C300%2C400%2C500%2C600%2C700%2C800%2C900%2C300italic%2C400italic%2C700italic%7CPoppins%3A100%2C200%2C300%2C400%2C500%2C600%2C700%2C800%2C900%2C300italic%2C400italic%2C700italic%7CDosis%3A100%2C200%2C300%2C400%2C500%2C600%2C700%2C800%2C900%2C300italic%2C400italic%2C700italic%7COpen+Sans%3A100%2C200%2C300%2C400%2C500%2C600%2C700%2C800%2C900%2C300italic%2C400italic%2C700italic&#038;subset=latin%2Clatin-ext&#038;ver=1.0.0' type='text/css' media='all' />
+<script type="cce5b171e4967d826ce65f2b-text/javascript" src='https://timryanforamerica.com/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+<script type="cce5b171e4967d826ce65f2b-text/javascript" src='https://timryanforamerica.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<script type="cce5b171e4967d826ce65f2b-text/javascript" src='https://timryanforamerica.com/wp-content/plugins/revslider/public/assets/js/jquery.themepunch.tools.min.js?ver=5.4.8.3'></script>
+<script type="cce5b171e4967d826ce65f2b-text/javascript" src='https://timryanforamerica.com/wp-content/plugins/revslider/public/assets/js/jquery.themepunch.revolution.min.js?ver=5.4.8.3'></script>
+<script type="cce5b171e4967d826ce65f2b-text/javascript">
+var mejsL10n = {"language":"en","strings":{"mejs.install-flash":"You are using a browser that does not have Flash player enabled or installed. Please turn on your Flash player plugin or download the latest version from https:\/\/get.adobe.com\/flashplayer\/","mejs.fullscreen-off":"Turn off Fullscreen","mejs.fullscreen-on":"Go Fullscreen","mejs.download-video":"Download Video","mejs.fullscreen":"Fullscreen","mejs.time-jump-forward":["Jump forward 1 second","Jump forward %1 seconds"],"mejs.loop":"Toggle Loop","mejs.play":"Play","mejs.pause":"Pause","mejs.close":"Close","mejs.time-slider":"Time Slider","mejs.time-help-text":"Use Left\/Right Arrow keys to advance one second, Up\/Down arrows to advance ten seconds.","mejs.time-skip-back":["Skip back 1 second","Skip back %1 seconds"],"mejs.captions-subtitles":"Captions\/Subtitles","mejs.captions-chapters":"Chapters","mejs.none":"None","mejs.mute-toggle":"Mute Toggle","mejs.volume-help-text":"Use Up\/Down Arrow keys to increase or decrease volume.","mejs.unmute":"Unmute","mejs.mute":"Mute","mejs.volume-slider":"Volume Slider","mejs.video-player":"Video Player","mejs.audio-player":"Audio Player","mejs.ad-skip":"Skip ad","mejs.ad-skip-info":["Skip in 1 second","Skip in %1 seconds"],"mejs.source-chooser":"Source Chooser","mejs.stop":"Stop","mejs.speed-rate":"Speed Rate","mejs.live-broadcast":"Live Broadcast","mejs.afrikaans":"Afrikaans","mejs.albanian":"Albanian","mejs.arabic":"Arabic","mejs.belarusian":"Belarusian","mejs.bulgarian":"Bulgarian","mejs.catalan":"Catalan","mejs.chinese":"Chinese","mejs.chinese-simplified":"Chinese (Simplified)","mejs.chinese-traditional":"Chinese (Traditional)","mejs.croatian":"Croatian","mejs.czech":"Czech","mejs.danish":"Danish","mejs.dutch":"Dutch","mejs.english":"English","mejs.estonian":"Estonian","mejs.filipino":"Filipino","mejs.finnish":"Finnish","mejs.french":"French","mejs.galician":"Galician","mejs.german":"German","mejs.greek":"Greek","mejs.haitian-creole":"Haitian Creole","mejs.hebrew":"Hebrew","mejs.hindi":"Hindi","mejs.hungarian":"Hungarian","mejs.icelandic":"Icelandic","mejs.indonesian":"Indonesian","mejs.irish":"Irish","mejs.italian":"Italian","mejs.japanese":"Japanese","mejs.korean":"Korean","mejs.latvian":"Latvian","mejs.lithuanian":"Lithuanian","mejs.macedonian":"Macedonian","mejs.malay":"Malay","mejs.maltese":"Maltese","mejs.norwegian":"Norwegian","mejs.persian":"Persian","mejs.polish":"Polish","mejs.portuguese":"Portuguese","mejs.romanian":"Romanian","mejs.russian":"Russian","mejs.serbian":"Serbian","mejs.slovak":"Slovak","mejs.slovenian":"Slovenian","mejs.spanish":"Spanish","mejs.swahili":"Swahili","mejs.swedish":"Swedish","mejs.tagalog":"Tagalog","mejs.thai":"Thai","mejs.turkish":"Turkish","mejs.ukrainian":"Ukrainian","mejs.vietnamese":"Vietnamese","mejs.welsh":"Welsh","mejs.yiddish":"Yiddish"}};
+</script>
+<script type="cce5b171e4967d826ce65f2b-text/javascript" src='https://timryanforamerica.com/wp-includes/js/mediaelement/mediaelement-and-player.min.js?ver=4.2.6-78496d1'></script>
+<script type="cce5b171e4967d826ce65f2b-text/javascript" src='https://timryanforamerica.com/wp-includes/js/mediaelement/mediaelement-migrate.min.js?ver=5.1.1'></script>
+<script type="cce5b171e4967d826ce65f2b-text/javascript">
+/* <![CDATA[ */
+var _wpmejsSettings = {"pluginPath":"\/wp-includes\/js\/mediaelement\/","classPrefix":"mejs-","stretching":"responsive"};
+/* ]]> */
+</script>
+<link rel='https://api.w.org/' href='https://timryanforamerica.com/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://timryanforamerica.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://timryanforamerica.com/wp-includes/wlwmanifest.xml" />
+<meta name="generator" content="WordPress 5.1.1" />
+<link rel="canonical" href="https://timryanforamerica.com/veterans/" />
+<link rel='shortlink' href='https://timryanforamerica.com/?p=1015' />
+<link rel="alternate" type="application/json+oembed" href="https://timryanforamerica.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Ftimryanforamerica.com%2Fveterans%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://timryanforamerica.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Ftimryanforamerica.com%2Fveterans%2F&#038;format=xml" />
+
+<script type="cce5b171e4967d826ce65f2b-text/javascript">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-M9W97M3');</script>
+
+
+<script type="cce5b171e4967d826ce65f2b-text/javascript">
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '383344512516483');
+  fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=383344512516483&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Facebook Pixel Code —>		<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
+		<meta name="generator" content="Powered by WPBakery Page Builder - drag and drop page builder for WordPress."/>
+<!--[if lte IE 9]><link rel="stylesheet" type="text/css" href="https://timryanforamerica.com/wp-content/plugins/js_composer/assets/css/vc_lte_ie9.min.css" media="screen"><![endif]--><meta name="generator" content="Powered by Slider Revolution 5.4.8.3 - responsive, Mobile-Friendly Slider Plugin for WordPress with comfortable drag and drop interface." />
+<script type="cce5b171e4967d826ce65f2b-text/javascript">function setREVStartSize(e){									
+						try{ e.c=jQuery(e.c);var i=jQuery(window).width(),t=9999,r=0,n=0,l=0,f=0,s=0,h=0;
+							if(e.responsiveLevels&&(jQuery.each(e.responsiveLevels,function(e,f){f>i&&(t=r=f,l=e),i>f&&f>r&&(r=f,n=e)}),t>r&&(l=n)),f=e.gridheight[l]||e.gridheight[0]||e.gridheight,s=e.gridwidth[l]||e.gridwidth[0]||e.gridwidth,h=i/s,h=h>1?1:h,f=Math.round(h*f),"fullscreen"==e.sliderLayout){var u=(e.c.width(),jQuery(window).height());if(void 0!=e.fullScreenOffsetContainer){var c=e.fullScreenOffsetContainer.split(",");if (c) jQuery.each(c,function(e,i){u=jQuery(i).length>0?u-jQuery(i).outerHeight(!0):u}),e.fullScreenOffset.split("%").length>1&&void 0!=e.fullScreenOffset&&e.fullScreenOffset.length>0?u-=jQuery(window).height()*parseInt(e.fullScreenOffset,0)/100:void 0!=e.fullScreenOffset&&e.fullScreenOffset.length>0&&(u-=parseInt(e.fullScreenOffset,0))}f=u}else void 0!=e.minHeight&&f<e.minHeight&&(f=e.minHeight);e.c.closest(".rev_slider_wrapper").css({height:f})					
+						}catch(d){console.log("Failure at Presize of Slider:"+d)}						
+					};</script>
+<style type="text/css" id="wp-custom-css">
+			/* Home Page */
+html {
+  scroll-behavior: smooth;
+}
+h2{
+	padding-bottom:20px;
+}
+.q_logo > a{
+	height:50px!important;	
+}
+.donate-wrap{
+
+}
+.sg-popup-content, .sg-popup-builder-content{
+	overflow:hidden!important;
+}
+.container p{
+	margin-bottom:20px;
+}
+.container h2{
+	margin-top:20px;
+}
+.tr-btn-readmore {
+    padding: 5px 10px;
+    color: #fff;
+    background: #0085C9;
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 14px;
+    min-width: 100px;
+    text-align: center;
+    display: inline-block;
+}
+.tr-btn-readmore:hover{
+	color:#fff;
+	background:#BB0721;
+}
+.s-wrap{
+	background:#0a2140;
+	width: 100%;
+	padding: 10px 0;
+}
+.s-blue-line{
+	background:#2d97d3;
+	padding:5px;
+	margin:20px 0;
+}
+.q_slider{
+    min-height:678px!important;
+}
+@media only screen and (max-width: 600px) {
+    .q_slider{
+    min-height:inherit!important;
+}
+	.tr-close-btn {
+    top: 5px!important;
+}
+	.why-left img{
+		display:none!important;
+	}
+}
+
+/*
+.vc_custom_1554353480115{
+  position: -webkit-sticky!important;
+  position: fixed!important;
+  top: 50px;
+
+	z-index:9999999999999999999999;
+	width:100%
+}
+*/
+.tr-donate-btn{
+	  margin: 10px 10px;
+    padding: 10px;
+    text-align: center;
+    color: #fff;
+    width: auto;
+	display:block;
+	background:#0A2240;
+	font-weight:bold;
+	font-size:20px
+}
+.tr-donate-btn:hover{
+	  margin: 10px;
+		color:#fff;
+	background:#0085C9;
+		
+}
+.disclaimer{
+	font-size:10px;
+  padding: 5px 10px;
+	display:inline-block;
+	border:2px solid #fff;
+	color:#fff;
+}
+nav.main_menu > ul > li#nav-menu-item-232{
+	background:#D03333!important;
+}
+nav.main_menu > ul > li#nav-menu-item-232 > a{
+	color:#fff!important;
+}
+nav.main_menu ul li#nav-menu-item-232 a span.underline_dash{
+    background-color: #fff !important;
+    height: 3px;
+}
+.tr-white h1{
+	color:#fff;
+}
+.tr-quote blockquote {
+    margin: 0 auto;
+    max-width: 600px;
+}
+.tr-quote blockquote h5 {
+	font-size:27px;
+	font-weight:600;
+}
+.hero-bg::after{
+	content:"";
+	Background: rgb(0, 0, 0, 0.05);
+	width:100%;
+	height:100%;
+	position:absolute;
+	top:0;
+	z-index:1;
+}
+.q_logo img{
+	width:100%;
+}
+/*form*/
+#home_wrapper #form{
+    background-color:rgba(0,0,0,0.3);
+    padding: 20px!important;
+    border-radius: 3px;
+	    width: auto;
+	    min-width: 320px;
+}
+#home_wrapper #form p{
+	color:#fff;
+	padding-bottom:10px;
+	font-size:18px!important;
+	
+}
+
+.sign-up .btn.btn-secondary, .btn.btn-secondary {
+}
+input{
+	padding: 15px 25px;
+  width: 80%;
+	font-size:16px;
+  border: 0px;
+  margin-bottom: 10px;
+	margin-right:10px;
+  border-radius: 0px;
+	    -webkit-transition: all .3s ease-out;
+    -moz-transition: all .3s ease-out;
+    -o-transition: all .3s ease-out;
+    transition: all .3s ease-out;
+	background:#eee;
+	border:#ccc 1px solid;
+}
+input.form-control:hover{
+	padding-left:15px;
+	padding-right:35px;
+
+}
+@media only screen and (max-width: 600px) {
+	#home_wrapper #form{
+		padding:10px 20px!important;
+		 min-width: 300px;
+	}
+	#home_wrapper input.form-control{
+		padding:10px!important;
+	}
+#home_wrapper #form p {
+    color: #fff;
+    padding-bottom: 10px;
+    font-size: 12px!important;
+}
+}
+/*
+.footer_top input:nth-child(1){
+	    width: calc(100% - 80px);
+}*/
+
+
+.footer_top input{
+
+	display:block;
+}
+.footer_top .btn.btn-secondary{
+	color:#fff;
+	    -webkit-transition: all .3s ease-out;
+    -moz-transition: all .3s ease-out;
+    -o-transition: all .3s ease-out;
+    transition: all .3s ease-out;
+	cursor:pointer;
+	    background: #0085C9;
+    font-weight: bold;
+    font-size: 20px;
+	border:none;
+} 
+.footer_top .btn.btn-secondary:hover{
+	color:#fff;
+	background:#BB0721;
+} 
+.sign-up .btn.btn-secondary, .btn.btn-secondary{
+	color:#fff;
+	    -webkit-transition: all .3s ease-out;
+    -moz-transition: all .3s ease-out;
+    -o-transition: all .3s ease-out;
+    transition: all .3s ease-out;
+	border:none;
+	cursor:pointer;
+	    background: #0085C9;
+    font-weight: bold!important;
+    font-size: 20px!important;
+	padding:20px!important;
+	text-align:center!important;
+	width:auto!important;
+} 
+.sign-up .btn.btn-secondary:hover, .btn.btn-secondary:hover{
+	color:#fff;
+	background:#0A2240;
+		cursor:pointer;
+	
+} 
+.footer_top {
+    padding-top: 48px;
+    padding-bottom: 39px;
+}
+footer{
+	margin-top:-2px;
+}
+/**/
+.p-wrap{
+
+}
+.p-wrap .flex-1{
+	border:red solid 1px;
+	width:100%;
+	height:80%;
+}
+.flex-2-child {    
+    background-color: green;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+}
+
+
+.tweet .q_social_icon_holder{
+		display: block;
+    position: relative;
+    margin: 0 auto;
+    text-align: center;
+}
+	.tr-quote-wrap{
+		    max-width: 730px;
+    		margin: 0 auto;
+	}
+.why-section img{
+		display:none;
+	}
+/*
+.video-background {
+  background: #000;
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  z-index: -99;
+}
+.video-wrap{
+	position:relative;
+	max-height:108px!important;
+}
+.video-foreground,
+.video-background iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+*/
+/*mobile*/
+@media only screen and (max-width: 600px) {
+	.vc_column_container>.vc_column-inner{
+		padding-top:0px!important;
+		padding-bottom:0px!important;
+		padding-right:20px!important;
+		padding-left:20px!important;
+	}
+	.tr-quote .vc_column_container>.vc_column-inner{
+		padding-top:0px!important;
+		padding-bottom:0px!important;
+		padding-right:10px!important;
+		padding-left:10px!important;
+	}
+	.tr-quote h2 {
+		font-size: 18px!important;
+    line-height: 26px!important;
+	}
+
+section.parallax_section_holder {
+    height: auto !important;
+    min-height: auto;
+}
+
+	.tr-donate-btn {
+    width: auto;
+}
+#home{
+		max-height:500px;
+	}
+	input{width: calc(100% - 50px);}
+	.footer_top input, .footer_top input:nth-child(1){
+	    width: calc(100% - 50px);
+}
+	.footer_top .btn.btn-secondary, .sign-up .btn.btn-secondary{
+	    width: calc(100% - 0px);
+}
+	.vc_row.full_screen_section {
+    padding: 0px 0;
+}
+	.why-left{
+		display:block;
+	}
+	.wpb_content_element.wpb_single_image img{
+		display:block;
+	}
+	.footer_col2, .footer_col1 {
+		    text-align: center;
+		
+	}
+	.social-btns, .tweet h4{
+		text-align: center;
+		padding-top:20px;
+		padding-bottom:20px;
+	}
+		.social-btns h1{
+		font-size: 26px!important;
+			line-height:22px;
+	}
+}
+
+html, body {
+  height: 100%;
+}
+
+.p-wrap{
+	display:flex;
+	min-height: 100%;
+}
+.p-col{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+	padding:40px;
+	text-align: center;
+}
+.p-left{
+	background:url("https://live-tr2020.pantheonsite.io/wp-content/uploads/2019/05/pop-up-tr-main-1.jpg");
+	background-repeat:no-repeat;
+	background-size: cover;
+}
+.p-right{
+	background:#0A2240;
+	color:#fff;
+}
+.p-right h1{
+	color:#fff;
+	font-weight:bold;
+}
+.p-right p{
+	color:#fff;
+	font-weight:bold;
+}
+.p-right p.p-small{
+	color:#fff;
+	font-weight:300;
+	font-size:12px;
+	line-height:15px;
+	margin-bottom:40px;
+}
+.p-right img{
+	max-width:300px;
+	margin:0 auto;
+	margin-bottom:40px;
+}
+.p-donate{
+	display:flex;
+	margin: 0px 20px;
+	    justify-content: center;
+}
+.p-btn{
+	padding:20px 50px;
+	color:#fff;
+	background:#0085C9;
+	margin: 10px;
+	font-weight:bold;
+	font-size:24px;
+	min-width: 100px;
+}
+.p-btn:hover{
+	color:#fff;
+	background:#BB0721;
+}
+.p-disclamer{
+	font-size: 10px;
+    padding: 5px 10px;
+    display: inline-block;
+    border: 2px solid #fff;
+    color: #fff;
+	max-width:200px;
+	margin:0 auto;
+	text-transform: uppercase;
+}
+.sgpb-theme-6-content {
+    box-shadow: none!important;
+    padding: 0!important;
+    margin: 0px;
+    border: 0px;
+    height: 100%!important;
+}
+.tr-get-involved h1{
+	font-weight:900;
+}
+/*mobile*/
+@media only screen and (max-width: 600px) {
+	
+	.p-wrap {
+    display: block;
+    min-height: 100%;
+}
+	.p-left {
+    display: none;
+}
+	.p-col {
+       padding: 40px 10px;
+}
+	.p-donate {
+    display: block;
+    margin: 10px 20px;
+    justify-content: center;
+}
+	.p-btn {
+    display: block;
+    margin: 0 auto;
+}
+	.sgpb-popup-close-button-6{
+		top:40px!important;
+		position: fixed!important;
+	}
+}		</style>
+ <noscript><style type="text/css"> .wpb_animate_when_almost_visible { opacity: 1; }</style></noscript></head>
+<body class="page-template-default page page-id-1015 bridge-core-1.0.4  qode-title-hidden qode-theme-ver-18.0.6 qode-theme-bridge qode_advanced_footer_responsive_1000 wpb-js-composer js-comp-ver-5.7 vc_responsive" itemscope itemtype="http://schema.org/WebPage">
+<div class="wrapper">
+<div class="wrapper_inner">
+
+
+<header class=" scroll_header_top_area  stick scrolled_not_transparent page_header">
+<div class="header_inner clearfix">
+<div class="header_top_bottom_holder">
+<div class="header_bottom clearfix" style=' background-color:rgba(255, 255, 255, 1);'>
+<div class="header_inner_left">
+<div class="mobile_menu_button">
+<span>
+<i class="qode_icon_font_awesome fa fa-bars "></i> </span>
+</div>
+<div class="logo_wrapper">
+<div class="q_logo">
+<a itemprop="url" href="https://timryanforamerica.com/">
+<img itemprop="image" class="normal" src="https://timryanforamerica.com/wp-content/uploads/2019/04/main-logo-3.png" alt="Logo"> <img itemprop="image" class="light" src="https://timryanforamerica.com/wp-content/uploads/2019/04/main-logo-3.png" alt="Logo" /> <img itemprop="image" class="dark" src="https://timryanforamerica.com/wp-content/uploads/2019/04/main-logo-3.png" alt="Logo" /> <img itemprop="image" class="sticky" src="https://timryanforamerica.com/wp-content/uploads/2019/04/main-logo-3.png" alt="Logo" /> <img itemprop="image" class="mobile" src="https://timryanforamerica.com/wp-content/uploads/2019/04/main-logo-3.png" alt="Logo" /> </a>
+</div>
+</div> </div>
+<div class="header_inner_right">
+<div class="side_menu_button_wrapper right">
+<div class="side_menu_button">
+</div>
+</div>
+</div>
+<nav class="main_menu drop_down right">
+<ul id="menu-main-menu" class=""><li id="nav-menu-item-260" class="menu-item menu-item-type-custom menu-item-object-custom anchor-item  narrow"></li>
+<li id="nav-menu-item-799" class="menu-item menu-item-type-post_type menu-item-object-page  narrow"><a href="https://timryanforamerica.com/meet-tim/" class=""><i class="menu_icon blank fa"></i><span>MEET TIM<span class="underline_dash"></span></span><span class="plus"></span></a></li>
+<li id="nav-menu-item-800" class="menu-item menu-item-type-post_type menu-item-object-page  narrow"><a href="https://timryanforamerica.com/issues/" class=""><i class="menu_icon blank fa"></i><span>ISSUES<span class="underline_dash"></span></span><span class="plus"></span></a></li>
+<li id="nav-menu-item-639" class="menu-item menu-item-type-custom menu-item-object-custom  narrow"></li>
+<li id="nav-menu-item-176" class="menu-item menu-item-type-custom menu-item-object-custom  narrow"><a target="_blank" href="//secure.timryanforamerica.com/page/s/sign-up-to-volunteer" class=""><i class="menu_icon blank fa"></i><span>VOLUNTEER<span class="underline_dash"></span></span><span class="plus"></span></a></li>
+<li id="nav-menu-item-666" class="menu-item menu-item-type-custom menu-item-object-custom  narrow"></li>
+<li id="nav-menu-item-172" class="menu-item menu-item-type-custom menu-item-object-custom  narrow"><a href="https://timryanforamerica.com/events/" class=""><i class="menu_icon blank fa"></i><span>EVENTS<span class="underline_dash"></span></span><span class="plus"></span></a></li>
+<li id="nav-menu-item-173" class="menu-item menu-item-type-custom menu-item-object-custom  narrow"></li>
+<li id="nav-menu-item-174" class="menu-item menu-item-type-custom menu-item-object-custom  narrow"><a target="_blank" href="//store.timryanforamerica.com/" class=""><i class="menu_icon blank fa"></i><span>STORE<span class="underline_dash"></span></span><span class="plus"></span></a></li>
+<li id="nav-menu-item-232" class="menu-item menu-item-type-custom menu-item-object-custom anchor-item  narrow"><a title="contribute" href="https://secure.actblue.com/donate/tr-ctr-website?refcode=TR_Website_ContrBTN&amp;amount=25&amp;amounts=1,25,50,100,500,1000,2800#contribute" class=""><i class="menu_icon blank fa"></i><span>DONATE<span class="underline_dash"></span></span><span class="plus"></span></a></li>
+</ul> </nav>
+<nav class="mobile_menu">
+<ul id="menu-main-menu-1" class=""><li id="mobile-menu-item-260" class="menu-item menu-item-type-custom menu-item-object-custom "></li>
+<li id="mobile-menu-item-799" class="menu-item menu-item-type-post_type menu-item-object-page "><a href="https://timryanforamerica.com/meet-tim/" class=""><span>MEET TIM</span></a><span class="mobile_arrow"><i class="fa fa-angle-right"></i><i class="fa fa-angle-down"></i></span></li>
+<li id="mobile-menu-item-800" class="menu-item menu-item-type-post_type menu-item-object-page "><a href="https://timryanforamerica.com/issues/" class=""><span>ISSUES</span></a><span class="mobile_arrow"><i class="fa fa-angle-right"></i><i class="fa fa-angle-down"></i></span></li>
+<li id="mobile-menu-item-639" class="menu-item menu-item-type-custom menu-item-object-custom "></li>
+<li id="mobile-menu-item-176" class="menu-item menu-item-type-custom menu-item-object-custom "><a target="_blank" href="//secure.timryanforamerica.com/page/s/sign-up-to-volunteer" class=""><span>VOLUNTEER</span></a><span class="mobile_arrow"><i class="fa fa-angle-right"></i><i class="fa fa-angle-down"></i></span></li>
+<li id="mobile-menu-item-666" class="menu-item menu-item-type-custom menu-item-object-custom "></li>
+<li id="mobile-menu-item-172" class="menu-item menu-item-type-custom menu-item-object-custom "><a href="https://timryanforamerica.com/events/" class=""><span>EVENTS</span></a><span class="mobile_arrow"><i class="fa fa-angle-right"></i><i class="fa fa-angle-down"></i></span></li>
+<li id="mobile-menu-item-173" class="menu-item menu-item-type-custom menu-item-object-custom "></li>
+<li id="mobile-menu-item-174" class="menu-item menu-item-type-custom menu-item-object-custom "><a target="_blank" href="//store.timryanforamerica.com/" class=""><span>STORE</span></a><span class="mobile_arrow"><i class="fa fa-angle-right"></i><i class="fa fa-angle-down"></i></span></li>
+<li id="mobile-menu-item-232" class="menu-item menu-item-type-custom menu-item-object-custom "><a title="contribute" href="https://secure.actblue.com/donate/tr-ctr-website?refcode=TR_Website_ContrBTN&amp;amount=25&amp;amounts=1,25,50,100,500,1000,2800#contribute" class=""><span>DONATE</span></a><span class="mobile_arrow"><i class="fa fa-angle-right"></i><i class="fa fa-angle-down"></i></span></li>
+</ul></nav> </div>
+</div>
+</div>
+</header> <a id="back_to_top" href="#">
+<span class="fa-stack">
+<i class="qode_icon_font_awesome fa fa-caret-up "></i> </span>
+</a>
+<div class="content content_top_margin_none">
+<div class="content_inner  ">
+<div class="container">
+<div class="container_inner default_template_holder clearfix page_container_inner">
+<h2>Our <span style="color: #d7282f;">Veterans</span> Need Help</span></h2>
+<p>Our veterans put their lives on the line for our country. They deserve a government that matches their dedication. As President, I will reform the Veterans Administration (VA) in a way that will heal our veterans. This means fighting against efforts to privatize the VA, and making significant investments into modernizing and improving military health services through innovative care. This approach includes growing the VA’s Whole Health program. The Whole Health program provides a more balanced treatment focused on wellbeing and customized health plans for individual vets.</p>
+<p></p>
+<p>Over 20 veterans die from suicide each day in the United States. I won’t rest until that number is down to zero.</p>
+<p></p>
+<p>As the founder of the House Military Mental Health Caucus, I understand the importance of advancing evidence-based treatment when it comes to mental health and substance abuse. While the Whole Health program is vital to suicide prevention, it is not available everywhere. As President, I will make sure suicide prevention is front and center by ensuring every veteran gets the care they need.</p>
+<p></p>
+<p>Reforming the VA is only the first step. We must push federal initiatives that ensure we do not turn our backs on our veterans. These efforts should include legislation like Reducing Barriers for Veterans Education Act of 2019 that would include the price of applying to higher education institution. And legislation to support the survivors of fallen service members like the Military Spouses Surviving Equity Act. These pieces of legislation are just the beginning of what the federal government can do to make sure veterans and their families get the services they need and deserve.</p>
+<p></p>
+<p>Our veterans answered the call of duty, put their lives on the line, and were there for us when we needed them the most — now it is our turn to be there for them.</p>
+<video poster="//timryanforamerica.com/wp-content/uploads/2019/07/veteransvideo.jpg" width="100%" class="video-tr" controls="">
+<source src="//timryanforamerica.com/wp-content/uploads/2019/05/3.mp4" type="video/mp4">
+</video>
+</div>
+</div>
+</div>
+</div>
+<footer>
+<div class="footer_inner clearfix">
+<div class="footer_top_holder">
+<div style="background-color: #0a2240;height: 1px" class="footer_top_border "></div>
+<div class="footer_top">
+<div class="container">
+<div class="container_inner">
+<div class="three_columns clearfix">
+<div class="column1 footer_col1">
+<div class="column_inner">
+<div id="custom_html-11" class="widget_text widget widget_custom_html"><div class="textwidget custom-html-widget"><h3 style="letter-spacing: 0px;font-size:20px; margin-bottom:10px; color:#fff; line-height:20px;">
+WE CAN’T DO THIS WITHOUT YOU
+</h3></div></div><div id="custom_html-9" class="widget_text widget widget_custom_html"><div class="textwidget custom-html-widget"><form name="signup" action="https://secure.timryanforamerica.com/page/s/join-the-team" method="post" id="form" class="form" _lpchecked="1">
+<input id="email" type="text" class="form-control form__input" placeholder="Email" name="email" required="required">
+<input id="frontHeroZip" type="text" class="form-control form__input" placeholder="Zip code" pattern="[0-9]{5}" name="zip" required="required">
+
+<input name="submit" class="btn btn-secondary btn-lg form__submit" value="I'm In" type="submit">
+</form></div></div> </div>
+</div>
+<div class="column2 footer_col2">
+<div class="column_inner">
+<div id="media_image-2" class="widget widget_media_image"><img width="300" height="62" src="https://timryanforamerica.com/wp-content/uploads/2019/04/footer-logo-2-300x62.png" class="image wp-image-449  attachment-medium size-medium" alt="" style="max-width: 100%; height: auto;" srcset="https://timryanforamerica.com/wp-content/uploads/2019/04/footer-logo-2-300x62.png 300w, https://timryanforamerica.com/wp-content/uploads/2019/04/footer-logo-2-768x158.png 768w, https://timryanforamerica.com/wp-content/uploads/2019/04/footer-logo-2-1024x210.png 1024w, https://timryanforamerica.com/wp-content/uploads/2019/04/footer-logo-2-700x144.png 700w, https://timryanforamerica.com/wp-content/uploads/2019/04/footer-logo-2.png 1175w" sizes="(max-width: 300px) 100vw, 300px" /></div> </div>
+</div>
+<div class="column3 footer_col3">
+<div class="column_inner">
+ <div id="custom_html-12" class="widget_text widget widget_custom_html"><div class="textwidget custom-html-widget"><p>Tim Ryan for America</p>
+<p>P.O. Box 2168</p>
+<p>Youngstown, Ohio 44504</p></div></div><span class='q_social_icon_holder circle_social' data-color=#ffffff><a itemprop='url' href='https://twitter.com/timryan?lang=en' target='_blank'><span class='fa-stack ' style='background-color: #55acee;margin: 10px;font-size: 24px;'><i class="qode_icon_font_awesome fa fa-twitter " style="color: #ffffff;font-size: 24px;"></i></span></a></span><span class='q_social_icon_holder circle_social' data-color=#ffffff><a itemprop='url' href='https://www.facebook.com/timryanforamerica/' target='_blank'><span class='fa-stack ' style='background-color: #3b5999;margin: 10px;font-size: 24px;'><i class="qode_icon_font_awesome fa fa-facebook " style="color: #ffffff;font-size: 24px;"></i></span></a></span><span class='q_social_icon_holder circle_social' data-color=#ffffff><a itemprop='url' href='https://www.instagram.com/timryanforamerica/' target='_blank'><span class='fa-stack ' style='background-color: #e4405f;margin: 10px;font-size: 24px;'><i class="qode_icon_font_awesome fa fa-instagram " style="color: #ffffff;font-size: 24px;"></i></span></a></span> </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="footer_bottom_holder">
+<div class="footer_bottom">
+<div class="textwidget custom-html-widget"><div style="margin-bottom:20px;" class="disclaimer">
+Paid for by Tim Ryan for America.
+</div></div> </div>
+</div>
+</div>
+</footer>
+</div>
+</div>
+
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M9W97M3"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script type="cce5b171e4967d826ce65f2b-text/javascript" src='https://timryanforamerica.com/wp-includes/js/jquery/ui/core.min.js?ver=1.11.4'></script>
+<script type="cce5b171e4967d826ce65f2b-text/javascript" src='https://timryanforamerica.com/wp-includes/js/jquery/ui/widget.min.js?ver=1.11.4'></script>
+<script type="cce5b171e4967d826ce65f2b-text/javascript" src='https://timryanforamerica.com/wp-includes/js/jquery/ui/accordion.min.js?ver=1.11.4'></script>
+<script type="cce5b171e4967d826ce65f2b-text/javascript" src='https://timryanforamerica.com/wp-includes/js/jquery/ui/position.min.js?ver=1.11.4'></script>
+<script type="cce5b171e4967d826ce65f2b-text/javascript" src='https://timryanforamerica.com/wp-includes/js/jquery/ui/menu.min.js?ver=1.11.4'></script>
+<script type="cce5b171e4967d826ce65f2b-text/javascript" src='https://timryanforamerica.com/wp-includes/js/wp-a11y.min.js?ver=5.1.1'></script>
+<script type="cce5b171e4967d826ce65f2b-text/javascript">
+/* <![CDATA[ */
+var uiAutocompleteL10n = {"noResults":"No results found.","oneResult":"1 result found. Use up and down arrow keys to navigate.","manyResults":"%d results found. Use up and down arrow keys to navigate.","itemSelected":"Item selected."};
+/* ]]> */
+</script>
+<script type="cce5b171e4967d826ce65f2b-text/javascript" src='https://timryanforamerica.com/wp-includes/js/jquery/ui/autocomplete.min.js?ver=1.11.4'></script>
+<script type="cce5b171e4967d826ce65f2b-text/javascript" src='https://timryanforamerica.com/wp-includes/js/jquery/ui/button.min.js?ver=1.11.4'></script>
+<script type="cce5b171e4967d826ce65f2b-text/javascript" src='https://timryanforamerica.com/wp-includes/js/jquery/ui/datepicker.min.js?ver=1.11.4'></script>
+<script type="cce5b171e4967d826ce65f2b-text/javascript">
+jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeText":"Close","currentText":"Today","monthNames":["January","February","March","April","May","June","July","August","September","October","November","December"],"monthNamesShort":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"nextText":"Next","prevText":"Previous","dayNames":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"dayNamesShort":["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],"dayNamesMin":["S","M","T","W","T","F","S"],"dateFormat":"MM d, yy","firstDay":1,"isRTL":false});});
+</script>
+<script type="cce5b171e4967d826ce65f2b-text/javascript" src='https://timryanforamerica.com/wp-includes/js/jquery/ui/mouse.min.js?ver=1.11.4'></script>
+<script type="cce5b171e4967d826ce65f2b-text/javascript" src='https://timryanforamerica.com/wp-includes/js/jquery/ui/resizable.min.js?ver=1.11.4'></script>
+<script type="cce5b171e4967d826ce65f2b-text/javascript" src='https://timryanforamerica.com/wp-includes/js/jquery/ui/draggable.min.js?ver=1.11.4'></script>
+<script type="cce5b171e4967d826ce65f2b-text/javascript" src='https://timryanforamerica.com/wp-includes/js/jquery/ui/dialog.min.js?ver=1.11.4'></script>
+<script type="cce5b171e4967d826ce65f2b-text/javascript" src='https://timryanforamerica.com/wp-includes/js/jquery/ui/droppable.min.js?ver=1.11.4'></script>
+<script type="cce5b171e4967d826ce65f2b-text/javascript" src='https://timryanforamerica.com/wp-includes/js/jquery/ui/progressbar.min.js?ver=1.11.4'></script>
+<script type="cce5b171e4967d826ce65f2b-text/javascript" src='https://timryanforamerica.com/wp-includes/js/jquery/ui/selectable.min.js?ver=1.11.4'></script>
+<script type="cce5b171e4967d826ce65f2b-text/javascript" src='https://timryanforamerica.com/wp-includes/js/jquery/ui/sortable.min.js?ver=1.11.4'></script>
+<script type="cce5b171e4967d826ce65f2b-text/javascript" src='https://timryanforamerica.com/wp-includes/js/jquery/ui/slider.min.js?ver=1.11.4'></script>
+<script type="cce5b171e4967d826ce65f2b-text/javascript" src='https://timryanforamerica.com/wp-includes/js/jquery/ui/spinner.min.js?ver=1.11.4'></script>
+<script type="cce5b171e4967d826ce65f2b-text/javascript" src='https://timryanforamerica.com/wp-includes/js/jquery/ui/tooltip.min.js?ver=1.11.4'></script>
+<script type="cce5b171e4967d826ce65f2b-text/javascript" src='https://timryanforamerica.com/wp-includes/js/jquery/ui/tabs.min.js?ver=1.11.4'></script>
+<script type="cce5b171e4967d826ce65f2b-text/javascript" src='https://timryanforamerica.com/wp-includes/js/jquery/ui/effect.min.js?ver=1.11.4'></script>
+<script type="cce5b171e4967d826ce65f2b-text/javascript" src='https://timryanforamerica.com/wp-includes/js/jquery/ui/effect-blind.min.js?ver=1.11.4'></script>
+<script type="cce5b171e4967d826ce65f2b-text/javascript" src='https://timryanforamerica.com/wp-includes/js/jquery/ui/effect-bounce.min.js?ver=1.11.4'></script>
+<script type="cce5b171e4967d826ce65f2b-text/javascript" src='https://timryanforamerica.com/wp-includes/js/jquery/ui/effect-clip.min.js?ver=1.11.4'></script>
+<script type="cce5b171e4967d826ce65f2b-text/javascript" src='https://timryanforamerica.com/wp-includes/js/jquery/ui/effect-drop.min.js?ver=1.11.4'></script>
+<script type="cce5b171e4967d826ce65f2b-text/javascript" src='https://timryanforamerica.com/wp-includes/js/jquery/ui/effect-explode.min.js?ver=1.11.4'></script>
+<script type="cce5b171e4967d826ce65f2b-text/javascript" src='https://timryanforamerica.com/wp-includes/js/jquery/ui/effect-fade.min.js?ver=1.11.4'></script>
+<script type="cce5b171e4967d826ce65f2b-text/javascript" src='https://timryanforamerica.com/wp-includes/js/jquery/ui/effect-fold.min.js?ver=1.11.4'></script>
+<script type="cce5b171e4967d826ce65f2b-text/javascript" src='https://timryanforamerica.com/wp-includes/js/jquery/ui/effect-highlight.min.js?ver=1.11.4'></script>
+<script type="cce5b171e4967d826ce65f2b-text/javascript" src='https://timryanforamerica.com/wp-includes/js/jquery/ui/effect-pulsate.min.js?ver=1.11.4'></script>
+<script type="cce5b171e4967d826ce65f2b-text/javascript" src='https://timryanforamerica.com/wp-includes/js/jquery/ui/effect-size.min.js?ver=1.11.4'></script>
+<script type="cce5b171e4967d826ce65f2b-text/javascript" src='https://timryanforamerica.com/wp-includes/js/jquery/ui/effect-scale.min.js?ver=1.11.4'></script>
+<script type="cce5b171e4967d826ce65f2b-text/javascript" src='https://timryanforamerica.com/wp-includes/js/jquery/ui/effect-shake.min.js?ver=1.11.4'></script>
+<script type="cce5b171e4967d826ce65f2b-text/javascript" src='https://timryanforamerica.com/wp-includes/js/jquery/ui/effect-slide.min.js?ver=1.11.4'></script>
+<script type="cce5b171e4967d826ce65f2b-text/javascript" src='https://timryanforamerica.com/wp-includes/js/jquery/ui/effect-transfer.min.js?ver=1.11.4'></script>
+<script type="cce5b171e4967d826ce65f2b-text/javascript" src='https://timryanforamerica.com/wp-content/themes/bridge/js/plugins/doubletaptogo.js?ver=5.1.1'></script>
+<script type="cce5b171e4967d826ce65f2b-text/javascript" src='https://timryanforamerica.com/wp-content/themes/bridge/js/plugins/modernizr.min.js?ver=5.1.1'></script>
+<script type="cce5b171e4967d826ce65f2b-text/javascript" src='https://timryanforamerica.com/wp-content/themes/bridge/js/plugins/jquery.appear.js?ver=5.1.1'></script>
+<script type="cce5b171e4967d826ce65f2b-text/javascript" src='https://timryanforamerica.com/wp-includes/js/hoverIntent.min.js?ver=1.8.1'></script>
+<script type="cce5b171e4967d826ce65f2b-text/javascript" src='https://timryanforamerica.com/wp-content/themes/bridge/js/plugins/counter.js?ver=5.1.1'></script>
+<script type="cce5b171e4967d826ce65f2b-text/javascript" src='https://timryanforamerica.com/wp-content/themes/bridge/js/plugins/easypiechart.js?ver=5.1.1'></script>
+<script type="cce5b171e4967d826ce65f2b-text/javascript" src='https://timryanforamerica.com/wp-content/themes/bridge/js/plugins/mixitup.js?ver=5.1.1'></script>
+<script type="cce5b171e4967d826ce65f2b-text/javascript" src='https://timryanforamerica.com/wp-content/plugins/js_composer/assets/lib/prettyphoto/js/jquery.prettyPhoto.min.js?ver=5.7'></script>
+<script type="cce5b171e4967d826ce65f2b-text/javascript" src='https://timryanforamerica.com/wp-content/themes/bridge/js/plugins/jquery.fitvids.js?ver=5.1.1'></script>
+<script type="cce5b171e4967d826ce65f2b-text/javascript" src='https://timryanforamerica.com/wp-content/plugins/js_composer/assets/lib/bower/flexslider/jquery.flexslider-min.js?ver=5.7'></script>
+<script type="cce5b171e4967d826ce65f2b-text/javascript" src='https://timryanforamerica.com/wp-includes/js/mediaelement/wp-mediaelement.min.js?ver=5.1.1'></script>
+<script type="cce5b171e4967d826ce65f2b-text/javascript" src='https://timryanforamerica.com/wp-content/themes/bridge/js/plugins/infinitescroll.min.js?ver=5.1.1'></script>
+<script type="cce5b171e4967d826ce65f2b-text/javascript" src='https://timryanforamerica.com/wp-content/themes/bridge/js/plugins/jquery.waitforimages.js?ver=5.1.1'></script>
+<script type="cce5b171e4967d826ce65f2b-text/javascript" src='https://timryanforamerica.com/wp-includes/js/jquery/jquery.form.min.js?ver=4.2.1'></script>
+<script type="cce5b171e4967d826ce65f2b-text/javascript" src='https://timryanforamerica.com/wp-content/plugins/js_composer/assets/lib/waypoints/waypoints.min.js?ver=5.7'></script>
+<script type="cce5b171e4967d826ce65f2b-text/javascript" src='https://timryanforamerica.com/wp-content/themes/bridge/js/plugins/jplayer.min.js?ver=5.1.1'></script>
+<script type="cce5b171e4967d826ce65f2b-text/javascript" src='https://timryanforamerica.com/wp-content/themes/bridge/js/plugins/bootstrap.carousel.js?ver=5.1.1'></script>
+<script type="cce5b171e4967d826ce65f2b-text/javascript" src='https://timryanforamerica.com/wp-content/themes/bridge/js/plugins/skrollr.js?ver=5.1.1'></script>
+<script type="cce5b171e4967d826ce65f2b-text/javascript" src='https://timryanforamerica.com/wp-content/themes/bridge/js/plugins/Chart.min.js?ver=5.1.1'></script>
+<script type="cce5b171e4967d826ce65f2b-text/javascript" src='https://timryanforamerica.com/wp-content/themes/bridge/js/plugins/jquery.easing.1.3.js?ver=5.1.1'></script>
+<script type="cce5b171e4967d826ce65f2b-text/javascript" src='https://timryanforamerica.com/wp-content/themes/bridge/js/plugins/abstractBaseClass.js?ver=5.1.1'></script>
+<script type="cce5b171e4967d826ce65f2b-text/javascript" src='https://timryanforamerica.com/wp-content/themes/bridge/js/plugins/jquery.countdown.js?ver=5.1.1'></script>
+<script type="cce5b171e4967d826ce65f2b-text/javascript" src='https://timryanforamerica.com/wp-content/themes/bridge/js/plugins/jquery.multiscroll.min.js?ver=5.1.1'></script>
+<script type="cce5b171e4967d826ce65f2b-text/javascript" src='https://timryanforamerica.com/wp-content/themes/bridge/js/plugins/jquery.justifiedGallery.min.js?ver=5.1.1'></script>
+<script type="cce5b171e4967d826ce65f2b-text/javascript" src='https://timryanforamerica.com/wp-content/themes/bridge/js/plugins/bigtext.js?ver=5.1.1'></script>
+<script type="cce5b171e4967d826ce65f2b-text/javascript" src='https://timryanforamerica.com/wp-content/themes/bridge/js/plugins/jquery.sticky-kit.min.js?ver=5.1.1'></script>
+<script type="cce5b171e4967d826ce65f2b-text/javascript" src='https://timryanforamerica.com/wp-content/themes/bridge/js/plugins/owl.carousel.min.js?ver=5.1.1'></script>
+<script type="cce5b171e4967d826ce65f2b-text/javascript" src='https://timryanforamerica.com/wp-content/themes/bridge/js/plugins/typed.js?ver=5.1.1'></script>
+<script type="cce5b171e4967d826ce65f2b-text/javascript" src='https://timryanforamerica.com/wp-content/themes/bridge/js/plugins/jquery.carouFredSel-6.2.1.min.js?ver=5.1.1'></script>
+<script type="cce5b171e4967d826ce65f2b-text/javascript" src='https://timryanforamerica.com/wp-content/themes/bridge/js/plugins/lemmon-slider.min.js?ver=5.1.1'></script>
+<script type="cce5b171e4967d826ce65f2b-text/javascript" src='https://timryanforamerica.com/wp-content/themes/bridge/js/plugins/jquery.fullPage.min.js?ver=5.1.1'></script>
+<script type="cce5b171e4967d826ce65f2b-text/javascript" src='https://timryanforamerica.com/wp-content/themes/bridge/js/plugins/jquery.mousewheel.min.js?ver=5.1.1'></script>
+<script type="cce5b171e4967d826ce65f2b-text/javascript" src='https://timryanforamerica.com/wp-content/themes/bridge/js/plugins/jquery.touchSwipe.min.js?ver=5.1.1'></script>
+<script type="cce5b171e4967d826ce65f2b-text/javascript" src='https://timryanforamerica.com/wp-content/plugins/js_composer/assets/lib/bower/isotope/dist/isotope.pkgd.min.js?ver=5.7'></script>
+<script type="cce5b171e4967d826ce65f2b-text/javascript" src='https://timryanforamerica.com/wp-content/themes/bridge/js/plugins/packery-mode.pkgd.min.js?ver=5.1.1'></script>
+<script type="cce5b171e4967d826ce65f2b-text/javascript" src='https://timryanforamerica.com/wp-content/themes/bridge/js/plugins/jquery.stretch.js?ver=5.1.1'></script>
+<script type="cce5b171e4967d826ce65f2b-text/javascript" src='https://timryanforamerica.com/wp-content/themes/bridge/js/plugins/imagesloaded.js?ver=5.1.1'></script>
+<script type="cce5b171e4967d826ce65f2b-text/javascript" src='https://timryanforamerica.com/wp-content/themes/bridge/js/plugins/rangeslider.min.js?ver=5.1.1'></script>
+<script type="cce5b171e4967d826ce65f2b-text/javascript" src='https://timryanforamerica.com/wp-content/themes/bridge/js/plugins/jquery.event.move.js?ver=5.1.1'></script>
+<script type="cce5b171e4967d826ce65f2b-text/javascript" src='https://timryanforamerica.com/wp-content/themes/bridge/js/plugins/jquery.twentytwenty.js?ver=5.1.1'></script>
+<script type="cce5b171e4967d826ce65f2b-text/javascript" src='https://timryanforamerica.com/wp-content/themes/bridge/js/default_dynamic_callback.php?ver=5.1.1'></script>
+<script type="cce5b171e4967d826ce65f2b-text/javascript">
+/* <![CDATA[ */
+var QodeAdminAjax = {"ajaxurl":"https:\/\/timryanforamerica.com\/wp-admin\/admin-ajax.php"};
+var qodeGlobalVars = {"vars":{"qodeAddingToCartLabel":"Adding to Cart...","page_scroll_amount_for_sticky":""}};
+/* ]]> */
+</script>
+<script type="cce5b171e4967d826ce65f2b-text/javascript" src='https://timryanforamerica.com/wp-content/themes/bridge/js/default.min.js?ver=5.1.1'></script>
+<script type="cce5b171e4967d826ce65f2b-text/javascript" src='https://timryanforamerica.com/wp-includes/js/comment-reply.min.js?ver=5.1.1'></script>
+<script type="cce5b171e4967d826ce65f2b-text/javascript" src='https://timryanforamerica.com/wp-content/plugins/js_composer/assets/js/dist/js_composer_front.min.js?ver=5.7'></script>
+<script type="cce5b171e4967d826ce65f2b-text/javascript">
+/* <![CDATA[ */
+var qodeLike = {"ajaxurl":"https:\/\/timryanforamerica.com\/wp-admin\/admin-ajax.php"};
+/* ]]> */
+</script>
+<script type="cce5b171e4967d826ce65f2b-text/javascript" src='https://timryanforamerica.com/wp-content/themes/bridge/js/plugins/qode-like.min.js?ver=5.1.1'></script>
+<script type="cce5b171e4967d826ce65f2b-text/javascript" src='https://timryanforamerica.com/wp-includes/js/wp-embed.min.js?ver=5.1.1'></script>
+<script type="cce5b171e4967d826ce65f2b-text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"65514a80d5","applicationID":"233923165","transactionName":"MgRWMUpVDUVSUE1YWwtOdQZMXQxYHENYVlE=","queueTime":0,"applicationTime":262,"atts":"HkNVRwJPHks=","errorBeacon":"bam.nr-data.net","agent":""}</script><script src="https://ajax.cloudflare.com/cdn-cgi/scripts/95c75768/cloudflare-static/rocket-loader.min.js" data-cf-settings="cce5b171e4967d826ce65f2b-|49" defer=""></script></body>
+</html>

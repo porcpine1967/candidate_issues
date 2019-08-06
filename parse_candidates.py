@@ -7,8 +7,8 @@ import urllib2
 
 from candidates import CANDIDATES
 
-BLOCK_TAGS = ('h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'div', 'article', 'header', 'section', 'li', 'blockquote', 'nav', 'title', 'footer', 'br', 'main', 'aside', 'iframe',)
-INLINE_TAGS = ('span', 'a', 'i', 'b', 'strong', 'figure', 'img', 'ul', 'style', 'polygon', 'g', 'svg', 'path', 'ol', 'script', 'source', 'picture', 'sup', 'hr', 'em', 'video', 'cite', 'q', 'u', 'ins', 'small', 'noscript', 'link',)
+BLOCK_TAGS = ('h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'div', 'article', 'header', 'section', 'li', 'blockquote', 'nav', 'title', 'footer', 'br', 'main', 'aside', 'iframe', 'table', 'tbody', 'tr', 'center',)
+INLINE_TAGS = ('span', 'a', 'i', 'b', 'strong', 'figure', 'img', 'ul', 'style', 'polygon', 'g', 'svg', 'path', 'ol', 'script', 'source', 'picture', 'sup', 'hr', 'em', 'video', 'cite', 'q', 'u', 'ins', 'small', 'noscript', 'link', 'td',)
 REPLACEMENTS = ((re.compile(r'<head.*</head>'), '',),
                 (re.compile(r'<script.*?</script>'), '',),
                 (re.compile(r'<style.*?</style>'), '',),
@@ -61,7 +61,8 @@ class ContentHTMLParser(HTMLParser.HTMLParser):
         if self.tags == [self.tag] or (self.bad == 'nested' and self.tag == tag):
             self.tags = []
             return
-        self.tags.pop()
+        if self.bad != 'unmatched' or tag == self.tags[-1]:
+            self.tags.pop()
         if tag in BLOCK_TAGS:
             self.lines.append('')
         elif tag not in INLINE_TAGS:

@@ -2,7 +2,7 @@
 <html lang="en-US" prefix="og: http://ogp.me/ns#" class="no-js">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o||n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({1:[function(e,n,t){function r(){}function o(e,n,t){return function(){return i(e,[c.now()].concat(u(arguments)),n?null:this,t),n?void 0:this}}var i=e("handle"),a=e(3),u=e(4),f=e("ee").get("tracer"),c=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,n){s[n]=o(d+n,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,o="function"==typeof n;return i(l+"tracer",[c.now(),e,t],r),function(){if(f.emit((o?"":"no-")+"fn-start",[c.now(),r,o],t),o)try{return n.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],t),e}finally{f.emit("fn-end",[c.now()],t)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=o(l+n)}),newrelic.noticeError=function(e,n){"string"==typeof e&&(e=new Error(e)),i("err",[e,c.now(),!1,n])}},{}],2:[function(e,n,t){function r(e,n){if(!o)return!1;if(e!==o)return!1;if(!n)return!0;if(!i)return!1;for(var t=i.split("."),r=n.split("."),a=0;a<r.length;a++)if(r[a]!==t[a])return!1;return!0}var o=null,i=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var u=navigator.userAgent,f=u.match(a);f&&u.indexOf("Chrome")===-1&&u.indexOf("Chromium")===-1&&(o="Safari",i=f[1])}n.exports={agent:o,version:i,match:r}},{}],3:[function(e,n,t){function r(e,n){var t=[],r="",i=0;for(r in e)o.call(e,r)&&(t[i]=n(r,e[r]),i+=1);return t}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],4:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(o<0?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=r},{}],5:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function o(e){function n(e){return e&&e instanceof r?e:e?f(e,u,i):i()}function t(t,r,o,i){if(!d.aborted||i){e&&e(t,r,o);for(var a=n(o),u=v(t),f=u.length,c=0;c<f;c++)u[c].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function l(e,n){h[e]=v(e).concat(n)}function m(e,n){var t=h[e];if(t)for(var r=0;r<t.length;r++)t[r]===n&&t.splice(r,1)}function v(e){return h[e]||[]}function g(e){return p[e]=p[e]||o(t)}function w(e,n){c(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var h={},y={},b={on:l,addEventListener:l,removeEventListener:m,emit:t,get:g,listeners:v,context:n,buffer:w,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",f=e("gos"),c=e(3),s={},p={},d=n.exports=o();d.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(o.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){o.buffer([e],r),o.emit(e,n,t)}var o=e("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!E++){var e=x.info=NREUM.info,n=l.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();c(y,function(n,t){e[n]||(e[n]=t)}),f("mark",["onload",a()+x.offset],null,"api");var t=l.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function o(){"complete"===l.readyState&&i()}function i(){f("mark",["domContent",a()+x.offset],null,"api")}function a(){return O.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-x.offset}var u=(new Date).getTime(),f=e("handle"),c=e(3),s=e("ee"),p=e(2),d=window,l=d.document,m="addEventListener",v="attachEvent",g=d.XMLHttpRequest,w=g&&g.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:g,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var h=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1123.min.js"},b=g&&w&&w[m]&&!/CriOS/.test(navigator.userAgent),x=n.exports={offset:u,now:a,origin:h,features:{},xhrWrappable:b,userAgent:p};e(1),l[m]?(l[m]("DOMContentLoaded",i,!1),d[m]("load",r,!1)):(l[v]("onreadystatechange",o),d[v]("onload",r)),f("mark",["firstbyte",u],null,"api");var E=0,O=e(5)},{}]},{},["loader"]);</script>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o||n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({1:[function(e,n,t){function r(){}function o(e,n,t){return function(){return i(e,[c.now()].concat(u(arguments)),n?null:this,t),n?void 0:this}}var i=e("handle"),a=e(3),u=e(4),f=e("ee").get("tracer"),c=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,n){s[n]=o(d+n,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,o="function"==typeof n;return i(l+"tracer",[c.now(),e,t],r),function(){if(f.emit((o?"":"no-")+"fn-start",[c.now(),r,o],t),o)try{return n.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],t),e}finally{f.emit("fn-end",[c.now()],t)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=o(l+n)}),newrelic.noticeError=function(e,n){"string"==typeof e&&(e=new Error(e)),i("err",[e,c.now(),!1,n])}},{}],2:[function(e,n,t){function r(e,n){if(!o)return!1;if(e!==o)return!1;if(!n)return!0;if(!i)return!1;for(var t=i.split("."),r=n.split("."),a=0;a<r.length;a++)if(r[a]!==t[a])return!1;return!0}var o=null,i=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var u=navigator.userAgent,f=u.match(a);f&&u.indexOf("Chrome")===-1&&u.indexOf("Chromium")===-1&&(o="Safari",i=f[1])}n.exports={agent:o,version:i,match:r}},{}],3:[function(e,n,t){function r(e,n){var t=[],r="",i=0;for(r in e)o.call(e,r)&&(t[i]=n(r,e[r]),i+=1);return t}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],4:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(o<0?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=r},{}],5:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function o(e){function n(e){return e&&e instanceof r?e:e?f(e,u,i):i()}function t(t,r,o,i){if(!d.aborted||i){e&&e(t,r,o);for(var a=n(o),u=v(t),f=u.length,c=0;c<f;c++)u[c].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function l(e,n){h[e]=v(e).concat(n)}function m(e,n){var t=h[e];if(t)for(var r=0;r<t.length;r++)t[r]===n&&t.splice(r,1)}function v(e){return h[e]||[]}function g(e){return p[e]=p[e]||o(t)}function w(e,n){c(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var h={},y={},b={on:l,addEventListener:l,removeEventListener:m,emit:t,get:g,listeners:v,context:n,buffer:w,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",f=e("gos"),c=e(3),s={},p={},d=n.exports=o();d.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(o.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){o.buffer([e],r),o.emit(e,n,t)}var o=e("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!E++){var e=x.info=NREUM.info,n=l.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();c(y,function(n,t){e[n]||(e[n]=t)}),f("mark",["onload",a()+x.offset],null,"api");var t=l.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function o(){"complete"===l.readyState&&i()}function i(){f("mark",["domContent",a()+x.offset],null,"api")}function a(){return O.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-x.offset}var u=(new Date).getTime(),f=e("handle"),c=e(3),s=e("ee"),p=e(2),d=window,l=d.document,m="addEventListener",v="attachEvent",g=d.XMLHttpRequest,w=g&&g.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:g,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var h=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1130.min.js"},b=g&&w&&w[m]&&!/CriOS/.test(navigator.userAgent),x=n.exports={offset:u,now:a,origin:h,features:{},xhrWrappable:b,userAgent:p};e(1),l[m]?(l[m]("DOMContentLoaded",i,!1),d[m]("load",r,!1)):(l[v]("onreadystatechange",o),d[v]("onload",r)),f("mark",["firstbyte",u],null,"api");var E=0,O=e(5)},{}]},{},["loader"]);</script>
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
   <!-- Google Tag Manager -->
@@ -42,7 +42,7 @@
 <meta name="twitter:description" content="We&#039;re in a battle for the soul of America. It&#039;s time to remember who we are." />
 <meta name="twitter:title" content="Joe&#039;s Vision" />
 <meta name="twitter:image" content="https://joebiden.com/wp-content/uploads/2019/04/biden-share-1024x512.jpg" />
-<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://joebiden.com/#organization","name":"","url":"https://joebiden.com/","sameAs":[]},{"@type":"WebSite","@id":"https://joebiden.com/#website","url":"https://joebiden.com/","name":"Joe Biden for President","publisher":{"@id":"https://joebiden.com/#organization"},"potentialAction":{"@type":"SearchAction","target":"https://joebiden.com/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"WebPage","@id":"https://joebiden.com/joes-vision/#webpage","url":"https://joebiden.com/joes-vision/","inLanguage":"en-US","name":"Joe&#039;s Vision &ndash; Joe Biden for President","isPartOf":{"@id":"https://joebiden.com/#website"},"datePublished":"2019-04-16T12:48:17-04:00","dateModified":"2019-06-27T20:43:40-04:00"}]}</script>
+<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://joebiden.com/#organization","name":"","url":"https://joebiden.com/","sameAs":[]},{"@type":"WebSite","@id":"https://joebiden.com/#website","url":"https://joebiden.com/","name":"Joe Biden for President","publisher":{"@id":"https://joebiden.com/#organization"},"potentialAction":{"@type":"SearchAction","target":"https://joebiden.com/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"WebPage","@id":"https://joebiden.com/joes-vision/#webpage","url":"https://joebiden.com/joes-vision/","inLanguage":"en-US","name":"Joe&#039;s Vision &ndash; Joe Biden for President","isPartOf":{"@id":"https://joebiden.com/#website"},"datePublished":"2019-04-16T12:48:17-04:00","dateModified":"2019-07-23T21:54:32-04:00"}]}</script>
 <!-- / Yoast SEO plugin. -->
 
 <link rel='dns-prefetch' href='//joebiden.com' />
@@ -146,7 +146,7 @@
                       <h2 class="title h3">America is an idea.</h2>
           
                       <figure>
-              <img width="932" height="522" src="https://joebiden.com/wp-content/uploads/2019/04/jrb-vision.jpg" class="attachment-large size-large" alt="La gente ve a Joe hablar." sizes="(min-width: 768px) 50vw, 100vw" srcset="https://joebiden.com/wp-content/uploads/2019/04/jrb-vision.jpg 932w, https://joebiden.com/wp-content/uploads/2019/04/jrb-vision-300x168.jpg 300w, https://joebiden.com/wp-content/uploads/2019/04/jrb-vision-768x430.jpg 768w" />            </figure>
+              <img width="932" height="522" src="https://joebiden.com/wp-content/uploads/2019/04/jrb-vision.jpg" class="attachment-large size-large" alt="supporters watch as Joe speaks" sizes="(min-width: 768px) 50vw, 100vw" srcset="https://joebiden.com/wp-content/uploads/2019/04/jrb-vision.jpg 932w, https://joebiden.com/wp-content/uploads/2019/04/jrb-vision-300x168.jpg 300w, https://joebiden.com/wp-content/uploads/2019/04/jrb-vision-768x430.jpg 768w" />            </figure>
           
                                     <div class="paragraph">
                 <p><span style="font-weight: 400;"><strong>An idea that goes back to our founding principle that all men are created equal.</strong> It&#8217;s an idea that&#8217;s stronger than any army, bigger than any ocean, more powerful than any dictator. It gives hope to the most desperate people on Earth. It instills in every single person in this country the belief that no matter where they start in life, there&#8217;s nothing they can’t achieve if they work at it.</span></p>
@@ -185,8 +185,20 @@
                                       </figure>
                                                   <figure class="image">
                     <img width="1024" height="465" src="https://joebiden.com/wp-content/uploads/2019/04/jrb-vision-middle-class-1024x465.jpg" class="attachment-large size-large" alt="Joe talks to workers." sizes="(min-width: 768px) 880px, 100vw" srcset="https://joebiden.com/wp-content/uploads/2019/04/jrb-vision-middle-class-1024x465.jpg 1024w, https://joebiden.com/wp-content/uploads/2019/04/jrb-vision-middle-class-300x136.jpg 300w, https://joebiden.com/wp-content/uploads/2019/04/jrb-vision-middle-class-768x349.jpg 768w, https://joebiden.com/wp-content/uploads/2019/04/jrb-vision-middle-class.jpg 1320w" />                  </figure>
-                                                  <div class="body"><p><span style="font-weight: 400;">The middle class isn’t a number—it’s a set of values. Owning your home. Sending your kids to college. Being able to save and get ahead. Across the country, too many families are being left behind. The next president needs to understand what the current one doesn’t: In America, </span><span style="font-weight: 400;">no matter where you start in life, there should be no limit to what you can achieve.</span></p>
-<p><span style="font-weight: 400;">We need to rebuild the middle class, and this time make sure everybody—regardless of race, gender, religion, sexual orientation, or disability—gets a fair shot.</span></p>
+                                                  <div class="body"><p>The middle class isn’t a number &#8212; it’s a set of values. Owning your home. Sending your kids to college. Being able to save and get ahead. Across the country, too many families are being left behind. The next president needs to understand what the current one doesn’t: In America, no matter where you start in life, there should be no limit to what you can achieve.</p>
+<p>We need to rebuild the middle class, and this time make sure everybody comes along &#8212; regardless of race, gender, religion, sexual orientation, or disability.</p>
+<p><strong><em></p>
+<h4>Latest Plans</h4>
+<p></em></p>
+<ul>
+<li><a href="https://joebiden.com/justice/">Joe&#8217;s Plan for Strengthening America’s Commitment to Justice >></a><br />
+<a href="https://joebiden.com/healthcare/">Joe&#8217;s Plan to Protect &amp; Build on the Affordable Care Act >></a><br />
+<a href="https://joebiden.com/older-americans/">Joe&#8217;s Plan for Older Americans >></a><br />
+<a href="https://joebiden.com/rural/">Joe&#8217;s Plan for Rural America >></a><br />
+<a href="https://joebiden.com/climate/">Joe&#8217;s Plan for a Clean Energy Revolution and Environmental Justice >></a><br />
+<a href="https://joebiden.com/education/">Joe’s Plan for Educators, Students, and our Future >></a></li>
+</ul>
+<p></strong></p>
 </div>
                 
                                   <div class="issues">
@@ -194,17 +206,20 @@
                           <h3><a href="#issue-0-0">Restoring the basic bargain for American workers. </a></h3>
                           <div class="body" id="issue-0-0">
                             <p>The American middle class built this country. Yet today, CEOs and Wall Street are putting profits over workers, plain and simple. It&#8217;s wrong. There used to be a basic bargain in this country that when you work hard, you were able to share in the prosperity your work helped create. It&#8217;s time to restore the dignity of work and give workers back the power to earn what they&#8217;re worth.</p>
-<p>&nbsp;</p>
-<ul style="list-style: disc inside none; margin-left: 20px;">
+<ul style="list-style: disc inside none; margin-left: 20px; margin-top:20px;margin-bottom:20px">
 <li>It’s well past time that we increase the federal minimum wage to $15.</li>
-<p></p>
+</ul>
+<ul style="list-style: disc inside none; margin-left: 20px;margin-bottom:20px">
 <li>We should stop companies from classifying low wage workers as managers in order to avoid paying them the overtime they’ve earned.</li>
-<p></p>
-<li style="font-weight: 400;">We have to stop Republican attempts to strip away workers’ rights to form unions and collectively bargain.</li>
-<p></p>
-<li style="font-weight: 400;">We also have to stand up against wage suppression through non-compete clauses.</li>
-<p></p>
-<li style="font-weight: 400;">And, we need to put an end to unnecessary occupational licensing requirements.</li>
+</ul>
+<ul style="list-style: disc inside none; margin-left: 20px; margin-bottom:20px">
+<li>We have to stop Republican attempts to strip away workers’ rights to form unions and collectively bargain.</li>
+</ul>
+<ul style="list-style: disc inside none; margin-left: 20px;margin-bottom:20px">
+<li>We also have to stand up against wage suppression through non-compete clauses.</li>
+</ul>
+<ul style="list-style: disc inside none; margin-left: 20px">
+<li>And, we need to put an end to unnecessary occupational licensing requirements.</li>
 </ul>
                           </div>
                         </div>
@@ -218,13 +233,15 @@
                                                                                         <div class="issue">
                           <h3><a href="#issue-0-2">Making sure the peace of mind of health care is a right for all—not a privilege for the few.</a></h3>
                           <div class="body" id="issue-0-2">
-                            <p>That’s the reason Barack Obama and Joe Biden fought so hard for the Affordable Care Act. We should defend and build upon the Affordable Care Act to ensure every American has access to quality, affordable health care.</p>
-<p>&nbsp;</p>
-<ul style="list-style: disc inside none; margin-left:20px">
+                            <p><a href="https://joebiden.com/healthcare/"><strong>READ THE FULL PLAN &gt;&gt;</strong></a></p>
+<p>That’s the reason Barack Obama and Joe Biden fought so hard for the Affordable Care Act. We should defend and build upon the Affordable Care Act to ensure every American has access to quality, affordable health care.</p>
+<ul style="list-style: disc inside none; margin-left: 20px;margin-bottom:20px;margin-top:20px">
 <li>We should give every American the right to choose a public option like Medicare.</li>
-<p></p>
-<li>We should also offer premium-free access to this public option for people who would otherwise qualify for Medicaid, but for the fact they have been denied access to it by governors and state legislatures who have refused the Affordable Care Act&#8217;s Medicaid expansion. We must ensure that they are receiving coverage that matches what they would have access to through  Medicaid.</li>
-<p></p>
+</ul>
+<ul style="list-style: disc inside none; margin-left: 20px;margin-bottom:20px">
+<li>We should also offer premium-free access to this public option for people who would otherwise qualify for Medicaid, but for the fact they have been denied access to it by governors and state legislatures who have refused the Affordable Care Act&#8217;s Medicaid expansion. We must ensure that they are receiving coverage that matches what they would have access to through Medicaid.</li>
+</ul>
+<ul style="list-style: disc inside none; margin-left: 20px;margin-bottom:20px">
 <li>And, we should dedicate the full force of our nation’s expertise and resources to tackle our greatest public health challenges, including cancer, Alzheimer&#8217;s, opioid addiction, and mental health.</li>
 </ul>
                           </div>
@@ -239,19 +256,21 @@
                                                                                         <div class="issue">
                           <h3><a href="#issue-0-4">Reforming our criminal justice system.</a></h3>
                           <div class="body" id="issue-0-4">
-                            <p>We need to reform the criminal justice system to prioritize prevention, eliminate racial disparities at every stage, get rid of sentencing practices that don’t fit the crime, and help make sure formerly incarcerated individuals who have served their sentences are able to fully participate in our democracy and economy. We have to take action to reduce gun violence and hate crimes, strengthen the landmark Violence Against Women Act, and insist on real community policing that builds trust and makes every community safe.</p>
+                            <p><a href="https://joebiden.com/justice/"><strong>READ THE FULL PLAN &gt;&gt;</strong></a></p>
+<p>We need to reform the criminal justice system to prioritize prevention, eliminate racial disparities at every stage, get rid of sentencing practices that don’t fit the crime, and help make sure formerly incarcerated individuals who have served their sentences are able to fully participate in our democracy and economy. We have to take action to reduce gun violence and hate crimes, strengthen the landmark Violence Against Women Act, and insist on real community policing that builds trust and makes every community safe.</p>
                           </div>
                         </div>
                                                                                         <div class="issue">
                           <h3><a href="#issue-0-5">Rewarding work, not just wealth.</a></h3>
                           <div class="body" id="issue-0-5">
                             <p>Economic inequality is pulling this country apart. We need stronger labor laws and a tax code that rewards a middle class that&#8217;s been cut out of decades of economic growth—not just the wealthy, who have gotten too many tax breaks for too long.</p>
-<p>&nbsp;</p>
-<ul style="list-style: disc inside none; margin-left:20px">
+<ul style="list-style: disc inside none; margin-left: 20px; margin-bottom:20px;margin-top:20px">
 <li>The first step is reversing President Trump&#8217;s tax cuts for the super-wealthy and corporations.</li>
-<p></p>
+</ul>
+<ul style="list-style: disc inside none; margin-left: 20px;margin-bottom:20px">
 <li>We need to eliminate special tax breaks that reward special interests.</li>
-<p></p>
+</ul>
+<ul style="list-style: disc inside none; margin-left: 20px;">
 <li>We need to get rid of the capital gains loophole for multi-millionaires. Warren Buffett said it best: he should not pay a lower tax rate than his secretary.</li>
 </ul>
                           </div>
@@ -259,13 +278,28 @@
                                                                                         <div class="issue">
                           <h3><a href="#issue-0-6">Ensuring our workers and communities benefit from international trade.</a></h3>
                           <div class="body" id="issue-0-6">
-                            <p>First and foremost, we must enforce existing trade laws and invest in the competitiveness of our workers and communities here at home, so that they complete on a level playing field. Then, we need to write the rules of the road for international trade through a modern, inclusive process—rules that protect our workers, safeguard the environment, uphold labor standards and middle-class wages, foster innovation, and take on big global challenges like corporate concentration, corruption, and climate change. If we don’t, other countries will write the rules for us.</p>
+                            <p>First and foremost, we must enforce existing trade laws and invest in the competitiveness of our workers and communities here at home, so that they compete on a level playing field. Then, we need to write the rules of the road for international trade through a modern, inclusive process—rules that protect our workers, safeguard the environment, uphold labor standards and middle-class wages, foster innovation, and take on big global challenges like corporate concentration, corruption, and climate change. If we don’t, other countries will write the rules for us.</p>
                           </div>
                         </div>
                                                                                         <div class="issue">
                           <h3><a href="#issue-0-7">Pursue a humane immigration policy that upholds our values, strengthens our economy, and secures our border.</a></h3>
                           <div class="body" id="issue-0-7">
                             <p>It&#8217;s no secret that our immigration system is broken, and for years, we have lacked the political will to fix it. We can secure our border and enforce our laws without tossing aside our values, our principles, and our humanity. Putting people in cages and tearing children away from their parents isn’t the answer. We have got to address the root causes of migration that push people to leave behind their homes and everything they know to undertake a dangerous journey for the chance at a better life, work that Vice President Biden led in the Obama-Biden Administration. At the same time, we must never forget that immigration is the reason the United States has been able to constantly renew and reinvent itself&#8211;legal immigration is an incredible source of strength for our country.</p>
+                          </div>
+                        </div>
+                                                                                        <div class="issue">
+                          <h3><a href="#issue-0-8">Rebuilding the middle class, so that this time everyone comes along</a></h3>
+                          <div class="body" id="issue-0-8">
+                            <p><strong><a href="https://joebiden.com/older-americans/">Read The Biden Plan for Older Americans >></a></strong></p>
+<p>The moral obligation of our time is rebuilding the middle class. The middle class isn’t a number, it’s a value set.</p>
+<p>And, a key component of that value set is having a steady, secure income as you age so your kids won’t have to take care of you in retirement. This means not only protecting and strengthening Social Security, but also helping more middle-class families grow their savings. </p>
+<p>A dignified retirement also means having access to affordable health care and support. Too many Americans – and too many older Americans – cannot afford their prescriptions or their long-term care. Their families are faced with saving for their own retirement or taking care of their aging parents. It’s not right.  </p>
+<p>Working- and middle-class Americans built this country. And, they deserve to retire with dignity – able to pay for their prescriptions and with access to quality, affordable long-term care. </p>
+<p><strong><a href="https://joebiden.com/rural/">Read the Biden Plan for Rural America >></a></strong></p>
+<p>Rural America is home to <a href="https://www.census.gov/library/stories/2017/08/rural-america.html">roughly 20%</a> of Americans, but we are all connected to rural communities in many ways. Rural Americans fuel us and feed us. Rural lands provide us with places to spend time outdoors with friends and family and relax.</p>
+<p>A healthy, vibrant rural America is essential to the success of our country. Yet in small town after small town, parents watch their kids and grandkids leave rural communities because there just is not enough opportunity for them at home. For too many rural Americans, a pathway to the middle class is out of reach if they stay in their rural communities.</p>
+<p>The moral obligation of our time is rebuilding the middle class, so that this time everyone comes along regardless of their race, gender, sexual orientation, disability or zip code.  It should not be dependent on whether they live in a city center, a small town, or a remote area. Everyone means everyone. </p>
+<p>As president, Biden will build a pathway to the middle class for rural Americans, in rural America. He will pursue a rural economic development strategy that partners with rural communities to invest in their unique assets, with the goal of giving young people more options to live, work, and raise the next generation in rural America. It’s not just good for those in rural America, it’s good for everyone across our country. </p>
                           </div>
                         </div>
                                                             </div>
@@ -289,7 +323,8 @@
                                       </figure>
                                                   <figure class="image">
                     <img width="1024" height="465" src="https://joebiden.com/wp-content/uploads/2019/04/jrb-vision-global-leader-2-1024x465.jpg" class="attachment-large size-large" alt="A leader on the global stage." sizes="(min-width: 768px) 880px, 100vw" srcset="https://joebiden.com/wp-content/uploads/2019/04/jrb-vision-global-leader-2-1024x465.jpg 1024w, https://joebiden.com/wp-content/uploads/2019/04/jrb-vision-global-leader-2-300x136.jpg 300w, https://joebiden.com/wp-content/uploads/2019/04/jrb-vision-global-leader-2-768x349.jpg 768w, https://joebiden.com/wp-content/uploads/2019/04/jrb-vision-global-leader-2.jpg 1320w" />                  </figure>
-                                                  <div class="body"><p><span style="font-weight: 400;">The world is facing inescapable challenges: a rapidly changing climate, the risk of nuclear conflict, trade wars, a rising China and an aggressive Russia, millions of refugees seeking shelter and security, and attacks on universal human rights and fundamental freedoms. The next president must repair our relationships with our allies and stand up to strongmen and thugs on the global stage to rally the world to meet these challenges. We can reclaim our longstanding position as the moral and economic leader of the world. </span></p>
+                                                  <div class="body"><p><a href="https://joebiden.com/AmericanLeadership/"><strong>The Power of America’s Example: The Biden Plan for Leading the Democratic World to Meet the Challenges of the 21st Century >></strong></a></span></p>
+<p><span style="font-weight: 400;">The world is facing inescapable challenges: a rapidly changing climate, the risk of nuclear conflict, trade wars, a rising China and an aggressive Russia, millions of refugees seeking shelter and security, and attacks on universal human rights and fundamental freedoms. The next president must repair our relationships with our allies and stand up to strongmen and thugs on the global stage to rally the world to meet these challenges. We can reclaim our longstanding position as the moral and economic leader of the world.</p>
 </div>
                 
                                   <div class="issues">
@@ -437,5 +472,5 @@ window.jQuery || document.write("<script src='https://joebiden.com/wp-content/th
 <script type='text/javascript' src='https://joebiden.com/wp-content/themes/bexc/js/min/slick.min.js?ver=0.45'></script>
 <script type='text/javascript' src='https://joebiden.com/wp-content/themes/bexc/js/min/main.min.js?ver=0.45'></script>
 <script type='text/javascript' src='https://joebiden.com/wp-includes/js/wp-embed.min.js?ver=5.2.1'></script>
-<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"853c31a225","applicationID":"143000334","transactionName":"MVxbNkICCxEEVUZaWwgWeAFECgoMSkZTVFFLT1ARWQwL","queueTime":0,"applicationTime":301,"atts":"HRtYQAoYGB8=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"853c31a225","applicationID":"143000334","transactionName":"MVxbNkICCxEEVUZaWwgWeAFECgoMSkZTVFFLT1ARWQwL","queueTime":0,"applicationTime":272,"atts":"HRtYQAoYGB8=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
 </html>

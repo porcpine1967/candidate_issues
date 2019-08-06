@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en-US" prefix="og: http://ogp.me/ns#" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o||n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({1:[function(e,n,t){function r(){}function o(e,n,t){return function(){return i(e,[c.now()].concat(u(arguments)),n?null:this,t),n?void 0:this}}var i=e("handle"),a=e(3),u=e(4),f=e("ee").get("tracer"),c=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,n){s[n]=o(d+n,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,o="function"==typeof n;return i(l+"tracer",[c.now(),e,t],r),function(){if(f.emit((o?"":"no-")+"fn-start",[c.now(),r,o],t),o)try{return n.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],t),e}finally{f.emit("fn-end",[c.now()],t)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=o(l+n)}),newrelic.noticeError=function(e,n){"string"==typeof e&&(e=new Error(e)),i("err",[e,c.now(),!1,n])}},{}],2:[function(e,n,t){function r(e,n){if(!o)return!1;if(e!==o)return!1;if(!n)return!0;if(!i)return!1;for(var t=i.split("."),r=n.split("."),a=0;a<r.length;a++)if(r[a]!==t[a])return!1;return!0}var o=null,i=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var u=navigator.userAgent,f=u.match(a);f&&u.indexOf("Chrome")===-1&&u.indexOf("Chromium")===-1&&(o="Safari",i=f[1])}n.exports={agent:o,version:i,match:r}},{}],3:[function(e,n,t){function r(e,n){var t=[],r="",i=0;for(r in e)o.call(e,r)&&(t[i]=n(r,e[r]),i+=1);return t}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],4:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(o<0?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=r},{}],5:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function o(e){function n(e){return e&&e instanceof r?e:e?f(e,u,i):i()}function t(t,r,o,i){if(!d.aborted||i){e&&e(t,r,o);for(var a=n(o),u=v(t),f=u.length,c=0;c<f;c++)u[c].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function l(e,n){h[e]=v(e).concat(n)}function m(e,n){var t=h[e];if(t)for(var r=0;r<t.length;r++)t[r]===n&&t.splice(r,1)}function v(e){return h[e]||[]}function g(e){return p[e]=p[e]||o(t)}function w(e,n){c(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var h={},y={},b={on:l,addEventListener:l,removeEventListener:m,emit:t,get:g,listeners:v,context:n,buffer:w,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",f=e("gos"),c=e(3),s={},p={},d=n.exports=o();d.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(o.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){o.buffer([e],r),o.emit(e,n,t)}var o=e("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!E++){var e=x.info=NREUM.info,n=l.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();c(y,function(n,t){e[n]||(e[n]=t)}),f("mark",["onload",a()+x.offset],null,"api");var t=l.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function o(){"complete"===l.readyState&&i()}function i(){f("mark",["domContent",a()+x.offset],null,"api")}function a(){return O.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-x.offset}var u=(new Date).getTime(),f=e("handle"),c=e(3),s=e("ee"),p=e(2),d=window,l=d.document,m="addEventListener",v="attachEvent",g=d.XMLHttpRequest,w=g&&g.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:g,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var h=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1130.min.js"},b=g&&w&&w[m]&&!/CriOS/.test(navigator.userAgent),x=n.exports={offset:u,now:a,origin:h,features:{},xhrWrappable:b,userAgent:p};e(1),l[m]?(l[m]("DOMContentLoaded",i,!1),d[m]("load",r,!1)):(l[v]("onreadystatechange",o),d[v]("onload",r)),f("mark",["firstbyte",u],null,"api");var E=0,O=e(5)},{}]},{},["loader"]);</script>
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-M96J785');</script>
+  <!-- End Google Tag Manager -->
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://joebiden.com/wp-content/themes/bexc/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://joebiden.com/wp-content/themes/bexc/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://joebiden.com/wp-content/themes/bexc/favicons/favicon-16x16.png">
+  <link rel="manifest" href="https://joebiden.com/wp-content/themes/bexc/favicons/site.webmanifest">
+  <link rel="mask-icon" href="https://joebiden.com/wp-content/themes/bexc/favicons/safari-pinned-tab.svg" color="#233f94">
+  <link rel="shortcut icon" href="https://joebiden.com/wp-content/themes/bexc/favicons/favicon.ico">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-config" content="https://joebiden.com/wp-content/themes/bexc/favicons/browserconfig.xml">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>Health Care &ndash; Joe Biden for President</title>
+  <script src="https://use.typekit.net/lwk5jsx.js"></script>
+  <script>try{Typekit.load({ async: false });}catch(e){}</script>
+  
+<!-- This site is optimized with the Yoast SEO plugin v11.1.1 - https://yoast.com/wordpress/plugins/seo/ -->
+<link rel="canonical" href="https://joebiden.com/healthcare/" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Health Care &ndash; Joe Biden for President" />
+<meta property="og:description" content="“When we passed the Affordable Care Act, I told President Obama it was a big deal – or something to that effect.” &#8212; Joe Biden in Dubuque, Iowa, April 30, 2019 SHARE ON FACEBOOK → SHARE ON TWITTER → On March 23, 2010, President Obama signed the Affordable Care Act into law, with Vice President Biden standing &hellip;" />
+<meta property="og:url" content="https://joebiden.com/healthcare/" />
+<meta property="og:site_name" content="Joe Biden for President" />
+<meta property="og:image" content="https://joebiden.com/wp-content/uploads/2019/04/biden-share-1200x630.jpg" />
+<meta property="og:image:secure_url" content="https://joebiden.com/wp-content/uploads/2019/04/biden-share-1200x630.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="“When we passed the Affordable Care Act, I told President Obama it was a big deal – or something to that effect.” &#8212; Joe Biden in Dubuque, Iowa, April 30, 2019 SHARE ON FACEBOOK → SHARE ON TWITTER → On March 23, 2010, President Obama signed the Affordable Care Act into law, with Vice President Biden standing [&hellip;]" />
+<meta name="twitter:title" content="Health Care &ndash; Joe Biden for President" />
+<meta name="twitter:image" content="https://joebiden.com/wp-content/uploads/2019/04/biden-share-1200x630.jpg" />
+<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://joebiden.com/#organization","name":"","url":"https://joebiden.com/","sameAs":[]},{"@type":"WebSite","@id":"https://joebiden.com/#website","url":"https://joebiden.com/","name":"Joe Biden for President","publisher":{"@id":"https://joebiden.com/#organization"},"potentialAction":{"@type":"SearchAction","target":"https://joebiden.com/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"WebPage","@id":"https://joebiden.com/healthcare/#webpage","url":"https://joebiden.com/healthcare/","inLanguage":"en-US","name":"Health Care &ndash; Joe Biden for President","isPartOf":{"@id":"https://joebiden.com/#website"},"datePublished":"2019-07-14T09:59:25-04:00","dateModified":"2019-07-26T15:44:21-04:00"}]}</script>
+<!-- / Yoast SEO plugin. -->
+
+<link rel='dns-prefetch' href='//joebiden.com' />
+<link rel='stylesheet' id='bexc-main-css'  href='https://joebiden.com/wp-content/themes/bexc/css/main.css?ver=0.45' type='text/css' media='all' />
+<script type='text/javascript' src='https://joebiden.com/wp-content/themes/bexc/js/min/modernizr.min.js?ver=3.6.0'></script>
+<link rel="alternate" type="application/json+oembed" href="https://joebiden.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fjoebiden.com%2Fhealthcare%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://joebiden.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fjoebiden.com%2Fhealthcare%2F&#038;format=xml" />
+
+</head>
+
+<body class="page-template-default page page-id-1060 language-en">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M96J785"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <a class="skip-link screen-reader-text" href="#main-content">Skip to content</a>
+
+  
+  <div class="site-header-wrapper">
+    <header id="site-header" class="clearfix">
+              <div class="site-title">
+          <a href="https://joebiden.com/" rel="home">
+                        <img src="https://joebiden.com/wp-content/themes/bexc/img/logo.svg" width="135" height="56" alt="Logo for Joe Biden for President">
+          </a>
+        </div>
+            <nav id="nav-header">
+        <ul class="top">
+          <li id="menu-item-34" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-34"><a href="https://joebiden.com/joes-story/">Joe&#8217;s Story</a></li>
+<li id="menu-item-33" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-33"><a href="https://joebiden.com/joes-vision/">Joe&#8217;s Vision</a></li>
+<li id="menu-item-134" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-134"><a href="https://www.mobilize.us/joebiden/">Events</a></li>
+<li id="menu-item-35" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-35"><a href="https://store.joebiden.com/">Store</a></li>
+<li id="menu-item-32" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-32"><a href="https://joebiden.com/join/">Join the Team</a></li>
+                                                                              <li class="translation"><a href="https://joebiden.com/es/inicio/">En Español</a></li>
+                                    
+                                <li class="social">
+              <ul>
+                                                      <li><a href="https://twitter.com/joebiden">
+                      <span class="icon-twitter"></span>
+                      <span class="element-invisible">Twitter</span>
+                    </a></li>
+                                                                        <li><a href="https://www.facebook.com/joebiden">
+                      <span class="icon-facebook"></span>
+                      <span class="element-invisible">Facebook</span>
+                    </a></li>
+                                                                        <li><a href="https://www.instagram.com/joebiden">
+                      <span class="icon-instagram"></span>
+                      <span class="element-invisible">Instagram</span>
+                    </a></li>
+                                                                        <li><a href="https://www.youtube.com/joebiden">
+                      <span class="icon-youtube"></span>
+                      <span class="element-invisible">Youtube</span>
+                    </a></li>
+                                                </ul>
+            </li>
+                  </ul>
+      </nav>
+                        <a href="https://secure.actblue.com/donate/joe2020?refcode=frontpage" class="button red donate-button">Donate</a>
+                    <a class="burger" href="#nav-header">
+        <span class="open">Menu</span>
+        <span class="close">Close</span>
+      </a>
+    </header><!-- #site-header -->
+  </div>
+
+  <div id="main-content">
+
+<main id="main">
+
+                    <div id="donate-bar">
+    <div class="donate-bar">
+              <h2>Support Joe</h2>
+            <ul>
+              <li><a href="https://secure.actblue.com/donate/joe2020?refcode=frontpage?amount=5" class="button red donate">$5</a></li>
+              <li><a href="https://secure.actblue.com/donate/joe2020?refcode=frontpage?amount=10" class="button red donate">$10</a></li>
+              <li><a href="https://secure.actblue.com/donate/joe2020?refcode=frontpage?amount=20" class="button red donate">$20</a></li>
+              <li><a href="https://secure.actblue.com/donate/joe2020?refcode=frontpage?amount=50" class="button red donate">$50</a></li>
+              <li><a href="https://secure.actblue.com/donate/joe2020?refcode=frontpage?amount=100" class="button red donate">$100</a></li>
+              <li><a href="https://secure.actblue.com/donate/joe2020?refcode=frontpage?amount=250" class="button red donate">$250</a></li>
+              <li><a href="https://secure.actblue.com/donate/joe2020?refcode=frontpage?amount=500" class="button red donate">$500</a></li>
+            <li class="other"><a href="https://secure.actblue.com/donate/joe2020?refcode=frontpage" class="button red donate">Other</a></li>
+      </ul>
+    </div>
+  </div>
+
+    <article class="view-page post-1060 page type-page status-publish hentry">
+
+    <header class="entry-header">
+      <h1 class="entry-title">Health Care</h1>
+    </header>
+    <div class="entry-content">
+      <p style="text-align: center;">
+<figure class="video-wrapper" style="padding: 56.2% 0 0;"><iframe title="Biden: We Have to Protect &amp; Build on Obamacare | Joe Biden For President" width="500" height="281" src="https://www.youtube.com/embed/t_y0ElVR7Xs?feature=oembed&#038;rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></figure>
+</p>
+<p><center></p>
+<h4><em><b>“When we passed the Affordable Care Act, I told President Obama it was a big deal – or something to that effect.”</b></em></h4>
+<p><b>&#8212; Joe Biden in <a href="https://www.c-span.org/video/?460257-1/joe-biden-campaigns-dubuque-iowa"><b>Dubuque, Iowa</b></a>, April 30, 2019</b></p>
+<p></center></p>
+<p><center></p>
+<table border="0" width="350" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="bg-rollover" style="background-color: #3b5998; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; border-bottom-color: #233458; border-bottom-width: 5px; border-bottom-style: solid; min-width: 350px; max-width: 350px;" align="center" bgcolor="#3b5998"><a style="font-size: 18px; font-family: Gotham,Arial,sans-serif; color: #ffffff; text-decoration: none; -webkit-border-radius: 0px; -moz-border-radius: 0px; border-radius: 0px; padding: 12px 2px 10px 2px; display: inline-block;" href="https://www.facebook.com/sharer/sharer.php?u=https://www.facebook.com/joebiden/videos/2390915347897162/"><strong>SHARE ON FACEBOOK →</strong></a></td>
+</tr>
+</tbody>
+</table>
+<p></p>
+<table border="0" width="350" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="bg-rollover" style="background-color: #1da1f2; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; border-bottom-color: #1887cb; border-bottom-width: 5px; border-bottom-style: solid; min-width: 350px; max-width: 350px;" align="center" bgcolor="#1DA1F2"><a style="font-size: 18px; font-family: Gotham,Arial,sans-serif; color: #ffffff; text-decoration: none; -webkit-border-radius: 0px; -moz-border-radius: 0px; border-radius: 0px; padding: 12px 2px 10px 2px; display: inline-block;" href="https://twitter.com/intent/tweet?url=https%3A%2F%2FJoeBiden.com%2Fhealthcare&#038;text=The%20Affordable%20Care%20Act%20was%20a%20historic%20achievement.%2020%20million%20Americans%20gained%20coverage.%20Over%20100%20million%20with%20pre-existing%20conditions%20finally%20got%20protection.%20We%20can%E2%80%99t%20tear%20it%20down.%20Watch%20this%20video%2C%20and%20read%20the%20Biden%20plan%20to%20protect%20and%20build%20on%20Obamacare%3A%20"><strong>SHARE ON TWITTER →</strong></a></td>
+</tr>
+</tbody>
+</table>
+<p></center></p>
+<p>On March 23, 2010, President Obama signed the Affordable Care Act into law, with Vice President Biden standing by his side, and made history. It was a victory 100 years in the making. It was the conclusion of a tough fight that required taking on Republicans, special interests, and the status quo to do what’s right. But the Obama-Biden Administration got it done.</p>
+<p>Today, the Affordable Care Act is still a big deal. Because of Obamacare, over <a href="https://avalere.com/press-releases/repeal-of-acas-pre-existing-condition-protections-could-affect-health-security-of-over-100-million-people">100 million people</a> no longer have to worry that an insurance company will deny coverage or charge higher premiums just because they have a <a href="https://www.healthcare.gov/coverage/pre-existing-conditions/">pre-existing condition</a> – whether cancer or diabetes or heart disease or a mental health challenge. Insurance companies <a href="https://www.hhs.gov/healthcare/about-the-aca/benefit-limits/index.html">can no longer set annual or lifetime limits</a> on coverage. <a href="https://www.kff.org/uninsured/fact-sheet/key-facts-about-the-uninsured-population/">Roughly 20 million additional Americans </a>obtained the peace of mind that comes with health insurance. Young people who are in transition from school to a job have the option to <a href="https://www.healthcare.gov/young-adults/children-under-26/">stay covered by their parents’ plan</a> until age 26.</p>
+<p>But, every day over the past nine years, the Affordable Care Act has been under relentless attack.</p>
+<p>Immediately after its passage, Congressional Republicans began trying again and again to repeal it. <a href="https://www.nytimes.com/2017/01/10/us/repeal-affordable-care-act-donald-trump.html">Following the lead of President Trump</a>, Republicans in Congress have only doubled down on this approach since January 2017. And, since repeal through Congress has not been working, President Trump has been unilaterally doing everything he can to sabotage the Affordable Care Act. Now, the Trump Administration is trying to get the entire law – including protections for people with pre-existing conditions – <a href="https://www.washingtonpost.com/nation/2019/03/26/trump-administration-asks-court-totally-repeal-obamas-affordable-care-act/?utm_term=.6de7f234c5bf">struck down in court</a>.</p>
+<p>As president, Biden will <b>protect the Affordable Care Act</b> from these continued attacks. He opposes every effort to get rid of this historic law – including efforts by Republicans, and efforts by Democrats. Instead of starting from scratch and getting rid of private insurance, he has a plan to <b>build on the Affordable Care Act by giving Americans more choice</b>, <b>reducing health care costs</b>, and <b>making our health care system less complex to navigate</b>.</p>
+<p>For Biden, this is personal. He believes that every American has a right to the peace of mind that comes with knowing they have access to affordable, quality health care. He knows that no one in this country should have to lay in bed at night staring at the ceiling wondering, “what will I do if she gets breast cancer?” or “if he has a heart attack?” “Will I go bankrupt?” He knows there is no peace of mind if you cannot afford to care for a sick child or a family member because of a pre-existing condition, because you’ve reached a point where your health insurer says “no more,” or because you have to make a decision between putting food on the table and going to the doctor or filling a prescription.</p>
+<p>In the coming months, Joe Biden will build on today’s plan by rolling out his proposals to tackle some of our greatest public health challenges – from reducing gun violence to curing devastating diseases as we know them like cancer, Alzheimer’s, diabetes, and addiction.</p>
+<p><center></p>
+<h4>THE BIDEN PLAN TO PROTECT &amp; BUILD ON THE AFFORDABLE CARE ACT</h4>
+<p></center></p>
+<p><b>I. GIVE EVERY AMERICAN ACCESS TO AFFORDABLE HEALTH INSURANCE</b></p>
+<p>From the time right before the Affordable Care Act’s key coverage-related policies went into effect to the last full year of the Obama-Biden Administration, 2016, the number of Americans lacking health insurance fell from <a href="https://www.kff.org/uninsured/fact-sheet/key-facts-about-the-uninsured-population/">44 million to 27 million</a> – an almost 40% drop. But President Trump’s persistent efforts to sabotage Obamacare through executive action, after failing in his efforts to repeal it through Congress, have started to reverse this progress. Since 2016, the number of uninsured Americans has <i>increased </i>by roughly <a href="https://www.cbo.gov/system/files/2019-04/55094-CoverageUnder65_0.pdf">1.4 million</a>.</p>
+<p>As president, Biden will stop this reversal of the progress made by Obamacare. And he won’t stop there. He’ll also build on the Affordable Care Act with a plan to insure more than an estimated 97% of Americans. Here’s how:</p>
+<ul>
+<li><strong>Giving Americans a new choice, a public health insurance option like Medicare.</strong> If your insurance company isn’t doing right by you, you should have another, better choice. Whether you’re covered through your employer, buying your insurance on your own, or going without coverage altogether, the Biden Plan will give you the choice to purchase a public health insurance option like Medicare. As in Medicare, the Biden public option will reduce costs for patients by negotiating lower prices from hospitals and other health care providers. It also will <a href="https://www.medicare.gov/manage-your-health/coordinating-your-care">better coordinate</a> among all of a patient’s doctors to improve the efficacy and quality of their care, and cover primary care without any co-payments. And it will bring relief to small businesses struggling to afford coverage for their employees.</li>
+</ul>
+<ul>
+<li><strong>Increasing the value of tax credits to lower premiums and extend coverage to more working Americans.</strong> Today, families that make <a href="https://www.healthcare.gov/glossary/premium-tax-credit/">between 100% and 400% of the federal poverty level</a> may receive a tax credit to reduce how much they have to pay for health insurance on the individual marketplace. The dollar amount of the financial assistance is calculated to ensure each family does not have to pay more than <a href="https://www.kff.org/health-reform/issue-brief/explaining-health-care-reform-questions-about-health/">a certain percentage of their income on a silver (medium generosity) plan</a>. But, these shares of income are too high and silver plans’ deductibles are too high. Additionally, many families making more than 400% of the federal poverty level (<a href="https://aspe.hhs.gov/2019-poverty-guidelines">about $50,000 for a single person and $100,000 for a family of four</a>), and thus not qualifying for financial assistance, still struggle to afford health insurance. The Biden Plan will help middle class families by eliminating the 400% income cap on tax credit eligibility and lowering the limit on the cost of coverage from 9.86% of income to 8.5%. This means that no family buying insurance on the individual marketplace, regardless of income, will have to spend more than 8.5% of their income on health insurance. Additionally, the Biden Plan will increase the size of tax credits <a href="https://www.urban.org/sites/default/files/publication/98432/2001826_2018.05.11_healthy_america_final_1.pdf">by calculating them based on the cost of a more generous gold plan, rather than a silver plan</a>. This will give more families the ability to afford more generous coverage, with lower deductibles and out-of-pocket costs.</li>
+</ul>
+<ul>
+<li><strong>Expanding coverage to low-income Americans.</strong> Access to affordable health insurance shouldn’t depend on your state’s politics. But today, state politics is getting in the way of coverage for millions of low-income Americans. Governors and state legislatures in <a href="https://www.kff.org/health-reform/state-indicator/state-activity-around-expanding-medicaid-under-the-affordable-care-act/?currentTimeframe=0&amp;sortModel=%7B%22colId%22:%22Location%22,%22sort%22:%22asc%22%7D#note-8">14 states</a> have refused to take up the Affordable Care Act’s expansion of Medicaid eligibility, denying access to Medicaid for an estimated <a href="https://www.kff.org/medicaid/issue-brief/the-coverage-gap-uninsured-poor-adults-in-states-that-do-not-expand-medicaid/">4.9 million adults</a>. Biden’s plan will ensure these individuals get covered by offering premium-free access to the public option for those 4.9 million individuals who would be eligible for Medicaid but for their state’s inaction, and making sure their public option covers the full scope of Medicaid benefits. States that have already expanded Medicaid will have the choice of moving the expansion population to the premium-free public option as long as the states continue to pay their current share of the cost of covering those individuals. Additionally, Biden will ensure people making below 138% of the federal poverty level get covered. He’ll do this by automatically enrolling these individuals when they interact with certain institutions (such as public schools) or other programs for low-income populations (such as SNAP).
+<p><a href="https://joebiden.com/health-care-communities-of-color/"><strong><em>Learn more about how Biden’s plan for health care benefits communities of color >></em></strong></a>
+</li>
+</ul>
+<p><b>II. PROVIDE THE PEACE OF MIND OF AFFORDABLE, QUALITY HEALTH CARE </b><b>AND A LESS COMPLEX HEALTH CARE SYSTEM</b></p>
+<p>Today, even for people with health insurance, our health care system is too expensive and too hard to navigate. The Biden Plan will not only provide coverage for uninsured Americans, it will also make health care more affordable and less complex for all.</p>
+<p>The plan’s elements described above will help reduce the cost of health insurance and health care for those already insured in the following ways:</p>
+<ul>
+<li><strong>All Americans will have a new, more affordable option.</strong> The public option, like Medicare, will negotiate prices with providers, providing a more affordable option for many Americans who today find their health insurance too expensive.</li>
+</ul>
+<ul>
+<li><strong>Middle class families will get a premium tax credit to help them pay for coverage.</strong> For example, take a family of four with an income of $110,000 per year. If they currently get insurance on the individual marketplace, because their premium will now be capped at 8.5% of their income, under the Biden Plan they will save <a href="https://www.cbpp.org/research/health/house-bill-would-make-significant-progress-on-health-care-affordability-and-coverage">an estimated $750 per month</a> on insurance alone. That’s cutting their premiums almost in half. If a family is covered by their employer but can get a better deal with the 8.5% premium cap, they can switch to a plan on the individual marketplace, too.</li>
+</ul>
+<ul>
+<li><strong>Premium tax credits will be calculated to help more families afford better coverage with lower deductibles.</strong> Because the premium tax credits will now be calculated based on the price of a more generous gold plan, families will be able to purchase a plan with a lower deductible and lower out-of-pocket spending. That means many families will see their overall annual health care spending go down.</li>
+</ul>
+<p>The Biden Plan has several additional proposals aimed directly at cutting the cost of health care and making the health care system less complex to navigate. The Biden Plan will:</p>
+<ul>
+<li><strong>Stop “surprise billing.”</strong> Consumers trying to lower their health care spending often try to choose an in-network provider. But sometimes patients are unaware they are receiving care from an out-of-network provider and a big, surprise bill. “<a href="http://files.kff.org/attachment/issue-brief-surprise-medical-bills">Surprise medical billing</a>” could occur, for example, if you go to an in-network hospital but don’t realize a specialist at that hospital is not part of your health plan. The Biden Plan will bar health care providers from charging patients out-of-network rates when the patient doesn’t have control over which provider the patient sees (for example, during a hospitalization).</li>
+</ul>
+<ul>
+<li><strong>Tackle market concentration across our health care system.</strong> The concentration of market power in the hands of a few corporations is occurring <a href="https://concentrationcrisis.openmarketsinstitute.org/">throughout our health care system</a>, and this lack of competition is <a href="https://concentrationcrisis.openmarketsinstitute.org/">driving up prices for consumers</a>. The Biden Administration will aggressively use its existing antitrust authority to address this problem.</li>
+</ul>
+<ul>
+<li><strong>Lower costs and improve health outcomes by partnering with the health care workforce.</strong> The Biden Administration will partner with health care workers and accelerate the testing and deployment of innovative solutions that improve quality of care and increase wages for low-wage health care workers, <a href="https://www.healthaffairs.org/do/10.1377/hblog20190227.420595/full/">like home care workers</a>.</li>
+</ul>
+<p><b>III. STAND UP TO ABUSE OF POWER BY PRESCRIPTION DRUG CORPORATIONS</b></p>
+<p>Too many Americans cannot afford their prescription drugs, and prescription drug corporations are profiteering off of the pocketbooks of sick individuals. The Biden Plan will put a stop to runaway drug prices and the profiteering of the drug industry by:</p>
+<ul>
+<li><strong>Repealing the outrageous exception allowing drug corporations to avoid negotiating with Medicare over drug prices.</strong> Because Medicare covers so many Americans, it has significant leverage to negotiate lower prices for its beneficiaries. And it does so for hospitals and other providers participating in the program, but not drug manufacturers. Drug manufacturers not facing any competition, therefore, can charge whatever price they choose to set. There’s no justification for this except the power of prescription drug lobbying. The Biden Plan will repeal the existing law explicitly barring Medicare from negotiating lower prices with drug corporations.</li>
+</ul>
+<ul>
+<li><strong>Limiting launch prices for drugs that face no competition and are being abusively priced by manufacturers.</strong> Through his work on the Cancer Moonshot, Biden understands that the future of pharmacological interventions is not traditional chemical drugs but specialized biotech drugs that will have little to no competition to keep prices in check. Without competition, we need a new approach for keeping the prices of these drugs down. For these cases where new specialty drugs without competition are being launched, under the Biden Plan the Secretary of Health and Human Services will establish an independent review board to assess their value. The board will recommend a reasonable price, based on the average price in other countries (a process called <a href="https://www.healthaffairs.org/doi/abs/10.1377/hlthaff.2018.05207?journalCode=hlthaff">external reference pricing</a>) or, if the drug is entering the U.S. market first, based on an evaluation by the independent board members. This reasonable price will be the rate Medicare and the public option will pay. In addition, the Biden Plan will allow private plans participating in the individual marketplace to access a similar rate.</li>
+</ul>
+<ul>
+<li><strong>Limiting price increases for all brand, biotech, and abusively priced generic drugs to inflation.</strong> As a condition of participation in the Medicare program and public option, all brand, biotech, and abusively priced generic drugs will be prohibited from increasing their prices more than the general inflation rate. The Biden Plan will also impose a tax penalty on drug manufacturers that increase the costs of their brand, biotech, or abusively priced generic over the general inflation rate.</li>
+</ul>
+<ul>
+<li><strong>Allowing consumers to buy prescription drugs from other countries.</strong> To create more competition for U.S. drug corporations, the Biden Plan will allow consumers to import prescription drugs from other countries, as long as the U.S. Department of Health and Human Services has certified that those drugs are safe.</li>
+</ul>
+<ul>
+<li><strong>Terminating pharmaceutical corporations’ tax break for advertisement spending.</strong> Drug corporations spent an estimated <a href="https://www.ncbi.nlm.nih.gov/pubmed/30620375">$6 billion</a> in 2016 alone on prescription drug advertisements to increase their sales, a more than four-fold increase from just <a href="https://www.ncbi.nlm.nih.gov/pubmed/30620375">$1.3 billion</a> in 1997. The American Medical Association has even expressed “<a href="https://www.ama-assn.org/press-center/press-releases/ama-calls-ban-dtc-ads-prescription-drugs-and-medical-devices">concerns among physicians about the negative impact of commercially driven promotions, and the role that marketing costs play in fueling escalating drug prices</a>.” Currently, drug corporations may count spending on these ads as a deduction to reduce the amount of taxes they owe. But taxpayers should not have to foot the bill for these ads. As president, Biden will end this tax deduction for all prescription drug ads, <a href="https://www.shaheen.senate.gov/news/press/shaheen-introduces-legislation-to-close-big-pharma-advertising-tax-loophole-">as proposed by Senator Jeanne Shaheen</a>.</li>
+</ul>
+<ul>
+<li><strong>Improving the supply of quality generics.</strong> Generics help reduce health care spending, but brand drug corporations have succeeded in preserving a number of strategies to help them delay the entrance of a generic into the market even after the patent has expired. The Biden Plan supports numerous proposals to accelerate the development of safe generics, such as <a href="https://www.leahy.senate.gov/imo/media/doc/020519%20116th%20CREATES%20Fact%20Sheet1.pdf">Senator Patrick Leahy’s proposal</a> to make sure generic manufacturers have access to a sample.</li>
+</ul>
+<p><b>IV. ENSURE HEALTH CARE IS A RIGHT FOR ALL, NOT A PRIVILEGE FOR JUST A FEW</b></p>
+<p>Joe Biden believes that every American – regardless of gender, race, income, sexual orientation, or zip code – should have access to affordable and quality health care. Yet racism, sexism, homophobia, transphobia, and other forms of discrimination permeate our health care system just as in every other part of society. As president, Biden will be a champion for improving access to health care and the health of all by:</p>
+<ul>
+<li><strong>Expanding access to contraception and protect the constitutional right to an abortion.</strong> The Affordable Care Act made historic progress by ensuring access to <a href="https://www.healthcare.gov/coverage/birth-control-benefits/">free preventive care, including contraception</a>. The Biden Plan will build on that progress. Vice President Biden supports repealing the Hyde Amendment because health care is a right that should not be dependent on one’s zip code or income. And, the public option will cover contraception and a woman’s constitutional right to choose. In addition, the Biden Plan will:
+<ul>
+<li><strong>Reverse the Trump Administration and states’ all-out assault on women’s right to choose.</strong> As president, Biden will work to codify <i>Roe v. Wade</i>, and his Justice Department will do everything in its power to stop the rash of state laws that so blatantly violate the constitutional right to an abortion, such as so-called <a href="https://www.plannedparenthoodaction.org/issues/abortion/trap-laws">TRAP laws</a>, parental notification requirements, mandatory waiting periods, and ultrasound requirements.</li>
+</ul>
+<ul>
+<li><strong>Restore federal funding for Planned Parenthood.</strong> The Obama-Biden administration fought Republican attacks on funding for Planned Parenthood again and again. As president, Biden will reissue <a href="http://ppfa.pr-optout.com/ViewAttachment.aspx?EID=mr9WXYw4u2IxYnni1dBRVlCavQUSDG%2f%2f8Pq%2bfYM8rSs%3d">guidance</a> specifying that states cannot refuse Medicaid funding for Planned Parenthood and other providers that refer for abortions or provide related information and reverse the Trump Administration’s <a href="https://www.hhs.gov/about/news/2019/02/22/hhs-releases-final-title-x-rule-detailing-family-planning-grant-program.html">rule</a> preventing Planned Parenthood and certain other family planning programs from obtaining Title X funds.</li>
+</ul>
+<ul>
+<li><strong>Just as the Obama-Biden Administration <a href="https://obamawhitehouse.archives.gov/the-press-office/statement-president-barack-obama-rescinding-mexico-city-policy">did</a>,President Biden will rescind the Mexico City Policy (also referred to as the <a href="https://www.kff.org/global-health-policy/fact-sheet/mexico-city-policy-explainer/">global gag rule</a>) that President Trump <a href="https://www.whitehouse.gov/presidential-actions/presidential-memorandum-regarding-mexico-city-policy/">reinstated</a> and expanded.</strong> This rule currently bars the U.S. federal government from supporting important global health efforts – including for malaria and HIV/AIDS – in developing countries simply because the organizations providing that aid also offer information on abortion services.</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><strong>Reducing our unacceptably high maternal mortality rate, which especially impacts people of color.</strong> Compared to other developed nations, the U.S. has the <a href="https://www.thelancet.com/pdfs/journals/lancet/PIIS0140-6736(16)31470-2.pdf">highest rate</a> of deaths related to pregnancy and childbirth, and we are the only country experiencing an increase in this death rate. This problem is especially prevalent among black women, who experience a death rate from complications related to pregnancy that is <a href="https://www.cdc.gov/reproductivehealth/maternalinfanthealth/pregnancy-mortality-surveillance-system.htm?CDC_AA_refVal=https%3A%2F%2Fwww.cdc.gov%2Freproductivehealth%2Fmaternalinfanthealth%2Fpmss.html">more than three times higher</a> than the rate for non-Hispanic white women. California came up with a strategy that <a href="https://www.healthaffairs.org/doi/abs/10.1377/hlthaff.2018.0463">halved</a> the state’s maternal death rate. As president, Biden will take this strategy nationwide.</li>
+</ul>
+<ul>
+<li><strong>Defending health care protections for all, regardless of gender, gender identity, or sexual orientation.</strong> Before the Affordable Care Act, insurance companies could increase premiums merely due to someone’s gender, sexual orientation, or gender identity. Further, insurance companies could increase premiums or deny coverage altogether due to someone’s <a href="https://www.kff.org/disparities-policy/issue-brief/the-affordable-care-act-and-insurance-coverage-changes-by-sexual-orientation/">HIV</a> status. Yet, President Trump is trying to walk back this progress. For example, he has <a href="https://www.hhs.gov/about/news/2019/05/24/hhs-proposes-to-revise-aca-section-1557-rule.html">proposed</a> to once again allow health care providers and insurance companies to discriminate based on a patient’s gender identity or abortion history. President Biden will defend the rights of all people – regardless of gender, sexual orientation, gender identity – to have access to quality, affordable health care free from discrimination.</li>
+</ul>
+<ul>
+<li>Doubling America’s investment in community health centers. <a href="https://www.healthcare.gov/community-health-centers/">Community health centers</a> provide primary, prenatal, and other important care to underserved populations. The Biden Plan will double the federal investment in these centers, expanding access to high quality health care for the populations that need it most.</li>
+</ul>
+<ul>
+<li><strong>Achieving mental health parity and expanding access to mental health care.</strong> As Vice President, Biden was a champion for efforts to <a href="https://www.federalregister.gov/documents/2013/11/13/2013-27086/final-rules-under-the-paul-wellstone-and-pete-domenici-mental-health-parity-and-addiction-equity-act">implement the federal mental health parity law</a>, <a href="https://obamawhitehouse.archives.gov/the-press-office/2013/12/10/vice-president-biden-announces-100-million-increase-access-mental-health">improve access to mental health care</a>, and <a href="https://www.youtube.com/watch?v=gFZsIPkfN3Q">eliminate the stigma around mental health</a>. As President, he will redouble these efforts to ensure enforcement of mental health parity laws and expand funding for mental health services.</li>
+</ul>
+<p>In the months ahead, Biden will put forward additional plans to tackle health challenges affecting specific communities, including access to health care in rural communities, gun violence, and opioid addiction.</p>
+<p><b><i>SUPPORTING HEALTH, NOT REWARDING WEALTH</i></b></p>
+<p>Joe Biden believes in rewarding work, not just wealth – and investing in hard-working Americans’ health, not protecting the most privileged Americans’ wealth. Warren Buffett said it best when he stated that he should not pay a lower tax rate than his secretary.</p>
+<p>The Biden Plan will make health care a right by getting rid of capital gains tax loopholes for the super wealthy. Today, the very wealthy pay a tax rate of just 20% on long-term capital gains. According to the Joint Committee on Taxation, the capital gains and dividends exclusion is the second largest tax expenditure in the entire tax code: <a href="https://www.taxpolicycenter.org/briefing-book/what-are-largest-tax-expenditures">$127 billion in fiscal year 2019 alone</a>. As President, Biden will roll back the Trump rate cut for the very wealthy and restore the 39.6% top rate he helped restore when he <a href="https://www.washingtonpost.com/business/fiscal-cliff/biden-mcconnell-continue-cliff-talks-as-clock-winds-down/2012/12/31/66c044e2-534d-11e2-8b9e-dd8773594efc_story.html?utm_term=.e15d5e1608f5">negotiated an end to the Bush tax cuts for the wealthy in 2012</a>. Biden’s capital gains reform will close the loopholes that allow the super wealthy to avoid taxes on capital gains altogether. The Biden plan will assure those making over $1 million will pay the top rate on capital gains, doubling the capital gains tax rate on the super wealthy.</p>
+<p><a href="https://joebiden.com/health-care-communities-of-color/"><strong><em>Learn more about how Biden’s plan for health care benefits communities of color >></em></strong></a></p>
+    </div>
+  </article>
+
+
+</main><!-- #main -->
+
+
+</div><!-- #main-content -->
+
+<footer id="site-footer">
+        <ul class="social">
+                        <li><a href="https://twitter.com/joebiden">
+            <span class="icon-twitter"></span>
+            <span class="element-invisible">Twitter</span>
+          </a></li>
+                                <li><a href="https://www.facebook.com/joebiden">
+            <span class="icon-facebook"></span>
+            <span class="element-invisible">Facebook</span>
+          </a></li>
+                                <li><a href="https://www.instagram.com/joebiden">
+            <span class="icon-instagram"></span>
+            <span class="element-invisible">Instagram</span>
+          </a></li>
+                                <li><a href="https://www.youtube.com/joebiden">
+            <span class="icon-youtube"></span>
+            <span class="element-invisible">Youtube</span>
+          </a></li>
+                  </ul>
+  
+      <div class="disclaimer">Paid for by Biden for President.</div>
+  
+      <div class="footer-text"><p>Support our presidential campaign to elect Joe Biden by signing up to <a href="https://go.joebiden.com/page/s/volunteer">volunteer</a> or making a <a href="https://joebiden.com/donate">donation</a>.</p>
+</div>
+  
+  <nav id="nav-footer">
+      <ul class="menu">
+      <li id="menu-item-357" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-357"><a href="https://jobs.lever.co/joebiden">Work with Us</a></li>
+<li id="menu-item-801" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-801"><a href="https://go.joebiden.com/page/s/contact-us">Contact Us</a></li>
+<li id="menu-item-61" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-61"><a href="https://joebiden.com/privacy-policy/">Privacy Policy</a></li>
+<li id="menu-item-567" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-567"><a href="https://joebiden.com/terms/">Terms and Conditions</a></li>
+      <li>
+        &copy; Copyright 2019. All rights reserved.      </li>
+    </ul>
+  </nav>
+</footer><!-- #site-footer -->
+
+            <script type="text/javascript">
+      var modal_expires = 0;
+            var modal_cookie = 'modal-lightbox';
+            </script>
+      <div class="modal-wrapper" id="modal">
+        <div class="modal-container">
+          <div class="modal">
+            <div class="modal-outer">
+              <div class="modal-inner">
+                <a class="close modal-close" href="#site-header">Close</a>
+                <h2>
+                                      <div class="title">Say You're On</div>
+                                                        <div class="title light">Team Joe!</div>
+                                  </h2>
+                                                  <div class="body"><p>Joe was AMAZING at the debate!</p>
+<p><strong>Help us get 10,000 new supporters standing with Joe since the debate:</strong></p>
+</div>
+                                                  <form name="signup" class="bsd-signup" action="https://go.joebiden.com/page/s/sign_up_splash" data-ajax="https://go.joebiden.com/page/sapi/sign_up_splash" method="post">
+
+                    <div class="fieldset" id="bsd-field-email">
+                      <div class="label"><label class="field" for="email">Email Address</label></div>
+                      <div class="input"><input type="email" class="text" size="48" id="email" name="email" required="required"></div>
+                    </div>
+
+                    <div class="form-inline clearfix">
+                      <div class="fieldset" id="bsd-field-mobile">
+                        <div class="label"><label class="field" for="mobile">Mobile Phone</label></div>
+                        <div class="input"><input type="tel" class="text" size="15" id="mobile" name="mobile"></div>
+                      </div>
+
+                      <div class="fieldset" id="bsd-field-zip">
+                        <div class="label"><label class="field" for="zip">ZIP Code</label></div>
+                        <div class="input"><input size="8" id="zip" name="zip" type="text" class="text" required="required"></div>
+                      </div>
+                    </div>
+
+                                                                                            <div class="fieldset" id="bsd-field-custom-1571-group">
+                            <div class="input checkbox">
+                              <input id="custom-1571_0" class="custom-1571" name="__custom-1571[0]" type="checkbox" value="1" onclick="if (this.checked) { this.form['custom-1571[0]'].value='Sign up for volunteer updates'; }else { this.form['custom-1571[0]'].value=''; } ">
+                              <label for="custom-1571_0">Sign up for volunteer updates</label>
+                              <input type="hidden" name="custom-1571[0]" value="">
+                            </div>
+                          </div>
+                                                                  
+                                          <input value="Let's go" type="submit" class="button red" data-submitting="Submitting"  data-success="Success">
+                                      </form>
+                                                  <div class="disclaimer"><p>By providing your mobile phone number you consent to receive recurring text messages from Biden for President. Message &amp; Data Rates May Apply. Text HELP for Info. Text STOP to opt out. No purchase necessary. <a href="https://joebiden.com/terms/">Terms and Conditions</a> and <a href="https://joebiden.com/privacy-policy/">Privacy Policy</a>.</p>
+</div>
+                              </div>
+            </div>
+                          <div class="background" style="background-image: url(https://joebiden.com/wp-content/uploads/2019/04/join-overlay-2-optimized.jpg);"></div>
+                      </div>
+        </div>
+      </div>
+      
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+window.jQuery || document.write("<script src='https://joebiden.com/wp-content/themes/bexc/js/min/jquery.min.js'>\x3C/script>")
+//--><!]]>
+</script>
+
+<script type='text/javascript' src='https://joebiden.com/wp-content/themes/bexc/js/min/plugins.min.js?ver=0.45'></script>
+<script type='text/javascript' src='https://joebiden.com/wp-content/themes/bexc/js/min/js.cookie.min.js?ver=2.2.0'></script>
+<script type='text/javascript' src='https://joebiden.com/wp-content/themes/bexc/js/min/bodyScrollLock.min.js?ver=0.45'></script>
+<script type='text/javascript' src='https://joebiden.com/wp-content/themes/bexc/js/min/slick.min.js?ver=0.45'></script>
+<script type='text/javascript' src='https://joebiden.com/wp-content/themes/bexc/js/min/main.min.js?ver=0.45'></script>
+<script type='text/javascript' src='https://joebiden.com/wp-includes/js/wp-embed.min.js?ver=5.2.1'></script>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"853c31a225","applicationID":"143000334","transactionName":"MVxbNkICCxEEVUZaWwgWeAFECgoMSkZTVFE=","queueTime":0,"applicationTime":159,"atts":"HRtYQAoYGB8=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>

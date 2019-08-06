@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-US" prefix="og: http://ogp.me/ns#">
 <head >
-<meta charset="UTF-8" /><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o||n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({1:[function(e,n,t){function r(){}function o(e,n,t){return function(){return i(e,[c.now()].concat(u(arguments)),n?null:this,t),n?void 0:this}}var i=e("handle"),a=e(3),u=e(4),f=e("ee").get("tracer"),c=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,n){s[n]=o(d+n,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,o="function"==typeof n;return i(l+"tracer",[c.now(),e,t],r),function(){if(f.emit((o?"":"no-")+"fn-start",[c.now(),r,o],t),o)try{return n.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],t),e}finally{f.emit("fn-end",[c.now()],t)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=o(l+n)}),newrelic.noticeError=function(e,n){"string"==typeof e&&(e=new Error(e)),i("err",[e,c.now(),!1,n])}},{}],2:[function(e,n,t){function r(e,n){if(!o)return!1;if(e!==o)return!1;if(!n)return!0;if(!i)return!1;for(var t=i.split("."),r=n.split("."),a=0;a<r.length;a++)if(r[a]!==t[a])return!1;return!0}var o=null,i=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var u=navigator.userAgent,f=u.match(a);f&&u.indexOf("Chrome")===-1&&u.indexOf("Chromium")===-1&&(o="Safari",i=f[1])}n.exports={agent:o,version:i,match:r}},{}],3:[function(e,n,t){function r(e,n){var t=[],r="",i=0;for(r in e)o.call(e,r)&&(t[i]=n(r,e[r]),i+=1);return t}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],4:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(o<0?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=r},{}],5:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function o(e){function n(e){return e&&e instanceof r?e:e?f(e,u,i):i()}function t(t,r,o,i){if(!d.aborted||i){e&&e(t,r,o);for(var a=n(o),u=v(t),f=u.length,c=0;c<f;c++)u[c].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function l(e,n){h[e]=v(e).concat(n)}function m(e,n){var t=h[e];if(t)for(var r=0;r<t.length;r++)t[r]===n&&t.splice(r,1)}function v(e){return h[e]||[]}function g(e){return p[e]=p[e]||o(t)}function w(e,n){c(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var h={},y={},b={on:l,addEventListener:l,removeEventListener:m,emit:t,get:g,listeners:v,context:n,buffer:w,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",f=e("gos"),c=e(3),s={},p={},d=n.exports=o();d.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(o.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){o.buffer([e],r),o.emit(e,n,t)}var o=e("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!E++){var e=x.info=NREUM.info,n=l.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();c(y,function(n,t){e[n]||(e[n]=t)}),f("mark",["onload",a()+x.offset],null,"api");var t=l.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function o(){"complete"===l.readyState&&i()}function i(){f("mark",["domContent",a()+x.offset],null,"api")}function a(){return O.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-x.offset}var u=(new Date).getTime(),f=e("handle"),c=e(3),s=e("ee"),p=e(2),d=window,l=d.document,m="addEventListener",v="attachEvent",g=d.XMLHttpRequest,w=g&&g.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:g,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var h=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1123.min.js"},b=g&&w&&w[m]&&!/CriOS/.test(navigator.userAgent),x=n.exports={offset:u,now:a,origin:h,features:{},xhrWrappable:b,userAgent:p};e(1),l[m]?(l[m]("DOMContentLoaded",i,!1),d[m]("load",r,!1)):(l[v]("onreadystatechange",o),d[v]("onload",r)),f("mark",["firstbyte",u],null,"api");var E=0,O=e(5)},{}]},{},["loader"]);</script>
+<meta charset="UTF-8" /><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o||n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({1:[function(e,n,t){function r(){}function o(e,n,t){return function(){return i(e,[c.now()].concat(u(arguments)),n?null:this,t),n?void 0:this}}var i=e("handle"),a=e(3),u=e(4),f=e("ee").get("tracer"),c=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,n){s[n]=o(d+n,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,o="function"==typeof n;return i(l+"tracer",[c.now(),e,t],r),function(){if(f.emit((o?"":"no-")+"fn-start",[c.now(),r,o],t),o)try{return n.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],t),e}finally{f.emit("fn-end",[c.now()],t)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=o(l+n)}),newrelic.noticeError=function(e,n){"string"==typeof e&&(e=new Error(e)),i("err",[e,c.now(),!1,n])}},{}],2:[function(e,n,t){function r(e,n){if(!o)return!1;if(e!==o)return!1;if(!n)return!0;if(!i)return!1;for(var t=i.split("."),r=n.split("."),a=0;a<r.length;a++)if(r[a]!==t[a])return!1;return!0}var o=null,i=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var u=navigator.userAgent,f=u.match(a);f&&u.indexOf("Chrome")===-1&&u.indexOf("Chromium")===-1&&(o="Safari",i=f[1])}n.exports={agent:o,version:i,match:r}},{}],3:[function(e,n,t){function r(e,n){var t=[],r="",i=0;for(r in e)o.call(e,r)&&(t[i]=n(r,e[r]),i+=1);return t}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],4:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(o<0?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=r},{}],5:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function o(e){function n(e){return e&&e instanceof r?e:e?f(e,u,i):i()}function t(t,r,o,i){if(!d.aborted||i){e&&e(t,r,o);for(var a=n(o),u=v(t),f=u.length,c=0;c<f;c++)u[c].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function l(e,n){h[e]=v(e).concat(n)}function m(e,n){var t=h[e];if(t)for(var r=0;r<t.length;r++)t[r]===n&&t.splice(r,1)}function v(e){return h[e]||[]}function g(e){return p[e]=p[e]||o(t)}function w(e,n){c(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var h={},y={},b={on:l,addEventListener:l,removeEventListener:m,emit:t,get:g,listeners:v,context:n,buffer:w,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",f=e("gos"),c=e(3),s={},p={},d=n.exports=o();d.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(o.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){o.buffer([e],r),o.emit(e,n,t)}var o=e("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!E++){var e=x.info=NREUM.info,n=l.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();c(y,function(n,t){e[n]||(e[n]=t)}),f("mark",["onload",a()+x.offset],null,"api");var t=l.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function o(){"complete"===l.readyState&&i()}function i(){f("mark",["domContent",a()+x.offset],null,"api")}function a(){return O.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-x.offset}var u=(new Date).getTime(),f=e("handle"),c=e(3),s=e("ee"),p=e(2),d=window,l=d.document,m="addEventListener",v="attachEvent",g=d.XMLHttpRequest,w=g&&g.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:g,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var h=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1130.min.js"},b=g&&w&&w[m]&&!/CriOS/.test(navigator.userAgent),x=n.exports={offset:u,now:a,origin:h,features:{},xhrWrappable:b,userAgent:p};e(1),l[m]?(l[m]("DOMContentLoaded",i,!1),d[m]("load",r,!1)):(l[v]("onreadystatechange",o),d[v]("onload",r)),f("mark",["firstbyte",u],null,"api");var E=0,O=e(5)},{}]},{},["loader"]);</script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Our Policies - Andrew Yang for President</title>
 
@@ -50,7 +50,8 @@ img.emoji {
 	padding: 0 !important;
 }
 </style>
-	<link rel='stylesheet' id='aspire-pro-css'  href='https://www.yang2020.com/wp-content/themes/aspire-pro/style.css?ver=1.2' type='text/css' media='all' />
+	<link rel='stylesheet' id='TopBar-style-css'  href='https://www.yang2020.com/wp-content/themes/aspire-pro/TopBar/style.css?ver=1.7.24' type='text/css' media='all' />
+<link rel='stylesheet' id='aspire-pro-css'  href='https://www.yang2020.com/wp-content/themes/aspire-pro/style.css?ver=1.2' type='text/css' media='all' />
 <style id='aspire-pro-inline-css' type='text/css'>
 
 		a,
@@ -95,7 +96,7 @@ img.emoji {
 </style>
 <link rel='stylesheet' id='wp-block-library-css'  href='https://www.yang2020.com/wp-includes/css/dist/block-library/style.min.css?ver=5.2.1' type='text/css' media='all' />
 <link rel='stylesheet' id='avenir-next-css'  href='https://www.yang2020.com/wp-content/themes/aspire-pro/AvenirNext/avenir_next.css?ver=1.2' type='text/css' media='all' />
-<link rel='stylesheet' id='new-policy-css-css'  href='https://www.yang2020.com/wp-content/themes/aspire-pro/custom/new-policy.css?ver=1.7.20' type='text/css' media='all' />
+<link rel='stylesheet' id='new-policy-css-css'  href='https://www.yang2020.com/wp-content/themes/aspire-pro/custom/new-policy.css?ver=1.7.24' type='text/css' media='all' />
 <link rel='stylesheet' id='font-awesome-css'  href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css?ver=4.5.0' type='text/css' media='all' />
 <link rel='stylesheet' id='simple-social-icons-font-css'  href='https://www.yang2020.com/wp-content/plugins/simple-social-icons/css/style.css?ver=3.0.0' type='text/css' media='all' />
 <link rel='stylesheet' id='about_andrew-css'  href='https://www.yang2020.com/wp-content/plugins/about-andrew/public/css/about-andrew.css' type='text/css' media='screen' />
@@ -104,9 +105,9 @@ img.emoji {
 <!--[if lt IE 9]>
 <script type='text/javascript' src='https://www.yang2020.com/wp-content/themes/genesis/lib/js/html5shiv.min.js?ver=3.7.3'></script>
 <![endif]-->
-<script type='text/javascript' src='https://www.yang2020.com/wp-content/themes/aspire-pro/js/global.js?ver=1.0.0'></script>
-<script type='text/javascript' src='https://www.yang2020.com/wp-content/themes/aspire-pro/js/domready.js?ver=1.7.20'></script>
-<script type='text/javascript' src='https://www.yang2020.com/wp-content/themes/aspire-pro/js/joinForm.js?ver=1.7.20'></script>
+<script type='text/javascript' src='https://www.yang2020.com/wp-content/themes/aspire-pro/js/global.js?ver=1.7.24'></script>
+<script type='text/javascript' src='https://www.yang2020.com/wp-content/themes/aspire-pro/js/domready.js?ver=1.0.8'></script>
+<script type='text/javascript' src='https://www.yang2020.com/wp-content/themes/aspire-pro/js/joinForm.js?ver=1.7.24'></script>
 <script type='text/javascript' src='https://www.yang2020.com/wp-content/plugins/simple-social-icons/svgxuse.js?ver=1.1.21'></script>
 <link rel='https://api.w.org/' href='https://www.yang2020.com/wp-json/' />
 <link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.yang2020.com/xmlrpc.php?rsd" />
@@ -115,7 +116,17 @@ img.emoji {
 <link rel='shortlink' href='https://www.yang2020.com/?p=270' />
 <link rel="alternate" type="application/json+oembed" href="https://www.yang2020.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.yang2020.com%2Fpolicies%2F" />
 <link rel="alternate" type="text/xml+oembed" href="https://www.yang2020.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.yang2020.com%2Fpolicies%2F&#038;format=xml" />
-<link rel="pingback" href="https://www.yang2020.com/xmlrpc.php" />
+		<style>
+			.no-js img.lazyload { display: none; }
+			figure.wp-block-image img.lazyloading { min-width: 150px; }
+							.lazyload, .lazyloading { opacity: 0; }
+				.lazyloaded {
+					opacity: 1;
+					transition: opacity 400ms;
+					transition-delay: 0ms;
+				}
+					</style>
+		<link rel="pingback" href="https://www.yang2020.com/xmlrpc.php" />
 
   <!-- Google Tag Manager -->
   <script>
@@ -160,6 +171,35 @@ img.emoji {
 	--red: hsl(352, 69%, 53%);
 	--redDark: hsl(352, 69%, 39%);
 	--white: hsl(0, 0%, 100%);
+}
+
+.nav-primary > .wrap {
+	padding: 20px 0;
+}
+
+@media (max-width: 768px) {
+  .nav-primary > .wrap {
+	  padding: 0;
+	}
+}
+
+html body .top-bar .hide-on-desktop {
+  display: none;
+}
+
+
+@media (max-width: 1024px) {
+	  html body .top-bar .hide-on-mobile {
+    display: none;
+  }
+
+  html body .top-bar .hide-on-desktop {
+    display: block;
+  }
+}
+
+.entry-content .events-header {
+	background-color: var(--white);
 }
 
 a,
@@ -2473,98 +2513,51 @@ h6.giant-header {
 		width: 350px;
 	}
 }
-		</style>
-		</head>
-<body class="page-template page-template-page_with_header page-template-page_with_header-php page page-id-270 custom-header header-image header-full-width full-width-content policy-page" itemscope itemtype="https://schema.org/WebPage"><div class="site-container"><ul class="genesis-skip-link"><li><a href="#genesis-nav-primary" class="screen-reader-shortcut"> Skip to primary navigation</a></li><li><a href="#genesis-content" class="screen-reader-shortcut"> Skip to content</a></li><li><a href="#genesis-footer-widgets" class="screen-reader-shortcut"> Skip to footer</a></li></ul><style>
-.events-header {
-  position: relative;
-  z-index: 1000;
-  height: 74px;
-  background-color: #6CACE4;
-  align-items: center;
-}
-
-.events-header.grid {
-  max-width: 100%;
-}
-
-.events-header p,
-.events-header a {
-  margin: 0;
-  color: var(--white);
-  font-size: 16px;
-  line-height: 1.2;
-}
-
-.events-header p {
-  display: inline-block;
-  margin-left: auto;
-  margin-right: 38px;
-}
-
-.events-header a {
-  padding: 8px 23px;
-  border: 2px solid var(--white);
-  margin-right: auto;
-  font-size: 14px;
-  font-weight: bold;
-  text-decoration: none;
-  text-transform: uppercase;
-}
-
-.events-header a:hover {
-  text-decoration: underline;
-}
-
-.events-header + .site-header {
-  padding-top: calc(30px + 74px);
-}
 
 @media (max-width: 1024px) {
-  .events-header {
-    height: 56px;
-  }
-
   .events-header.grid {
     flex-direction: row;
   }
+}
 
-  .events-header + .site-header {
-    padding-top: calc(30px + 28px);
-  }
+.events-page .grid.events-header {
+	margin-bottom: 0;
+}
 
-  .events-header p {
-    margin-right: 16px;
-    font-size: 14px;
-  }
 
-  .events-header a {
-    font-size: 12px;
-  }
+.policy-page .policies .grid .column {
+  width: 33%;
+  margin-bottom: 40px;
+}
 
-  .events-header .hide-on-mobile {
-    display: none;
+@media (max-width: 1024px) {
+  .policy-page .policies .grid .column {
+    width: 100%;
   }
 }
-</style>
+		</style>
+		</head>
+<body class="page-template page-template-page_with_header page-template-page_with_header-php page page-id-270 custom-header header-image header-full-width full-width-content policy-page" itemscope itemtype="https://schema.org/WebPage"><div class="site-container"><ul class="genesis-skip-link"><li><a href="#genesis-nav-primary" class="screen-reader-shortcut"> Skip to primary navigation</a></li><li><a href="#genesis-content" class="screen-reader-shortcut"> Skip to content</a></li><li><a href="#genesis-footer-widgets" class="screen-reader-shortcut"> Skip to footer</a></li></ul><div class='HiddenSettings' style='display: none'>
+  <div class="setting-donorStats_donationAmount" style="display: none">208079814</div><div class="setting-progressBar_prizeUnlockedLine1" style="display: none">$2 million raised! New Prize Unlocked!</div><div class="setting-progressBar_prizeUnlockedLine2" style="display: none">See the Prize: Visit Yang2020.com/Spotify </div><div class="setting-trackingUrls_joinForm" style="display: none">https://secure.actblue.com/donate/ay-organic-augeg19-190801--genall?utm_source=website&utm_medium=Organic&utm_campaign=AugEG19&utm_term=&utm_content=190801SignupRedirect&refcode=websiteOrganicAugEG19190801SignupRedirect</div><div class="setting-volunteerProgressBar_conversationsCount" style="display: none">6067</div></div>
 
-<div class='events-header grid' style='background-color: #DA3248'>
-  <p>
-    <strong>
-      <span style='text-transform: uppercase;'>Moneybomb!</span> Andrew has a big <span class='hide-on-mobile'>FEC fundraising</span> deadline.<br />
-      Help show he is the candidate to beat in 2020!
-    </strong>
-  </p>
-  <a href='https://secure.actblue.com/donate/ayorganicdebatejune19190627genall?utm_source=website&utm_medium=Organic&utm_campaign=DebateJune19&utm_term=&utm_content=190627ButtonTopbar-&refcode=DebateJune19190627ButtonTopbar-' target='_blank' style='text-transform: uppercase;'>
-    Donate now!
-  </a>
+<div class='top-bar grid' style='background-color: #6cace4'>
+  <p class='hide-on-mobile'>
+    $2 million raised! New Prize Unlocked!<br />
+      </p>
+  <p class='hide-on-desktop'>
+    $2 million raised! New Prize Unlocked!<br />
+      </p>
+  <a href='https://open.spotify.com/user/31obuu45x4kmra2zbv6tbu5fsp4i/playlist/7904Fte7dciDiaHDsDKllf?' target='_blank' style='text-transform: uppercase;'>
+    See Prize!  </a>
 </div>
-<header class="site-header" itemscope itemtype="https://schema.org/WPHeader"><div class="wrap"><div class="title-area"><p class="site-title" itemprop="headline"><a href="https://www.yang2020.com/">Andrew Yang for President</a></p><p class="site-description" itemprop="description">Humanity First. $1,000/month for all.</p></div><nav class="nav-primary" aria-label="Main" itemscope itemtype="https://schema.org/SiteNavigationElement" id="genesis-nav-primary"><div class="wrap"><ul id="menu-top" class="menu genesis-nav-menu menu-primary js-superfish"><li id="menu-item-2149" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2149"><a href="https://www.yang2020.com/meet-andrew/" itemprop="url"><span itemprop="name">Andrew&#8217;s Story</span></a></li>
-<li id="menu-item-2154" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2154"><a href="https://www.yang2020.com/what-is-ubi/" itemprop="url"><span itemprop="name">What is UBI?</span></a></li>
+
+<header class="site-header" itemscope itemtype="https://schema.org/WPHeader"><div class="wrap"><div class="title-area"><p class="site-title" itemprop="headline"><a href="https://www.yang2020.com/">Andrew Yang for President</a></p><p class="site-description" itemprop="description">Humanity First. $1,000/month for all.</p></div><nav class="nav-primary" aria-label="Main" itemscope itemtype="https://schema.org/SiteNavigationElement" id="genesis-nav-primary"><div class="wrap"><ul id="menu-top" class="menu genesis-nav-menu menu-primary js-superfish"><li id="menu-item-2149" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2149"><a href="https://www.yang2020.com/meet-andrew/" itemprop="url"><span itemprop="name">Meet Andrew</span></a></li>
+<li id="menu-item-2154" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2154"><a href="https://www.yang2020.com/what-is-freedom-dividend-faq/" itemprop="url"><span itemprop="name">What is UBI?</span></a></li>
 <li id="menu-item-2155" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-270 current_page_item menu-item-2155"><a href="https://www.yang2020.com/policies/" aria-current="page" itemprop="url"><span itemprop="name">Policy</span></a></li>
+<li id="menu-item-3598" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3598"><a target="_blank" rel="noopener noreferrer" href="https://www.mobilize.us/yang2020/" itemprop="url"><span itemprop="name">Events</span></a></li>
 <li id="menu-item-3361" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3361"><a href="https://www.yang2020.com/volunteer/" itemprop="url"><span itemprop="name">Volunteer</span></a></li>
 <li id="menu-item-3362" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3362"><a href="https://shop.yang2020.com/" itemprop="url"><span itemprop="name">Store</span></a></li>
-<li id="menu-item-2158" class="menu-donate menu-item menu-item-type-custom menu-item-object-custom menu-item-2158"><a href="https://secure.actblue.com/donate/ayorganicdebatejune19190627genall?utm_source=website&#038;utm_medium=Organic&#038;utm_campaign=DebateJune19&#038;utm_term=&#038;utm_content=190627ButtonTopNav&#038;refcode=DebateJune19190627ButtonTopNav" itemprop="url"><span itemprop="name">Donate</span></a></li>
+<li id="menu-item-2158" class="menu-donate menu-item menu-item-type-custom menu-item-object-custom menu-item-2158"><a href="https://secure.actblue.com/donate/ay-organic-augeg19-190801--genall?utm_source=website&#038;utm_medium=Organic&#038;utm_campaign=AugEG19&#038;utm_term=&#038;utm_content=190801ButtonTopNav&#038;refcode=websiteOrganicAugEG19190801ButtonTopNav" itemprop="url"><span itemprop="name">Donate</span></a></li>
 </ul></div></nav></div></header><div class="jumbotron">
 
   <picture>
@@ -2600,15 +2593,15 @@ h6.giant-header {
 </h2>
 <div class="featured-policies grid">
   <a class="featured-universal" href="/policies/the-freedom-dividend/">
-    <img src="/wp-content/uploads/universal_basic_income.jpg" alt="Universal Basic Income" />
+    <img  alt="Universal Basic Income" data-src="/wp-content/uploads/universal_basic_income.jpg" data-sizes="auto" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" /><noscript><img src="/wp-content/uploads/universal_basic_income.jpg" alt="Universal Basic Income" /></noscript>
     <h2>
       <span class="underline-red">
-        Universal Basic Income
+        Freedom Dividend
       </span>
     </h2>
   </a>
   <a class="featured-medicare" href="/policies/medicare-for-all/">
-    <img src="/wp-content/uploads/medicare_for_all.jpg" alt="Medicare for All" />
+    <img  alt="Medicare for All" data-src="/wp-content/uploads/medicare_for_all.jpg" data-sizes="auto" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" /><noscript><img src="/wp-content/uploads/medicare_for_all.jpg" alt="Medicare for All" /></noscript>
     <h2>
       <span class="underline-red">
         Medicare for All
@@ -2616,7 +2609,7 @@ h6.giant-header {
     </h2>
   </a>
   <a class="featured-human" href="/policies/human-capitalism/">
-    <img src="/wp-content/uploads/human_centered_capitalism.jpg" alt="Human Capitalism" />
+    <img  alt="Human Capitalism" data-src="/wp-content/uploads/human_centered_capitalism.jpg" data-sizes="auto" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" /><noscript><img src="/wp-content/uploads/human_centered_capitalism.jpg" alt="Human Capitalism" /></noscript>
     <h2>
       <span class="underline-red">
         Human-Centered Capitalism
@@ -2631,653 +2624,739 @@ h6.giant-header {
 </blockquote>
 <br/>
 
-<h2 class="entry-title">
-  Explore Our Platform
-</h2>
 
 	<div class="policies">
-		<div class='grid'><div class="column">				<article id="policy-3044" class="post-3044 policy type-policy status-publish policy_categories-elections-campaign-finance policy_categories-governance entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/18-year-congressional-term-limits/">
-							18-Year Congressional Term Limits						</a>
-					</h4>
-				</article>
-						<article id="policy-3036" class="post-3036 policy type-policy status-publish policy_categories-economic-policy policy_categories-economy policy_categories-governance policy_categories-jobs-labor policy_categories-social-cohesion policy_categories-tax entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/end-relocation-bidding/">
-							End Bidding Wars for Corporate Relocation						</a>
-					</h4>
-				</article>
-						<article id="policy-3035" class="post-3035 policy type-policy status-publish policy_categories-environment policy_categories-environmental-policy entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/public-land-preservation/">
-							Preservation of Public Lands and Water						</a>
-					</h4>
-				</article>
-						<article id="policy-2719" class="post-2719 policy type-policy status-publish policy_categories-economic-policy entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/payment-small-businesses/">
-							Timing of Payments for Small Businesses						</a>
-					</h4>
-				</article>
-						<article id="policy-2686" class="post-2686 policy type-policy status-publish policy_categories-consumer-protection policy_categories-social-policy policy_categories-technology-regulation entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/data-property-right/">
-							Data as a Property Right						</a>
-					</h4>
-				</article>
-						<article id="policy-2703" class="post-2703 policy type-policy status-publish policy_categories-environment policy_categories-housing policy_categories-infrastructure policy_categories-jobs-labor policy_categories-social-policy entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/reduce-wildfires/">
-							Reduce Wildfires						</a>
-					</h4>
-				</article>
-						<article id="policy-2685" class="post-2685 policy type-policy status-publish policy_categories-consumer-protection policy_categories-economic-policy policy_categories-healthcare entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/prescription-drug-costs/">
-							Control the Cost of Prescription Drugs						</a>
-					</h4>
-				</article>
-						<article id="policy-2684" class="post-2684 policy type-policy status-publish policy_categories-civil-rights policy_categories-criminal-justice policy_categories-social-cohesion policy_categories-social-policy entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/restore-voting-rights/">
-							Restoration of Voting Rights						</a>
-					</h4>
-				</article>
-						<article id="policy-2665" class="post-2665 policy type-policy status-publish policy_categories-consumer-protection policy_categories-economic-policy policy_categories-economy policy_categories-financial-regulation policy_categories-tax policy_categories-technology-regulation entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/digital-asset-regulation/">
-							Crypto/Digital Asset Regulation and Consumer Protection						</a>
-					</h4>
-				</article>
-						<article id="policy-2666" class="post-2666 policy type-policy status-publish policy_categories-elections-campaign-finance policy_categories-governance policy_categories-social-policy entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/proportional-electors/">
-							Proportional Selection of Electors						</a>
-					</h4>
-				</article>
-						<article id="policy-2650" class="post-2650 policy type-policy status-publish policy_categories-education policy_categories-jobs-labor policy_categories-social-cohesion policy_categories-social-policy entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/expand-selective-schools/">
-							Expand Selective Schools						</a>
-					</h4>
-				</article>
-						<article id="policy-2664" class="post-2664 policy type-policy status-publish policy_categories-social-policy entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/automatic-voter-registration/">
-							Automatic Voter Registration						</a>
-					</h4>
-				</article>
-						<article id="policy-2648" class="post-2648 policy type-policy status-publish policy_categories-economic-policy policy_categories-economy policy_categories-energy policy_categories-environment policy_categories-environmental-policy policy_categories-infrastructure entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/grid-modernization/">
-							Grid Modernization Race to the Top						</a>
-					</h4>
-				</article>
-						<article id="policy-2640" class="post-2640 policy type-policy status-publish policy_categories-governance policy_categories-social-cohesion policy_categories-social-policy entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/head-of-culture-and-ceremony/">
-							Head of Culture and Ceremony						</a>
-					</h4>
-				</article>
-						<article id="policy-2649" class="post-2649 policy type-policy status-publish policy_categories-elections-campaign-finance policy_categories-governance policy_categories-social-policy entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/dc-statehood/">
-							Make Washington, DC, a State						</a>
-					</h4>
-				</article>
-						<article id="policy-2635" class="post-2635 policy type-policy status-publish policy_categories-civil-rights policy_categories-elections-campaign-finance policy_categories-governance policy_categories-social-policy entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/end-gerrymandering/">
-							End Partisan Gerrymandering						</a>
-					</h4>
-				</article>
-						<article id="policy-2633" class="post-2633 policy type-policy status-publish policy_categories-environment policy_categories-environmental-policy entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/reduce-packaging-waste/">
-							Reduce Packaging Waste						</a>
-					</h4>
-				</article>
-						<article id="policy-2632" class="post-2632 policy type-policy status-publish policy_categories-education policy_categories-governance policy_categories-social-cohesion policy_categories-social-policy entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/public-advisors/">
-							Public Council of Advisors						</a>
-					</h4>
-				</article>
-						<article id="policy-2628" class="post-2628 policy type-policy status-publish policy_categories-foreign-policy policy_categories-military-defense policy_categories-technology-regulation entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/quantum-computing/">
-							Quantum Computing and Encryption Standards						</a>
-					</h4>
-				</article>
-						<article id="policy-2624" class="post-2624 policy type-policy status-publish policy_categories-economic-policy policy_categories-economy policy_categories-environment policy_categories-environmental-policy entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/no-pennies/">
-							The Penny Makes No Cents						</a>
-					</h4>
-				</article>
-						<article id="policy-2622" class="post-2622 policy type-policy status-publish policy_categories-civil-rights policy_categories-elections-campaign-finance policy_categories-governance policy_categories-social-policy entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/election-day-holiday/">
-							Make Election Day a Holiday						</a>
-					</h4>
-				</article>
-						<article id="policy-2623" class="post-2623 policy type-policy status-publish policy_categories-consumer-protection policy_categories-economic-policy policy_categories-jobs-labor policy_categories-sports entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/empowering-mma-fighters/">
-							Empowering MMA Fighters						</a>
-					</h4>
-				</article>
-						<article id="policy-2617" class="post-2617 policy type-policy status-publish policy_categories-criminal-justice policy_categories-governance policy_categories-judiciary policy_categories-social-policy entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/scotustermlimits/">
-							18 Year Term Limit for Supreme Court Justices						</a>
-					</h4>
-				</article>
-						<article id="policy-2605" class="post-2605 policy type-policy status-publish policy_categories-social-policy entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/reviveota/">
-							Revive the Office of Technology Assessment						</a>
-					</h4>
-				</article>
-						<article id="policy-2608" class="post-2608 policy type-policy status-publish policy_categories-social-policy entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/votingage/">
-							Lower the Voting Age to 16						</a>
-					</h4>
-				</article>
-						<article id="policy-2598" class="post-2598 policy type-policy status-publish policy_categories-social-policy entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/cashbail/">
-							Decrease Pre-Trial Cash Bail						</a>
-					</h4>
-				</article>
-						<article id="policy-2584" class="post-2584 policy type-policy status-publish policy_categories-social-policy entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/extend-daylight-savings-time-all-year/">
-							Extend Daylight Saving Time All Year						</a>
-					</h4>
-				</article>
-						<article id="policy-2580" class="post-2580 policy type-policy status-publish policy_categories-social-policy entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/relocatefederalagencies/">
-							Relocate Federal Agencies						</a>
-					</h4>
-				</article>
-						<article id="policy-2568" class="post-2568 policy type-policy status-publish policy_categories-social-policy entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/democracydollars/">
-							Democracy Dollars						</a>
-					</h4>
-				</article>
-						<article id="policy-2576" class="post-2576 policy type-policy status-publish policy_categories-elections-campaign-finance policy_categories-governance policy_categories-social-policy entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/rankedchoice/">
-							Ranked Choice Voting						</a>
-					</h4>
-				</article>
-						<article id="policy-1674" class="post-1674 policy type-policy status-publish policy_categories-criminal-justice policy_categories-healthcare policy_categories-social-policy entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/decriminalizeopioids/">
-							Decriminalize Opioids						</a>
-					</h4>
-				</article>
-						<article id="policy-605" class="post-605 policy type-policy status-publish policy_categories-economic-policy policy_categories-social-safety-net entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/the-freedom-dividend/">
-							The Freedom Dividend						</a>
-					</h4>
-				</article>
-						<article id="policy-561" class="post-561 policy type-policy status-publish policy_categories-environment policy_categories-social-policy entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/climate-change/">
-							Combat Climate Change						</a>
-					</h4>
-				</article>
-						<article id="policy-550" class="post-550 policy type-policy status-publish policy_categories-civil-rights policy_categories-social-policy entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/reduce-mass-incarceration/">
-							Reduce Mass Incarceration						</a>
-					</h4>
-				</article>
-						<article id="policy-615" class="post-615 policy type-policy status-publish policy_categories-healthcare policy_categories-social-policy entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/opioid-crisis/">
-							Opioid Crisis						</a>
-					</h4>
-				</article>
-						<article id="policy-544" class="post-544 policy type-policy status-publish policy_categories-civil-rights policy_categories-social-policy entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/lgbtq-rights/">
-							LGBTQ Rights						</a>
-					</h4>
-				</article>
-		</div><div class="column">				<article id="policy-2066" class="post-2066 policy type-policy status-publish policy_categories-foreign-policy entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/foreign-policy-first-principles/">
-							Foreign Policy First Principles						</a>
-					</h4>
-				</article>
-						<article id="policy-570" class="post-570 policy type-policy status-publish policy_categories-gun-control policy_categories-social-policy entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/gun-safety/">
-							Gun Safety						</a>
-					</h4>
-				</article>
-						<article id="policy-591" class="post-591 policy type-policy status-publish policy_categories-jobs-labor policy_categories-social-policy entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/paid-family-leave/">
-							Paid Family Leave						</a>
-					</h4>
-				</article>
-						<article id="policy-1603" class="post-1603 policy type-policy status-publish policy_categories-social-cohesion policy_categories-social-policy entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/support-for-the-arts/">
-							Support for the Arts						</a>
-					</h4>
-				</article>
-						<article id="policy-601" class="post-601 policy type-policy status-publish policy_categories-economic-policy policy_categories-education entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/controlling-cost-higher-education/">
-							Control the Cost of Higher Education						</a>
-					</h4>
-				</article>
-						<article id="policy-2077" class="post-2077 policy type-policy status-publish policy_categories-immigration policy_categories-social-policy entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/pathway-to-citizenship-2/">
-							Pathway to Citizenship for Undocumented Immigrants						</a>
-					</h4>
-				</article>
-						<article id="policy-2078" class="post-2078 policy type-policy status-publish policy_categories-foreign-policy policy_categories-immigration entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/southern-border-security/">
-							Southern Border Security						</a>
-					</h4>
-				</article>
-						<article id="policy-2079" class="post-2079 policy type-policy status-publish policy_categories-immigration policy_categories-social-policy entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/support-the-dream-act/">
-							Support the DREAM Act						</a>
-					</h4>
-				</article>
-						<article id="policy-612" class="post-612 policy type-policy status-publish policy_categories-healthcare policy_categories-social-policy entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/right-privacy-abortion-contraception/">
-							Right to Privacy/Abortion and Contraception						</a>
-					</h4>
-				</article>
-						<article id="policy-562" class="post-562 policy type-policy status-publish policy_categories-elections-campaign-finance policy_categories-social-policy entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/overturning-citizens-united/">
-							Campaign Finance Reform						</a>
-					</h4>
-				</article>
-						<article id="policy-1371" class="post-1371 policy type-policy status-publish policy_categories-economic-policy policy_categories-social-policy entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/fight-for-equal-pay/">
-							Fight for Equal Pay						</a>
-					</h4>
-				</article>
-						<article id="policy-596" class="post-596 policy type-policy status-publish policy_categories-education policy_categories-social-policy entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/promoting-vocational-education/">
-							Promote Vocational Education						</a>
-					</h4>
-				</article>
-						<article id="policy-1189" class="post-1189 policy type-policy status-publish policy_categories-environment policy_categories-environmental-policy entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/carbon-fee-dividend/">
-							Carbon Fee and Dividend						</a>
-					</h4>
-				</article>
-						<article id="policy-595" class="post-595 policy type-policy status-publish policy_categories-economic-policy policy_categories-education policy_categories-social-policy entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/teacher-salaries/">
-							Increase Teacher Salaries						</a>
-					</h4>
-				</article>
-						<article id="policy-603" class="post-603 policy type-policy status-publish policy_categories-education policy_categories-social-policy entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/early-childhood-education/">
-							Early Childhood Education for All						</a>
-					</h4>
-				</article>
-						<article id="policy-552" class="post-552 policy type-policy status-publish policy_categories-criminal-justice policy_categories-social-policy entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/legalization-of-marijuana/">
-							Legalize Marijuana						</a>
-					</h4>
-				</article>
-						<article id="policy-637" class="post-637 policy type-policy status-publish policy_categories-governance policy_categories-social-policy entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/puerto-rican-statehood/">
-							Make Puerto Rico a State						</a>
-					</h4>
-				</article>
-						<article id="policy-530" class="post-530 policy type-policy status-publish policy_categories-economic-policy policy_categories-tax entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/value-added-tax/">
-							Value-Added Tax						</a>
-					</h4>
-				</article>
-						<article id="policy-554" class="post-554 policy type-policy status-publish policy_categories-criminal-justice policy_categories-social-policy entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/holding-pharmaceutical-companies-accountable/">
-							Hold Pharmaceutical Companies Accountable						</a>
-					</h4>
-				</article>
-						<article id="policy-555" class="post-555 policy type-policy status-publish policy_categories-economic-policy policy_categories-economy policy_categories-social-policy entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/human-capitalism/">
-							Human-Centered Capitalism						</a>
-					</h4>
-				</article>
-						<article id="policy-618" class="post-618 policy type-policy status-publish policy_categories-healthcare policy_categories-social-policy entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/mental-health/">
-							Invest in America&#8217;s Mental Health						</a>
-					</h4>
-				</article>
-						<article id="policy-579" class="post-579 policy type-policy status-publish policy_categories-journalism policy_categories-social-policy entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/american-journalism-fellows/">
-							American Journalism Fellows						</a>
-					</h4>
-				</article>
-						<article id="policy-527" class="post-527 policy type-policy status-publish policy_categories-social-policy policy_categories-technology-regulation entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/effects-smartphones-human-development/">
-							Reduce Harm to Children Caused by Smartphones						</a>
-					</h4>
-				</article>
-						<article id="policy-624" class="post-624 policy type-policy status-publish policy_categories-social-cohesion policy_categories-social-policy entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/every-cop-gets-camera/">
-							Every Cop Gets a Camera						</a>
-					</h4>
-				</article>
-						<article id="policy-582" class="post-582 policy type-policy status-publish policy_categories-economic-policy policy_categories-sports entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/ncaa-pay-athletes/">
-							NCAA Should Pay Athletes						</a>
-					</h4>
-				</article>
-						<article id="policy-583" class="post-583 policy type-policy status-publish policy_categories-foreign-policy policy_categories-military-defense entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/nuclear-launch/">
-							Nuclear Launch Decisions						</a>
-					</h4>
-				</article>
-						<article id="policy-633" class="post-633 policy type-policy status-publish policy_categories-governance policy_categories-social-policy entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/downsizing-federal-workforce/">
-							Limit Bureaucracy in the Federal Workforce						</a>
-					</h4>
-				</article>
-						<article id="policy-580" class="post-580 policy type-policy status-publish policy_categories-journalism policy_categories-social-policy entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/local-journalism-fund/">
-							Local Journalism Fund						</a>
-					</h4>
-				</article>
-						<article id="policy-568" class="post-568 policy type-policy status-publish policy_categories-economic-policy policy_categories-financial-regulation policy_categories-social-policy entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/post-offices-provide-basic-banking-services/">
-							Provide Basic Banking Services through the Post Office						</a>
-					</h4>
-				</article>
-						<article id="policy-625" class="post-625 policy type-policy status-publish policy_categories-social-cohesion policy_categories-social-policy entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/american-exchange-program/">
-							American Exchange Program						</a>
-					</h4>
-				</article>
-						<article id="policy-634" class="post-634 policy type-policy status-publish policy_categories-governance policy_categories-social-policy entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/pay-president-regulators/">
-							Prevent Corruption among Federal Regulators						</a>
-					</h4>
-				</article>
-						<article id="policy-627" class="post-627 policy type-policy status-publish policy_categories-governance policy_categories-social-policy entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/white-house-psychologist/">
-							Closely Monitor Mental Health of White House Staff						</a>
-					</h4>
-				</article>
-						<article id="policy-623" class="post-623 policy type-policy status-publish policy_categories-social-cohesion policy_categories-social-policy entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/free-marriage-counseling/">
-							Free Marriage Counseling for All						</a>
-					</h4>
-				</article>
-						<article id="policy-632" class="post-632 policy type-policy status-publish policy_categories-governance policy_categories-social-policy entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/automatically-sunsetting-old-laws/">
-							Automatically Sunset Old Laws						</a>
-					</h4>
-				</article>
-						<article id="policy-621" class="post-621 policy type-policy status-publish policy_categories-social-cohesion policy_categories-social-policy entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/prosperity-grants/">
-							Prosperity Grants						</a>
-					</h4>
-				</article>
-						<article id="policy-635" class="post-635 policy type-policy status-publish policy_categories-consumer-protection policy_categories-economic-policy entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/prevent-airlines-removing-customers/">
-							Prevent Airlines from Removing Customers						</a>
-					</h4>
-				</article>
-		</div><div class="column">				<article id="policy-558" class="post-558 policy type-policy status-publish policy_categories-economy policy_categories-social-policy entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/measuring-the-economy/">
-							Improve the American Scorecard						</a>
-					</h4>
-				</article>
-						<article id="policy-620" class="post-620 policy type-policy status-publish policy_categories-social-cohesion policy_categories-social-policy entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/single-parent-assistance/">
-							Increase Assistance for Single Parents						</a>
-					</h4>
-				</article>
-						<article id="policy-617" class="post-617 policy type-policy status-publish policy_categories-economic-policy policy_categories-healthcare entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/medical-technology-innovation/">
-							Fund Medical Technology Innovation						</a>
-					</h4>
-				</article>
-						<article id="policy-613" class="post-613 policy type-policy status-publish policy_categories-healthcare policy_categories-social-policy entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/autism-intervention-funding/">
-							Fund Autism Intervention						</a>
-					</h4>
-				</article>
-						<article id="policy-577" class="post-577 policy type-policy status-publish policy_categories-economic-policy policy_categories-infrastructure entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/rebuild-america/">
-							Rebuild American Infrastructure						</a>
-					</h4>
-				</article>
-						<article id="policy-594" class="post-594 policy type-policy status-publish policy_categories-economic-policy policy_categories-education entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/student-loan-debt/">
-							Reduce Student Loan Burden						</a>
-					</h4>
-				</article>
-						<article id="policy-610" class="post-610 policy type-policy status-publish policy_categories-healthcare policy_categories-social-policy entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/expanding-medical-licensure/">
-							Expand Access to Medical Experts						</a>
-					</h4>
-				</article>
-						<article id="policy-630" class="post-630 policy type-policy status-publish policy_categories-governance policy_categories-social-policy entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/support-revival-earmarks/">
-							Support the Revival of Earmarks						</a>
-					</h4>
-				</article>
-						<article id="policy-2667" class="post-2667 policy type-policy status-publish policy_categories-economic-policy policy_categories-healthcare policy_categories-social-policy entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/medicare-for-all/">
-							Medicare for All						</a>
-					</h4>
-				</article>
-						<article id="policy-609" class="post-609 policy type-policy status-publish policy_categories-economic-policy policy_categories-social-safety-net entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/telescoping-retirement-accounts/">
-							Make it Easier to Save for Retirement						</a>
-					</h4>
-				</article>
-						<article id="policy-607" class="post-607 policy type-policy status-publish policy_categories-social-policy policy_categories-social-safety-net entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/financial-counseling/">
-							Free Financial Counseling for All						</a>
-					</h4>
-				</article>
-						<article id="policy-599" class="post-599 policy type-policy status-publish policy_categories-education policy_categories-social-policy entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/close-skills-gap-community-college/">
-							Make Community College Affordable for All						</a>
-					</h4>
-				</article>
-						<article id="policy-597" class="post-597 policy type-policy status-publish policy_categories-education policy_categories-social-policy entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/life-skills-education/">
-							Life-Skills Education in All High Schools						</a>
-					</h4>
-				</article>
-						<article id="policy-585" class="post-585 policy type-policy status-publish policy_categories-foreign-policy policy_categories-military-defense entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/rechannel-military-spending/">
-							Modernize Military Spending						</a>
-					</h4>
-				</article>
-						<article id="policy-593" class="post-593 policy type-policy status-publish policy_categories-economic-policy policy_categories-jobs-labor policy_categories-social-policy entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/get-america-moving/">
-							Make it Easy for Americans to Move for Work						</a>
-					</h4>
-				</article>
-						<article id="policy-592" class="post-592 policy type-policy status-publish policy_categories-jobs-labor policy_categories-social-policy entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/mandatory-vacation/">
-							Implement Mandatory Paid Leave Policy						</a>
-					</h4>
-				</article>
-						<article id="policy-590" class="post-590 policy type-policy status-publish policy_categories-jobs-labor policy_categories-social-policy entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/trucking-czar/">
-							Ease the Transition to Self-Driving Vehicles						</a>
-					</h4>
-				</article>
-						<article id="policy-588" class="post-588 policy type-policy status-publish policy_categories-economic-policy policy_categories-tax entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/capital-gain-carried-interest-tax/">
-							Capital Gain/Carried Interest Tax						</a>
-					</h4>
-				</article>
-						<article id="policy-587" class="post-587 policy type-policy status-publish policy_categories-economic-policy policy_categories-tax entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/filing-income-taxes/">
-							File Income Taxes						</a>
-					</h4>
-				</article>
-						<article id="policy-586" class="post-586 policy type-policy status-publish policy_categories-economic-policy policy_categories-tax entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/financial-transaction-tax/">
-							Financial Transaction Tax						</a>
-					</h4>
-				</article>
-						<article id="policy-581" class="post-581 policy type-policy status-publish policy_categories-judiciary policy_categories-social-policy entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/tort-reform-reasonableness-dismissals/">
-							Tort Reform/Reasonableness Dismissals						</a>
-					</h4>
-				</article>
-						<article id="policy-578" class="post-578 policy type-policy status-publish policy_categories-infrastructure policy_categories-social-policy entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/american-mall-act/">
-							American Mall Act						</a>
-					</h4>
-				</article>
-						<article id="policy-574" class="post-574 policy type-policy status-publish policy_categories-immigration policy_categories-social-policy entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/enticing-high-skill-individuals/">
-							Entice High-Skill Individuals						</a>
-					</h4>
-				</article>
-						<article id="policy-571" class="post-571 policy type-policy status-publish policy_categories-housing policy_categories-social-policy entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/zoning/">
-							Zoning						</a>
-					</h4>
-				</article>
-						<article id="policy-566" class="post-566 policy type-policy status-publish policy_categories-economic-policy policy_categories-financial-regulation entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/algorithmic-trading-fraud/">
-							Algorithmic Trading/Fraud						</a>
-					</h4>
-				</article>
-						<article id="policy-564" class="post-564 policy type-policy status-publish policy_categories-energy policy_categories-environmental-policy entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/nuclear-energy/">
-							Nuclear Energy						</a>
-					</h4>
-				</article>
-						<article id="policy-559" class="post-559 policy type-policy status-publish policy_categories-elections-campaign-finance policy_categories-social-policy entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/modernize-voting/">
-							Modernize Voting						</a>
-					</h4>
-				</article>
-						<article id="policy-1937" class="post-1937 policy type-policy status-publish policy_categories-social-policy entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/modern-time-banking/">
-							Modern Time Banking						</a>
-					</h4>
-				</article>
-						<article id="policy-551" class="post-551 policy type-policy status-publish policy_categories-criminal-justice policy_categories-economic-policy policy_categories-social-policy entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/economic-crime/">
-							Economic Crime						</a>
-					</h4>
-				</article>
-						<article id="policy-548" class="post-548 policy type-policy status-publish policy_categories-civil-rights policy_categories-social-policy entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/media-fragmentation/">
-							Media Fragmentation						</a>
-					</h4>
-				</article>
-						<article id="policy-541" class="post-541 policy type-policy status-publish policy_categories-economic-policy policy_categories-tax entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/making-taxes-fun/">
-							Making Taxes Fun						</a>
-					</h4>
-				</article>
-						<article id="policy-529" class="post-529 policy type-policy status-publish policy_categories-economic-policy policy_categories-technology-regulation entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/net-neutrality/">
-							Net Neutrality						</a>
-					</h4>
-				</article>
-						<article id="policy-528" class="post-528 policy type-policy status-publish policy_categories-social-policy policy_categories-technology-regulation entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/regulating-ai-emerging-technologies/">
-							Regulate AI and other Emerging Technologies						</a>
-					</h4>
-				</article>
-						<article id="policy-525" class="post-525 policy type-policy status-publish policy_categories-social-policy policy_categories-technology-regulation entry">
-					<h4 class="policy">
-						<a href="https://www.yang2020.com/policies/robo-calling-text-line/">
-							Robo-Calling Text Line						</a>
-					</h4>
-				</article>
-		</div></div>	</div>
-	<!-- .policies -->
+		<div class="grid">
+			<div class="column">
+				<h3 class='entry-title'>
+					Economy/Jobs &amp; Labor				</h3>
+									<a href="https://www.yang2020.com/policies/the-freedom-dividend/">
+						<h4>
+							The Freedom Dividend						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/human-capitalism/">
+						<h4>
+							Human-Centered Capitalism						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/measuring-the-economy/">
+						<h4>
+							Improve the American Scorecard						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/student-loan-debt/">
+						<h4>
+							Reduce Student Loan Burden						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/mandatory-vacation/">
+						<h4>
+							Implement Mandatory Paid Leave Policy						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/right-privacy-abortion-contraception/">
+						<h4>
+							Right to Privacy/Abortion and Contraception						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/carbon-fee-dividend/">
+						<h4>
+							Carbon Fee and Dividend						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/get-america-moving/">
+						<h4>
+							Make it Easy for Americans to Move for Work						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/value-added-tax/">
+						<h4>
+							Value-Added Tax						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/telescoping-retirement-accounts/">
+						<h4>
+							Make it Easier to Save for Retirement						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/promoting-vocational-education/">
+						<h4>
+							Promote Vocational Education						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/zoning/">
+						<h4>
+							Zoning						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/financial-counseling/">
+						<h4>
+							Free Financial Counseling for All						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/cashbail/">
+						<h4>
+							Decrease Pre-Trial Cash Bail						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/reduce-mass-incarceration/">
+						<h4>
+							Reduce Mass Incarceration						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/paid-family-leave/">
+						<h4>
+							Paid Family Leave						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/fight-for-equal-pay/">
+						<h4>
+							Fight for Equal Pay						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/legalization-of-marijuana/">
+						<h4>
+							Legalize Marijuana						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/post-offices-provide-basic-banking-services/">
+						<h4>
+							Provide Basic Banking Services through the Post Office						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/prosperity-grants/">
+						<h4>
+							Prosperity Grants						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/single-parent-assistance/">
+						<h4>
+							Increase Assistance for Single Parents						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/filing-income-taxes/">
+						<h4>
+							File Income Taxes						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/digital-asset-regulation/">
+						<h4>
+							Crypto/Digital Asset Regulation and Consumer Protection						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/payment-small-businesses/">
+						<h4>
+							Timing of Payments for Small Businesses						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/trucking-czar/">
+						<h4>
+							Ease the Transition to Self-Driving Vehicles						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/capital-gain-carried-interest-tax/">
+						<h4>
+							Capital Gain/Carried Interest Tax						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/financial-transaction-tax/">
+						<h4>
+							Financial Transaction Tax						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/data-property-right/">
+						<h4>
+							Data as a Property Right						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/grid-modernization/">
+						<h4>
+							Grid Modernization Race to the Top						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/end-relocation-bidding/">
+						<h4>
+							End Bidding Wars for Corporate Relocation						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/empowering-mma-fighters/">
+						<h4>
+							Empowering MMA Fighters						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/no-pennies/">
+						<h4>
+							The Penny Makes No Cents						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/regulating-ai-emerging-technologies/">
+						<h4>
+							Regulate AI and other Emerging Technologies						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/ncaa-pay-athletes/">
+						<h4>
+							NCAA Should Pay Athletes						</h4>
+					</a>
+							</div>
+			
+			<div class="column">
+				<h3 class='entry-title'>
+					Civil Rights/Criminal Justice				</h3>
+									<a href="https://www.yang2020.com/policies/the-freedom-dividend/">
+						<h4>
+							The Freedom Dividend						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/measuring-the-economy/">
+						<h4>
+							Improve the American Scorecard						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/net-neutrality/">
+						<h4>
+							Net Neutrality						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/lgbtq-rights/">
+						<h4>
+							LGBTQ Rights						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/right-privacy-abortion-contraception/">
+						<h4>
+							Right to Privacy/Abortion and Contraception						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/restore-voting-rights/">
+						<h4>
+							Restoration of Voting Rights						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/decriminalizeopioids/">
+						<h4>
+							Decriminalize Opioids						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/automatic-voter-registration/">
+						<h4>
+							Automatic Voter Registration						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/dc-statehood/">
+						<h4>
+							Make Washington, DC, a State						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/end-gerrymandering/">
+						<h4>
+							End Partisan Gerrymandering						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/holding-pharmaceutical-companies-accountable/">
+						<h4>
+							Hold Pharmaceutical Companies Accountable						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/election-day-holiday/">
+						<h4>
+							Make Election Day a Holiday						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/zoning/">
+						<h4>
+							Zoning						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/cashbail/">
+						<h4>
+							Decrease Pre-Trial Cash Bail						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/reduce-mass-incarceration/">
+						<h4>
+							Reduce Mass Incarceration						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/gun-safety/">
+						<h4>
+							Gun Safety						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/pathway-to-citizenship-2/">
+						<h4>
+							Pathway to Citizenship for Undocumented Immigrants						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/support-the-dream-act/">
+						<h4>
+							Support the DREAM Act						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/fight-for-equal-pay/">
+						<h4>
+							Fight for Equal Pay						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/legalization-of-marijuana/">
+						<h4>
+							Legalize Marijuana						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/puerto-rican-statehood/">
+						<h4>
+							Make Puerto Rico a State						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/every-cop-gets-camera/">
+						<h4>
+							Every Cop Gets a Camera						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/data-property-right/">
+						<h4>
+							Data as a Property Right						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/algorithmic-trading-fraud/">
+						<h4>
+							Algorithmic Trading/Fraud						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/economic-crime/">
+						<h4>
+							Economic Crime						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/votingage/">
+						<h4>
+							Lower the Voting Age to 16						</h4>
+					</a>
+							</div>
+			
+			<div class="column">
+				<h3 class='entry-title'>
+					Democracy/ Governance				</h3>
+									<a href="https://www.yang2020.com/policies/the-freedom-dividend/">
+						<h4>
+							The Freedom Dividend						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/measuring-the-economy/">
+						<h4>
+							Improve the American Scorecard						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/rankedchoice/">
+						<h4>
+							Ranked Choice Voting						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/democracydollars/">
+						<h4>
+							Democracy Dollars						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/12-year-congressional-term-limits/">
+						<h4>
+							12-Year Congressional Term Limits						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/restore-voting-rights/">
+						<h4>
+							Restoration of Voting Rights						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/automatic-voter-registration/">
+						<h4>
+							Automatic Voter Registration						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/dc-statehood/">
+						<h4>
+							Make Washington, DC, a State						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/end-gerrymandering/">
+						<h4>
+							End Partisan Gerrymandering						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/public-advisors/">
+						<h4>
+							Public Council of Advisors						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/election-day-holiday/">
+						<h4>
+							Make Election Day a Holiday						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/scotustermlimits/">
+						<h4>
+							18 Year Term Limit for Supreme Court Justices						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/reviveota/">
+						<h4>
+							Revive the Office of Technology Assessment						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/relocatefederalagencies/">
+						<h4>
+							Relocate Federal Agencies						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/reduce-mass-incarceration/">
+						<h4>
+							Reduce Mass Incarceration						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/prevent-regulatory-capture-and-corruption/">
+						<h4>
+							Prevent Corruption in the Federal Government						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/overturning-citizens-united/">
+						<h4>
+							Campaign Finance Reform						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/puerto-rican-statehood/">
+						<h4>
+							Make Puerto Rico a State						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/american-journalism-fellows/">
+						<h4>
+							American Journalism Fellows						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/white-house-psychologist/">
+						<h4>
+							Closely Monitor Mental Health of White House Staff						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/local-journalism-fund/">
+						<h4>
+							Local Journalism Fund						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/automatically-sunsetting-old-laws/">
+						<h4>
+							Automatically Sunset Old Laws						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/support-revival-earmarks/">
+						<h4>
+							Support the Revival of Earmarks						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/tort-reform-reasonableness-dismissals/">
+						<h4>
+							Tort Reform/Reasonableness Dismissals						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/modernize-voting/">
+						<h4>
+							Modernize Voting						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/proportional-electors/">
+						<h4>
+							Proportional Selection of Electors						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/downsizing-federal-workforce/">
+						<h4>
+							Limit Bureaucracy in the Federal Workforce						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/votingage/">
+						<h4>
+							Lower the Voting Age to 16						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/media-fragmentation/">
+						<h4>
+							Media Fragmentation						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/making-taxes-fun/">
+						<h4>
+							Making Taxes Fun						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/head-of-culture-and-ceremony/">
+						<h4>
+							Head of Culture and Ceremony						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/regulating-ai-emerging-technologies/">
+						<h4>
+							Regulate AI and other Emerging Technologies						</h4>
+					</a>
+							</div>
+			</div><div class="grid">
+			<div class="column">
+				<h3 class='entry-title'>
+					Healthcare				</h3>
+									<a href="https://www.yang2020.com/policies/the-freedom-dividend/">
+						<h4>
+							The Freedom Dividend						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/medicare-for-all/">
+						<h4>
+							Medicare for All						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/measuring-the-economy/">
+						<h4>
+							Improve the American Scorecard						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/prescription-drug-costs/">
+						<h4>
+							Control the Cost of Prescription Drugs						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/right-privacy-abortion-contraception/">
+						<h4>
+							Right to Privacy/Abortion and Contraception						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/decriminalizeopioids/">
+						<h4>
+							Decriminalize Opioids						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/holding-pharmaceutical-companies-accountable/">
+						<h4>
+							Hold Pharmaceutical Companies Accountable						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/mental-health/">
+						<h4>
+							Invest in America&#8217;s Mental Health						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/opioid-crisis/">
+						<h4>
+							Opioid Crisis						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/gun-safety/">
+						<h4>
+							Gun Safety						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/medical-technology-innovation/">
+						<h4>
+							Fund Medical Technology Innovation						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/autism-intervention-funding/">
+						<h4>
+							Fund Autism Intervention						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/expanding-medical-licensure/">
+						<h4>
+							Expand Access to Medical Experts						</h4>
+					</a>
+							</div>
+			
+			<div class="column">
+				<h3 class='entry-title'>
+					Environment				</h3>
+									<a href="https://www.yang2020.com/policies/the-freedom-dividend/">
+						<h4>
+							The Freedom Dividend						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/measuring-the-economy/">
+						<h4>
+							Improve the American Scorecard						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/climate-change/">
+						<h4>
+							Combat Climate Change						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/public-land-preservation/">
+						<h4>
+							Preservation of Public Lands and Water						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/reduce-wildfires/">
+						<h4>
+							Reduce Wildfires						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/carbon-fee-dividend/">
+						<h4>
+							Carbon Fee and Dividend						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/reduce-packaging-waste/">
+						<h4>
+							Reduce Packaging Waste						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/rebuild-america/">
+						<h4>
+							Rebuild American Infrastructure						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/nuclear-energy/">
+						<h4>
+							Nuclear Energy						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/grid-modernization/">
+						<h4>
+							Grid Modernization Race to the Top						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/no-pennies/">
+						<h4>
+							The Penny Makes No Cents						</h4>
+					</a>
+							</div>
+			
+			<div class="column">
+				<h3 class='entry-title'>
+					Education				</h3>
+									<a href="https://www.yang2020.com/policies/the-freedom-dividend/">
+						<h4>
+							The Freedom Dividend						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/measuring-the-economy/">
+						<h4>
+							Improve the American Scorecard						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/student-loan-debt/">
+						<h4>
+							Reduce Student Loan Burden						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/controlling-cost-higher-education/">
+						<h4>
+							Control the Cost of Higher Education						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/close-skills-gap-community-college/">
+						<h4>
+							Make Community College Affordable for All						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/early-childhood-education/">
+						<h4>
+							Early Childhood Education for All						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/promoting-vocational-education/">
+						<h4>
+							Promote Vocational Education						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/financial-counseling/">
+						<h4>
+							Free Financial Counseling for All						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/teacher-salaries/">
+						<h4>
+							Increase Teacher Salaries						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/life-skills-education/">
+						<h4>
+							Life-Skills Education in All High Schools						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/expand-selective-schools/">
+						<h4>
+							Expand Selective Schools						</h4>
+					</a>
+							</div>
+			</div><div class="grid">
+			<div class="column">
+				<h3 class='entry-title'>
+					Family/Social Cohesion				</h3>
+									<a href="https://www.yang2020.com/policies/the-freedom-dividend/">
+						<h4>
+							The Freedom Dividend						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/measuring-the-economy/">
+						<h4>
+							Improve the American Scorecard						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/american-exchange-program/">
+						<h4>
+							American Exchange Program						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/mandatory-vacation/">
+						<h4>
+							Implement Mandatory Paid Leave Policy						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/early-childhood-education/">
+						<h4>
+							Early Childhood Education for All						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/american-mall-act/">
+						<h4>
+							American Mall Act						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/paid-family-leave/">
+						<h4>
+							Paid Family Leave						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/prosperity-grants/">
+						<h4>
+							Prosperity Grants						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/single-parent-assistance/">
+						<h4>
+							Increase Assistance for Single Parents						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/free-marriage-counseling/">
+						<h4>
+							Free Marriage Counseling for All						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/modern-time-banking/">
+						<h4>
+							Modern Time Banking						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/support-for-the-arts/">
+						<h4>
+							Support for the Arts						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/effects-smartphones-human-development/">
+						<h4>
+							Reduce Harm to Children Caused by Smartphones						</h4>
+					</a>
+							</div>
+			
+			<div class="column">
+				<h3 class='entry-title'>
+					Foreign Policy				</h3>
+									<a href="https://www.yang2020.com/policies/foreign-policy-first-principles/">
+						<h4>
+							Foreign Policy First Principles						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/veteran-employment-and-businesses/">
+						<h4>
+							Veteran Employment and Businesses						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/ending-veteran-suicide/">
+						<h4>
+							Ending Veteran Suicide						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/every-vet-under-a-roof-initiative/">
+						<h4>
+							Every Vet Under a Roof Initiative						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/controlled-substance-waivers-for-veterans/">
+						<h4>
+							Controlled Substance Waivers for Veterans						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/improving-veteran-health/">
+						<h4>
+							Improving Veteran Health						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/military-training-the-gold-standard/">
+						<h4>
+							Military Training: The Gold Standard						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/gi-bill-improvements/">
+						<h4>
+							GI Bill Improvements						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/reverse-boot-camp/">
+						<h4>
+							Reverse Boot Camp						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/quantum-computing/">
+						<h4>
+							Quantum Computing and Encryption Standards						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/rechannel-military-spending/">
+						<h4>
+							Modernize Military Spending						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/southern-border-security/">
+						<h4>
+							Southern Border Security						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/nuclear-launch/">
+						<h4>
+							Nuclear Launch Decisions						</h4>
+					</a>
+							</div>
+			
+			<div class="column">
+				<h3 class='entry-title'>
+					Immigration				</h3>
+									<a href="https://www.yang2020.com/policies/pathway-to-citizenship-2/">
+						<h4>
+							Pathway to Citizenship for Undocumented Immigrants						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/support-the-dream-act/">
+						<h4>
+							Support the DREAM Act						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/southern-border-security/">
+						<h4>
+							Southern Border Security						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/enticing-high-skill-individuals/">
+						<h4>
+							Entice High-Skill Individuals						</h4>
+					</a>
+							</div>
+			</div><div class="grid">
+			<div class="column">
+				<h3 class='entry-title'>
+					Miscellaneous/Fun				</h3>
+									<a href="https://www.yang2020.com/policies/the-freedom-dividend/">
+						<h4>
+							The Freedom Dividend						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/public-advisors/">
+						<h4>
+							Public Council of Advisors						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/extend-daylight-savings-time-all-year/">
+						<h4>
+							Extend Daylight Saving Time All Year						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/prevent-airlines-removing-customers/">
+						<h4>
+							Prevent Airlines from Removing Customers						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/filing-income-taxes/">
+						<h4>
+							File Income Taxes						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/tort-reform-reasonableness-dismissals/">
+						<h4>
+							Tort Reform/Reasonableness Dismissals						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/data-property-right/">
+						<h4>
+							Data as a Property Right						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/no-pennies/">
+						<h4>
+							The Penny Makes No Cents						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/support-for-the-arts/">
+						<h4>
+							Support for the Arts						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/making-taxes-fun/">
+						<h4>
+							Making Taxes Fun						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/head-of-culture-and-ceremony/">
+						<h4>
+							Head of Culture and Ceremony						</h4>
+					</a>
+									<a href="https://www.yang2020.com/policies/robo-calling-text-line/">
+						<h4>
+							Robo-Calling Text Line						</h4>
+					</a>
+							</div>
+			<div class="column"></div></div>	</div> <!-- .policies -->
 
-  </div></article></main></div></div><h4 class='join-the-fight giant-header'>
+  </div></article></main></div></div><h1 class='join-the-fight giant-header'>
 	Join the fight
-</h4>
+</h1>
 <form class='join-form wrapped above-footer'>
 	<div class='input-wrapper'>
 		<div class='wrap'>
@@ -3307,16 +3386,48 @@ h6.giant-header {
 <li id="menu-item-2247" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2247"><a href="https://www.yang2020.com/blog/" itemprop="url">Blog</a></li>
 <li id="menu-item-2644" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2644"><a href="https://jobs.lever.co/yang2020" itemprop="url">Careers</a></li>
 </ul></div></div></section>
-</div></div></div><div class="notice"><p>Paid for by Friends of Andrew Yang</p></div><p class="copyright">&#x000A9;&nbsp;2019 Friends of Andrew Yang. <br class="mobile" />All rights reserved. <a href="/privacy_policy">Privacy Policy</a>.<br />New York, NY 10018</p></div></footer></div>  <!-- Google Tag Manager (noscript) -->
+</div></div></div><div class="notice"><p>Paid for by Friends of Andrew Yang</p></div><p class="copyright">&#x000A9;&nbsp;2019 Friends of Andrew Yang. <br class="mobile" />All rights reserved. <a href="/privacy_policy">Privacy Policy</a>.<br />New York, NY 10018</p></div></footer></div><script type="text/javascript">
+            var _userway_config = {
+                   /* uncomment the following line to override default position*/
+                   /* position: '1',*/
+                   /* uncomment the following line to override default size (values: small, large)*/
+                   /* size: 'large',*/
+                   /* uncomment the following line to override default language (e.g., fr, de, es, he, nl, etc.)*/
+                   /* language: null,*/
+                   /* uncomment the following line to override color set via widget (e.g., #053f67)*/
+                   /* color: 'null',*/
+                   /* uncomment the following line to override type set via widget(1=person, 2=chair, 3=eye)*/
+                   /* type: 'null',*/
+                   /* uncomment the following line to override support on mobile devices*/
+                   /* mobile: true,*/
+                   account: 'ND5kC27cjf'
+            };
+           </script>
+        <script type="text/javascript" src="https://cdn.userway.org/widget.js"></script>  <!-- Google Tag Manager (noscript) -->
   <noscript>
     <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W68JZHN" height="0" width="0" style="display:none;visibility:hidden"></iframe>
   </noscript>
   <!-- End Google Tag Manager (noscript) -->
-<style type="text/css" media="screen"> #simple-social-icons-3 ul li a, #simple-social-icons-3 ul li a:hover, #simple-social-icons-3 ul li a:focus { background-color: #002d70 !important; border-radius: 4px; color: #ffffff !important; border: 0px #ffffff solid !important; font-size: 40px; padding: 20px; }  #simple-social-icons-3 ul li a:hover, #simple-social-icons-3 ul li a:focus { background-color: #002d70 !important; border-color: #ffffff !important; color: #489fdf !important; }  #simple-social-icons-3 ul li a:focus { outline: 1px dotted #002d70 !important; }</style><script type='text/javascript' src='https://www.yang2020.com/wp-includes/js/hoverIntent.min.js?ver=1.8.1'></script>
+<style type="text/css" media="screen"> #simple-social-icons-3 ul li a, #simple-social-icons-3 ul li a:hover, #simple-social-icons-3 ul li a:focus { background-color: #002d70 !important; border-radius: 4px; color: #ffffff !important; border: 0px #ffffff solid !important; font-size: 40px; padding: 20px; }  #simple-social-icons-3 ul li a:hover, #simple-social-icons-3 ul li a:focus { background-color: #002d70 !important; border-color: #ffffff !important; color: #489fdf !important; }  #simple-social-icons-3 ul li a:focus { outline: 1px dotted #002d70 !important; }</style><link rel='stylesheet' id='akismet.css-css'  href='https://www.yang2020.com/wp-content/plugins/userway-accessibility-widget/assets/style.css?ver=5.2.1' type='text/css' media='all' />
+<script type='text/javascript'>
+window.lazySizesConfig = window.lazySizesConfig || {};
+
+window.lazySizesConfig.lazyClass    = 'lazyload';
+window.lazySizesConfig.loadingClass = 'lazyloading';
+window.lazySizesConfig.loadedClass  = 'lazyloaded';
+
+//page is optimized for fast onload event
+lazySizesConfig.loadMode = 1;
+</script>
+<script type='text/javascript' src='https://www.yang2020.com/wp-content/plugins/wp-smushit/app/assets/js/smush-lazy-load.min.js?ver=3.2.2.1'></script>
+<script type='text/javascript'>
+lazySizes.init();
+</script>
+<script type='text/javascript' src='https://www.yang2020.com/wp-includes/js/hoverIntent.min.js?ver=1.8.1'></script>
 <script type='text/javascript' src='https://www.yang2020.com/wp-content/themes/genesis/lib/js/menu/superfish.min.js?ver=1.7.5'></script>
 <script type='text/javascript' src='https://www.yang2020.com/wp-content/themes/genesis/lib/js/menu/superfish.args.min.js?ver=2.7.2'></script>
 <script type='text/javascript' src='https://www.yang2020.com/wp-content/themes/genesis/lib/js/skip-links.min.js?ver=2.7.2'></script>
 <script type='text/javascript' src='https://www.yang2020.com/wp-content/plugins/page-links-to/js/new-tab.min.js?ver=3.0.0-beta.1'></script>
 <script type='text/javascript' src='https://www.yang2020.com/wp-content/plugins/about-andrew/public/js/about-andrew.js'></script>
 <script type='text/javascript' src='https://www.yang2020.com/wp-includes/js/wp-embed.min.js?ver=5.2.1'></script>
-<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"ebb1e7c3d1","applicationID":"105452192","transactionName":"YVVSMhQECxZXU0YICVgfcQUSDAoLGUBTBgNpR1kSDjoNAFdUVxM=","queueTime":0,"applicationTime":574,"atts":"TRJRRFweGBg=","errorBeacon":"bam.nr-data.net","agent":""}</script></body></html>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"ebb1e7c3d1","applicationID":"105452192","transactionName":"YVVSMhQECxZXU0YICVgfcQUSDAoLGUBTBgNpR1kSDjoNAFdUVxM=","queueTime":0,"applicationTime":464,"atts":"TRJRRFweGBg=","errorBeacon":"bam.nr-data.net","agent":""}</script></body></html>
