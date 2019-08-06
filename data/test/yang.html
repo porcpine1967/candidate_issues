@@ -3,27 +3,27 @@
 <head >
 <meta charset="UTF-8" /><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o||n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({1:[function(e,n,t){function r(){}function o(e,n,t){return function(){return i(e,[c.now()].concat(u(arguments)),n?null:this,t),n?void 0:this}}var i=e("handle"),a=e(3),u=e(4),f=e("ee").get("tracer"),c=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,n){s[n]=o(d+n,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,o="function"==typeof n;return i(l+"tracer",[c.now(),e,t],r),function(){if(f.emit((o?"":"no-")+"fn-start",[c.now(),r,o],t),o)try{return n.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],t),e}finally{f.emit("fn-end",[c.now()],t)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=o(l+n)}),newrelic.noticeError=function(e,n){"string"==typeof e&&(e=new Error(e)),i("err",[e,c.now(),!1,n])}},{}],2:[function(e,n,t){function r(e,n){if(!o)return!1;if(e!==o)return!1;if(!n)return!0;if(!i)return!1;for(var t=i.split("."),r=n.split("."),a=0;a<r.length;a++)if(r[a]!==t[a])return!1;return!0}var o=null,i=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var u=navigator.userAgent,f=u.match(a);f&&u.indexOf("Chrome")===-1&&u.indexOf("Chromium")===-1&&(o="Safari",i=f[1])}n.exports={agent:o,version:i,match:r}},{}],3:[function(e,n,t){function r(e,n){var t=[],r="",i=0;for(r in e)o.call(e,r)&&(t[i]=n(r,e[r]),i+=1);return t}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],4:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(o<0?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=r},{}],5:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function o(e){function n(e){return e&&e instanceof r?e:e?f(e,u,i):i()}function t(t,r,o,i){if(!d.aborted||i){e&&e(t,r,o);for(var a=n(o),u=v(t),f=u.length,c=0;c<f;c++)u[c].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function l(e,n){h[e]=v(e).concat(n)}function m(e,n){var t=h[e];if(t)for(var r=0;r<t.length;r++)t[r]===n&&t.splice(r,1)}function v(e){return h[e]||[]}function g(e){return p[e]=p[e]||o(t)}function w(e,n){c(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var h={},y={},b={on:l,addEventListener:l,removeEventListener:m,emit:t,get:g,listeners:v,context:n,buffer:w,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",f=e("gos"),c=e(3),s={},p={},d=n.exports=o();d.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(o.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){o.buffer([e],r),o.emit(e,n,t)}var o=e("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!E++){var e=x.info=NREUM.info,n=l.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();c(y,function(n,t){e[n]||(e[n]=t)}),f("mark",["onload",a()+x.offset],null,"api");var t=l.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function o(){"complete"===l.readyState&&i()}function i(){f("mark",["domContent",a()+x.offset],null,"api")}function a(){return O.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-x.offset}var u=(new Date).getTime(),f=e("handle"),c=e(3),s=e("ee"),p=e(2),d=window,l=d.document,m="addEventListener",v="attachEvent",g=d.XMLHttpRequest,w=g&&g.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:g,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var h=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1130.min.js"},b=g&&w&&w[m]&&!/CriOS/.test(navigator.userAgent),x=n.exports={offset:u,now:a,origin:h,features:{},xhrWrappable:b,userAgent:p};e(1),l[m]?(l[m]("DOMContentLoaded",i,!1),d[m]("load",r,!1)):(l[v]("onreadystatechange",o),d[v]("onload",r)),f("mark",["firstbyte",u],null,"api");var E=0,O=e(5)},{}]},{},["loader"]);</script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Our Policies - Andrew Yang for President</title>
+<title>The Freedom Dividend - Andrew Yang for President</title>
 
 <!-- This site is optimized with the Yoast SEO Premium plugin v10.0 - https://yoast.com/wordpress/plugins/seo/ -->
-<meta name="description" content="Andrew Yang&#039;s policies, beliefs, and stance on the issues. Candidate for President of the United States in 2020."/>
-<link rel="canonical" href="https://www.yang2020.com/policies/" />
+<meta name="description" content="Andrew Yang&#039;s Policy the Freedom Dividend: Implementing a Universal Basic Income, ‘The Freedom Dividend,’ of $1,000/month, $12,000 a year for every American adult over the age of 18."/>
+<link rel="canonical" href="https://www.yang2020.com/policies/the-freedom-dividend/" />
 <meta property="og:locale" content="en_US" />
 <meta property="og:type" content="article" />
-<meta property="og:title" content="Our Policies - Andrew Yang for President" />
-<meta property="og:description" content="Andrew Yang&#039;s policies, beliefs, and stance on the issues. Candidate for President of the United States in 2020." />
-<meta property="og:url" content="https://www.yang2020.com/policies/" />
+<meta property="og:title" content="The Freedom Dividend - Andrew Yang for President" />
+<meta property="og:description" content="Andrew Yang&#039;s Policy the Freedom Dividend: Implementing a Universal Basic Income, ‘The Freedom Dividend,’ of $1,000/month, $12,000 a year for every American adult over the age of 18." />
+<meta property="og:url" content="https://www.yang2020.com/policies/the-freedom-dividend/" />
 <meta property="og:site_name" content="Andrew Yang for President" />
 <meta property="article:publisher" content="https://www.facebook.com/andrewyang2020" />
-<meta property="og:image" content="https://www.yang2020.com/wp-content/uploads/yang_iowa.jpg" />
-<meta property="og:image:secure_url" content="https://www.yang2020.com/wp-content/uploads/yang_iowa.jpg" />
-<meta property="og:image:width" content="548" />
-<meta property="og:image:height" content="365" />
+<meta property="og:image" content="https://www.yang2020.com/wp-content/uploads/yang_iowa-001-1024x683.jpg" />
+<meta property="og:image:secure_url" content="https://www.yang2020.com/wp-content/uploads/yang_iowa-001-1024x683.jpg" />
+<meta property="og:image:width" content="1024" />
+<meta property="og:image:height" content="683" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:description" content="Andrew Yang&#039;s policies, beliefs, and stance on the issues. Candidate for President of the United States in 2020." />
-<meta name="twitter:title" content="Our Policies - Andrew Yang for President" />
+<meta name="twitter:description" content="Andrew Yang&#039;s Policy the Freedom Dividend: Implementing a Universal Basic Income, ‘The Freedom Dividend,’ of $1,000/month, $12,000 a year for every American adult over the age of 18." />
+<meta name="twitter:title" content="The Freedom Dividend - Andrew Yang for President" />
 <meta name="twitter:site" content="@andrewyang" />
-<meta name="twitter:image" content="https://www.yang2020.com/wp-content/uploads/yang_iowa-001x1200.jpg" />
+<meta name="twitter:image" content="https://www.yang2020.com/wp-content/uploads/yang_iowa-001.jpg" />
 <meta name="twitter:creator" content="@andrewyang" />
 <!-- / Yoast SEO Premium plugin. -->
 
@@ -113,9 +113,9 @@ img.emoji {
 <link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.yang2020.com/xmlrpc.php?rsd" />
 <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://www.yang2020.com/wp-includes/wlwmanifest.xml" /> 
 <meta name="generator" content="WordPress 5.2.1" />
-<link rel='shortlink' href='https://www.yang2020.com/?p=270' />
-<link rel="alternate" type="application/json+oembed" href="https://www.yang2020.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.yang2020.com%2Fpolicies%2F" />
-<link rel="alternate" type="text/xml+oembed" href="https://www.yang2020.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.yang2020.com%2Fpolicies%2F&#038;format=xml" />
+<link rel='shortlink' href='https://www.yang2020.com/?p=605' />
+<link rel="alternate" type="application/json+oembed" href="https://www.yang2020.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.yang2020.com%2Fpolicies%2Fthe-freedom-dividend%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://www.yang2020.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.yang2020.com%2Fpolicies%2Fthe-freedom-dividend%2F&#038;format=xml" />
 		<style>
 			.no-js img.lazyload { display: none; }
 			figure.wp-block-image img.lazyloading { min-width: 150px; }
@@ -153,7 +153,7 @@ img.emoji {
 <link rel="apple-touch-icon-precomposed" href="https://www.yang2020.com/wp-content/uploads/Y_Favicon-1-300x300.png" />
 <meta name="msapplication-TileImage" content="https://www.yang2020.com/wp-content/uploads/Y_Favicon-1-300x300.png" />
 
-<meta name="twitter:card" content="summary"><meta name="twitter:title" content="Our Policies">
+<meta name="twitter:card" content="summary"><meta name="twitter:title" content="The Freedom Dividend"><meta name="twitter:description" content="Andrew would implement a Universal Basic Income, ‘the Freedom Dividend,’ of $1,000/month, $12,000 a year for every American adult over the age of 18. This is independent of one’s work status or any other factor. This would enable all Americans to pay their bills, educate themselves, start businesses, be more creative, stay healthy, relocate for&hellip;">
 		<style type="text/css" id="wp-custom-css">
 			/* General */
 :root {
@@ -2537,8 +2537,8 @@ h6.giant-header {
 }
 		</style>
 		</head>
-<body class="page-template page-template-page_with_header page-template-page_with_header-php page page-id-270 custom-header header-image header-full-width full-width-content policy-page" itemscope itemtype="https://schema.org/WebPage"><div class="site-container"><ul class="genesis-skip-link"><li><a href="#genesis-nav-primary" class="screen-reader-shortcut"> Skip to primary navigation</a></li><li><a href="#genesis-content" class="screen-reader-shortcut"> Skip to content</a></li><li><a href="#genesis-footer-widgets" class="screen-reader-shortcut"> Skip to footer</a></li></ul><div class='HiddenSettings' style='display: none'>
-  <div class="setting-donorStats_donationAmount" style="display: none">208079814</div><div class="setting-progressBar_prizeUnlockedLine1" style="display: none">$2 million raised! New Prize Unlocked!</div><div class="setting-progressBar_prizeUnlockedLine2" style="display: none">See the Prize: Visit Yang2020.com/Spotify </div><div class="setting-trackingUrls_joinForm" style="display: none">https://secure.actblue.com/donate/ay-organic-augeg19-190801--genall?utm_source=website&utm_medium=Organic&utm_campaign=AugEG19&utm_term=&utm_content=190801SignupRedirect&refcode=websiteOrganicAugEG19190801SignupRedirect</div><div class="setting-volunteerProgressBar_conversationsCount" style="display: none">6067</div></div>
+<body class="policy-template-default single single-policy postid-605 custom-header header-image header-full-width full-width-content new-policy" itemscope itemtype="https://schema.org/WebPage"><div class="site-container"><ul class="genesis-skip-link"><li><a href="#genesis-nav-primary" class="screen-reader-shortcut"> Skip to primary navigation</a></li><li><a href="#genesis-content" class="screen-reader-shortcut"> Skip to content</a></li><li><a href="#genesis-footer-widgets" class="screen-reader-shortcut"> Skip to footer</a></li></ul><div class='HiddenSettings' style='display: none'>
+  <div class="setting-donorStats_donationAmount" style="display: none">208110987</div><div class="setting-progressBar_prizeUnlockedLine1" style="display: none">$2 million raised! New Prize Unlocked!</div><div class="setting-progressBar_prizeUnlockedLine2" style="display: none">See the Prize: Visit Yang2020.com/Spotify </div><div class="setting-trackingUrls_joinForm" style="display: none">https://secure.actblue.com/donate/ay-organic-augeg19-190801--genall?utm_source=website&utm_medium=Organic&utm_campaign=AugEG19&utm_term=&utm_content=190801SignupRedirect&refcode=websiteOrganicAugEG19190801SignupRedirect</div><div class="setting-volunteerProgressBar_conversationsCount" style="display: none">6067</div></div>
 
 <div class='top-bar grid' style='background-color: #6cace4'>
   <p class='hide-on-mobile'>
@@ -2553,808 +2553,99 @@ h6.giant-header {
 
 <header class="site-header" itemscope itemtype="https://schema.org/WPHeader"><div class="wrap"><div class="title-area"><p class="site-title" itemprop="headline"><a href="https://www.yang2020.com/">Andrew Yang for President</a></p><p class="site-description" itemprop="description">Humanity First. $1,000/month for all.</p></div><nav class="nav-primary" aria-label="Main" itemscope itemtype="https://schema.org/SiteNavigationElement" id="genesis-nav-primary"><div class="wrap"><ul id="menu-top" class="menu genesis-nav-menu menu-primary js-superfish"><li id="menu-item-2149" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2149"><a href="https://www.yang2020.com/meet-andrew/" itemprop="url"><span itemprop="name">Meet Andrew</span></a></li>
 <li id="menu-item-2154" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2154"><a href="https://www.yang2020.com/what-is-freedom-dividend-faq/" itemprop="url"><span itemprop="name">What is UBI?</span></a></li>
-<li id="menu-item-2155" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-270 current_page_item menu-item-2155"><a href="https://www.yang2020.com/policies/" aria-current="page" itemprop="url"><span itemprop="name">Policy</span></a></li>
+<li id="menu-item-2155" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2155"><a href="https://www.yang2020.com/policies/" itemprop="url"><span itemprop="name">Policy</span></a></li>
 <li id="menu-item-3598" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3598"><a target="_blank" rel="noopener noreferrer" href="https://www.mobilize.us/yang2020/" itemprop="url"><span itemprop="name">Events</span></a></li>
 <li id="menu-item-3361" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3361"><a href="https://www.yang2020.com/volunteer/" itemprop="url"><span itemprop="name">Volunteer</span></a></li>
 <li id="menu-item-3362" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3362"><a href="https://shop.yang2020.com/" itemprop="url"><span itemprop="name">Store</span></a></li>
 <li id="menu-item-2158" class="menu-donate menu-item menu-item-type-custom menu-item-object-custom menu-item-2158"><a href="https://secure.actblue.com/donate/ay-organic-augeg19-190801--genall?utm_source=website&#038;utm_medium=Organic&#038;utm_campaign=AugEG19&#038;utm_term=&#038;utm_content=190801ButtonTopNav&#038;refcode=websiteOrganicAugEG19190801ButtonTopNav" itemprop="url"><span itemprop="name">Donate</span></a></li>
-</ul></div></nav></div></header><div class="jumbotron">
+</ul></div></nav></div></header><div class="site-inner">
+<header class="entry-header">
+  <h1 class="entry-title" itemprop="headline">
+    The Freedom Dividend  </h1>
+</header>
 
-  <picture>
-    <!-- <source
-        media="(min-width: 1440px)"
-        srcset="https://www.yang2020.com/wp-content/uploads/splash_our_policies.png"
-        sizes="(max-width: 1440px) 100vw, 1440px" />
+<div class='entry-content'>
 
-    <source
-        media="(min-width: 1440px)"
-        srcset="https://www.yang2020.com/wp-content/uploads/splash_our_policies.png"
-        sizes="(max-width: 1440px) 100vw, 1440px" />
-
-    <source
-        media="(min-width: 1440px)"
-        srcset="https://www.yang2020.com/wp-content/uploads/splash_our_policies.png"
-        sizes="(max-width: 1440px) 100vw, 1440px" /> -->
-
-    <source
-        media="(max-width: 768px)"
-        srcset="https://www.yang2020.com/wp-content/uploads/splash_our_policies_mobile.png"
-        sizes="(max-width: 768px) 768px" />
-
-    <img srcset="https://www.yang2020.com/wp-content/uploads/splash_our_policies.png 1440w, https://www.yang2020.com/wp-content/uploads/splash_our_policies-300x171.png 300w, https://www.yang2020.com/wp-content/uploads/splash_our_policies-768x438.png 768w, https://www.yang2020.com/wp-content/uploads/splash_our_policies-1024x584.png 1024w"
-        alt="" />
-    <!-- <img srcset="https://www.yang2020.com/wp-content/uploads/splash_our_policies.png 1440w, https://www.yang2020.com/wp-content/uploads/splash_our_policies-300x171.png 300w, https://www.yang2020.com/wp-content/uploads/splash_our_policies-768x438.png 768w, https://www.yang2020.com/wp-content/uploads/splash_our_policies-1024x584.png 1024w"
-        alt=""
-        sizes="(max-width: 1440px) 100vw, 1440px" /> -->
-  </picture>
-<div class="wrap"><h1><span class="underline-blue-dark">Our Policies</span></h1></div></div><div class="site-inner"><div class="content-sidebar-wrap"><main class="content" id="genesis-content"><article class="post-270 page type-page status-publish has-post-thumbnail entry" itemscope itemtype="https://schema.org/CreativeWork"><header class="entry-header"><h1 class="entry-title" itemprop="headline">Our Policies</h1>
-</header><div class="entry-content" itemprop="text"><h2 class="entry-title">
-  Andrew&#8217;s 3 Big Policies
-</h2>
-<div class="featured-policies grid">
-  <a class="featured-universal" href="/policies/the-freedom-dividend/">
-    <img  alt="Universal Basic Income" data-src="/wp-content/uploads/universal_basic_income.jpg" data-sizes="auto" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" /><noscript><img src="/wp-content/uploads/universal_basic_income.jpg" alt="Universal Basic Income" /></noscript>
-    <h2>
-      <span class="underline-red">
-        Freedom Dividend
-      </span>
-    </h2>
-  </a>
-  <a class="featured-medicare" href="/policies/medicare-for-all/">
-    <img  alt="Medicare for All" data-src="/wp-content/uploads/medicare_for_all.jpg" data-sizes="auto" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" /><noscript><img src="/wp-content/uploads/medicare_for_all.jpg" alt="Medicare for All" /></noscript>
-    <h2>
-      <span class="underline-red">
-        Medicare for All
-      </span>
-    </h2>
-  </a>
-  <a class="featured-human" href="/policies/human-capitalism/">
-    <img  alt="Human Capitalism" data-src="/wp-content/uploads/human_centered_capitalism.jpg" data-sizes="auto" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" /><noscript><img src="/wp-content/uploads/human_centered_capitalism.jpg" alt="Human Capitalism" /></noscript>
-    <h2>
-      <span class="underline-red">
-        Human-Centered Capitalism
-      </span>
-    </h2>
-  </a>
+<div class='brief'>
+  <div class='wrap'>
+    <div class='grid'>
+      <div class='column'>
+        <p>Andrew would implement the Freedom Dividend, a universal basic income of $1,000/month, $12,000 a year, for every American adult over the age of 18. This is independent of one’s work status or any other factor. This would enable all Americans to pay their bills, educate themselves, start businesses, be more creative, stay healthy, relocate for work, spend time with their children, take care of loved ones, and have a real stake in the future.</p>
+<p>Other than regular increases to keep up the cost of living, any change to the Freedom Dividend would require a constitutional amendment.</p>
+      </div>
+      <div class='column'>
+        <div class="column">
+<p>It will be illegal to lend or borrow against one’s Dividend.</p>
+<p>A Universal Basic Income at this level would permanently grow the economy by 12.56 to 13.10 percent—or about $2.5 trillion by 2025—and it would increase the labor force by 4.5 to 4.7 million people.  Putting money into people’s hands and keeping it there would be a perpetual boost and support to job growth and the economy.</p>
+<p><a href="https://www.yang2020.com/what-is-freedom-dividend-faq/">Learn more about Universal Basic Income</a></p>
+</div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <blockquote>
-  &#8220;Mr. Yang has the most detailed and comprehensive set of policy proposals we have ever seen at this stage in the campaign.&#8221;
-  <cite>Democratic Party Leadership in Iowa</cite>
+  <div class='wrap'>
+    The most direct and concrete way for the government to improve your life is to send you a check for $1,000 every month and let you spend it in whatever manner will benefit you the most. The government is not capable of a lot of things, but it is capable of sending large numbers of checks to large numbers of people promptly and reliably. We have plenty of resources, they’re just not being distributed to enough people right now. Let’s build a new kind of economy – one that puts people first. If there’s one policy that would transform American lives for the better, it is Universal Basic Income.  </div>
 </blockquote>
-<br/>
+
+<div class='problems-to-be-solved wrap'>
+  <h4>Problems to be Solved</h4>
+  <div class='grid'>
+    <div class='column'>
+      <ul><li>Approx. 40 million Americans live below the poverty line.</li><li>Technology is quickly displacing a large number of workers, and the pace will only increase as automation and other forms of artificial intelligence become more advanced.  ⅓ of American workers will lose their jobs to automation by 2030 according to McKinsey.  This has the potential to destabilize our economy and society if unaddressed.</li><li>Good jobs are becoming more and more scarce and Americans are already working harder and harder for less and less.</li></ul>    </div>
+    <div class='column'>
+      <ul><li>It is necessary to support and preserve a robust consumer economy.</li><li>Many Americans are stuck in the wrong jobs because of a need to survive.</li><li>There are many positive social activities that are currently impossible for many to do because they lack the financial resources to dedicate time to it, including taking care of a child or sick loved one, and volunteering in the community.</li></ul>    </div>
+  </div>
+</div>
+
+<div class='guiding-principles'>
+  <div class='wrap'>
+    <h5>Guiding Principles:</h5>
+    <ul><li>Equality</li><li>Freedom</li></ul>  </div>
+</div>
+
+<div class='goals'>
+  <div class='wrap'>
+    <h5>Goals</h5>
+    <ul><li>End poverty in the most direct manner possible: giving people money</li><li>Move our economy into its next stage of development – human capitalism – with a focus on improving everyone’s quality of living</li><li>Prevent the massive disruption that will accompany the rapid development and adoption of automation and other AI technologies</li><li>Allow people the freedom to switch jobs, move, innovate, and contribute to society</li><li>Turbo-charge the economy by providing income to those who are most likely to spend it</li></ul>  </div>
+</div>
+
+<div class='as-president wrap'>
+  <h4>As President, I will…</h4>
+  <ul>
+<li>Implement the Freedom Dividend, providing Universal Basic Income of $1,000/month to all American adults over the age of 18 so that we may all share in the prosperity we have contributed to and participate in the new economy.</li>
+</ul>
+<p>&nbsp;</p>
+</div>
 
 
-	<div class="policies">
-		<div class="grid">
-			<div class="column">
-				<h3 class='entry-title'>
-					Economy/Jobs &amp; Labor				</h3>
-									<a href="https://www.yang2020.com/policies/the-freedom-dividend/">
-						<h4>
-							The Freedom Dividend						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/human-capitalism/">
-						<h4>
-							Human-Centered Capitalism						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/measuring-the-economy/">
-						<h4>
-							Improve the American Scorecard						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/student-loan-debt/">
-						<h4>
-							Reduce Student Loan Burden						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/mandatory-vacation/">
-						<h4>
-							Implement Mandatory Paid Leave Policy						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/right-privacy-abortion-contraception/">
-						<h4>
-							Right to Privacy/Abortion and Contraception						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/carbon-fee-dividend/">
-						<h4>
-							Carbon Fee and Dividend						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/get-america-moving/">
-						<h4>
-							Make it Easy for Americans to Move for Work						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/value-added-tax/">
-						<h4>
-							Value-Added Tax						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/telescoping-retirement-accounts/">
-						<h4>
-							Make it Easier to Save for Retirement						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/promoting-vocational-education/">
-						<h4>
-							Promote Vocational Education						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/zoning/">
-						<h4>
-							Zoning						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/financial-counseling/">
-						<h4>
-							Free Financial Counseling for All						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/cashbail/">
-						<h4>
-							Decrease Pre-Trial Cash Bail						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/reduce-mass-incarceration/">
-						<h4>
-							Reduce Mass Incarceration						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/paid-family-leave/">
-						<h4>
-							Paid Family Leave						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/fight-for-equal-pay/">
-						<h4>
-							Fight for Equal Pay						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/legalization-of-marijuana/">
-						<h4>
-							Legalize Marijuana						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/post-offices-provide-basic-banking-services/">
-						<h4>
-							Provide Basic Banking Services through the Post Office						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/prosperity-grants/">
-						<h4>
-							Prosperity Grants						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/single-parent-assistance/">
-						<h4>
-							Increase Assistance for Single Parents						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/filing-income-taxes/">
-						<h4>
-							File Income Taxes						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/digital-asset-regulation/">
-						<h4>
-							Crypto/Digital Asset Regulation and Consumer Protection						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/payment-small-businesses/">
-						<h4>
-							Timing of Payments for Small Businesses						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/trucking-czar/">
-						<h4>
-							Ease the Transition to Self-Driving Vehicles						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/capital-gain-carried-interest-tax/">
-						<h4>
-							Capital Gain/Carried Interest Tax						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/financial-transaction-tax/">
-						<h4>
-							Financial Transaction Tax						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/data-property-right/">
-						<h4>
-							Data as a Property Right						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/grid-modernization/">
-						<h4>
-							Grid Modernization Race to the Top						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/end-relocation-bidding/">
-						<h4>
-							End Bidding Wars for Corporate Relocation						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/empowering-mma-fighters/">
-						<h4>
-							Empowering MMA Fighters						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/no-pennies/">
-						<h4>
-							The Penny Makes No Cents						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/regulating-ai-emerging-technologies/">
-						<h4>
-							Regulate AI and other Emerging Technologies						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/ncaa-pay-athletes/">
-						<h4>
-							NCAA Should Pay Athletes						</h4>
-					</a>
-							</div>
-			
-			<div class="column">
-				<h3 class='entry-title'>
-					Civil Rights/Criminal Justice				</h3>
-									<a href="https://www.yang2020.com/policies/the-freedom-dividend/">
-						<h4>
-							The Freedom Dividend						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/measuring-the-economy/">
-						<h4>
-							Improve the American Scorecard						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/net-neutrality/">
-						<h4>
-							Net Neutrality						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/lgbtq-rights/">
-						<h4>
-							LGBTQ Rights						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/right-privacy-abortion-contraception/">
-						<h4>
-							Right to Privacy/Abortion and Contraception						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/restore-voting-rights/">
-						<h4>
-							Restoration of Voting Rights						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/decriminalizeopioids/">
-						<h4>
-							Decriminalize Opioids						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/automatic-voter-registration/">
-						<h4>
-							Automatic Voter Registration						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/dc-statehood/">
-						<h4>
-							Make Washington, DC, a State						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/end-gerrymandering/">
-						<h4>
-							End Partisan Gerrymandering						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/holding-pharmaceutical-companies-accountable/">
-						<h4>
-							Hold Pharmaceutical Companies Accountable						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/election-day-holiday/">
-						<h4>
-							Make Election Day a Holiday						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/zoning/">
-						<h4>
-							Zoning						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/cashbail/">
-						<h4>
-							Decrease Pre-Trial Cash Bail						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/reduce-mass-incarceration/">
-						<h4>
-							Reduce Mass Incarceration						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/gun-safety/">
-						<h4>
-							Gun Safety						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/pathway-to-citizenship-2/">
-						<h4>
-							Pathway to Citizenship for Undocumented Immigrants						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/support-the-dream-act/">
-						<h4>
-							Support the DREAM Act						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/fight-for-equal-pay/">
-						<h4>
-							Fight for Equal Pay						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/legalization-of-marijuana/">
-						<h4>
-							Legalize Marijuana						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/puerto-rican-statehood/">
-						<h4>
-							Make Puerto Rico a State						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/every-cop-gets-camera/">
-						<h4>
-							Every Cop Gets a Camera						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/data-property-right/">
-						<h4>
-							Data as a Property Right						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/algorithmic-trading-fraud/">
-						<h4>
-							Algorithmic Trading/Fraud						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/economic-crime/">
-						<h4>
-							Economic Crime						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/votingage/">
-						<h4>
-							Lower the Voting Age to 16						</h4>
-					</a>
-							</div>
-			
-			<div class="column">
-				<h3 class='entry-title'>
-					Democracy/ Governance				</h3>
-									<a href="https://www.yang2020.com/policies/the-freedom-dividend/">
-						<h4>
-							The Freedom Dividend						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/measuring-the-economy/">
-						<h4>
-							Improve the American Scorecard						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/rankedchoice/">
-						<h4>
-							Ranked Choice Voting						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/democracydollars/">
-						<h4>
-							Democracy Dollars						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/12-year-congressional-term-limits/">
-						<h4>
-							12-Year Congressional Term Limits						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/restore-voting-rights/">
-						<h4>
-							Restoration of Voting Rights						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/automatic-voter-registration/">
-						<h4>
-							Automatic Voter Registration						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/dc-statehood/">
-						<h4>
-							Make Washington, DC, a State						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/end-gerrymandering/">
-						<h4>
-							End Partisan Gerrymandering						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/public-advisors/">
-						<h4>
-							Public Council of Advisors						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/election-day-holiday/">
-						<h4>
-							Make Election Day a Holiday						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/scotustermlimits/">
-						<h4>
-							18 Year Term Limit for Supreme Court Justices						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/reviveota/">
-						<h4>
-							Revive the Office of Technology Assessment						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/relocatefederalagencies/">
-						<h4>
-							Relocate Federal Agencies						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/reduce-mass-incarceration/">
-						<h4>
-							Reduce Mass Incarceration						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/prevent-regulatory-capture-and-corruption/">
-						<h4>
-							Prevent Corruption in the Federal Government						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/overturning-citizens-united/">
-						<h4>
-							Campaign Finance Reform						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/puerto-rican-statehood/">
-						<h4>
-							Make Puerto Rico a State						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/american-journalism-fellows/">
-						<h4>
-							American Journalism Fellows						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/white-house-psychologist/">
-						<h4>
-							Closely Monitor Mental Health of White House Staff						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/local-journalism-fund/">
-						<h4>
-							Local Journalism Fund						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/automatically-sunsetting-old-laws/">
-						<h4>
-							Automatically Sunset Old Laws						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/support-revival-earmarks/">
-						<h4>
-							Support the Revival of Earmarks						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/tort-reform-reasonableness-dismissals/">
-						<h4>
-							Tort Reform/Reasonableness Dismissals						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/modernize-voting/">
-						<h4>
-							Modernize Voting						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/proportional-electors/">
-						<h4>
-							Proportional Selection of Electors						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/downsizing-federal-workforce/">
-						<h4>
-							Limit Bureaucracy in the Federal Workforce						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/votingage/">
-						<h4>
-							Lower the Voting Age to 16						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/media-fragmentation/">
-						<h4>
-							Media Fragmentation						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/making-taxes-fun/">
-						<h4>
-							Making Taxes Fun						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/head-of-culture-and-ceremony/">
-						<h4>
-							Head of Culture and Ceremony						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/regulating-ai-emerging-technologies/">
-						<h4>
-							Regulate AI and other Emerging Technologies						</h4>
-					</a>
-							</div>
-			</div><div class="grid">
-			<div class="column">
-				<h3 class='entry-title'>
-					Healthcare				</h3>
-									<a href="https://www.yang2020.com/policies/the-freedom-dividend/">
-						<h4>
-							The Freedom Dividend						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/medicare-for-all/">
-						<h4>
-							Medicare for All						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/measuring-the-economy/">
-						<h4>
-							Improve the American Scorecard						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/prescription-drug-costs/">
-						<h4>
-							Control the Cost of Prescription Drugs						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/right-privacy-abortion-contraception/">
-						<h4>
-							Right to Privacy/Abortion and Contraception						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/decriminalizeopioids/">
-						<h4>
-							Decriminalize Opioids						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/holding-pharmaceutical-companies-accountable/">
-						<h4>
-							Hold Pharmaceutical Companies Accountable						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/mental-health/">
-						<h4>
-							Invest in America&#8217;s Mental Health						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/opioid-crisis/">
-						<h4>
-							Opioid Crisis						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/gun-safety/">
-						<h4>
-							Gun Safety						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/medical-technology-innovation/">
-						<h4>
-							Fund Medical Technology Innovation						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/autism-intervention-funding/">
-						<h4>
-							Fund Autism Intervention						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/expanding-medical-licensure/">
-						<h4>
-							Expand Access to Medical Experts						</h4>
-					</a>
-							</div>
-			
-			<div class="column">
-				<h3 class='entry-title'>
-					Environment				</h3>
-									<a href="https://www.yang2020.com/policies/the-freedom-dividend/">
-						<h4>
-							The Freedom Dividend						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/measuring-the-economy/">
-						<h4>
-							Improve the American Scorecard						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/climate-change/">
-						<h4>
-							Combat Climate Change						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/public-land-preservation/">
-						<h4>
-							Preservation of Public Lands and Water						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/reduce-wildfires/">
-						<h4>
-							Reduce Wildfires						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/carbon-fee-dividend/">
-						<h4>
-							Carbon Fee and Dividend						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/reduce-packaging-waste/">
-						<h4>
-							Reduce Packaging Waste						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/rebuild-america/">
-						<h4>
-							Rebuild American Infrastructure						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/nuclear-energy/">
-						<h4>
-							Nuclear Energy						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/grid-modernization/">
-						<h4>
-							Grid Modernization Race to the Top						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/no-pennies/">
-						<h4>
-							The Penny Makes No Cents						</h4>
-					</a>
-							</div>
-			
-			<div class="column">
-				<h3 class='entry-title'>
-					Education				</h3>
-									<a href="https://www.yang2020.com/policies/the-freedom-dividend/">
-						<h4>
-							The Freedom Dividend						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/measuring-the-economy/">
-						<h4>
-							Improve the American Scorecard						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/student-loan-debt/">
-						<h4>
-							Reduce Student Loan Burden						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/controlling-cost-higher-education/">
-						<h4>
-							Control the Cost of Higher Education						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/close-skills-gap-community-college/">
-						<h4>
-							Make Community College Affordable for All						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/early-childhood-education/">
-						<h4>
-							Early Childhood Education for All						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/promoting-vocational-education/">
-						<h4>
-							Promote Vocational Education						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/financial-counseling/">
-						<h4>
-							Free Financial Counseling for All						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/teacher-salaries/">
-						<h4>
-							Increase Teacher Salaries						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/life-skills-education/">
-						<h4>
-							Life-Skills Education in All High Schools						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/expand-selective-schools/">
-						<h4>
-							Expand Selective Schools						</h4>
-					</a>
-							</div>
-			</div><div class="grid">
-			<div class="column">
-				<h3 class='entry-title'>
-					Family/Social Cohesion				</h3>
-									<a href="https://www.yang2020.com/policies/the-freedom-dividend/">
-						<h4>
-							The Freedom Dividend						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/measuring-the-economy/">
-						<h4>
-							Improve the American Scorecard						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/american-exchange-program/">
-						<h4>
-							American Exchange Program						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/mandatory-vacation/">
-						<h4>
-							Implement Mandatory Paid Leave Policy						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/early-childhood-education/">
-						<h4>
-							Early Childhood Education for All						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/american-mall-act/">
-						<h4>
-							American Mall Act						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/paid-family-leave/">
-						<h4>
-							Paid Family Leave						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/prosperity-grants/">
-						<h4>
-							Prosperity Grants						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/single-parent-assistance/">
-						<h4>
-							Increase Assistance for Single Parents						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/free-marriage-counseling/">
-						<h4>
-							Free Marriage Counseling for All						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/modern-time-banking/">
-						<h4>
-							Modern Time Banking						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/support-for-the-arts/">
-						<h4>
-							Support for the Arts						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/effects-smartphones-human-development/">
-						<h4>
-							Reduce Harm to Children Caused by Smartphones						</h4>
-					</a>
-							</div>
-			
-			<div class="column">
-				<h3 class='entry-title'>
-					Foreign Policy				</h3>
-									<a href="https://www.yang2020.com/policies/foreign-policy-first-principles/">
-						<h4>
-							Foreign Policy First Principles						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/veteran-employment-and-businesses/">
-						<h4>
-							Veteran Employment and Businesses						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/ending-veteran-suicide/">
-						<h4>
-							Ending Veteran Suicide						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/every-vet-under-a-roof-initiative/">
-						<h4>
-							Every Vet Under a Roof Initiative						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/controlled-substance-waivers-for-veterans/">
-						<h4>
-							Controlled Substance Waivers for Veterans						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/improving-veteran-health/">
-						<h4>
-							Improving Veteran Health						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/military-training-the-gold-standard/">
-						<h4>
-							Military Training: The Gold Standard						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/gi-bill-improvements/">
-						<h4>
-							GI Bill Improvements						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/reverse-boot-camp/">
-						<h4>
-							Reverse Boot Camp						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/quantum-computing/">
-						<h4>
-							Quantum Computing and Encryption Standards						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/rechannel-military-spending/">
-						<h4>
-							Modernize Military Spending						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/southern-border-security/">
-						<h4>
-							Southern Border Security						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/nuclear-launch/">
-						<h4>
-							Nuclear Launch Decisions						</h4>
-					</a>
-							</div>
-			
-			<div class="column">
-				<h3 class='entry-title'>
-					Immigration				</h3>
-									<a href="https://www.yang2020.com/policies/pathway-to-citizenship-2/">
-						<h4>
-							Pathway to Citizenship for Undocumented Immigrants						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/support-the-dream-act/">
-						<h4>
-							Support the DREAM Act						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/southern-border-security/">
-						<h4>
-							Southern Border Security						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/enticing-high-skill-individuals/">
-						<h4>
-							Entice High-Skill Individuals						</h4>
-					</a>
-							</div>
-			</div><div class="grid">
-			<div class="column">
-				<h3 class='entry-title'>
-					Miscellaneous/Fun				</h3>
-									<a href="https://www.yang2020.com/policies/the-freedom-dividend/">
-						<h4>
-							The Freedom Dividend						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/public-advisors/">
-						<h4>
-							Public Council of Advisors						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/extend-daylight-savings-time-all-year/">
-						<h4>
-							Extend Daylight Saving Time All Year						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/prevent-airlines-removing-customers/">
-						<h4>
-							Prevent Airlines from Removing Customers						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/filing-income-taxes/">
-						<h4>
-							File Income Taxes						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/tort-reform-reasonableness-dismissals/">
-						<h4>
-							Tort Reform/Reasonableness Dismissals						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/data-property-right/">
-						<h4>
-							Data as a Property Right						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/no-pennies/">
-						<h4>
-							The Penny Makes No Cents						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/support-for-the-arts/">
-						<h4>
-							Support for the Arts						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/making-taxes-fun/">
-						<h4>
-							Making Taxes Fun						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/head-of-culture-and-ceremony/">
-						<h4>
-							Head of Culture and Ceremony						</h4>
-					</a>
-									<a href="https://www.yang2020.com/policies/robo-calling-text-line/">
-						<h4>
-							Robo-Calling Text Line						</h4>
-					</a>
-							</div>
-			<div class="column"></div></div>	</div> <!-- .policies -->
+  <div class='excerpt wrap'>
+    <h4>An Excerpt from <em>The War on Normal People</em></h4>
+    <p>Universal Basic Income, or UBI, is a version of Social Security where all citizens receive a set amount of money per month independent of their work status or income. Everyone from a hedge fund billionaire in New York to an impoverished single mom in West Virginia would receive a monthly check of $1,000. If someone is working as a waitress or construction worker making $18,000, he or she would essentially be making $30,000. UBI eliminates the disincentive to work that most people find troubling about traditional welfare programs – if you work you could actually start saving and get ahead. With the growing threat of automation, the concept has gained renewed attention, with trials being run in Oakland, Canada, and Finland as well as in India and other parts of the developing world.</p>
+<p>Today, people tend to associate Universal Basic Income with technology utopians. But a form of UBI almost became law in the United States in 1970 and 1971, passing the House of Representatives twice before stalling in the Senate. Versions of the idea have been championed by robust thinkers of every political persuasion for decades, including some of the most admired figures in American life. Here’s a sampling:</p>
+<p><cite>Thomas Paine, 1796:</cite> <q>&#8220;Out of a collected fund from landowners, “there shall be paid to every person, when arrived at the age of twenty-one years, the sum of fifteen pounds sterling, as a compensation in part, for the loss of his or her natural inheritance,. . . to every person, rich or poor.&#8221;</q></p>
+<p><cite>Martin Luther King Jr., 1967:</cite> <q>&#8220;I am now convinced that the simplest approach will prove to be the most effective — the solution to poverty is to abolish it directly by a now widely discussed measure: the guaranteed income.&#8221;</q></p>
+<p><cite>Richard Nixon, August 1969:</cite> <q>&#8220;What I am proposing is that the Federal Government build a foundation under the income of every American family . . . that cannot care for itself&#8211;and wherever in America that family may live.&#8221;</q></p>
+<p><cite>Milton Friedman (Nobel-winning economist), 1980:</cite> <q>&#8220;We should replace the ragbag of specific welfare programs with a single comprehensive program of income supplements in cash — a negative income tax . . . which would do more efficiently and humanely what our present welfare system does so inefficiently and inhumanely.&#8221;</q></p>
+<p><cite>Bernie Sanders, May 2014:</cite> <q>&#8220;In my view, every American is entitled to at least a minimum standard of living . . .There are different ways to get to that goal, but that&#8217;s the goal that we should strive to reach.&#8221;</q></p>
+<p><cite>Stephen Hawking, July 2015:</cite> <q>&#8220;Everyone can enjoy a life of luxurious leisure if the machine-produced wealth is shared, or most people can end up miserably poor if the machine-owners successfully lobby against wealth redistribution. So far, the trend seems to be toward the second option, with technology driving ever-increasing inequality.&#8221;</q></p>
+<p><cite>Barack Obama, June and October 2016:</cite> <q>&#8220;The way I describe it is that, because of automation, because of globalization, we’re going to have to examine the social compact, the same way we did early in the 19th century and then again during and after the Great Depression. The notion of a 40-hour workweek, a minimum wage, child labor laws, etc. – those will have to be updated for these new realities. What is indisputable . . . is that as AI gets further incorporated, and the society potentially gets wealthier, the link between production and distribution, how much you work and how much you make, gets further and further attenuated . . . we’ll be debating unconditional free money over the next 10 or 20 years.&#8221;</q></p>
+<p><cite>Warren Buffett, January 2017:</cite> <q>&#8220;you have to figure out how to distribute it . . . people who fall by the wayside through no fault of their own as the goose lays more golden eggs should still get a chance to participate in that prosperity, and that’s where government comes in.&#8221;</q></p>
+<p><cite>Bill Gates, January 2017:</cite> <q>&#8220;A problem of excess [automation] forces us to look at the individuals affected and take those extra resources and make sure they’re directed to them in terms of re-education and income policies . . .” (Gates later suggested taxing robots.)&#8221;</q></p>
+<p><cite>Elon Musk, February, 2017:</cite> <q>&#8220;I think we&#8217;ll end up doing universal basic income . . . It&#8217;s going to be necessary . . .There will be fewer and fewer jobs that a robot cannot do better. I want to be clear. These are not things I wish will happen; these are things I think probably will happen.&#8221;</q></p>
+<p><cite>Mark Zuckerberg, May 2017:</cite> <q>&#8220;We should explore . . . universal basic income so that everyone has a cushion to try new ideas.&#8221;</q></p>
+<p><cite>Nicole Sallak-Anderson, June 2017:</cite> <q>&#8220;Creating a world where UBI is our foundation would go a lot further towards equality between the sexes, for in doing so we acknowledge that the work of the home is real, and we free women from the economic constraints that childrearing has come to bear upon us, much more than our male counterparts.&#8221;</q></p>
+  </div>
 
-  </div></article></main></div></div><h1 class='join-the-fight giant-header'>
+
+<a class='explore-more' href='/policies'>
+  Explore More Policies
+</a>
+
+</div> <!-- entry-content -->
+
+</div><h1 class='join-the-fight giant-header'>
 	Join the fight
 </h1>
 <form class='join-form wrapped above-footer'>
@@ -3430,4 +2721,4 @@ lazySizes.init();
 <script type='text/javascript' src='https://www.yang2020.com/wp-content/plugins/page-links-to/js/new-tab.min.js?ver=3.0.0-beta.1'></script>
 <script type='text/javascript' src='https://www.yang2020.com/wp-content/plugins/about-andrew/public/js/about-andrew.js'></script>
 <script type='text/javascript' src='https://www.yang2020.com/wp-includes/js/wp-embed.min.js?ver=5.2.1'></script>
-<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"ebb1e7c3d1","applicationID":"105452192","transactionName":"YVVSMhQECxZXU0YICVgfcQUSDAoLGUBTBgNpR1kSDjoNAFdUVxM=","queueTime":0,"applicationTime":464,"atts":"TRJRRFweGBg=","errorBeacon":"bam.nr-data.net","agent":""}</script></body></html>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"ebb1e7c3d1","applicationID":"105452192","transactionName":"YVVSMhQECxZXU0YICVgfcQUSDAoLGUNbDwFaVR0WCQkMBk8=","queueTime":0,"applicationTime":218,"atts":"TRJRRFweGBg=","errorBeacon":"bam.nr-data.net","agent":""}</script></body></html>

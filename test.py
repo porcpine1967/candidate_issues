@@ -6,8 +6,8 @@ from candidates import CANDIDATES
 from parse_candidates import Candidate
 
 def pickle_candidates():
-    for name, nav_tag, nav_attr, c_tag, c_attr, bad, _ in CANDIDATES:
-        c = Candidate(name, nav_tag, nav_attr, c_tag, c_attr, bad)
+    for name, host, c_tag, c_attr, bad, _ in CANDIDATES:
+        c = Candidate(name, host, c_tag, c_attr, bad)
         c.load_links()
         pickle.dump(c.links, open('data/test/%s.links' % name, 'wb'))
         c.load_lines()
@@ -19,12 +19,12 @@ def pickle_candidates():
 def test_candidates():
     search = len(sys.argv) > 1 and sys.argv[1] != 'p'
     found = False
-    for name, nav_tag, nav_attr, c_tag, c_attr, bad, _ in CANDIDATES:
+    for name, host, c_tag, c_attr, bad, _ in CANDIDATES:
         if search and name != sys.argv[1]:
             print 'skipping', name
             continue
         found = True
-        c = Candidate(name, nav_tag, nav_attr, c_tag, c_attr, bad)
+        c = Candidate(name, host, c_tag, c_attr, bad)
         c.load_links()
         test_links = pickle.load(open('data/test/%s.links' % name))
         if test_links != c.links:

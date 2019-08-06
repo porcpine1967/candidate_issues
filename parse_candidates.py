@@ -7,8 +7,8 @@ import urllib2
 
 from candidates import CANDIDATES
 
-BLOCK_TAGS = ('h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'div', 'article', 'header', 'section', 'li', 'blockquote', 'nav', 'title', 'footer', 'br', 'main', 'aside', 'iframe', 'table', 'tbody', 'tr', 'center',)
-INLINE_TAGS = ('span', 'a', 'i', 'b', 'strong', 'figure', 'img', 'ul', 'style', 'polygon', 'g', 'svg', 'path', 'ol', 'script', 'source', 'picture', 'sup', 'hr', 'em', 'video', 'cite', 'q', 'u', 'ins', 'small', 'noscript', 'link', 'td',)
+BLOCK_TAGS = ('h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'div', 'article', 'header', 'section', 'li', 'blockquote', 'nav', 'title', 'footer', 'br', 'main', 'aside', 'iframe', 'table', 'tbody', 'tr', 'center', 'figcaption')
+INLINE_TAGS = ('span', 'a', 'i', 'b', 'strong', 'figure', 'img', 'ul', 'style', 'polygon', 'g', 'svg', 'path', 'ol', 'script', 'source', 'picture', 'sup', 'hr', 'em', 'video', 'cite', 'q', 'u', 'ins', 'small', 'noscript', 'link', 'td', 'font',)
 REPLACEMENTS = ((re.compile(r'<head.*</head>'), '',),
                 (re.compile(r'<script.*?</script>'), '',),
                 (re.compile(r'<style.*?</style>'), '',),
@@ -17,6 +17,7 @@ REPLACEMENTS = ((re.compile(r'<head.*</head>'), '',),
                 (re.compile(r'<svg.*?</svg>'), '',),
                 (re.compile(r'="[^"]*&[^"]*;[^"]*'), '="',),
                 ('</di/v>', '</div>',),)
+PAGE_LOCATION = re.compile(r'#[^/]*$')
 
 def file_as_string(html_file):
     contents = ''
@@ -80,33 +81,22 @@ class ContentHTMLParser(HTMLParser.HTMLParser):
                 
 
 class NavigationHTMLParser(HTMLParser.HTMLParser):
-    def __init__(self, html, navigation_tag, navigation_attr, links):
+    def __init__(self, html, host, links):
         HTMLParser.HTMLParser.__init__(self)
-        self.tag = navigation_tag
-        if navigation_attr:
-            self.attr_key, self.attr_value = navigation_attr
-        else:
-            self.attr_key = None
+        self.host = host
         self.file_as_string = html
         self.tags = []
         self.links = links
 
     def handle_starttag(self, tag, attrs):
-        if self.attr_key and tag == self.tag and not self.tags:
-            found = False
-            for key, value in attrs:
-                if key == self.attr_key:
-                    for subvalue in value.split():
-                        if subvalue == self.attr_value:
-                            found = True
-            if not found:
-                return
-        if len(self.tags) or tag == self.tag:
-            self.tags.append(tag)
-            if tag == 'a':
-                for attr, value in attrs:
-                    if attr == 'href' and not value.startswith('#') and value not in ('', '/',):
-                        self.links.add(value)
+        if tag == 'a':
+            for attr, value in attrs:
+                if attr == 'href' and not value.startswith('#') and value not in ('', '/',):
+                    new_value = re.sub(PAGE_LOCATION, '', value)
+                    if value.startswith('/'):
+                        self.links.add('{}{}'.format(self.host, new_value))
+                    elif value.startswith(self.host) or value.startswith('https://medium.com'):
+                        self.links.add(new_value)
 
     def handle_endtag(self, tag):
         if not self.tags:
@@ -121,10 +111,9 @@ class NavigationHTMLParser(HTMLParser.HTMLParser):
         pass
 
 class Candidate(object):
-    def __init__(self, name, navigation_tag, navigation_attr, content_tag, content_attr, bad=False, urls=None):
+    def __init__(self, name, host, content_tag, content_attr, bad=False, urls=None):
         self.name = name
-        self.navigation_tag = navigation_tag
-        self.navigation_attr = navigation_attr
+        self.host = host
         self.content_tag = content_tag
         self.content_attr = content_attr
         self.links = set()
@@ -135,7 +124,7 @@ class Candidate(object):
 
     def load_links(self):
         c_links = set()
-        cp = NavigationHTMLParser(file_as_string(open('data/test/%s.html' % self.name)), self.navigation_tag, self.navigation_attr, c_links)
+        cp = NavigationHTMLParser(file_as_string(open('data/test/%s.html' % self.name)), self.host, c_links)
         cp.feed(cp.file_as_string)
         self.links = set([l for l in c_links if 'actblue.com' not in l and '/cdn-cgi/l/email-protection' not in l])
 
@@ -159,12 +148,18 @@ class Candidate(object):
             req = urllib2.Request(url)
             req.add_header('user-agent', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36')
             html = file_as_string(urllib2.urlopen(req))
-            c_links = set()
-            cp = NavigationHTMLParser(html, self.navigation_tag, self.navigation_attr, c_links)
-            cp.feed(cp.file_as_string)
-            self.links.update(set([l for l in c_links if 'actblue.com' not in l and '/cdn-cgi/l/email-protection' not in l]))
+            if url.startswith(self.host):
+                c_links = set()
+                cp = NavigationHTMLParser(html, self.host, c_links)
+                cp.feed(cp.file_as_string)
+                self.links.update(set([l for l in c_links if 'actblue.com' not in l and '/cdn-cgi/l/email-protection' not in l]))
+                tag = self.content_tag
+                attr = self.content_attr
+            else:
+                tag = 'article'
+                attr = None
             c_lines = []
-            cp = ContentHTMLParser(html, self.content_tag, self.content_attr, c_lines, self.bad)
+            cp = ContentHTMLParser(html, tag, attr, c_lines, self.bad)
             cp.feed(cp.file_as_string)
             lines = [l.strip() for l in c_lines]
             page['lines'] = [l for l in lines if l]
@@ -176,9 +171,9 @@ class Candidate(object):
 def test_navigation():
     if len(sys.argv) > 1:
         found = False
-        for name, nav_tag, nav_attr, c_tag, c_attr, bad, _ in CANDIDATES:
+        for name, host, c_tag, c_attr, bad, _ in CANDIDATES:
             if name == sys.argv[1]:
-                c = Candidate(name, nav_tag, nav_attr, c_tag, c_attr, bad)
+                c = Candidate(name, host, c_tag, c_attr, bad)
                 found = True
         if not found:
             print 'No such candidate', sys.argv[1]
@@ -186,7 +181,7 @@ def test_navigation():
     else:
         c = Candidate('gabbard', 'nav', ('id', 'js-takeover-menu',), 'section', ('class', 'issues-lp__accordion'), True)
     html = file_as_string(open('data/test/%s.html' % c.name))
-    cp = NavigationHTMLParser(html, c.navigation_tag, c.navigation_attr, c.links)
+    cp = NavigationHTMLParser(html, c.host, c.links)
     cp.feed(cp.file_as_string)
     for link in sorted(list(c.links)):
         if 'actblue.com' not in link:
@@ -195,9 +190,9 @@ def test_navigation():
 def test_content():
     if len(sys.argv) > 1:
         found = False
-        for name, nav_tag, nav_attr, c_tag, c_attr, bad, _ in CANDIDATES:
+        for name, host, c_tag, c_attr, bad, _ in CANDIDATES:
             if name == sys.argv[1]:
-                c = Candidate(name, nav_tag, nav_attr, c_tag, c_attr, bad)
+                c = Candidate(name, host, c_tag, c_attr, bad)
                 found = True
         if not found:
             print 'No such candidate', sys.argv[1]

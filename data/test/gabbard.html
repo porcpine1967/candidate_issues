@@ -7,8 +7,15 @@
   <head>
     <meta charset="utf-8" /><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o||n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({1:[function(e,n,t){function r(){}function o(e,n,t){return function(){return i(e,[c.now()].concat(u(arguments)),n?null:this,t),n?void 0:this}}var i=e("handle"),a=e(3),u=e(4),f=e("ee").get("tracer"),c=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,n){s[n]=o(d+n,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,o="function"==typeof n;return i(l+"tracer",[c.now(),e,t],r),function(){if(f.emit((o?"":"no-")+"fn-start",[c.now(),r,o],t),o)try{return n.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],t),e}finally{f.emit("fn-end",[c.now()],t)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=o(l+n)}),newrelic.noticeError=function(e,n){"string"==typeof e&&(e=new Error(e)),i("err",[e,c.now(),!1,n])}},{}],2:[function(e,n,t){function r(e,n){if(!o)return!1;if(e!==o)return!1;if(!n)return!0;if(!i)return!1;for(var t=i.split("."),r=n.split("."),a=0;a<r.length;a++)if(r[a]!==t[a])return!1;return!0}var o=null,i=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var u=navigator.userAgent,f=u.match(a);f&&u.indexOf("Chrome")===-1&&u.indexOf("Chromium")===-1&&(o="Safari",i=f[1])}n.exports={agent:o,version:i,match:r}},{}],3:[function(e,n,t){function r(e,n){var t=[],r="",i=0;for(r in e)o.call(e,r)&&(t[i]=n(r,e[r]),i+=1);return t}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],4:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(o<0?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=r},{}],5:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function o(e){function n(e){return e&&e instanceof r?e:e?f(e,u,i):i()}function t(t,r,o,i){if(!d.aborted||i){e&&e(t,r,o);for(var a=n(o),u=v(t),f=u.length,c=0;c<f;c++)u[c].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function l(e,n){h[e]=v(e).concat(n)}function m(e,n){var t=h[e];if(t)for(var r=0;r<t.length;r++)t[r]===n&&t.splice(r,1)}function v(e){return h[e]||[]}function g(e){return p[e]=p[e]||o(t)}function w(e,n){c(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var h={},y={},b={on:l,addEventListener:l,removeEventListener:m,emit:t,get:g,listeners:v,context:n,buffer:w,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",f=e("gos"),c=e(3),s={},p={},d=n.exports=o();d.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(o.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){o.buffer([e],r),o.emit(e,n,t)}var o=e("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!E++){var e=x.info=NREUM.info,n=l.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();c(y,function(n,t){e[n]||(e[n]=t)}),f("mark",["onload",a()+x.offset],null,"api");var t=l.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function o(){"complete"===l.readyState&&i()}function i(){f("mark",["domContent",a()+x.offset],null,"api")}function a(){return O.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-x.offset}var u=(new Date).getTime(),f=e("handle"),c=e(3),s=e("ee"),p=e(2),d=window,l=d.document,m="addEventListener",v="attachEvent",g=d.XMLHttpRequest,w=g&&g.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:g,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var h=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1130.min.js"},b=g&&w&&w[m]&&!/CriOS/.test(navigator.userAgent),x=n.exports={offset:u,now:a,origin:h,features:{},xhrWrappable:b,userAgent:p};e(1),l[m]?(l[m]("DOMContentLoaded",i,!1),d[m]("load",r,!1)):(l[v]("onreadystatechange",o),d[v]("onload",r)),f("mark",["firstbyte",u],null,"api");var E=0,O=e(5)},{}]},{},["loader"]);</script>
 <script src="/sites/default/files/hotjar/hotjar.script.js?pvsfb0"></script>
-<meta name="title" content="Tulsi&#039;s record on the issues | TULSI 2020" />
-<link rel="canonical" href="https://www.tulsi2020.com/record" />
+<meta name="title" content="Strengthen Social Security | TULSI 2020" />
+<link rel="canonical" href="https://www.tulsi2020.com/record/strengthen-social-security" />
+<meta name="twitter:site" content="@TulsiGabbard" />
+<meta name="twitter:title" content="TULSI 2020" />
+<meta name="twitter:site:id" content="26637348" />
+<meta name="twitter:image" content="https://d3ba7j4nna908t.cloudfront.net/tulsi2020-share-image3.png" />
+<meta property="og:image" content="https://d3ba7j4nna908t.cloudfront.net/tulsi2020-share-image3.png" />
+<meta property="og:image:url" content="https://d3ba7j4nna908t.cloudfront.net/tulsi2020-share-image3.png" />
+<meta property="og:image:secure_url" content="https://d3ba7j4nna908t.cloudfront.net/tulsi2020-share-image3.png" />
 <meta name="Generator" content="Drupal 8 (https://www.drupal.org)" />
 <meta name="MobileOptimized" content="width" />
 <meta name="HandheldFriendly" content="true" />
@@ -18,10 +25,12 @@
 <meta name="msapplication-TileColor" content="#0c2340" />
 <meta name="theme-color" content="#ffffff" />
 <link rel="shortcut icon" href="/themes/custom/tulsi/favicon.ico" type="image/vnd.microsoft.icon" />
+<link rel="alternate" hreflang="en" href="https://www.tulsi2020.com/record/strengthen-social-security" />
+<link rel="revision" href="https://www.tulsi2020.com/record/strengthen-social-security" />
 <script src="/sites/default/files/google_tag/google_tag.script.js?pvsfb0"></script>
 
-    <title>Tulsi&#039;s record on the issues | TULSI 2020</title>
-    <link rel="stylesheet" media="all" href="/sites/default/files/css/css_DfIk0kDE_97QqZBJr5TF4iiP6Rt7nG3gWSu-Jh5AKCY.css?pvsfb0" />
+    <title>Strengthen Social Security | TULSI 2020</title>
+    <link rel="stylesheet" media="all" href="/sites/default/files/css/css_JQyZ9StD4-4I5jikYtL8icbvn1b-f6xMTWUzpXDhKlc.css?pvsfb0" />
 <link rel="stylesheet" media="all" href="/sites/default/files/css/css_dljJy-Q3WDKqWw2fAKeHoL7b8GKv2xwdbjW4pCWYPgg.css?pvsfb0" />
 <link rel="stylesheet" media="all" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" />
 
@@ -31,7 +40,7 @@
 <![endif]-->
 
   </head>
-  <body class="path-record">
+  <body class="page-node-233 page-node path-node page-node-type-record">
         <a href="#content-top" class="visually-hidden focusable">
       Skip to main content
     </a>
@@ -55,8 +64,8 @@
                     <li class="menu-item">
         <a href="/about" class="about js-megamenu-trigger" data-megamenu="mm-one" data-drupal-link-system-path="node/1">About</a>
               </li>
-                <li class="menu-item menu-item--active-trail">
-        <a href="/record" class="issues js-megamenu-trigger is-active" data-megamenu="mm-two" data-drupal-link-system-path="record">Issues</a>
+                <li class="menu-item">
+        <a href="/record" class="issues js-megamenu-trigger" data-megamenu="mm-two" data-drupal-link-system-path="record">Issues</a>
               </li>
                 <li class="menu-item">
         <a href="/volunteer" class="volunteer js-megamenu-trigger" data-megamenu="mm-three" data-drupal-link-system-path="node/4">Join Us</a>
@@ -76,7 +85,7 @@
 
             <ul class="menu menu--language">
                 <li>
-                    <a class="lang-switcher" href="/es/record">en Español</a>
+                    <a class="lang-switcher" href="/es/node/233">en Español</a>
                 </li>
             </ul>
 
@@ -240,8 +249,8 @@
                 <li class="menu-item">
         <a href="/record/stand-womens-rights" data-drupal-link-system-path="node/227">Stand Up For Women&#039;s Rights</a>
               </li>
-                <li class="menu-item">
-        <a href="/record/strengthen-social-security" data-drupal-link-system-path="node/233">Strengthen Social Security</a>
+                <li class="menu-item menu-item--active-trail">
+        <a href="/record/strengthen-social-security" data-drupal-link-system-path="node/233" class="is-active">Strengthen Social Security</a>
               </li>
         </ul>
   
@@ -381,236 +390,155 @@
     <div id="block-tulsi-content" class="block block--system block--block-tulsi-content">
   
     
-      <div class="views-element-container"><div class="js-view-dom-id-e2860f46808071bf7f44db3c4e0c57391beda7ea12ae59b0462a7798fbfcfd7d view-container">
-    
-    
-    
+      
+    <article role="article" about="/record/strengthen-social-security">
+        <header>
+            <div class="o-blade o-blade--salute o-blade--header">
 
-    
-    
-    
-
-    <header>
-    <div class="o-blade o-blade--salute o-blade--header">
-
-        <div class="o-blade__media"></div>
-
-        <div class="o-blade__body">
-            <div class="container">
-
-                <section class="c-section">
-
-                    <span class="section-title">
-                        <a href="/vision">Vision for America</a>
-                    </span>
-
+                <div class="o-blade__media">
                     
-                    <h1>Tulsi's Record On The Issues</h1>
-                    
+                </div>
 
-                </section>
+                <div class="o-blade__body">
+                    <div class="container">
+
+                        <section class="c-section">
+
+                            <span class="section-title">
+                                <a href="/record">Tulsi's record on the issues</a>
+                            </span>
+                            
+                            <h1><span>Strengthen Social Security</span>
+</h1>
+                            
+
+                        </section>
+
+                    </div>
+                </div>
+            </div>
+
+        </header>
+
+
+        
+        <div class="view-mode-full">
+                <div class="o-blade o-blade--transparent paragraph paragraph--type--blade-text paragraph--view-mode--default">
+          <div class="o-blade__media"></div>
+
+      <div class="o-blade__body">
+        <div class="container">
+          <article class="s-article">
+              <h3>Quotes</h3>
+
+<ul><li>“We need to protect Medicare and Social Security. We should always care for our kupuna and those who are unable to care for themselves; this is who we are. Many in Congress want to keep tax breaks for the wealthy and other "entitlements" and instead cut costs by sacrificing Medicare and Social Security in order to get our budget under control. Sacrificing Medicare and Social Security is not acceptable and I will stand up against such efforts.” (<a href="https://www.ontheissues.org/House/Tulsi_Gabbard_Social_Security.htm" target="_blank">Link</a>)</li>
+	<li>“We need to reinvest in and expand our two major Social Security programs, Old-Age, Survivors, Insurance (OASI) and Disability Insurance (DI). Primarily, my administration will ensure Social Security's solvency by taking the trillions of tax dollars now spent on military spending and tax giveaways to the wealthiest American families and corporations and reinvesting them in these two Social Security programs.” <b>(AFSCME questionnaire)</b></li>
+</ul>
+
+          </article>
+        </div>
+      </div>
+
+      </div>
+
+  
+    <div class="o-blade o-blade--flush paragraph paragraph--type--blade-video paragraph--view-mode--default">
+        
+                            <div class="o-blade-video__description">
+
+                    <p>
+                        <i class="fab fa-youtube"></i>
+                            Watch: AARP Voter Guide: Representative Tulsi Gabbard
+</p>
+                </div>
+            
+            <div class="c-section--video">
+
+                <div class="video responsive-embed widescreen u-mb-0x">
+                      <div class="video-embed-field-provider-youtube"><iframe width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen" src="https://www.youtube.com/embed/ynUB-ZJxNyo?autoplay=0&amp;start=0&amp;rel=0"></iframe>
+</div>
+
+
+                </div>
+                <div class="loader">
+                    <img src="/themes/custom/tulsi/img/tail-spin.svg" alt="Video loading...">
+                </div>
+            </div>
+
 
             </div>
+
+    <div class="o-blade o-blade--transparent paragraph paragraph--type--blade-text paragraph--view-mode--default">
+          <div class="o-blade__media"></div>
+
+      <div class="o-blade__body">
+        <div class="container">
+          <article class="s-article">
+              <h3>Legislation</h3>
+
+<ul><li><a href="https://www.congress.gov/bill/116th-congress/house-bill/860?q=%7B%22search%22%3A%5B%22tulsi+gabbard%22%5D%7D&amp;s=2&amp;r=3" target="_blank">H.R.860</a> — Social Security 2100 Act to protect our Social Security system and improve benefits for current and future generations.</li>
+	<li><a href="https://www.congress.gov/bill/115th-congress/house-resolution/968?q=%7B%22search%22%3A%5B%22tulsi+gabbard%22%5D%7D&amp;s=6&amp;r=10" target="_blank">H.Res.968</a> — Providing for consideration of the bill (H.R. 1902) to protect our Social Security system and improve benefits for current and future generations.</li>
+	<li><a href="https://www.congress.gov/bill/114th-congress/house-bill/3779?q=%7B%22search%22%3A%5B%22tulsi+gabbard%22%5D%7D&amp;s=8&amp;r=50" target="_blank">H.R.3779</a> — Social Security Fraud Prevention Act of 2016 to prohibit federal departments and agencies from including the Social Security account number of any individual on any document sent by mail unless the department or agency head determines that inclusion of that Social Security number on the document is necessary.</li>
+</ul>
+
+          </article>
         </div>
-    </div>
+      </div>
 
-</header>
+      </div>
 
-<div class="container">
-    <section class="issues-grid">
-                                <div class="issues-grid__item ">
-    
-    <h2>
-        <a href="/record/foreign-policy-prosperity-through-peace" rel="bookmark"><span>A Foreign Policy of Prosperity Through Peace</span>
-</a>
-    </h2>
-    
+  
+    <div class="o-blade o-blade--lava paragraph paragraph--type--blade-contribute paragraph--view-mode--default">
+                    <div class="o-blade__media"></div>
+            <div class="o-blade__body">
+                <div class="container">
 
+                    <section class="c-section c-section--contribute">
+                        <div class="columns u-mb-0x">
+                            <div class="column is-12-desktop">
 
-</div>
-                                <div class="issues-grid__item ">
-    
-    <h2>
-        <a href="/record/enact-criminal-justice-reform" rel="bookmark"><span>Enact Criminal Justice Reform</span>
-</a>
-    </h2>
-    
+                                <div class="o-headline">
+                                    <h1 class="o-headline__main">  We need your help
+</h1>
+                                    <p class="o-headline__sub lead u-color-blue u-mb-0x">  This is a people-powered campaign and to stay competitive in this race we need about 5,000 new donors every week!<br />
+<br />
+Will you join us and chip in today?
+</p>
+                                </div>
 
+                            </div>
+                        </div>
 
-</div>
-                                <div class="issues-grid__item ">
-    
-    <h2>
-        <a href="/record/end-failed-war-drugs" rel="bookmark"><span>End The Failed War On Drugs</span>
-</a>
-    </h2>
-    
-
-
-</div>
-                                <div class="issues-grid__item ">
-    
-    <h2>
-        <a href="/record/equality-all" rel="bookmark"><span>Equality For All</span>
-</a>
-    </h2>
-    
+                        <div class="donate-buttons">
+      <a href="http://secure.actblue.com/donate/tulsi2020?refcode=web-record-social-security&amp;amount=1" target="_blank" class="button huge hollow white">$1</a>
+      <a href="http://secure.actblue.com/donate/tulsi2020?refcode=web-record-social-security&amp;amount=5" target="_blank" class="button huge hollow white">$5</a>
+      <a href="http://secure.actblue.com/donate/tulsi2020?refcode=web-record-social-security&amp;amount=19" target="_blank" class="button huge hollow white">$19</a>
+      <a href="http://secure.actblue.com/donate/tulsi2020?refcode=web-record-social-security&amp;amount=35" target="_blank" class="button huge hollow white">$35</a>
+      <a href="http://secure.actblue.com/donate/tulsi2020?refcode=web-record-social-security&amp;amount=100" target="_blank" class="button huge hollow white">$100</a>
+      <a href="http://secure.actblue.com/donate/tulsi2020?refcode=web-record-social-security" target="_blank" class="button huge hollow white">Other</a>
+  </div>
 
 
-</div>
-                                <div class="issues-grid__item ">
-    
-    <h2>
-        <a href="/record/healthcare-all" rel="bookmark"><span>Healthcare For All</span>
-</a>
-    </h2>
-    
+                    </section>
+
+                </div>
+            </div>
+
+            </div>
 
 
-</div>
-                                <div class="issues-grid__item ">
-    
-    <h2>
-        <a href="/record/hold-wall-street-accountable" rel="bookmark"><span>Hold Wall Street Accountable</span>
-</a>
-    </h2>
-    
+        </div>
+
+        <div class="issue-footer-nav">
+            <a href="/record">View all issues
+                <i class=" fa-caret-right fa-sm fas"></i>
+            </a>
+
+        </div>
+
+    </article>
 
 
-</div>
-                                <div class="issues-grid__item ">
-    
-    <h2>
-        <a href="/record/honoring-empowering-our-veterans" rel="bookmark"><span>Honoring &amp; Empowering Our Veterans</span>
-</a>
-    </h2>
-    
-
-
-</div>
-                                <div class="issues-grid__item ">
-    
-    <h2>
-        <a href="/record/invest-public-education-our-teachers" rel="bookmark"><span>Invest in Public Education &amp; Our Teachers</span>
-</a>
-    </h2>
-    
-
-
-</div>
-                                <div class="issues-grid__item ">
-    
-    <h2>
-        <a href="/record/people-profits-politics" rel="bookmark"><span>People Before Profits &amp; Politics</span>
-</a>
-    </h2>
-    
-
-
-</div>
-                                <div class="issues-grid__item ">
-    
-    <h2>
-        <a href="/record/protect-our-civil-liberties" rel="bookmark"><span>Protect Our Civil Liberties</span>
-</a>
-    </h2>
-    
-
-
-</div>
-                                <div class="issues-grid__item ">
-    
-    <h2>
-        <a href="/record/protect-our-planet-clean-energy-create-jobs" rel="bookmark"><span>Protect Our Planet With Clean Energy &amp; Create Jobs</span>
-</a>
-    </h2>
-    
-
-
-</div>
-                                <div class="issues-grid__item ">
-    
-    <h2>
-        <a href="/record/protecting-democracy" rel="bookmark"><span>Protecting Democracy</span>
-</a>
-    </h2>
-    
-
-
-</div>
-                                <div class="issues-grid__item ">
-    
-    <h2>
-        <a href="/record/racial-justice" rel="bookmark"><span>Racial Justice</span>
-</a>
-    </h2>
-    
-
-
-</div>
-                                <div class="issues-grid__item ">
-    
-    <h2>
-        <a href="/record/reform-our-broken-immigration-system" rel="bookmark"><span>Reform Our Broken Immigration System</span>
-</a>
-    </h2>
-    
-
-
-</div>
-                                <div class="issues-grid__item ">
-    
-    <h2>
-        <a href="/record/reports-chemical-attacks-syria" rel="bookmark"><span>Reports on Chemical Attacks in Syria</span>
-</a>
-    </h2>
-    
-
-
-</div>
-                                <div class="issues-grid__item ">
-    
-    <h2>
-        <a href="/record/second-amendment-rights-gun-safety" rel="bookmark"><span>Second Amendment Rights &amp; Gun Safety</span>
-</a>
-    </h2>
-    
-
-
-</div>
-                                <div class="issues-grid__item ">
-    
-    <h2>
-        <a href="/record/stand-womens-rights" rel="bookmark"><span>Stand Up For Women&#039;s Rights</span>
-</a>
-    </h2>
-    
-
-
-</div>
-                                <div class="issues-grid__item ">
-    
-    <h2>
-        <a href="/record/strengthen-social-security" rel="bookmark"><span>Strengthen Social Security</span>
-</a>
-    </h2>
-    
-
-
-</div>
-            </section>
-</div>
-
-    
-    
-
-    
-    
-
-    
-    
-</div>
-</div>
 
   </div>
 
@@ -827,7 +755,7 @@
                     2019
                     TULSI 2020
                     <span>|</span>
-                    <a class="lang-switcher" href="/es/record">en Español</a>
+                    <a class="lang-switcher" href="/es/node/233">en Español</a>
                 </p>
 
             </div>
@@ -946,7 +874,7 @@
 
 
 
-                <a class="lang-switcher" href="/es/record">en Español</a>
+                <a class="lang-switcher" href="/es/node/233">en Español</a>
             </div>
         </div>
     </div>
@@ -1093,11 +1021,11 @@
   </div>
 
     
-    <script type="application/json" data-drupal-selector="drupal-settings-json">{"path":{"baseUrl":"\/","scriptPath":null,"pathPrefix":"","currentPath":"record","currentPathIsAdmin":false,"isFront":false,"currentLanguage":"en"},"pluralDelimiter":"\u0003","user":{"uid":0,"permissionsHash":"f9165ecc0d06fd5f3d3802ee842bba544be9f63f48de08054ab3ef7372888d45"}}</script>
+    <script type="application/json" data-drupal-selector="drupal-settings-json">{"path":{"baseUrl":"\/","scriptPath":null,"pathPrefix":"","currentPath":"node\/233","currentPathIsAdmin":false,"isFront":false,"currentLanguage":"en"},"pluralDelimiter":"\u0003","user":{"uid":0,"permissionsHash":"f9165ecc0d06fd5f3d3802ee842bba544be9f63f48de08054ab3ef7372888d45"}}</script>
 <script src="/sites/default/files/js/js_00k5thKddPRWjYAfQU_Wiqr0OsNsthnaenzMh5ZqJVU.js"></script>
 <script src="https://tag.brandcdn.com/autoscript/tulsi2020_vg5wrk5vmvjqvda9/reagan_iowa.js"></script>
 <script src="https://tag.brandcdn.com/autoscript/tulsi2020_vg5wrk5vmvjqvda9/reagan_newhampshire.js"></script>
 <script src="https://tag.brandcdn.com/autoscript/tulsi2020_vg5wrk5vmvjqvda9/reagan_southcarolina.js"></script>
 
-  <script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"877e78ad18","applicationID":"229453582","transactionName":"ZlYBY0RZVkRQB0JdCl8cIlRCUVdZHhRXUwBuUAJUXl0=","queueTime":0,"applicationTime":29,"atts":"ShECFQxDRUo=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+  <script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"877e78ad18","applicationID":"229453582","transactionName":"ZlYBY0RZVkRQB0JdCl8cIlRCUVdZHhRXUwBuUAJUXl0=","queueTime":0,"applicationTime":21,"atts":"ShECFQxDRUo=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
 </html>
