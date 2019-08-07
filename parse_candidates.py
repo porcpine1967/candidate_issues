@@ -144,7 +144,11 @@ class Candidate(object):
                 print ' ', page['filename']
                 req = urllib2.Request(url)
                 req.add_header('user-agent', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36')
-                html = file_as_string(urllib2.urlopen(req))
+                try:
+                    html = file_as_string(urllib2.urlopen(req))
+                except urllib2.HTTPError as e:
+                    print 'Error getting', url, ':', e
+                    continue
                 if url.startswith(self.host):
                     c_links = set()
                     cp = NavigationHTMLParser(html, self.host, c_links)
