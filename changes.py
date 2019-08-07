@@ -34,15 +34,16 @@ class CandidatesManager(object):
 
     def load_candidates(self, index=-1):
         found = False
-        for name, host, c_tag, c_attr, bad, urls in CANDIDATES:
+        for name, host, link_bundles in CANDIDATES:
             print name
             if len(sys.argv) > 1:
                 if name == sys.argv[1]:
-                    c = Candidate(name, host, c_tag, c_attr, bad, urls)
+                    c = Candidate(name, host, link_bundles)
                     found = True
                     self.load_candidate(c)                    
+                    break
             else:
-                c = Candidate(name, host, c_tag, c_attr, bad, urls)
+                c = Candidate(name, host, link_bundles)
                 self.load_candidate(c)
         if len(sys.argv) > 1 and not found:
             print 'No such candidate', sys.argv[1]

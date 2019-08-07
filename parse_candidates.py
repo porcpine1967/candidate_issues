@@ -111,15 +111,12 @@ class NavigationHTMLParser(HTMLParser.HTMLParser):
         pass
 
 class Candidate(object):
-    def __init__(self, name, host, content_tag, content_attr, bad=False, urls=None):
+    def __init__(self, name, host, link_bundles):
         self.name = name
         self.host = host
-        self.content_tag = content_tag
-        self.content_attr = content_attr
+        self.link_bundles = link_bundles
         self.links = set()
         self.lines = []
-        self.bad = bad
-        self.urls = urls
         self.pages = []
 
     def load_links(self):
@@ -129,41 +126,36 @@ class Candidate(object):
         self.links = set([l for l in c_links if 'actblue.com' not in l and '/cdn-cgi/l/email-protection' not in l])
 
     def load_lines(self):
-        if not self.content_tag:
-            return
         c_lines = []
-        cp = ContentHTMLParser(file_as_string(open('data/test/%s.html' % self.name)), self.content_tag, self.content_attr, c_lines, self.bad)
+        content_tag, content_attr, bad, _ = self.link_bundles[0]
+        cp = ContentHTMLParser(file_as_string(open('data/test/%s.html' % self.name)), content_tag, content_attr, c_lines, bad)
         cp.feed(cp.file_as_string)
         lines = [l.strip() for l in c_lines]
         self.lines = [l for l in lines if l]
 
     def load_pages(self):
         print self.name
-        if not self.urls:
+        if not self.link_bundles:
             return
-        for url in self.urls:
-            page = { 'url': url }
-            page['filename'] = [part for part in url.split('/') if part][-1]
-            print page['filename']
-            req = urllib2.Request(url)
-            req.add_header('user-agent', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36')
-            html = file_as_string(urllib2.urlopen(req))
-            if url.startswith(self.host):
-                c_links = set()
-                cp = NavigationHTMLParser(html, self.host, c_links)
+        for tag, attr, bad, urls in self.link_bundles:
+            for url in urls:
+                page = { 'url': url }
+                page['filename'] = [part for part in url.split('/') if part][-1]
+                print page['filename']
+                req = urllib2.Request(url)
+                req.add_header('user-agent', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36')
+                html = file_as_string(urllib2.urlopen(req))
+                if url.startswith(self.host):
+                    c_links = set()
+                    cp = NavigationHTMLParser(html, self.host, c_links)
+                    cp.feed(cp.file_as_string)
+                    self.links.update(set([l for l in c_links if 'actblue.com' not in l and '/cdn-cgi/l/email-protection' not in l]))
+                c_lines = []
+                cp = ContentHTMLParser(html, tag, attr, c_lines, bad)
                 cp.feed(cp.file_as_string)
-                self.links.update(set([l for l in c_links if 'actblue.com' not in l and '/cdn-cgi/l/email-protection' not in l]))
-                tag = self.content_tag
-                attr = self.content_attr
-            else:
-                tag = 'article'
-                attr = None
-            c_lines = []
-            cp = ContentHTMLParser(html, tag, attr, c_lines, self.bad)
-            cp.feed(cp.file_as_string)
-            lines = [l.strip() for l in c_lines]
-            page['lines'] = [l for l in lines if l]
-            self.pages.append(page)
+                lines = [l.strip() for l in c_lines]
+                page['lines'] = [l for l in lines if l]
+                self.pages.append(page)
             
 
         
@@ -171,15 +163,17 @@ class Candidate(object):
 def test_navigation():
     if len(sys.argv) > 1:
         found = False
-        for name, host, c_tag, c_attr, bad, _ in CANDIDATES:
+        for name, host, link_bundles in CANDIDATES:
             if name == sys.argv[1]:
-                c = Candidate(name, host, c_tag, c_attr, bad)
+                c = Candidate(name, host, link_bundles)
                 found = True
+                break
         if not found:
             print 'No such candidate', sys.argv[1]
             sys.exit(1)
     else:
-        c = Candidate('gabbard', 'nav', ('id', 'js-takeover-menu',), 'section', ('class', 'issues-lp__accordion'), True)
+        print 'Please pick a candidate'
+        sys.exit(1)
     html = file_as_string(open('data/test/%s.html' % c.name))
     cp = NavigationHTMLParser(html, c.host, c.links)
     cp.feed(cp.file_as_string)
@@ -190,23 +184,26 @@ def test_navigation():
 def test_content():
     if len(sys.argv) > 1:
         found = False
-        for name, host, c_tag, c_attr, bad, _ in CANDIDATES:
+        for name, host, link_bundles in CANDIDATES:
             if name == sys.argv[1]:
-                c = Candidate(name, host, c_tag, c_attr, bad)
+                c = Candidate(name, host, link_bundles)
                 found = True
+                break
         if not found:
             print 'No such candidate', sys.argv[1]
             sys.exit(1)
     else:
-        c = Candidate('gabbard', 'nav', ('id', 'js-takeover-menu',), 'section', ('class', 'issues-lp__accordion'), True)
+        print 'Please pick a candidate'
+        sys.exit(1)
     c_lines = []
     html = file_as_string(open('data/test/%s.html' % c.name))
-    cp = ContentHTMLParser(html, c.content_tag, c.content_attr, c_lines, c.bad)
+    content_tag, content_attr, bad, _ = c.link_bundles[0]
+    cp = ContentHTMLParser(html, content_tag, content_attr, c_lines, bad)
     cp.feed(cp.file_as_string)
     lines = [l.strip() for l in c_lines]
     for line in [l for l in lines if l]:
         print line
 if __name__ == '__main__':
-    test_navigation()
+#    test_navigation()
 
     test_content()
