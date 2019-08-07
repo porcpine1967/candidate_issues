@@ -141,7 +141,7 @@ class Candidate(object):
             for url in urls:
                 page = { 'url': url }
                 page['filename'] = [part for part in url.split('/') if part][-1]
-                print page['filename']
+                print ' ', page['filename']
                 req = urllib2.Request(url)
                 req.add_header('user-agent', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36')
                 html = file_as_string(urllib2.urlopen(req))
