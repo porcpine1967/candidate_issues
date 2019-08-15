@@ -3,6 +3,7 @@ CANDIDATES = (
                                                                       'https://michaelbennet.com/vision/drive-economic-opportunity/',
                                                                       'https://michaelbennet.com/vision/restore-american-values/',
                                                                       'https://michaelbennet.com/vision/fix-our-broken-politics/',
+                                                                      'https://michaelbennet.com/electionsecurity/',
                                                                       'https://michaelbennet.com/health-care/',
                                                                       'https://michaelbennet.com/climateplan/',
                                                                       'https://michaelbennet.com/politicalreform/',
