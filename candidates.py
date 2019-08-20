@@ -56,6 +56,7 @@ CANDIDATES = (
                                                                                     'https://issues.juliancastro.com/people-first-housing/',
                                                                                     'https://issues.juliancastro.com/disarming-hate/',
                                                                                     'https://issues.juliancastro.com/eliminate-lead-exposure/',
+                                                                                    'https://issues.juliancastro.com/paw-plan/',
                                                                                     'https://issues.juliancastro.com/working-families-first/',
                                                                                    ),),),),
     ('deblasio', 'https://billdeblasio.com', (('article', None, False, ('https://billdeblasio.com/policies',
