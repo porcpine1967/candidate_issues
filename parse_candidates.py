@@ -13,6 +13,8 @@ REPLACEMENTS = ((re.compile(r'<head.*</head>'), '',),
                 (re.compile(r'<script.*?</script>'), '',),
                 (re.compile(r'<style.*?</style>'), '',),
                 (re.compile(r'<form.*?</form>'), '',),
+                (re.compile(r'<label.*?</label>'), '',),
+                (re.compile(r'<input.*?</input>'), '',),
                 (re.compile(r'<button.*?</button>'), '',),
                 (re.compile(r'<svg.*?</svg>'), '',),
                 (re.compile(r'="[^"]*&[^"]*;[^"]*'), '="',),
@@ -207,6 +209,9 @@ def test_content():
     lines = [l.strip() for l in c_lines]
     for line in [l for l in lines if l]:
         print line
+    c.load_links()
+    for link in c.links:
+        print link
 if __name__ == '__main__':
 #    test_navigation()
 
