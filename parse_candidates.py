@@ -80,7 +80,7 @@ class ContentHTMLParser(HTMLParser.HTMLParser):
                 self.lines[-1] += ' '
             else:
                 self.lines[-1] += data
-                
+
 
 class NavigationHTMLParser(HTMLParser.HTMLParser):
     def __init__(self, html, host, links):
@@ -107,7 +107,7 @@ class NavigationHTMLParser(HTMLParser.HTMLParser):
             self.tags = []
             return
         self.tags.pop()
-        
+
 
     def handle_data(self, data):
         pass
@@ -162,9 +162,9 @@ class Candidate(object):
                 lines = [l.strip() for l in c_lines]
                 page['lines'] = [l for l in lines if l]
                 self.pages.append(page)
-            
 
-        
+
+
 
 def test_navigation():
     if len(sys.argv) > 1:
@@ -201,9 +201,13 @@ def test_content():
     else:
         print 'Please pick a candidate'
         sys.exit(1)
+    if len(sys.argv) > 2:
+        bundle_index = int(sys.argv[2])
+    else:
+        bundle_index = 0
     c_lines = []
     html = file_as_string(open('data/test/%s.html' % c.name))
-    content_tag, content_attr, bad, _ = c.link_bundles[0]
+    content_tag, content_attr, bad, _ = c.link_bundles[bundle_index]
     cp = ContentHTMLParser(html, content_tag, content_attr, c_lines, bad)
     cp.feed(cp.file_as_string)
     lines = [l.strip() for l in c_lines]
