@@ -57,9 +57,9 @@ CANDIDATES = (
                                                                                                          'https://peteforamerica.com/policies/unleash-rural-opportunity/',
                                                                                                          'https://peteforamerica.com/policies/secure-rural-health/',
                                                                                                          'https://peteforamerica.com/national-service-plan/',
+                                                                                                         'https://peteforamerica.com/videos/national-security-new-era/',
                                                                                                              ),),
                                                  ('div', ('class', 'container',), 'nested', ('https://peteforamerica.com/a-new-era-for-health/',
-                                                                                             'https://peteforamerica.com/videos/national-security-new-era/'
                                                                                ),),
                                                  ('article', None, False, ('https://medium.com/the-moment-by-pete-for-america/an-action-plan-to-combat-the-national-threat-posed-by-hate-and-the-gun-lobby-5752a68c954e',
                                                                            'https://medium.com/the-moment-by-pete-for-america/resilient-communities-a-new-disaster-preparedness-approach-89fd78a689e2',
