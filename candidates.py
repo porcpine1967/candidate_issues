@@ -357,7 +357,7 @@ CANDIDATES = (
                                                                                                          'https://www.marianne2020.com/issues/veterans-support',
                                                                                                          'https://www.marianne2020.com/issues/womens-rights',
                                                                                                         ),),),),
-    ('yang', 'https://www.yang2020.com', (('div', ('class', 'entry-content',), False, ('https://www.yang2020.com/policies/',
+    ('yang', 'https://www.yang2020.com', (('div', ('class', 'single-page-content',), False, ('https://www.yang2020.com/policies/',
                                                                                        'https://www.yang2020.com/policies/12-year-congressional-term-limits/',
                                                                                        'https://www.yang2020.com/policies/algorithmic-trading-fraud/',
                                                                                        'https://www.yang2020.com/policies/american-exchange-program/',

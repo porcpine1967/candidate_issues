@@ -1,3 +1,4 @@
+Quantum Computing and Encryption Standards
 Our current AES-based encryption standards are very secure from attacks using transistor-based computers that store information in bits. It would take an inordinate amount of time to break that encryption.
 However, quantum computers, using qubits, will theoretically be able to perform the calculations necessary to break our current encryptions standards in under a day. When that happens, all of our encrypted data will be vulnerable. That means our businesses, communications channels, and banking and national security systems may be accessible.
 Other nations are investing heavily in quantum computing technology while simultaneously using their signal intelligence capabilities to collect and store as much encrypted data as possible. While it’s useless to them now, it will become invaluable once they create a functioning quantum computer at a certain power level. Some estimates put the timeline for this at a decade or less.
@@ -14,7 +15,7 @@ Quantum Computing is the new frontier in making machines capable of unfathomably
 Goals
 Create new quantum-resistant  encryption standards and systems that will be adopted ASAP to protect our sensitive information
 Invest in quantum computing so that the US leads the world in the technology
-As President, I will…
+As President, I will...
 Provide the NIST and other agencies with all necessary funding to research, select, and deploy new encryption standards as soon as possible.
 Establish private sector incentives to research new encryption standards and adopt encryption that protects sensitive data.
 Support government programs developing quantum computing technology.
