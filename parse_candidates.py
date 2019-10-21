@@ -72,7 +72,6 @@ class ContentHTMLParser(HTMLParser.HTMLParser):
             if self.bad == 'not nested':
                 self.tags = []
             else:
-                print(self.tags)
                 raise StandardError(tag)
 
     def handle_data(self, data):
@@ -80,7 +79,6 @@ class ContentHTMLParser(HTMLParser.HTMLParser):
             if data.isspace():
                 self.lines[-1] += ' '
             else:
-                print(data)
                 self.lines[-1] += data
 
 
