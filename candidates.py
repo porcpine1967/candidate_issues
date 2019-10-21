@@ -316,6 +316,7 @@ CANDIDATES = (
                                                                                 'https://elizabethwarren.com/plans/promoting-competitive-markets',
                                                                                 'https://elizabethwarren.com/plans/protect-public-lands',
                                                                                 'https://elizabethwarren.com/plans/protect-womens-choices',
+                                                                                'https://elizabethwarren.com/plans/public-education',
                                                                                 'https://elizabethwarren.com/plans/puerto-rico-debt-relief',
                                                                                 'https://elizabethwarren.com/plans/real-corporate-profits',
                                                                                 'https://elizabethwarren.com/plans/rebuild-the-state-department',
