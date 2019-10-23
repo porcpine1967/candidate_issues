@@ -81,6 +81,7 @@ CANDIDATES = (
                                                                                     'https://issues.juliancastro.com/domestic-workers/',
                                                                                     'https://issues.juliancastro.com/eliminate-lead-exposure/',
                                                                                     'https://issues.juliancastro.com/equality-for-people-with-disabilities/',
+                                                                                    'https://issues.juliancastro.com/first-chance-plan/',
                                                                                     'https://issues.juliancastro.com/health-care/',
                                                                                     'https://issues.juliancastro.com/justice-for-farmworkers/',
                                                                                     'https://issues.juliancastro.com/lgbtq/',
