@@ -291,6 +291,7 @@ CANDIDATES = (
                                                                                 'https://elizabethwarren.com/plans/affordable-higher-education',
                                                                                 'https://elizabethwarren.com/plans/american-jobs',
                                                                                 'https://elizabethwarren.com/plans/americas-family-farmers',
+                                                                                'https://elizabethwarren.com/plans/break-monopoly-influence',
                                                                                 'https://elizabethwarren.com/plans/break-up-big-tech',
                                                                                 'https://elizabethwarren.com/plans/campaign-finance-reform',
                                                                                 'https://elizabethwarren.com/plans/clean-energy',
