@@ -321,6 +321,7 @@ CANDIDATES = (
                                                                                 'https://elizabethwarren.com/plans/new-approach-trade',
                                                                                 'https://elizabethwarren.com/plans/new-farm-economy',
                                                                                 'https://elizabethwarren.com/plans/paying-for-m4a',
+                                                                                'https://elizabethwarren.com/plans/promises-to-veterans',
                                                                                 'https://elizabethwarren.com/plans/promoting-competitive-markets',
                                                                                 'https://elizabethwarren.com/plans/protect-public-lands',
                                                                                 'https://elizabethwarren.com/plans/protect-womens-choices',
