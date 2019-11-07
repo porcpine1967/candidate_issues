@@ -288,6 +288,7 @@ CANDIDATES = (
                                                                            'https://berniesanders.com/issues/responsible-foreign-policy/',
                                                                            'https://berniesanders.com/issues/revitalizing-rural-america/',
                                                                            'https://berniesanders.com/issues/tax-increases-for-the-rich/',
+                                                                           'https://berniesanders.com/issues/welcoming-and-safe-america-all/',
                                                                            'https://berniesanders.com/issues/womens-rights/',
                                                                            'https://berniesanders.com/issues/workplace-democracy/',
                                                                           ),),),),
