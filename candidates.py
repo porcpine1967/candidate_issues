@@ -340,6 +340,7 @@ CANDIDATES = (
                                                                                 'https://elizabethwarren.com/plans/end-private-prisons',
                                                                                 'https://elizabethwarren.com/plans/end-washington-corruption',
                                                                                 'https://elizabethwarren.com/plans/environmental-justice',
+                                                                                'https://elizabethwarren.com/plans/equity-farmers-of-color',
                                                                                 'https://elizabethwarren.com/plans/excessive-lobbying-tax',
                                                                                 'https://elizabethwarren.com/plans/fighting-corporate-perjury',
                                                                                 'https://elizabethwarren.com/plans/foreign-policy',
