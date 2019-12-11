@@ -436,6 +436,7 @@ CANDIDATES = (
                                                                                        'https://www.yang2020.com/policies/improving-our-political-rhetoric/',
                                                                                        'https://www.yang2020.com/policies/improving-veteran-health/',
                                                                                        'https://www.yang2020.com/policies/invest-in-research-and-adaptation/',
+                                                                                       'https://www.yang2020.com/policies/investing-in-telehealth/',
                                                                                        'https://www.yang2020.com/policies/legalization-of-marijuana/',
                                                                                        'https://www.yang2020.com/policies/lgbtq-rights/',
                                                                                        'https://www.yang2020.com/policies/life-skills-education/',
