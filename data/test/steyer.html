@@ -1,0 +1,2397 @@
+<!doctype html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={licenseKey:"37d222219d",applicationID:"164211497"};window.NREUM||(NREUM={}),__nr_require=function(n,e,t){function r(t){if(!e[t]){var i=e[t]={exports:{}};n[t][0].call(i.exports,function(e){var i=n[t][1][e];return r(i||e)},i,i.exports)}return e[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<t.length;i++)r(t[i]);return r}({1:[function(n,e,t){function r(){}function i(n,e,t){return function(){return o(n,[u.now()].concat(f(arguments)),e?null:this,t),e?void 0:this}}var o=n("handle"),a=n(4),f=n(5),c=n("ee").get("tracer"),u=n("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(n,e){s[e]=i(d+e,!0,"api")}),s.addPageAction=i(d+"addPageAction",!0),s.setCurrentRouteName=i(d+"routeName",!0),e.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(n,e){var t={},r=this,i="function"==typeof e;return o(l+"tracer",[u.now(),n,t],r),function(){if(c.emit((i?"":"no-")+"fn-start",[u.now(),r,i],t),i)try{return e.apply(this,arguments)}catch(n){throw c.emit("fn-err",[arguments,this,n],t),n}finally{c.emit("fn-end",[u.now()],t)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(n,e){m[e]=i(l+e)}),newrelic.noticeError=function(n,e){"string"==typeof n&&(n=new Error(n)),o("err",[n,u.now(),!1,e])}},{}],2:[function(n,e,t){function r(n,e){var t=n.getEntries();t.forEach(function(n){"first-paint"===n.name?a("timing",["fp",Math.floor(n.startTime)]):"first-contentful-paint"===n.name&&a("timing",["fcp",Math.floor(n.startTime)])})}function i(n){if(n instanceof c&&!s){var e,t=Math.round(n.timeStamp);e=t>1e12?Date.now()-t:f.now()-t,s=!0,a("timing",["fi",t,{type:n.type,fid:e}])}}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var o,a=n("handle"),f=n("loader"),c=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){o=new PerformanceObserver(r);try{o.observe({entryTypes:["paint"]})}catch(u){}}if("addEventListener"in document){var s=!1,p=["click","keydown","mousedown","pointerdown","touchstart"];p.forEach(function(n){document.addEventListener(n,i,!1)})}}},{}],3:[function(n,e,t){function r(n,e){if(!i)return!1;if(n!==i)return!1;if(!e)return!0;if(!o)return!1;for(var t=o.split("."),r=e.split("."),a=0;a<r.length;a++)if(r[a]!==t[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var f=navigator.userAgent,c=f.match(a);c&&f.indexOf("Chrome")===-1&&f.indexOf("Chromium")===-1&&(i="Safari",o=c[1])}e.exports={agent:i,version:o,match:r}},{}],4:[function(n,e,t){function r(n,e){var t=[],r="",o=0;for(r in n)i.call(n,r)&&(t[o]=e(r,n[r]),o+=1);return t}var i=Object.prototype.hasOwnProperty;e.exports=r},{}],5:[function(n,e,t){function r(n,e,t){e||(e=0),"undefined"==typeof t&&(t=n?n.length:0);for(var r=-1,i=t-e||0,o=Array(i<0?0:i);++r<i;)o[r]=n[e+r];return o}e.exports=r},{}],6:[function(n,e,t){e.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(n,e,t){function r(){}function i(n){function e(n){return n&&n instanceof r?n:n?c(n,f,o):o()}function t(t,r,i,o){if(!d.aborted||o){n&&n(t,r,i);for(var a=e(i),f=v(t),c=f.length,u=0;u<c;u++)f[u].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function l(n,e){h[n]=v(n).concat(e)}function m(n,e){var t=h[n];if(t)for(var r=0;r<t.length;r++)t[r]===e&&t.splice(r,1)}function v(n){return h[n]||[]}function g(n){return p[n]=p[n]||i(t)}function w(n,e){u(n,function(n,t){e=e||"feature",y[t]=e,e in s||(s[e]=[])})}var h={},y={},b={on:l,addEventListener:l,removeEventListener:m,emit:t,get:g,listeners:v,context:e,buffer:w,abort:a,aborted:!1};return b}function o(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var f="nr@context",c=n("gos"),u=n(4),s={},p={},d=e.exports=i();d.backlog=s},{}],gos:[function(n,e,t){function r(n,e,t){if(i.call(n,e))return n[e];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(n,e,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return n[e]=r,r}var i=Object.prototype.hasOwnProperty;e.exports=r},{}],handle:[function(n,e,t){function r(n,e,t,r){i.buffer([n],r),i.emit(n,e,t)}var i=n("ee").get("handle");e.exports=r,r.ee=i},{}],id:[function(n,e,t){function r(n){var e=typeof n;return!n||"object"!==e&&"function"!==e?-1:n===window?0:a(n,o,function(){return i++})}var i=1,o="nr@id",a=n("gos");e.exports=r},{}],loader:[function(n,e,t){function r(){if(!x++){var n=E.info=NREUM.info,e=l.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(n&&n.licenseKey&&n.applicationID&&e))return s.abort();u(y,function(e,t){n[e]||(n[e]=t)}),c("mark",["onload",a()+E.offset],null,"api");var t=l.createElement("script");t.src="https://"+n.agent,e.parentNode.insertBefore(t,e)}}function i(){"complete"===l.readyState&&o()}function o(){c("mark",["domContent",a()+E.offset],null,"api")}function a(){return O.exists&&performance.now?Math.round(performance.now()):(f=Math.max((new Date).getTime(),f))-E.offset}var f=(new Date).getTime(),c=n("handle"),u=n(4),s=n("ee"),p=n(3),d=window,l=d.document,m="addEventListener",v="attachEvent",g=d.XMLHttpRequest,w=g&&g.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:g,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var h=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1153.min.js"},b=g&&w&&w[m]&&!/CriOS/.test(navigator.userAgent),E=e.exports={offset:f,now:a,origin:h,features:{},xhrWrappable:b,userAgent:p};n(1),n(2),l[m]?(l[m]("DOMContentLoaded",o,!1),d[m]("load",r,!1)):(l[v]("onreadystatechange",i),d[v]("onload",r)),c("mark",["firstbyte",f],null,"api");var x=0,O=n(6)},{}],"wrap-function":[function(n,e,t){function r(n){return!(n&&n instanceof Function&&n.apply&&!n[a])}var i=n("ee"),o=n(5),a="nr@original",f=Object.prototype.hasOwnProperty,c=!1;e.exports=function(n,e){function t(n,e,t,i){function nrWrapper(){var r,a,f,c;try{a=this,r=o(arguments),f="function"==typeof t?t(r,a):t||{}}catch(u){d([u,"",[r,a,i],f])}s(e+"start",[r,a,i],f);try{return c=n.apply(a,r)}catch(p){throw s(e+"err",[r,a,p],f),p}finally{s(e+"end",[r,a,c],f)}}return r(n)?n:(e||(e=""),nrWrapper[a]=n,p(n,nrWrapper),nrWrapper)}function u(n,e,i,o){i||(i="");var a,f,c,u="-"===i.charAt(0);for(c=0;c<e.length;c++)f=e[c],a=n[f],r(a)||(n[f]=t(a,u?f+i:i,o,f))}function s(t,r,i){if(!c||e){var o=c;c=!0;try{n.emit(t,r,i,e)}catch(a){d([a,t,r,i])}c=o}}function p(n,e){if(Object.defineProperty&&Object.keys)try{var t=Object.keys(n);return t.forEach(function(t){Object.defineProperty(e,t,{get:function(){return n[t]},set:function(e){return n[t]=e,e}})}),e}catch(r){d([r])}for(var i in n)f.call(n,i)&&(e[i]=n[i]);return e}function d(e){try{n.emit("internal-error",e)}catch(t){}}return n||(n=i),t.inPlace=u,t.flag=a,t}},{}]},{},["loader"]);</script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+                                <link rel="alternate" hreflang="es" href="https://www.tomsteyer.com/es/propuestas/" />
+    
+        <script>
+            var dataLayer = [];
+        </script>
+
+        
+
+                                <script>
+                window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+                ga('create', 'UA-108241242-2', 'auto');
+
+                                    ga('require', 'GTM-MG93VLT');
+                
+                ga('require', 'cleanUrlTracker', {
+                    stripQuery: true,
+                    indexFilename: 'index.html',
+                    trailingSlash: 'remove'
+                });
+
+                ga('require', 'eventTracker');
+                ga('require', 'outboundLinkTracker');
+
+                
+                ga('send', 'pageview');
+            </script>
+
+            <script async src='https://www.google-analytics.com/analytics.js'></script>
+        
+        <title>Tom’s Policies - Tom Steyer</title>
+
+                <link rel="stylesheet" href="https://tomsteyer.com/assets/fired-up-bundle.css"/>
+        
+                <link rel="stylesheet" href="https://www.tomsteyer.com/wp-content/themes/timber/static/css/screen-2a3573b3d7.css">
+
+                    <!-- Google Tag Manager -->
+            <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-PG3GDPJ');</script>
+            <!-- End Google Tag Manager -->
+        
+                
+        
+<!-- This site is optimized with the Yoast SEO Premium plugin v8.2 - https://yoast.com/wordpress/plugins/seo/ -->
+<meta name="description" content="For over a decade, Tom has worked tirelessly to make America more just by putting the people, not the corporations, in charge of our democracy."/>
+<link rel="canonical" href="https://www.tomsteyer.com/policies/" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Read Tom Steyer&#039;s Policies" />
+<meta property="og:description" content="For over a decade, Tom has worked tirelessly to make America more just by putting the people, not the corporations, in charge of our democracy." />
+<meta property="og:url" content="https://www.tomsteyer.com/policies/" />
+<meta property="og:site_name" content="Tom Steyer" />
+<meta property="article:publisher" content="https://www.facebook.com/officialtomsteyer" />
+<meta property="fb:app_id" content="743267089195633" />
+<meta property="og:image" content="https://www.tomsteyer.com/wp-content/uploads/2019/09/hero-policy-01.jpg" />
+<meta property="og:image:secure_url" content="https://www.tomsteyer.com/wp-content/uploads/2019/09/hero-policy-01.jpg" />
+<meta property="og:image:width" content="1600" />
+<meta property="og:image:height" content="647" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="For over a decade, Tom has worked tirelessly to make America more just by putting the people, not the corporations, in charge of our democracy." />
+<meta name="twitter:title" content="Read Tom Steyer&#039;s Policies" />
+<meta name="twitter:site" content="@TomSteyer" />
+<meta name="twitter:image" content="https://www.tomsteyer.com/wp-content/uploads/2019/09/hero-policy-01.jpg" />
+<meta name="twitter:creator" content="@TomSteyer" />
+<!-- / Yoast SEO Premium plugin. -->
+
+<link rel="stylesheet" href="/wp-includes/css/dist/block-library/style.min.css?ver=5.2.2">
+<link rel="icon" href="/wp-content/uploads/2019/07/cropped-190708_TS2020_Logo_Favicon-32x32.png" sizes="32x32" />
+<link rel="icon" href="/wp-content/uploads/2019/07/cropped-190708_TS2020_Logo_Favicon-192x192.png" sizes="192x192" />
+<link rel="apple-touch-icon-precomposed" href="/wp-content/uploads/2019/07/cropped-190708_TS2020_Logo_Favicon-180x180.png" />
+<meta name="msapplication-TileImage" content="/wp-content/uploads/2019/07/cropped-190708_TS2020_Logo_Favicon-270x270.png" />
+
+
+        
+                    <link rel="stylesheet" href="https://use.typekit.net/ykp0rux.css">
+        
+
+        
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+            <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+            <!--[if lt IE 9]>
+              <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+              <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+
+                <body class="page-template page-template-template-flex page-template-template-flex-php page page-id-3393  lang-en policies" id="">
+
+                    <!-- Google Tag Manager (noscript) -->
+            <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PG3GDPJ"
+            height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+            <!-- End Google Tag Manager (noscript) -->
+        
+        
+<a href="#skip-to-content" class="accessibility-skip-link sr-only sr-only-focusable" id="skip-link">Skip to Content</a>
+
+
+
+
+
+
+    
+
+
+
+<div class="header-alert header-alert--active collapse "
+id="header-alert-6710"
+data-visibility="geo"
+data-lat="23.634501"
+data-long="-102.55278399999997"
+data-radius="2"
+role="alert">
+    <div  class="container-fluid">
+        <div class="row ">
+            <div class="col col-xl-12 col-main">
+                <a class="alert-content"
+                                            href="https://www.democratsabroad.org/steyer-petition"
+                        target="_blank"
+                        ga-on="click"
+                        ga-event-category="UI Event"
+                        ga-event-action="Alert Bar Clicked"
+                        ga-event-label="https://www.democratsabroad.org/steyer-petition"
+                        class="alert-link"
+                                    >
+                    Help Tom make it on to the Democrats Abroad ballot
+                    &nbsp;
+                    &nbsp;<span class="arrow-right">&gt;</span>
+
+                                <a class="close" role="button"
+                data-toggle="collapse" href="#header-alert-6710"
+                aria-expanded="false" aria-controls="header-alert-6710" aria-label="Close">
+                  <i class="fa fa-close"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+    
+
+
+
+<div class="header-alert header-alert--active collapse "
+id="header-alert-1949"
+data-visibility="geo"
+data-lat="55.378051"
+data-long="-3.43597299999999"
+data-radius="10"
+role="alert">
+    <div  class="container-fluid">
+        <div class="row ">
+            <div class="col col-xl-12 col-main">
+                <a class="alert-content"
+                                            href="https://www.democratsabroad.org/steyer-petition"
+                        target="_blank"
+                        ga-on="click"
+                        ga-event-category="UI Event"
+                        ga-event-action="Alert Bar Clicked"
+                        ga-event-label="https://www.democratsabroad.org/steyer-petition"
+                        class="alert-link"
+                                    >
+                    Help Tom make it on to the Democrats Abroad ballot
+                    &nbsp;
+                    &nbsp;<span class="arrow-right">&gt;</span>
+
+                                <a class="close" role="button"
+                data-toggle="collapse" href="#header-alert-1949"
+                aria-expanded="false" aria-controls="header-alert-1949" aria-label="Close">
+                  <i class="fa fa-close"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+    
+
+
+
+<div class="header-alert header-alert--active collapse "
+id="header-alert-2457"
+data-visibility="geo"
+data-lat="-38.416097"
+data-long="-63.616671999999994"
+data-radius="5"
+role="alert">
+    <div  class="container-fluid">
+        <div class="row ">
+            <div class="col col-xl-12 col-main">
+                <a class="alert-content"
+                                            href="https://www.democratsabroad.org/steyer-petition"
+                        target="_blank"
+                        ga-on="click"
+                        ga-event-category="UI Event"
+                        ga-event-action="Alert Bar Clicked"
+                        ga-event-label="https://www.democratsabroad.org/steyer-petition"
+                        class="alert-link"
+                                    >
+                    Help Tom make it on to the Democrats Abroad ballot
+                    &nbsp;
+                    &nbsp;<span class="arrow-right">&gt;</span>
+
+                                <a class="close" role="button"
+                data-toggle="collapse" href="#header-alert-2457"
+                aria-expanded="false" aria-controls="header-alert-2457" aria-label="Close">
+                  <i class="fa fa-close"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+    
+
+
+
+<div class="header-alert header-alert--active collapse "
+id="header-alert-1046"
+data-visibility="geo"
+data-lat="50.503887"
+data-long="4.4699359999999615"
+data-radius="5"
+role="alert">
+    <div  class="container-fluid">
+        <div class="row ">
+            <div class="col col-xl-12 col-main">
+                <a class="alert-content"
+                                            href="https://www.tomsteyer.com/democrats-abroad/"
+                        target="_blank"
+                        ga-on="click"
+                        ga-event-category="UI Event"
+                        ga-event-action="Alert Bar Clicked"
+                        ga-event-label="https://www.tomsteyer.com/democrats-abroad/"
+                        class="alert-link"
+                                    >
+                    Help Tom make it on to the Democrats Abroad ballot
+                    &nbsp;
+                    &nbsp;<span class="arrow-right">&gt;</span>
+
+                                <a class="close" role="button"
+                data-toggle="collapse" href="#header-alert-1046"
+                aria-expanded="false" aria-controls="header-alert-1046" aria-label="Close">
+                  <i class="fa fa-close"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+    
+
+
+
+<div class="header-alert header-alert--active collapse "
+id="header-alert-1133"
+data-visibility="geo"
+data-lat="-14.235004"
+data-long="-51.92527999999999"
+data-radius="5"
+role="alert">
+    <div  class="container-fluid">
+        <div class="row ">
+            <div class="col col-xl-12 col-main">
+                <a class="alert-content"
+                                            href="https://www.democratsabroad.org/steyer-petition"
+                        target="_blank"
+                        ga-on="click"
+                        ga-event-category="UI Event"
+                        ga-event-action="Alert Bar Clicked"
+                        ga-event-label="https://www.democratsabroad.org/steyer-petition"
+                        class="alert-link"
+                                    >
+                    Help Tom make it on to the Democrats Abroad ballot
+                    &nbsp;
+                    &nbsp;<span class="arrow-right">&gt;</span>
+
+                                <a class="close" role="button"
+                data-toggle="collapse" href="#header-alert-1133"
+                aria-expanded="false" aria-controls="header-alert-1133" aria-label="Close">
+                  <i class="fa fa-close"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+    
+
+
+
+<div class="header-alert header-alert--active collapse "
+id="header-alert-1323"
+data-visibility="geo"
+data-lat="56.130366"
+data-long="-106.34677099999999"
+data-radius="5"
+role="alert">
+    <div  class="container-fluid">
+        <div class="row ">
+            <div class="col col-xl-12 col-main">
+                <a class="alert-content"
+                                            href="https://www.democratsabroad.org/steyer-petition"
+                        target="_blank"
+                        ga-on="click"
+                        ga-event-category="UI Event"
+                        ga-event-action="Alert Bar Clicked"
+                        ga-event-label="https://www.democratsabroad.org/steyer-petition"
+                        class="alert-link"
+                                    >
+                    Help Tom make it on to the Democrats Abroad ballot
+                    &nbsp;
+                    &nbsp;<span class="arrow-right">&gt;</span>
+
+                                <a class="close" role="button"
+                data-toggle="collapse" href="#header-alert-1323"
+                aria-expanded="false" aria-controls="header-alert-1323" aria-label="Close">
+                  <i class="fa fa-close"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+    
+
+
+
+<div class="header-alert header-alert--active collapse "
+id="header-alert-2324"
+data-visibility="geo"
+data-lat="36.204824"
+data-long="138.252924"
+data-radius="10"
+role="alert">
+    <div  class="container-fluid">
+        <div class="row ">
+            <div class="col col-xl-12 col-main">
+                <a class="alert-content"
+                                            href="https://www.tomsteyer.com/democrats-abroad/"
+                        target="_blank"
+                        ga-on="click"
+                        ga-event-category="UI Event"
+                        ga-event-action="Alert Bar Clicked"
+                        ga-event-label="https://www.tomsteyer.com/democrats-abroad/"
+                        class="alert-link"
+                                    >
+                    Help Tom make it on to the Democrats Abroad ballot
+                    &nbsp;
+                    &nbsp;<span class="arrow-right">&gt;</span>
+
+                                <a class="close" role="button"
+                data-toggle="collapse" href="#header-alert-2324"
+                aria-expanded="false" aria-controls="header-alert-2324" aria-label="Close">
+                  <i class="fa fa-close"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+    
+
+
+
+<div class="header-alert header-alert--active collapse "
+id="header-alert-9351"
+data-visibility="geo"
+data-lat="4.570868"
+data-long="-74.29733299999998"
+data-radius="5"
+role="alert">
+    <div  class="container-fluid">
+        <div class="row ">
+            <div class="col col-xl-12 col-main">
+                <a class="alert-content"
+                                            href="https://www.tomsteyer.com/democrats-abroad/"
+                        target="_blank"
+                        ga-on="click"
+                        ga-event-category="UI Event"
+                        ga-event-action="Alert Bar Clicked"
+                        ga-event-label="https://www.tomsteyer.com/democrats-abroad/"
+                        class="alert-link"
+                                    >
+                    Help Tom make it on to the Democrats Abroad ballot
+                    &nbsp;
+                    &nbsp;<span class="arrow-right">&gt;</span>
+
+                                <a class="close" role="button"
+                data-toggle="collapse" href="#header-alert-9351"
+                aria-expanded="false" aria-controls="header-alert-9351" aria-label="Close">
+                  <i class="fa fa-close"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+    
+
+
+
+<div class="header-alert header-alert--active collapse "
+id="header-alert-3921"
+data-visibility="geo"
+data-lat="20.593684"
+data-long="78.96288000000004"
+data-radius="5"
+role="alert">
+    <div  class="container-fluid">
+        <div class="row ">
+            <div class="col col-xl-12 col-main">
+                <a class="alert-content"
+                                            href="https://www.democratsabroad.org/steyer-petition"
+                        target="_blank"
+                        ga-on="click"
+                        ga-event-category="UI Event"
+                        ga-event-action="Alert Bar Clicked"
+                        ga-event-label="https://www.democratsabroad.org/steyer-petition"
+                        class="alert-link"
+                                    >
+                    Help Tom make it on to the Democrats Abroad ballot
+                    &nbsp;
+                    &nbsp;<span class="arrow-right">&gt;</span>
+
+                                <a class="close" role="button"
+                data-toggle="collapse" href="#header-alert-3921"
+                aria-expanded="false" aria-controls="header-alert-3921" aria-label="Close">
+                  <i class="fa fa-close"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+    
+
+
+
+<div class="header-alert header-alert--active collapse "
+id="header-alert-9349"
+data-visibility="geo"
+data-lat="41.87194"
+data-long="12.567379999999957"
+data-radius="5"
+role="alert">
+    <div  class="container-fluid">
+        <div class="row ">
+            <div class="col col-xl-12 col-main">
+                <a class="alert-content"
+                                            href="https://www.tomsteyer.com/democrats-abroad/"
+                        target="_blank"
+                        ga-on="click"
+                        ga-event-category="UI Event"
+                        ga-event-action="Alert Bar Clicked"
+                        ga-event-label="https://www.tomsteyer.com/democrats-abroad/"
+                        class="alert-link"
+                                    >
+                    Help Tom make it on to the Democrats Abroad ballot
+                    &nbsp;
+                    &nbsp;<span class="arrow-right">&gt;</span>
+
+                                <a class="close" role="button"
+                data-toggle="collapse" href="#header-alert-9349"
+                aria-expanded="false" aria-controls="header-alert-9349" aria-label="Close">
+                  <i class="fa fa-close"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+    
+
+
+
+<div class="header-alert header-alert--active collapse "
+id="header-alert-9346"
+data-visibility="geo"
+data-lat="12.879721"
+data-long="121.77401699999996"
+data-radius="500"
+role="alert">
+    <div  class="container-fluid">
+        <div class="row ">
+            <div class="col col-xl-12 col-main">
+                <a class="alert-content"
+                                            href="https://www.democratsabroad.org/steyer-petition"
+                        target="_blank"
+                        ga-on="click"
+                        ga-event-category="UI Event"
+                        ga-event-action="Alert Bar Clicked"
+                        ga-event-label="https://www.democratsabroad.org/steyer-petition"
+                        class="alert-link"
+                                    >
+                    Help Tom make it on to the Democrats Abroad ballot
+                    &nbsp;
+                    &nbsp;<span class="arrow-right">&gt;</span>
+
+                                <a class="close" role="button"
+                data-toggle="collapse" href="#header-alert-9346"
+                aria-expanded="false" aria-controls="header-alert-9346" aria-label="Close">
+                  <i class="fa fa-close"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+    
+
+
+
+<div class="header-alert header-alert--active collapse "
+id="header-alert-9127"
+data-visibility="geo"
+data-lat="40.46366700000001"
+data-long="-3.7492200000000366"
+data-radius="5"
+role="alert">
+    <div  class="container-fluid">
+        <div class="row ">
+            <div class="col col-xl-12 col-main">
+                <a class="alert-content"
+                                            href="https://www.tomsteyer.com/democrats-abroad/"
+                        target="_blank"
+                        ga-on="click"
+                        ga-event-category="UI Event"
+                        ga-event-action="Alert Bar Clicked"
+                        ga-event-label="https://www.tomsteyer.com/democrats-abroad/"
+                        class="alert-link"
+                                    >
+                    Help Tom make it on to the Democrats Abroad ballot
+                    &nbsp;
+                    &nbsp;<span class="arrow-right">&gt;</span>
+
+                                <a class="close" role="button"
+                data-toggle="collapse" href="#header-alert-9127"
+                aria-expanded="false" aria-controls="header-alert-9127" aria-label="Close">
+                  <i class="fa fa-close"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+    
+
+
+
+<div class="header-alert header-alert--active collapse "
+id="header-alert-9353"
+data-visibility="geo"
+data-lat="18.735693"
+data-long="-70.16265099999998"
+data-radius="5"
+role="alert">
+    <div  class="container-fluid">
+        <div class="row ">
+            <div class="col col-xl-12 col-main">
+                <a class="alert-content"
+                                            href="https://www.tomsteyer.com/democrats-abroad/"
+                        target="_blank"
+                        ga-on="click"
+                        ga-event-category="UI Event"
+                        ga-event-action="Alert Bar Clicked"
+                        ga-event-label="https://www.tomsteyer.com/democrats-abroad/"
+                        class="alert-link"
+                                    >
+                    Help Tom make it on to the Democrats Abroad ballot
+                    &nbsp;
+                    &nbsp;<span class="arrow-right">&gt;</span>
+
+                                <a class="close" role="button"
+                data-toggle="collapse" href="#header-alert-9353"
+                aria-expanded="false" aria-controls="header-alert-9353" aria-label="Close">
+                  <i class="fa fa-close"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+    
+
+
+
+<div class="header-alert header-alert--active collapse "
+id="header-alert-9512"
+data-visibility="geo"
+data-lat="-35.675147"
+data-long="-71.54296899999997"
+data-radius="5"
+role="alert">
+    <div  class="container-fluid">
+        <div class="row ">
+            <div class="col col-xl-12 col-main">
+                <a class="alert-content"
+                                            href="https://www.tomsteyer.com/democrats-abroad/"
+                        target="_blank"
+                        ga-on="click"
+                        ga-event-category="UI Event"
+                        ga-event-action="Alert Bar Clicked"
+                        ga-event-label="https://www.tomsteyer.com/democrats-abroad/"
+                        class="alert-link"
+                                    >
+                    Help Tom make it on to the Democrats Abroad ballot
+                    &nbsp;
+                    &nbsp;<span class="arrow-right">&gt;</span>
+
+                                <a class="close" role="button"
+                data-toggle="collapse" href="#header-alert-9512"
+                aria-expanded="false" aria-controls="header-alert-9512" aria-label="Close">
+                  <i class="fa fa-close"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+    
+
+
+
+<div class="header-alert header-alert--active collapse "
+id="header-alert-9510"
+data-visibility="geo"
+data-lat="15.870032"
+data-long="100.99254100000007"
+data-radius="5"
+role="alert">
+    <div  class="container-fluid">
+        <div class="row ">
+            <div class="col col-xl-12 col-main">
+                <a class="alert-content"
+                                            href="https://www.tomsteyer.com/democrats-abroad/"
+                        target="_blank"
+                        ga-on="click"
+                        ga-event-category="UI Event"
+                        ga-event-action="Alert Bar Clicked"
+                        ga-event-label="https://www.tomsteyer.com/democrats-abroad/"
+                        class="alert-link"
+                                    >
+                    Help Tom make it on to the Democrats Abroad ballot
+                    &nbsp;
+                    &nbsp;<span class="arrow-right">&gt;</span>
+
+                                <a class="close" role="button"
+                data-toggle="collapse" href="#header-alert-9510"
+                aria-expanded="false" aria-controls="header-alert-9510" aria-label="Close">
+                  <i class="fa fa-close"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+    
+
+
+
+<div class="header-alert header-alert--active collapse "
+id="header-alert-9505"
+data-visibility="geo"
+data-lat="38.963745"
+data-long="35.243322000000035"
+data-radius="5"
+role="alert">
+    <div  class="container-fluid">
+        <div class="row ">
+            <div class="col col-xl-12 col-main">
+                <a class="alert-content"
+                                            href="https://www.tomsteyer.com/democrats-abroad/"
+                        target="_blank"
+                        ga-on="click"
+                        ga-event-category="UI Event"
+                        ga-event-action="Alert Bar Clicked"
+                        ga-event-label="https://www.tomsteyer.com/democrats-abroad/"
+                        class="alert-link"
+                                    >
+                    Help Tom make it on to the Democrats Abroad ballot
+                    &nbsp;
+                    &nbsp;<span class="arrow-right">&gt;</span>
+
+                                <a class="close" role="button"
+                data-toggle="collapse" href="#header-alert-9505"
+                aria-expanded="false" aria-controls="header-alert-9505" aria-label="Close">
+                  <i class="fa fa-close"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+    
+
+
+
+<div class="header-alert header-alert--active collapse "
+id="header-alert-9508"
+data-visibility="geo"
+data-lat="46.227638"
+data-long="2.213749000000007"
+data-radius="5"
+role="alert">
+    <div  class="container-fluid">
+        <div class="row ">
+            <div class="col col-xl-12 col-main">
+                <a class="alert-content"
+                                            href="https://www.democratsabroad.org/steyer-petition"
+                        target="_blank"
+                        ga-on="click"
+                        ga-event-category="UI Event"
+                        ga-event-action="Alert Bar Clicked"
+                        ga-event-label="https://www.democratsabroad.org/steyer-petition"
+                        class="alert-link"
+                                    >
+                    Help Tom make it on to the Democrats Abroad ballot
+                    &nbsp;
+                    &nbsp;<span class="arrow-right">&gt;</span>
+
+                                <a class="close" role="button"
+                data-toggle="collapse" href="#header-alert-9508"
+                aria-expanded="false" aria-controls="header-alert-9508" aria-label="Close">
+                  <i class="fa fa-close"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+    
+
+
+
+<div class="header-alert header-alert--active collapse "
+id="header-alert-9667"
+data-visibility="geo"
+data-lat="-25.274398"
+data-long="133.77513599999997"
+data-radius="10"
+role="alert">
+    <div  class="container-fluid">
+        <div class="row ">
+            <div class="col col-xl-12 col-main">
+                <a class="alert-content"
+                                            href="https://www.democratsabroad.org/steyer-petition"
+                        target="_blank"
+                        ga-on="click"
+                        ga-event-category="UI Event"
+                        ga-event-action="Alert Bar Clicked"
+                        ga-event-label="https://www.democratsabroad.org/steyer-petition"
+                        class="alert-link"
+                                    >
+                    Help Tom make it on to the Democrats Abroad ballot
+                    &nbsp;
+                    &nbsp;<span class="arrow-right">&gt;</span>
+
+                                <a class="close" role="button"
+                data-toggle="collapse" href="#header-alert-9667"
+                aria-expanded="false" aria-controls="header-alert-9667" aria-label="Close">
+                  <i class="fa fa-close"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+    
+
+
+
+<div class="header-alert header-alert--active collapse "
+id="header-alert-9663"
+data-visibility="geo"
+data-lat="61.92410999999999"
+data-long="25.748151099999973"
+data-radius="10"
+role="alert">
+    <div  class="container-fluid">
+        <div class="row ">
+            <div class="col col-xl-12 col-main">
+                <a class="alert-content"
+                                            href="https://www.democratsabroad.org/steyer-petition"
+                        target="_blank"
+                        ga-on="click"
+                        ga-event-category="UI Event"
+                        ga-event-action="Alert Bar Clicked"
+                        ga-event-label="https://www.democratsabroad.org/steyer-petition"
+                        class="alert-link"
+                                    >
+                    Help Tom make it on to the Democrats Abroad ballot
+                    &nbsp;
+                    &nbsp;<span class="arrow-right">&gt;</span>
+
+                                <a class="close" role="button"
+                data-toggle="collapse" href="#header-alert-9663"
+                aria-expanded="false" aria-controls="header-alert-9663" aria-label="Close">
+                  <i class="fa fa-close"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+    
+
+
+
+<div class="header-alert header-alert--active collapse "
+id="header-alert-9661"
+data-visibility="geo"
+data-lat="51.165691"
+data-long="10.451526000000058"
+data-radius="10"
+role="alert">
+    <div  class="container-fluid">
+        <div class="row ">
+            <div class="col col-xl-12 col-main">
+                <a class="alert-content"
+                                            href="https://www.democratsabroad.org/steyer-petition"
+                        target="_blank"
+                        ga-on="click"
+                        ga-event-category="UI Event"
+                        ga-event-action="Alert Bar Clicked"
+                        ga-event-label="https://www.democratsabroad.org/steyer-petition"
+                        class="alert-link"
+                                    >
+                    Help Tom make it on to the Democrats Abroad ballot
+                    &nbsp;
+                    &nbsp;<span class="arrow-right">&gt;</span>
+
+                                <a class="close" role="button"
+                data-toggle="collapse" href="#header-alert-9661"
+                aria-expanded="false" aria-controls="header-alert-9661" aria-label="Close">
+                  <i class="fa fa-close"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+    
+
+
+
+<div class="header-alert header-alert--active collapse "
+id="header-alert-9659"
+data-visibility="geo"
+data-lat="52.13263300000001"
+data-long="5.2912659999999505"
+data-radius="10"
+role="alert">
+    <div  class="container-fluid">
+        <div class="row ">
+            <div class="col col-xl-12 col-main">
+                <a class="alert-content"
+                                            href="https://www.democratsabroad.org/steyer-petition"
+                        target="_blank"
+                        ga-on="click"
+                        ga-event-category="UI Event"
+                        ga-event-action="Alert Bar Clicked"
+                        ga-event-label="https://www.democratsabroad.org/steyer-petition"
+                        class="alert-link"
+                                    >
+                    Help Tom make it on to the Democrats Abroad ballot
+                    &nbsp;
+                    &nbsp;<span class="arrow-right">&gt;</span>
+
+                                <a class="close" role="button"
+                data-toggle="collapse" href="#header-alert-9659"
+                aria-expanded="false" aria-controls="header-alert-9659" aria-label="Close">
+                  <i class="fa fa-close"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+    
+
+
+
+<div class="header-alert header-alert--active collapse "
+id="header-alert-9665"
+data-visibility="geo"
+data-lat="35.90775699999999"
+data-long="127.76692200000002"
+data-radius="10"
+role="alert">
+    <div  class="container-fluid">
+        <div class="row ">
+            <div class="col col-xl-12 col-main">
+                <a class="alert-content"
+                                            href="https://www.democratsabroad.org/steyer-petition"
+                        target="_blank"
+                        ga-on="click"
+                        ga-event-category="UI Event"
+                        ga-event-action="Alert Bar Clicked"
+                        ga-event-label="https://www.democratsabroad.org/steyer-petition"
+                        class="alert-link"
+                                    >
+                    Help Tom make it on to the Democrats Abroad ballot
+                    &nbsp;
+                    &nbsp;<span class="arrow-right">&gt;</span>
+
+                                <a class="close" role="button"
+                data-toggle="collapse" href="#header-alert-9665"
+                aria-expanded="false" aria-controls="header-alert-9665" aria-label="Close">
+                  <i class="fa fa-close"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+    
+
+
+
+<div class="header-alert header-alert--active collapse "
+id="header-alert-9707"
+data-visibility="geo"
+data-lat="47.516231"
+data-long="14.550072"
+data-radius="5"
+role="alert">
+    <div  class="container-fluid">
+        <div class="row ">
+            <div class="col col-xl-12 col-main">
+                <a class="alert-content"
+                                            href="https://www.tomsteyer.com/democrats-abroad/"
+                        target="_blank"
+                        ga-on="click"
+                        ga-event-category="UI Event"
+                        ga-event-action="Alert Bar Clicked"
+                        ga-event-label="https://www.tomsteyer.com/democrats-abroad/"
+                        class="alert-link"
+                                    >
+                    Help Tom make it on to the Democrats Abroad ballot
+                    &nbsp;
+                    &nbsp;<span class="arrow-right">&gt;</span>
+
+                                <a class="close" role="button"
+                data-toggle="collapse" href="#header-alert-9707"
+                aria-expanded="false" aria-controls="header-alert-9707" aria-label="Close">
+                  <i class="fa fa-close"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+    
+
+
+
+<div class="header-alert header-alert--active collapse "
+id="header-alert-9701"
+data-visibility="geo"
+data-lat="18.109581"
+data-long="-77.297508"
+data-radius="5"
+role="alert">
+    <div  class="container-fluid">
+        <div class="row ">
+            <div class="col col-xl-12 col-main">
+                <a class="alert-content"
+                                            href="https://www.tomsteyer.com/democrats-abroad/"
+                        target="_blank"
+                        ga-on="click"
+                        ga-event-category="UI Event"
+                        ga-event-action="Alert Bar Clicked"
+                        ga-event-label="https://www.tomsteyer.com/democrats-abroad/"
+                        class="alert-link"
+                                    >
+                    Help Tom make it on to the Democrats Abroad ballot
+                    &nbsp;
+                    &nbsp;<span class="arrow-right">&gt;</span>
+
+                                <a class="close" role="button"
+                data-toggle="collapse" href="#header-alert-9701"
+                aria-expanded="false" aria-controls="header-alert-9701" aria-label="Close">
+                  <i class="fa fa-close"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+    
+
+
+
+<div class="header-alert header-alert--active collapse "
+id="header-alert-9704"
+data-visibility="geo"
+data-lat="22.3193039"
+data-long="114.16936110000006"
+data-radius="5"
+role="alert">
+    <div  class="container-fluid">
+        <div class="row ">
+            <div class="col col-xl-12 col-main">
+                <a class="alert-content"
+                                            href="https://www.tomsteyer.com/democrats-abroad/"
+                        target="_blank"
+                        ga-on="click"
+                        ga-event-category="UI Event"
+                        ga-event-action="Alert Bar Clicked"
+                        ga-event-label="https://www.tomsteyer.com/democrats-abroad/"
+                        class="alert-link"
+                                    >
+                    Help Tom make it on to the Democrats Abroad ballot
+                    &nbsp;
+                    &nbsp;<span class="arrow-right">&gt;</span>
+
+                                <a class="close" role="button"
+                data-toggle="collapse" href="#header-alert-9704"
+                aria-expanded="false" aria-controls="header-alert-9704" aria-label="Close">
+                  <i class="fa fa-close"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+    
+
+
+
+<div class="header-alert header-alert--active collapse "
+id="header-alert-9726"
+data-visibility="everywhere"
+role="alert">
+    <div  class="container-fluid">
+        <div class="row ">
+            <div class="col col-xl-12 col-main">
+                <a class="alert-content"
+                                            href="https://www.tomsteyer.com/tom-steyer-statement-on-house-impeachment-vote/"
+                        target="_blank"
+                        ga-on="click"
+                        ga-event-category="UI Event"
+                        ga-event-action="Alert Bar Clicked"
+                        ga-event-label="https://www.tomsteyer.com/tom-steyer-statement-on-house-impeachment-vote/"
+                        class="alert-link"
+                                    >
+                    Tom Steyer Statement on House Impeachment Vote
+                    &nbsp;
+                    &nbsp;<span class="arrow-right">&gt;</span>
+
+                                <a class="close" role="button"
+                data-toggle="collapse" href="#header-alert-9726"
+                aria-expanded="false" aria-controls="header-alert-9726" aria-label="Close">
+                  <i class="fa fa-close"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+
+(function() {
+    function awaitContext( callback ) {
+        var loop = (function loop() {
+            if ( typeof FIRED_UP_CONTEXT !== 'undefined' ) {
+                callback( FIRED_UP_CONTEXT );
+            } else {
+                setTimeout( loop, 100 );
+            }
+        })();
+    }
+
+    function measureDistance(startLat, startLon, endLat, endLon) {
+        var RADIANS = Math.PI / 180;
+        var distanceLat = (endLat - startLat) * RADIANS;
+        var distanceLon = (endLon - startLon) * RADIANS;
+        var lat1 = startLat * RADIANS;
+        var lat2 = endLat * RADIANS;
+
+        var step1 =
+            Math.sin(distanceLat / 2) * Math.sin(distanceLat / 2) +
+            Math.sin(distanceLon / 2) *
+            Math.sin(distanceLon / 2) *
+            Math.cos(lat1) *
+            Math.cos(lat2);
+        var step2 = 2 * Math.atan2(Math.sqrt(step1), Math.sqrt(1 - step1));
+
+        return 6367 * step2;
+    };
+
+    function alertToShow(alerts, lat, long) {
+        var closest = 99999;
+        var show = null;
+
+        alerts.forEach(function(alert) {
+            var targetLatitude = Number(alert.getAttribute('data-lat'));
+            var targetLongitude = Number(alert.getAttribute('data-long'));
+            var radius = Number(alert.getAttribute('data-radius'));
+
+            var distance = measureDistance(
+                lat,
+                long,
+                targetLatitude,
+                targetLongitude
+            );
+
+            // make sure it's within bounds and the closest
+            if (distance <= radius && distance < closest) {
+                if (!alert || !alert.id) return;
+                // if not cookied, choose it
+                if (!localStorage.getItem(alert.id) || $('.header-alert').data('debug')) {
+                    show = alert;
+                    closest = distance;
+                }
+            }
+        });
+
+        return show;
+    }
+
+    function filterAlerts() {
+        var selector = 'header-alert-';
+        // Get params into Object
+        var params = {};
+        var tmp = window.location.search.replace('?', '').split('&');
+        tmp.forEach(function(p) {
+            var t = p.split('=');
+            params[t[0]] = t[1];
+        });
+
+        // show specific alert
+        if (params['d_alert']) {
+            var alert = document.getElementById(selector + params['d_alert']);
+            if (alert) alert.classList.add('show');
+            return;
+        }
+
+        // get all alerts
+        var alerts = document.querySelectorAll('[id^="' + selector + '"]');
+        // add close listener to alerts
+        alerts.forEach(function(alert) {
+            alert.querySelector('.close').addEventListener('click', function(evt) {
+                localStorage.setItem(alert.id, 'hide');
+            });
+        });
+
+        // check lat/long set manually in params
+        if (params['d_lat'] && params['d_lon']) {
+            var latitude = parseFloat(params['d_lat']);
+            var longitude = parseFloat(params['d_lon']);
+
+            var alert = alertToShow(alerts, latitude, longitude);
+            if (alert) {
+                alert.classList.add('show');
+                return;
+            }
+        }
+
+        // check context
+        awaitContext(function( context ) {
+            var alert = alertToShow(
+                alerts,
+                Number(context.ip_address_latitude),
+                Number(context.ip_address_longitude),
+            );
+            // alert matched
+            if (alert) {
+                alert.classList.add('show');
+                return;
+            }
+
+            // if no alert showing, show (first) "everywhere" one
+            var alert = document.querySelector('[id^="' + selector + '"][data-visibility="everywhere"]');
+            if (!alert) return;
+            if (!localStorage.getItem(alert.id) || $('.header-alert').data('debug')) alert.classList.add('show');
+        });
+
+
+    }
+
+    filterAlerts();
+})();
+</script>
+
+
+
+
+
+
+<header class="component-main-header  header-type-default">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+                <nav class="navbar navbar-expand-md ">
+                    <a class="navbar-brand logo" href="/">
+                        <img class="logo-mobile"  src="https://www.tomsteyer.com/wp-content/themes/timber/dist/img/ts2020-logo-w.svg" alt="Tom 2020">
+                                                    <img class="logo-desktop" src="https://www.tomsteyer.com/wp-content/themes/timber/dist/img/ts2020-logo.svg" alt="Tom 2020">
+                                            </a>
+
+                                                <button class="navbar-toggler border-0 collapsed" type="button" data-toggle="collapse" data-target="#headerNavbar" aria-controls="headerNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                            <i class="fa fa-bars"></i>
+                            <i class="fa fa-close"></i>
+                        </button>
+
+                        <div class="collapse navbar-collapse text-center-sm navbar-en" id="headerNavbar">
+                                                            <ul class=" navbar-nav ">
+        
+            <li class="nav-item dropdown  menu-item menu-item-type-custom menu-item-object-custom menu-item-8177 menu-item-has-children">
+                <a
+                    class="nav-link  dropdown-toggle "
+                    href="/meet-tom-steyer/"
+                                            id="main-header-nav-1"
+                        role="button"
+                        aria-haspopup="true" aria-expanded="false"
+                                                        >
+                    <span class="link-text">Meet Tom</span>
+                </a>
+
+                                                    <div
+                        class="dropdown-menu"
+                        aria-labelledby="main-header-nav-1"
+                    >
+                                                    <a
+                                class="dropdown-item nav-link"
+                                href="/tom-and-the-people-win/"
+                                                            >
+                                <span class="child-link-text">Tom and the People Win</span>
+                            </a>
+                                                    <a
+                                class="dropdown-item nav-link"
+                                href="/meet-tom-steyer/"
+                                                            >
+                                <span class="child-link-text">Tom's Story</span>
+                            </a>
+                                            </div>
+                            </li>
+        
+            <li class="nav-item dropdown  menu-item menu-item-type-custom menu-item-object-custom current-menu-item current-menu-ancestor current-menu-parent menu-item-1247 menu-item-has-children">
+                <a
+                    class="nav-link  dropdown-toggle "
+                    href="/policies/"
+                                            id="main-header-nav-2"
+                        role="button"
+                        aria-haspopup="true" aria-expanded="false"
+                                                        >
+                    <span class="link-text">Priorities</span>
+                </a>
+
+                                                    <div
+                        class="dropdown-menu"
+                        aria-labelledby="main-header-nav-2"
+                    >
+                                                    <a
+                                class="dropdown-item nav-link"
+                                href="https://www.tomsteyer.com/structural-reform/"
+                                                            >
+                                <span class="child-link-text">Structural Reform</span>
+                            </a>
+                                                    <a
+                                class="dropdown-item nav-link"
+                                href="https://www.tomsteyer.com/climate-justice/"
+                                                            >
+                                <span class="child-link-text">Climate Justice</span>
+                            </a>
+                                                    <a
+                                class="dropdown-item nav-link"
+                                href="/people-over-profits/"
+                                                            >
+                                <span class="child-link-text">Economic Agenda</span>
+                            </a>
+                                                    <a
+                                class="dropdown-item nav-link"
+                                href="https://www.tomsteyer.com/5-rights/"
+                                                            >
+                                <span class="child-link-text">5 Rights</span>
+                            </a>
+                                                    <a
+                                class="dropdown-item nav-link"
+                                href="/policies/"
+                                                            >
+                                <span class="child-link-text">Tom's Policies</span>
+                            </a>
+                                            </div>
+                            </li>
+        
+            <li class="nav-item dropdown  menu-item menu-item-type-custom menu-item-object-custom menu-item-775 menu-item-has-children">
+                <a
+                    class="nav-link  dropdown-toggle "
+                    href="/volunteer/"
+                                            id="main-header-nav-3"
+                        role="button"
+                        aria-haspopup="true" aria-expanded="false"
+                                                        >
+                    <span class="link-text">Volunteer</span>
+                </a>
+
+                                                    <div
+                        class="dropdown-menu"
+                        aria-labelledby="main-header-nav-3"
+                    >
+                                                    <a
+                                class="dropdown-item nav-link"
+                                href="/become-a-tom-2020-delegate/"
+                                                            >
+                                <span class="child-link-text">Become a Delegate</span>
+                            </a>
+                                                    <a
+                                class="dropdown-item nav-link"
+                                href="/tom-2020-state-offices/"
+                                                            >
+                                <span class="child-link-text">State Offices</span>
+                            </a>
+                                                    <a
+                                class="dropdown-item nav-link"
+                                href="/volunteer/"
+                                                            >
+                                <span class="child-link-text">Take Action</span>
+                            </a>
+                                            </div>
+                            </li>
+        
+            <li class="nav-item  menu-item menu-item-type-custom menu-item-object-custom menu-item-916">
+                <a
+                    class="nav-link "
+                    href="https://shop.tomsteyer.com"
+                                                        >
+                    <span class="link-text">Shop</span>
+                </a>
+
+                                            </li>
+        
+            <li class="nav-item  menu-item menu-item-type-custom menu-item-object-custom menu-item-7527">
+                <a
+                    class="nav-link "
+                    href="https://events.tomsteyer.com/"
+                                                        >
+                    <span class="link-text">Events</span>
+                </a>
+
+                                            </li>
+        
+            <li class="nav-item nav-donate menu-item menu-item-type-custom menu-item-object-custom menu-item-777">
+                <a
+                    class="nav-link "
+                    href="https://secure.actblue.com/donate/2020ts?refcode=nav"
+                                                        >
+                    <span class="link-text">Donate</span>
+                </a>
+
+                                            </li>
+            </ul>
+
+
+                            <div class="social-links ">
+                                
+    <a
+        class="social-link"
+        href="https://twitter.com/tomsteyer"
+        target="_blank"
+        ga-on="click"
+        ga-event-category="Social Follow"
+        ga-event-action="Twitter Follow"
+        ga-event-label="Footer"
+    >
+        <i class="fa fa-twitter"></i>
+        <span class="sr-only">Follow Tom on Twitter</span>
+    </a>
+    <a
+        class="social-link"
+        href="https://www.facebook.com/officialtomsteyer"
+        target="_blank"
+        ga-on="click"
+        ga-event-category="Social Follow"
+        ga-event-action="Facebook Follow"
+        ga-event-label="Footer"
+    >
+        <i class="fa fa-facebook-official"></i>
+        <span class="sr-only">Follow Tom on Facebook</span>
+    </a>
+    <a
+        class="social-link"
+        href="https://www.instagram.com/tomsteyer/"
+        target="_blank"
+        ga-on="click"
+        ga-event-category="Social Follow"
+        ga-event-action="Instagram Follow"
+        ga-event-label="Footer"
+    >
+        <i class="fa fa-instagram"></i>
+        <span class="sr-only">Follow Tom on Instagram</span>
+    </a>
+    <a
+        class="social-link"
+        href="https://www.youtube.com/channel/UCpYi4-Hlcxaxink1nx5UgQA"
+        target="_blank"
+        ga-on="click"
+        ga-event-category="Social Follow"
+        ga-event-action="Youtube Follow"
+        ga-event-label="Footer"
+    >
+        <i class="fa fa-youtube-play"></i>
+        <span class="sr-only">Follow Tom on YouTube</span>
+    </a>
+                            </div>
+                            
+                            
+
+    
+
+<div class="languages">
+    <a href="/" class="english  active">Eng</a>
+
+    <a href="https://www.tomsteyer.com/es/propuestas/" class="spanish ">Es</a>
+</div>
+
+                        </div>
+
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+<a class="sr-only" id="skip-to-content" href="#">content begins here</a>
+
+            <div class="flex-sections">
+        
+     
+                                    
+                                
+                
+        
+        
+        
+                    <section class="flex-hero-media section-padded padding-bottom-none" id="section-1">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-lg-9 col-xl-8 col-xxl-7 mx-auto">
+                <h1 class="hero-title text-center">
+                    Tom’s Policies
+                </h1>
+                            </div>
+        </div>
+    </div>
+    <div class="hero-image-container">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                                                                    <picture>
+                            <source media="(max-width: 575px)" srcset="https://res.cloudinary.com/tomsteyer/image/fetch/q_80,f_auto,w_600,h_243,c_fill/https://www.tomsteyer.com/wp-content/uploads/2019/09/hero-policy-01.jpg">
+                            <source media="(max-width: 767px)" srcset="https://res.cloudinary.com/tomsteyer/image/fetch/q_80,f_auto,w_510,h_206,c_fill/https://www.tomsteyer.com/wp-content/uploads/2019/09/hero-policy-01.jpg, https://res.cloudinary.com/tomsteyer/image/fetch/q_80,f_auto,w_1020,h_412,c_fill/https://www.tomsteyer.com/wp-content/uploads/2019/09/hero-policy-01.jpg 2x">
+                            <source media="(max-width: 991px)" srcset="https://res.cloudinary.com/tomsteyer/image/fetch/q_80,f_auto,w_690,h_279,c_fill/https://www.tomsteyer.com/wp-content/uploads/2019/09/hero-policy-01.jpg, https://res.cloudinary.com/tomsteyer/image/fetch/q_80,f_auto,w_1380,h_558,c_fill/https://www.tomsteyer.com/wp-content/uploads/2019/09/hero-policy-01.jpg 2x">
+                            <source media="(max-width: 1259px)" srcset="https://res.cloudinary.com/tomsteyer/image/fetch/q_80,f_auto,w_930,h_376,c_fill/https://www.tomsteyer.com/wp-content/uploads/2019/09/hero-policy-01.jpg, https://res.cloudinary.com/tomsteyer/image/fetch/q_80,f_auto,w_1600,h_647,c_fill/https://www.tomsteyer.com/wp-content/uploads/2019/09/hero-policy-01.jpg 2x">
+                            <source media="(max-width: 1499px)" srcset="https://res.cloudinary.com/tomsteyer/image/fetch/q_80,f_auto,w_1170,h_473,c_fill/https://www.tomsteyer.com/wp-content/uploads/2019/09/hero-policy-01.jpg, https://res.cloudinary.com/tomsteyer/image/fetch/q_80,f_auto,w_1600,h_647,c_fill/https://www.tomsteyer.com/wp-content/uploads/2019/09/hero-policy-01.jpg 2x">
+
+                            <img
+                                src="https://res.cloudinary.com/tomsteyer/image/fetch/q_80,f_auto,w_1600,h_647,c_fill/https://www.tomsteyer.com/wp-content/uploads/2019/09/hero-policy-01.jpg"
+                                srcset="https://res.cloudinary.com/tomsteyer/image/fetch/q_80,f_auto,w_1410,h_570,c_fill/https://www.tomsteyer.com/wp-content/uploads/2019/09/hero-policy-01.jpg, https://res.cloudinary.com/tomsteyer/image/fetch/q_80,f_auto,w_1600,h_647,c_fill/https://www.tomsteyer.com/wp-content/uploads/2019/09/hero-policy-01.jpg 2x"
+                                alt=""
+                                class="hero-image"
+                            />
+                        </picture>
+                                                            </div>
+            </div>
+        </div>
+        <div class="hero-bg-banner " id="hero-bg-banner"></div>
+    </div>
+
+            <div class="container post-content">
+            <div class="row">
+                <div class="col-md-10 col-lg-9 col-xl-8 col-xxl-7 mx-auto">
+                    <div class="hero-media-caption text-large">
+                        For over a decade, Tom has worked tirelessly to make America more just by putting the people, not the corporations, in charge of our democracy.
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    <div class="container">
+            </div>
+</section>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+                
+                
+         
+                                    
+                                
+                
+        
+        
+                    <section class="flex-expandable-content section-padded  padding-bottom-half padding-top-none" id="section-2">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-lg-9 col-xl-8 col-xxl-7 mx-auto">
+
+			    			        <div class="expand-collapse-text">
+			            <button
+			              class="expand-heading  1"
+                                                      id="structural-reform"
+                          			              data-toggle="collapse"
+			              data-target="#section-2-flex-2-content-1"
+                          tabindex="0"
+                          aria-controls="section-2-flex-2-1"
+                          aria-expanded="true"
+			            >
+			                <h1 class="expand-heading-text  trade-gothic"><span class="expand-heading-inner">Structural Reform</span></h1>
+			            </button>
+
+			            <div
+			           	  class="collapse show"
+			              id="section-2-flex-2-content-1"
+			            >
+			                <div class="collapse-content ">
+			                    <p>Our system isn’t working because it’s been corrupted by corporate influence, a lack of transparency, and partisan efforts to suppress voices and votes. Tom will work to put power back in the hands of the American people by expanding access to the ballot box, ensuring fair districts, getting corporate money out of politics, and <a href="https://www.tomsteyer.com/limit-congressional-terms/">instituting term limits</a> and a national referendum.</p>
+<ul>
+<li><a href="/structural-reform/">Read Tom’s full plan for structural reform.</a></li>
+</ul>
+<div class="entry-content-asset"><iframe title="Tom Steyer on The Daily Show - Congressional Term Limits" width="500" height="281" src="https://www.youtube.com/embed/0olNhgQn46w?wmode=transparent&amp;rel=0&amp;feature=oembed" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+
+			                </div>
+			            </div>
+
+			        </div>
+			    			        <div class="expand-collapse-text">
+			            <button
+			              class="expand-heading  collapsed"
+                                                      id="climate-change"
+                          			              data-toggle="collapse"
+			              data-target="#section-2-flex-2-content-2"
+                          tabindex="0"
+                          aria-controls="section-2-flex-2-2"
+                          aria-expanded="false"
+			            >
+			                <h1 class="expand-heading-text  trade-gothic"><span class="expand-heading-inner">Climate Change</span></h1>
+			            </button>
+
+			            <div
+			           	  class="collapse "
+			              id="section-2-flex-2-content-2"
+			            >
+			                <div class="collapse-content ">
+			                    <p><span style="font-weight: 400;">We are in a global climate crisis and we need solutions that reflect the scale of the problem. Tom’s Justice-Centered Climate Plan moves the US from an extraction economy to a regenerative one, focusing on local community solutions. We will re-establish our global leadership on sustainability.</span></p>
+<ul>
+<li><a href="/climate-justice/"><span style="font-weight: 400;">Read Tom’s full Justice-Centered Climate Plan.</span></a></li>
+<li><a href="https://www.tomsteyer.com/community-led-plan/">A community-led plan for climate justice.</a></li>
+</ul>
+<div class="entry-content-asset">
+<blockquote class="twitter-tweet" data-width="500" data-dnt="true">
+<p lang="en" dir="ltr">&quot;This is exactly what the emergency powers were given [for]&#8230; If the government and the Congress can&#39;t act, then the President has to protect the country.&quot;<br />Democratic presidential candidate Tom Steyer defends plan to use presidential emergency powers to address climate change. <a href="https://t.co/OVDIMld4H2">pic.twitter.com/OVDIMld4H2</a></p>
+<p>&mdash; Cuomo Prime Time (@CuomoPrimeTime) <a href="https://twitter.com/CuomoPrimeTime/status/1154562711495368704?ref_src=twsrc%5Etfw">July 26, 2019</a></p>
+</blockquote>
+<p><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></div>
+
+			                </div>
+			            </div>
+
+			        </div>
+			    			        <div class="expand-collapse-text">
+			            <button
+			              class="expand-heading  collapsed"
+                                                      id="economy"
+                          			              data-toggle="collapse"
+			              data-target="#section-2-flex-2-content-3"
+                          tabindex="0"
+                          aria-controls="section-2-flex-2-3"
+                          aria-expanded="false"
+			            >
+			                <h1 class="expand-heading-text  trade-gothic"><span class="expand-heading-inner">Economy</span></h1>
+			            </button>
+
+			            <div
+			           	  class="collapse "
+			              id="section-2-flex-2-content-3"
+			            >
+			                <div class="collapse-content ">
+			                    <p>Donald Trump is a fraud and a failure: he failed as a businessman and has failed our economy. We need an economic plan that will stop letting corporations and their lobbyists corrupt our system for their own gain. When the American economy works the way it should, it lifts all people and all communities. Tom believes in harnessing innovation and promoting competition, breaking the corporate stranglehold on our government, and investing in the American people.</p>
+<ul>
+<li><a href="https://www.tomsteyer.com/people-over-profits/">Explore Tom&#8217;s plan for a people-powered economy.</a></li>
+</ul>
+<div class="entry-content-asset">
+<blockquote class="twitter-tweet" data-width="500" data-dnt="true">
+<p lang="en" dir="ltr">Presidential candidate Tom Steyer on President Trump’s handling of the economy: “He&#39;s leading us in a position&#8230; if we get into a recession, we don&#39;t have a response because he&#39;s already spent the money that you’d normally use to boost demand at the bottom of a recession.&quot; <a href="https://t.co/d3D16tWcZj">pic.twitter.com/d3D16tWcZj</a></p>
+<p>&mdash; The Situation Room (@CNNSitRoom) <a href="https://twitter.com/CNNSitRoom/status/1161760640635158528?ref_src=twsrc%5Etfw">August 14, 2019</a></p>
+</blockquote>
+<p><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></div>
+
+			                </div>
+			            </div>
+
+			        </div>
+			    			        <div class="expand-collapse-text">
+			            <button
+			              class="expand-heading  collapsed"
+                          			                id="section-2-flex-2-heading-4"
+                          			              data-toggle="collapse"
+			              data-target="#section-2-flex-2-content-4"
+                          tabindex="0"
+                          aria-controls="section-2-flex-2-4"
+                          aria-expanded="false"
+			            >
+			                <h1 class="expand-heading-text  trade-gothic"><span class="expand-heading-inner">Affordable Housing</span></h1>
+			            </button>
+
+			            <div
+			           	  class="collapse "
+			              id="section-2-flex-2-content-4"
+			            >
+			                <div class="collapse-content ">
+			                    <p><span style="font-weight: 400;">Where we lay our head at night determines so much about our life: whether we have access to clean air and water, healthy food, economic security, and a strong education. But corporate interests and government corruption have turned America’s real estate industry into a $1.9 trillion business that favors the wealthy and preys on the American people. </span></p>
+<p><span style="font-weight: 400;">Tom’s administration will ensure that </span><i><span style="font-weight: 400;">everyone</span></i><span style="font-weight: 400;"> in America has access to safe and affordable housing. </span><span style="font-weight: 400;">His plan will spur the construction of new affordable development,</span><span style="font-weight: 400;"> focusing on healthy, climate-smart communities centered around clean transportation systems. To help all families build a stable future, Tom will broaden pathways to homeownership and offer tax breaks for low-income and middle-class renters. </span><span style="font-weight: 400;">With environmental justice at the center, Tom will correct for historically discriminatory policies that have prevented communities of color from home ownership by building green infrastructure in redlined neighborhoods and introducing laws that protect vulnerable individuals from the destabilizing impacts of gentrification.</span></p>
+<ul>
+<li><a href="https://www.tomsteyer.com/affordable-housing/"><span style="font-weight: 400;">Read more about Tom’s Affordable Housing Plan.</span></a></li>
+</ul>
+<div class="entry-content-asset"><iframe title="November Debate Tom Steyer on Affordable Housing" width="500" height="281" src="https://www.youtube.com/embed/VMqZDOVtB3k?wmode=transparent&amp;rel=0&amp;feature=oembed" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+
+			                </div>
+			            </div>
+
+			        </div>
+			    			        <div class="expand-collapse-text">
+			            <button
+			              class="expand-heading  collapsed"
+                          			                id="section-2-flex-2-heading-5"
+                          			              data-toggle="collapse"
+			              data-target="#section-2-flex-2-content-5"
+                          tabindex="0"
+                          aria-controls="section-2-flex-2-5"
+                          aria-expanded="false"
+			            >
+			                <h1 class="expand-heading-text  trade-gothic"><span class="expand-heading-inner">Civil Rights</span></h1>
+			            </button>
+
+			            <div
+			           	  class="collapse "
+			              id="section-2-flex-2-content-5"
+			            >
+			                <div class="collapse-content ">
+			                    <p>Our government must be of, by, and for the people. That means all of us — not just some. We must actively call out racism, white nationalism, LGBTQ and gender bias, as well as work to address the disparities still defining too much of American life. Tom’s administration will vigorously defend the civil rights of all Americans, work across agencies to reform policies that reinforce inequality, and ensure justice in our housing, education, access to capital, environmental, agriculture, health, and human services programs, and election processes. Tom also strongly supports legislation to establish a commission to re-examine the issue of reparations.</p>
+<div class="entry-content-asset"><iframe title="Full speech: Tom Steyer on the Register&#039;s Political Soapbox | Iowa State Fair 2019 (18/23)" width="500" height="281" src="https://www.youtube.com/embed/rY15kQkp0hs?start=868&#038;wmode=transparent&amp;rel=0&amp;feature=oembed" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+
+			                </div>
+			            </div>
+
+			        </div>
+			    			        <div class="expand-collapse-text">
+			            <button
+			              class="expand-heading  collapsed"
+                          			                id="section-2-flex-2-heading-6"
+                          			              data-toggle="collapse"
+			              data-target="#section-2-flex-2-content-6"
+                          tabindex="0"
+                          aria-controls="section-2-flex-2-6"
+                          aria-expanded="false"
+			            >
+			                <h1 class="expand-heading-text  trade-gothic"><span class="expand-heading-inner">Criminal Justice Reform</span></h1>
+			            </button>
+
+			            <div
+			           	  class="collapse "
+			              id="section-2-flex-2-content-6"
+			            >
+			                <div class="collapse-content ">
+			                    <p>America’s criminal justice system perpetuates a system of mass incarceration and punishment, not rehabilitation and restorative justice. This system was built on — and still suffers from — rampant racism. We must reform our criminal justice system to reflect the rule of law for all, not just those with the power to defend themselves. Tom will work to end cash bail, reduce the prison population, stop the prison pipeline and revolving door, eliminate private prisons, restructure parole and probation, promote better-policing methods and training to reduce police brutality, exercise his clemency powers where appropriate, and increase resources for public defenders and community intervention programs. Spending time in the criminal justice system can haunt someone’s life long after they’ve served their time — Tom will also fight for the rights of those re-entering society by supporting rehabilitation and workforce readiness programs.</p>
+<div class="entry-content-asset"><iframe title="Justice Votes 2020: A Presidential Town Hall" width="500" height="281" src="https://www.youtube.com/embed/ZRu0boNGrZc?wmode=transparent&amp;rel=0&amp;feature=oembed" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+
+			                </div>
+			            </div>
+
+			        </div>
+			    			        <div class="expand-collapse-text">
+			            <button
+			              class="expand-heading  collapsed"
+                          			                id="section-2-flex-2-heading-7"
+                          			              data-toggle="collapse"
+			              data-target="#section-2-flex-2-content-7"
+                          tabindex="0"
+                          aria-controls="section-2-flex-2-7"
+                          aria-expanded="false"
+			            >
+			                <h1 class="expand-heading-text  trade-gothic"><span class="expand-heading-inner">Education</span></h1>
+			            </button>
+
+			            <div
+			           	  class="collapse "
+			              id="section-2-flex-2-content-7"
+			            >
+			                <div class="collapse-content ">
+			                    <p>Without guaranteed access to quality education, there is no such thing as equal opportunity. Every American should have the right to a free, quality, public education from universal pre-kindergarten through higher education, including workforce and technical training. Looking to the leadership of teachers, parents, and school officials, Tom’s administration will work to reinvigorate our public schools by increasing resources to close the education achievement gap, improving school facilities, increasing teacher pay and professional development, and ensuring equal access to opportunities.</p>
+<ul>
+<li><a href="https://www.tomsteyer.com/5-rights/">Learn about Tom&#8217;s 5 Rights.</a></li>
+</ul>
+<div class="entry-content-asset"><iframe title="CNN Town Hall with Tom Steyer - Education As A Right" width="500" height="281" src="https://www.youtube.com/embed/srvmufcV94o?wmode=transparent&amp;rel=0&amp;feature=oembed" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+
+			                </div>
+			            </div>
+
+			        </div>
+			    			        <div class="expand-collapse-text">
+			            <button
+			              class="expand-heading  collapsed"
+                          			                id="section-2-flex-2-heading-8"
+                          			              data-toggle="collapse"
+			              data-target="#section-2-flex-2-content-8"
+                          tabindex="0"
+                          aria-controls="section-2-flex-2-8"
+                          aria-expanded="false"
+			            >
+			                <h1 class="expand-heading-text  trade-gothic"><span class="expand-heading-inner">Foreign Policy</span></h1>
+			            </button>
+
+			            <div
+			           	  class="collapse "
+			              id="section-2-flex-2-content-8"
+			            >
+			                <div class="collapse-content ">
+			                    <p>Donald Trump has tarnished our global standing by cozying up to our enemies and alienating our allies. With tweets and tantrums, he has broken promises to our allies and escalated a security crisis. Tom will rebuild our global alliances into a coalition that will work together to solve the serious, urgent challenges that we all face, starting with climate change. Tom will reinvigorate the State Department and respect the skill and expertise of our career diplomats and intelligence community. He will also negotiate trade agreements with everyone at the table, including labor and environmental groups. Above all, Tom will always protect America’s national security and honor the role our servicemen and women play in keeping America safe.</p>
+<div class="entry-content-asset"><iframe title="Tom Steyer slams Trump&#039;s &quot;America First&quot; foreign policy as &quot;so darn dumb&quot;" width="500" height="281" src="https://www.youtube.com/embed/2zf_NEfRtus?wmode=transparent&amp;rel=0&amp;feature=oembed" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+
+			                </div>
+			            </div>
+
+			        </div>
+			    			        <div class="expand-collapse-text">
+			            <button
+			              class="expand-heading  collapsed"
+                                                      id="hbcu"
+                          			              data-toggle="collapse"
+			              data-target="#section-2-flex-2-content-9"
+                          tabindex="0"
+                          aria-controls="section-2-flex-2-9"
+                          aria-expanded="false"
+			            >
+			                <h1 class="expand-heading-text  trade-gothic"><span class="expand-heading-inner">HBCU</span></h1>
+			            </button>
+
+			            <div
+			           	  class="collapse "
+			              id="section-2-flex-2-content-9"
+			            >
+			                <div class="collapse-content ">
+			                    <p><span style="font-weight: 400;">Historically Black Colleges and Universities (HBCUs) were mostly created after the Civil War to serve the needs of black students who didn’t have access or opportunity to attend the nation’s universities. They have served as the backbone of the black middle class for generations of graduating doctors, lawyers, entertainers, engineers, and other black professionals. HBCUs make America better, smarter, and more successful, and we must do more to protect their ability to educate for generations to come.</span></p>
+<p><span style="font-weight: 400;">Without sustained federal investments, we risk losing these institutions that shape so many bright futures. As president, Tom will invest $125 billion to HBCUs over the next 10 years for infrastructure and technology upgrades, student and faculty support, building endowment capacity, and HBCU Centers of Innovation, among other initiatives.</span></p>
+<p><span style="font-weight: 400;">He will also develop and implement a bold HBCU 2030 plan. In his first 180 days, Tom will require the White House Initiative on HBCUs to develop a set of recommendations to create a more comprehensive and independent HBCU governance structure. He will also create new federal and state funding mechanisms and pathways for resource allocation. Fostering new partnerships with philanthropies, private organizations and other higher learning institutions will help generate additional endowment funding, research opportunities, and student and faculty support services.</span></p>
+<p><span style="font-weight: 400;">Collectively, these measures will place HBCUs on much more secure footing and allow them to continue to serve communities of color and low-income students for generations to come.</span></p>
+<ul>
+<li><a href="https://www.tomsteyer.com/hbcu-2030/">Read more about the HBCU 2030 plan.</a></li>
+</ul>
+
+			                </div>
+			            </div>
+
+			        </div>
+			    			        <div class="expand-collapse-text">
+			            <button
+			              class="expand-heading  collapsed"
+                          			                id="section-2-flex-2-heading-10"
+                          			              data-toggle="collapse"
+			              data-target="#section-2-flex-2-content-10"
+                          tabindex="0"
+                          aria-controls="section-2-flex-2-10"
+                          aria-expanded="false"
+			            >
+			                <h1 class="expand-heading-text  trade-gothic"><span class="expand-heading-inner">Health Care</span></h1>
+			            </button>
+
+			            <div
+			           	  class="collapse "
+			              id="section-2-flex-2-content-10"
+			            >
+			                <div class="collapse-content ">
+			                    <p>The American people deserve a health care system where everyone has access to quality, affordable, and secure health care. Tom supports a universal health care system, including a strong public option that aggressively competes with the private insurance marketplace, drives down costs, and expands coverage. As president, Tom will work to reduce prescription drug costs, increase system accountability, eliminate surprise billing, and put patients and doctors — not the drug manufacturers or insurers — in charge of their health care.</p>
+<ul>
+<li><a href="https://www.tomsteyer.com/affordable-health-care-for-all/">The Right to Health.</a></li>
+</ul>
+<div class="entry-content-asset"><iframe title="Tom Steyer Right to Health Plan" width="500" height="281" src="https://www.youtube.com/embed/wbXCxhaQXbo?wmode=transparent&amp;rel=0&amp;feature=oembed" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+
+			                </div>
+			            </div>
+
+			        </div>
+			    			        <div class="expand-collapse-text">
+			            <button
+			              class="expand-heading  collapsed"
+                          			                id="section-2-flex-2-heading-11"
+                          			              data-toggle="collapse"
+			              data-target="#section-2-flex-2-content-11"
+                          tabindex="0"
+                          aria-controls="section-2-flex-2-11"
+                          aria-expanded="false"
+			            >
+			                <h1 class="expand-heading-text  trade-gothic"><span class="expand-heading-inner">Immigration</span></h1>
+			            </button>
+
+			            <div
+			           	  class="collapse "
+			              id="section-2-flex-2-content-11"
+			            >
+			                <div class="collapse-content ">
+			                    <p>America is a nation of immigrants, and we must never trade border security for compassion. Tom will work toward comprehensive immigration reform, including re-establishing America as a safe haven for those fleeing persecution and oppression. He will take executive action to reinstate the DACA and TPS programs, reinvigorate our visa system to attract the best and brightest to our schools and companies, invest in smart border security, provide more aid to Central America, and create a path to citizenship for millions of people that contribute to our economy, but are currently living in the shadows.</p>
+<div class="entry-content-asset"><iframe title="&#039;Conversation with the Candidate&#039; with Tom Steyer: Part 2" width="500" height="281" src="https://www.youtube.com/embed/HIIc1pNsz7U?wmode=transparent&amp;rel=0&amp;feature=oembed" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+
+			                </div>
+			            </div>
+
+			        </div>
+			    			        <div class="expand-collapse-text">
+			            <button
+			              class="expand-heading  collapsed"
+                          			                id="section-2-flex-2-heading-12"
+                          			              data-toggle="collapse"
+			              data-target="#section-2-flex-2-content-12"
+                          tabindex="0"
+                          aria-controls="section-2-flex-2-12"
+                          aria-expanded="false"
+			            >
+			                <h1 class="expand-heading-text  trade-gothic"><span class="expand-heading-inner">National Public Service</span></h1>
+			            </button>
+
+			            <div
+			           	  class="collapse "
+			              id="section-2-flex-2-content-12"
+			            >
+			                <div class="collapse-content ">
+			                    <p>For the last several years, Tom has traveled around the country listening to young students talk about their vision for the future of this nation. Many are ready to roll up their sleeves and join millions of others in tackling the challenges we face both at home and abroad. Tom’s New National Service Plan will channel this energetic spirit into a historic $50 billion expansion of our public service programs to address pressing challenges in communities across our country and abroad. He will pass an updated Serve America Act in his first 100 days as president, increase public service program living allowances and educational benefits, and increase public service participation to one million positions in five years.</p>
+<ul>
+<li><a href="https://www.tomsteyer.com/national-public-service-plan/">Read more about Tom&#8217;s New National Service Plan.</a></li>
+</ul>
+
+			                </div>
+			            </div>
+
+			        </div>
+			    			        <div class="expand-collapse-text">
+			            <button
+			              class="expand-heading  collapsed"
+                          			                id="section-2-flex-2-heading-13"
+                          			              data-toggle="collapse"
+			              data-target="#section-2-flex-2-content-13"
+                          tabindex="0"
+                          aria-controls="section-2-flex-2-13"
+                          aria-expanded="false"
+			            >
+			                <h1 class="expand-heading-text  trade-gothic"><span class="expand-heading-inner">National Security</span></h1>
+			            </button>
+
+			            <div
+			           	  class="collapse "
+			              id="section-2-flex-2-content-13"
+			            >
+			                <div class="collapse-content ">
+			                    <p>As Commander in Chief, Tom understands that his first job is to keep America safe. He will embrace that challenge by ensuring that those who serve our country continue to be the best-trained and best-equipped fighting force in the world. That means being ready to meet the challenges of the 21st century, including a rapidly changing climate. By rebuilding strong partnerships and coalitions like NATO, Tom will bring a steady hand and cool temper back to the White House. He respects the full responsibility of America’s global leadership, the gravity of holding the nuclear codes, and the solemn honor of commanding America’s armed forces.</p>
+
+			                </div>
+			            </div>
+
+			        </div>
+			    			        <div class="expand-collapse-text">
+			            <button
+			              class="expand-heading  collapsed"
+                          			                id="section-2-flex-2-heading-14"
+                          			              data-toggle="collapse"
+			              data-target="#section-2-flex-2-content-14"
+                          tabindex="0"
+                          aria-controls="section-2-flex-2-14"
+                          aria-expanded="false"
+			            >
+			                <h1 class="expand-heading-text  trade-gothic"><span class="expand-heading-inner">Partnerships with Rural Communities</span></h1>
+			            </button>
+
+			            <div
+			           	  class="collapse "
+			              id="section-2-flex-2-content-14"
+			            >
+			                <div class="collapse-content ">
+			                    <p>America is powered by rural communities, yet they are too often left behind. The corrupting influence of corporate America and the politicians who profit from that system have left rural communities to grapple with crumbling infrastructure, failing schools, a lack of access to adequate health care, and dwindling economic opportunities. This has to change. It’s time to connect rural communities to the prosperity they deserve.</p>
+<ul>
+<li><a href="https://www.tomsteyer.com/partnerships-with-rural-communities/">Explore Tom&#8217;s Partnerships with Rural Communities.</a></li>
+</ul>
+<div class="entry-content-asset"><iframe title="Partnerships with Rural Communities" width="500" height="281" src="https://www.youtube.com/embed/zPgOHGM_o4o?wmode=transparent&amp;rel=0&amp;feature=oembed" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+
+			                </div>
+			            </div>
+
+			        </div>
+			    			        <div class="expand-collapse-text">
+			            <button
+			              class="expand-heading  collapsed"
+                          			                id="section-2-flex-2-heading-15"
+                          			              data-toggle="collapse"
+			              data-target="#section-2-flex-2-content-15"
+                          tabindex="0"
+                          aria-controls="section-2-flex-2-15"
+                          aria-expanded="false"
+			            >
+			                <h1 class="expand-heading-text  trade-gothic"><span class="expand-heading-inner">Student Debt</span></h1>
+			            </button>
+
+			            <div
+			           	  class="collapse "
+			              id="section-2-flex-2-content-15"
+			            >
+			                <div class="collapse-content ">
+			                    <p><span style="font-weight: 400;">The crushing burden of student debt is fueling inequality, hurting our economy, and making it much harder for far too many Americans to achieve success. We must make higher education affordable and available to everyone. Tom will tackle the student debt crisis head-on by forgiving certain types of student loan debt, reforming the public service student loan forgiveness program, making the refinancing of student loans easier, cracking down on predatory student loan servicers, and expanding access to educational benefits through his </span>New National Public Service Plan.</p>
+<ul>
+<li><a href="https://www.tomsteyer.com/national-public-service-plan/">Read Tom&#8217;s Recommitment to Service.</a></li>
+</ul>
+
+			                </div>
+			            </div>
+
+			        </div>
+			    			        <div class="expand-collapse-text">
+			            <button
+			              class="expand-heading  collapsed"
+                                                      id="taxes"
+                          			              data-toggle="collapse"
+			              data-target="#section-2-flex-2-content-16"
+                          tabindex="0"
+                          aria-controls="section-2-flex-2-16"
+                          aria-expanded="false"
+			            >
+			                <h1 class="expand-heading-text  trade-gothic"><span class="expand-heading-inner">Taxes</span></h1>
+			            </button>
+
+			            <div
+			           	  class="collapse "
+			              id="section-2-flex-2-content-16"
+			            >
+			                <div class="collapse-content ">
+			                    <p><span style="font-weight: 400;">Right now, the richest Americans and corporations get to live by a different set of rules than everyone else. That’s fundamentally wrong — we need a tax system that is fair and promotes people over profits. Tom believes that expanding the earned income tax credit, rolling back the Trump administration’s tax cuts, and instituting a wealth tax will begin to solve the massive economic inequality in this country and restore power back to the people.</span></p>
+<ul>
+<li><a href="/wealth-tax/"><span style="font-weight: 400;">We need a wealth tax.</span></a></li>
+<li><a href="https://www.tomsteyer.com/middle-class-tax-cuts/">Tom detailed his middle-class tax cuts.</a></li>
+</ul>
+<div class="entry-content-asset"><iframe title="Tom Steyer Makes Major Economic Address" width="500" height="281" src="https://www.youtube.com/embed/bblV7MTIKpg?wmode=transparent&amp;rel=0&amp;feature=oembed" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+
+			                </div>
+			            </div>
+
+			        </div>
+			    			        <div class="expand-collapse-text">
+			            <button
+			              class="expand-heading  collapsed"
+                          			                id="section-2-flex-2-heading-17"
+                          			              data-toggle="collapse"
+			              data-target="#section-2-flex-2-content-17"
+                          tabindex="0"
+                          aria-controls="section-2-flex-2-17"
+                          aria-expanded="false"
+			            >
+			                <h1 class="expand-heading-text  trade-gothic"><span class="expand-heading-inner">We Can End Gun Violence</span></h1>
+			            </button>
+
+			            <div
+			           	  class="collapse "
+			              id="section-2-flex-2-content-17"
+			            >
+			                <div class="collapse-content ">
+			                    <p><span style="font-weight: 400;">Gun violence is a public health epidemic that claims far too many lives each year. Tom stands with students, parents, educators, law enforcement, victims of gun violence, and community members, and is ready to implement the urgent common-sense gun safety reforms we desperately need. His plan — titled “We Can End Gun Violence” — will establish universal background checks, ban large-capacity magazines and assault weapons, enact red flag laws, close loopholes, create a new Office of Gun Safety and licensing requirements, and provide resources to communities to reduce gun violence.</span></p>
+<ul>
+<li><a href="https://www.tomsteyer.com/we-can-end-gun-violence/">Read more about Tom&#8217;s plan to end gun violence.</a></li>
+</ul>
+<div class="entry-content-asset">
+<blockquote class="twitter-tweet" data-width="500" data-dnt="true">
+<p lang="en" dir="ltr">&quot;We need to restore government of, by and for the people, and who better to do that than an outsider like me?&quot;</p>
+<p>Democratic candidate <a href="https://twitter.com/TomSteyer?ref_src=twsrc%5Etfw">@TomSteyer</a> responds to the latest Iowa polling that has him leading the likes of Beto O&#39;Rourke and Sen. Cory Booker.<a href="https://t.co/bs2BruYi7G">https://t.co/bs2BruYi7G</a> <a href="https://t.co/39R3ItHSIY">pic.twitter.com/39R3ItHSIY</a></p>
+<p>&mdash; OutFrontCNN (@OutFrontCNN) <a href="https://twitter.com/OutFrontCNN/status/1159620195985457152?ref_src=twsrc%5Etfw">August 9, 2019</a></p>
+</blockquote>
+<p><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></div>
+
+			                </div>
+			            </div>
+
+			        </div>
+			    			        <div class="expand-collapse-text">
+			            <button
+			              class="expand-heading  collapsed"
+                          			                id="section-2-flex-2-heading-18"
+                          			              data-toggle="collapse"
+			              data-target="#section-2-flex-2-content-18"
+                          tabindex="0"
+                          aria-controls="section-2-flex-2-18"
+                          aria-expanded="false"
+			            >
+			                <h1 class="expand-heading-text  trade-gothic"><span class="expand-heading-inner">Women's Equality</span></h1>
+			            </button>
+
+			            <div
+			           	  class="collapse "
+			              id="section-2-flex-2-content-18"
+			            >
+			                <div class="collapse-content ">
+			                    <p>As we celebrate a century of a women&#8217;s right to vote, there is still much to do to realize full equality. It’s about more than fair wages; it’s about having a voice and a seat at the table. Tom’s administration will fight for full reproductive justice, workplace policies including pay equity and paid family leave, and equal educational opportunities. When we lift up women, we lift up families and entire communities.</p>
+
+			                </div>
+			            </div>
+
+			        </div>
+			    			        <div class="expand-collapse-text">
+			            <button
+			              class="expand-heading  collapsed"
+                          			                id="section-2-flex-2-heading-19"
+                          			              data-toggle="collapse"
+			              data-target="#section-2-flex-2-content-19"
+                          tabindex="0"
+                          aria-controls="section-2-flex-2-19"
+                          aria-expanded="false"
+			            >
+			                <h1 class="expand-heading-text  trade-gothic"><span class="expand-heading-inner">Working Families</span></h1>
+			            </button>
+
+			            <div
+			           	  class="collapse "
+			              id="section-2-flex-2-content-19"
+			            >
+			                <div class="collapse-content ">
+			                    <p>Corporate influence in Congress has silenced labor groups, and halted progress on wages, retirement security, health care, and other issues affecting families across the country. It’s time to push power back to the people who actually do the work. Tom’s first and best partner in organizing has always been organized labor. As president, he will keep fighting for a minimum wage of at least $15 an hour, strengthen the right to organize, institute paid family leave, and make childcare more affordable and available. Tom will invest in programs that work for working people: increasing the earned income tax credit, enforcing strong workplace protections, and fighting for a living wage.</p>
+
+			                </div>
+			            </div>
+
+			        </div>
+			    
+            </div>
+        </div>
+    </div>
+</section>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+                
+                
+         
+                                    
+                                    
+                                                        
+                            
+
+    
+    
+
+<section class="flex-donation-amounts section-padded bg-orange donation-amounts-floated padding-top-half" id="section-3">
+    <div class="container">
+
+        <div class="donation-wrapper bg-orange ">
+            <div class="donation-intro">
+                <div class="donation-intro-inner">
+                    <h2 class="heading text-white">Invest in this campaign</h2>
+                    <div class="donate-desc text-white">
+                        Help Tom get his message out to more voters like you — even $1 helps.
+                    </div>
+                </div>
+            </div>
+                                    <div class="amounts">
+                        <div class="amounts-inner">
+                            <div class="row">
+                                <div class="col-6 col-lg-4 col-donation-amount">
+                                    <div class="amount-inner">
+                                                                                <a href="https://secure.actblue.com/donate/2020ts?refcode=rd_hp?amount=1&amp;refcode=" class="btn btn-amount btn-solid-white-blue">
+                                            $1
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-6 col-lg-4 col-donation-amount">
+                                    <div class="amount-inner">
+                                                                                <a href="https://secure.actblue.com/donate/2020ts?refcode=rd_hp?amount=5&amp;refcode=" class="btn btn-amount btn-solid-white-blue">
+                                            $5
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-6 col-lg-4 col-donation-amount">
+                                    <div class="amount-inner">
+                                                                                <a href="https://secure.actblue.com/donate/2020ts?refcode=rd_hp?amount=10&amp;refcode=" class="btn btn-amount btn-solid-white-blue">
+                                            $10
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-6 col-lg-4 col-donation-amount">
+                                    <div class="amount-inner">
+                                                                                <a href="https://secure.actblue.com/donate/2020ts?refcode=rd_hp?amount=25&amp;refcode=" class="btn btn-amount btn-solid-white-blue">
+                                            $25
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-6 col-lg-4 col-donation-amount">
+                                    <div class="amount-inner">
+                                                                                <a href="https://secure.actblue.com/donate/2020ts?refcode=rd_hp?amount=50&amp;refcode=" class="btn btn-amount btn-solid-white-blue">
+                                            $50
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-6 col-lg-4 col-donation-amount">
+                                    <div class="amount-inner">
+                                        <a href="https://secure.actblue.com/donate/2020ts?refcode=rd_hp?refcode=" class="btn btn-amount btn-solid-white-blue amount-other">
+                                            <span class="center-text">Other Amount</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div> <!-- .row -->
+                        </div> <!-- .amounts-inner -->
+                    </div> <!-- .amounts -->
+                            </div>
+        </div> <!-- .donation-wrapper -->
+
+    </div>
+</section>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+                
+                
+    
+    </div>
+
+    
+        
+        <footer class="component-main-footer">
+    <div class="container">
+                    <div class="row">
+                <div class="col-sm-12">
+                    <div class="logo-section logo-section-full-width">
+                        <a href="/" class="logo">
+                            <img src="https://www.tomsteyer.com/wp-content/themes/timber/dist/img/ts2020-logo-w.svg" alt="Tom 2020">
+                        </a>
+                    </div>
+                </div>
+            </div>
+                <div class="footer-social-section">
+            <div class="social-links">
+                
+    <a
+        class="social-link"
+        href="https://twitter.com/tomsteyer"
+        target="_blank"
+        ga-on="click"
+        ga-event-category="Social Follow"
+        ga-event-action="Twitter Follow"
+        ga-event-label="Footer"
+    >
+        <i class="fa fa-twitter"></i>
+        <span class="sr-only">Follow Tom on Twitter</span>
+    </a>
+    <a
+        class="social-link"
+        href="https://www.facebook.com/officialtomsteyer"
+        target="_blank"
+        ga-on="click"
+        ga-event-category="Social Follow"
+        ga-event-action="Facebook Follow"
+        ga-event-label="Footer"
+    >
+        <i class="fa fa-facebook-official"></i>
+        <span class="sr-only">Follow Tom on Facebook</span>
+    </a>
+    <a
+        class="social-link"
+        href="https://www.instagram.com/tomsteyer/"
+        target="_blank"
+        ga-on="click"
+        ga-event-category="Social Follow"
+        ga-event-action="Instagram Follow"
+        ga-event-label="Footer"
+    >
+        <i class="fa fa-instagram"></i>
+        <span class="sr-only">Follow Tom on Instagram</span>
+    </a>
+    <a
+        class="social-link"
+        href="https://www.youtube.com/channel/UCpYi4-Hlcxaxink1nx5UgQA"
+        target="_blank"
+        ga-on="click"
+        ga-event-category="Social Follow"
+        ga-event-action="Youtube Follow"
+        ga-event-label="Footer"
+    >
+        <i class="fa fa-youtube-play"></i>
+        <span class="sr-only">Follow Tom on YouTube</span>
+    </a>
+            </div>
+        </div>
+
+        <div class="footer-disclaimer-section">
+            <span class="footer-disclaimer">
+                Paid for by Tom Steyer 2020
+            </span>
+        </div>
+
+        <div class="footer-content-section">
+            <nav>
+                    <ul class=" list-inline ">
+                    <li class="nav-item  menu-item menu-item-type-post_type menu-item-object-page menu-item-2188  list-inline-item ">
+                <a class="nav-link "
+                    href="https://www.tomsteyer.com/transparency/"
+                                                        >
+                    Transparency
+                </a>
+                            </li>
+                    <li class="nav-item  menu-item menu-item-type-custom menu-item-object-custom menu-item-1164  list-inline-item ">
+                <a class="nav-link "
+                    href="/press"
+                                                        >
+                    Press
+                </a>
+                            </li>
+                    <li class="nav-item  menu-item menu-item-type-post_type menu-item-object-page menu-item-950  list-inline-item ">
+                <a class="nav-link "
+                    href="https://www.tomsteyer.com/careers/"
+                                                        >
+                    Careers
+                </a>
+                            </li>
+                    <li class="nav-item  menu-item menu-item-type-custom menu-item-object-custom menu-item-1641  list-inline-item ">
+                <a class="nav-link "
+                    href="https://www.tomsteyer.com/contact/"
+                                                        >
+                    Contact Us
+                </a>
+                            </li>
+                    <li class="nav-item  menu-item menu-item-type-post_type menu-item-object-page menu-item-819  list-inline-item ">
+                <a class="nav-link "
+                    href="https://www.tomsteyer.com/privacy-policy/"
+                                                        >
+                    Privacy Policy
+                </a>
+                            </li>
+            </ul>
+
+            </nav>
+
+            <div class="footer-press">
+                Press inquiries: <a href="mailto:press@tomsteyer.com">press@tomsteyer.com</a>
+            </div>
+
+                    </div>
+    </div>
+</footer>
+
+<section class="modal component-modal-video-player fade " id="video-modal" tabindex="-1" role="dialog"  aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+            <div class="modal-body">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <i class="fa fa-close"></i>
+                </button>
+
+                                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" src="" id="video-modal-video" allowscriptaccess="always" allow="autoplay"></iframe>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+                
+                                                    
+<div
+  class="fired-up-embed"
+  data-fired-up-widget="linkbar"
+  data-form-text="Thanks for liking this page. You can join your friend and sign up with the campaign to learn more."
+  data-link="https://www.tomsteyer.com/policies/"
+   data-form-id="iiQntLTwGe4I1mTzrNAq"        data-tweet-text="@TomSteyer is running for president to reform the system from the top down to bring more power to the American people."     data-share-type="like"
+    ></div>
+        
+                
+        
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+                    <script src="https://www.tomsteyer.com/assets/fired-up-bundle.js"></script>
+            <script src="https://www.tomsteyer.com/assets/fired-up-analytics.js"></script>
+        
+                
+                <script src="https://www.tomsteyer.com/wp-content/themes/timber/static/js/autotrack-615797b612.js"></script>
+<script src="https://www.tomsteyer.com/wp-content/themes/timber/static/js/query-string-189e4cbe7a.js"></script>
+<script src="https://www.tomsteyer.com/wp-content/themes/timber/static/js/jquery.smooth-scroll-63fd0df04e.js"></script>
+<script src="https://www.tomsteyer.com/wp-content/themes/timber/static/js/cookies-a327500ac1.js"></script>
+<script src="https://www.tomsteyer.com/wp-content/themes/timber/static/js/jquery.fitvids-6755415003.js"></script>
+<script src="https://www.tomsteyer.com/wp-content/themes/timber/static/js/popper-8717f82555.js"></script>
+<script src="https://www.tomsteyer.com/wp-content/themes/timber/static/js/util-02ef08e68f.js"></script>
+<script src="https://www.tomsteyer.com/wp-content/themes/timber/static/js/dropdown-547fa43405.js"></script>
+<script src="https://www.tomsteyer.com/wp-content/themes/timber/static/js/modal-dff5b52144.js"></script>
+<script src="https://www.tomsteyer.com/wp-content/themes/timber/static/js/collapse-06e48a5045.js"></script>
+<script src="https://www.tomsteyer.com/wp-content/themes/timber/static/js/tab-d5638afd31.js"></script>
+<script src="https://www.tomsteyer.com/wp-content/themes/timber/static/js/slick-483a3731bb.js"></script>
+<script src="https://www.tomsteyer.com/wp-content/themes/timber/static/js/jquery.matchHeight-959ee66ebf.js"></script>
+<script src="https://www.tomsteyer.com/wp-content/themes/timber/static/js/console-safe-a57f51f5df.js"></script>
+<script src="https://www.tomsteyer.com/wp-content/themes/timber/static/js/analytics-sourcing-c50b7bae0d.js"></script>
+<script src="https://www.tomsteyer.com/wp-content/themes/timber/static/js/lodash-template.min-47d7243b78.js"></script>
+<script src="https://www.tomsteyer.com/wp-content/themes/timber/static/js/main-972e71c108.js"></script>
+
+
+                
+
+
+    <script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"37d222219d","applicationID":"164211497","transactionName":"ZVEBY0RTX0MEBRVaDFwbIlRCW15eShIEXhNeVRdSG1RdVR0=","queueTime":0,"applicationTime":782,"atts":"SRYCFQxJTE0=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>
