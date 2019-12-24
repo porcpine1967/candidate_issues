@@ -1,5 +1,6 @@
 CANDIDATES = (
-    ('bennet', 'https://michaelbennet.com', (('article', None, False, ('https://michaelbennet.com/climateplan/',
+    ('bennet', 'https://michaelbennet.com', (('article', None, False, ('https://michaelbennet.com/agtrade/',
+                                                                       'https://michaelbennet.com/climateplan/',
                                                                        'https://michaelbennet.com/education/',
                                                                        'https://michaelbennet.com/electionsecurity/',
                                                                        'https://michaelbennet.com/health-care/',
@@ -244,6 +245,7 @@ CANDIDATES = (
                                                                          'https://medium.com/@AmyforAmerica/turning-ideas-into-action-senator-klobuchar-on-gun-violence-57fb7bc94d67',
                                                                         ),),),),
     ('patrick', 'https://devalpatrick2020.com', (('div', ('class', 'container'), False, ('https://devalpatrick2020.com/vision/',
+                                                                                         'https://devalpatrick2020.com/results/',
                                                                    ),),
                                                 ('article', None, False, ('https://medium.com/@DevalPatrick/renewing-the-american-dream-policy-platform-of-deval-for-all-2020-9190e175c4e',
                                                                         ),),),),
