@@ -55,6 +55,7 @@ CANDIDATES = (
                                                                               'https://www.mikebloomberg.com/policies/opioid-epidemic',
                                                                               'https://www.mikebloomberg.com/policies/plan-for-100-percent-clean-power',
                                                                               'https://www.mikebloomberg.com/policies/political-reform',
+                                                                              'https://www.mikebloomberg.com/policies/small-business',
                                                                               'https://www.mikebloomberg.com/policies/veterans',
                                                                               ),),),),
     ('booker', 'https://corybooker.com', (('article', None, False, ('https://corybooker.com/issues',
