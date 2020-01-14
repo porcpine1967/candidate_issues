@@ -398,6 +398,7 @@ CANDIDATES = (
                                                                                 'https://elizabethwarren.com/plans/social-security',
                                                                                 'https://elizabethwarren.com/plans/stop-economic-crash',
                                                                                 'https://elizabethwarren.com/plans/strengthening-democracy',
+                                                                                'https://elizabethwarren.com/plans/student-loan-debt-day-one',
                                                                                 'https://elizabethwarren.com/plans/tribal-nations',
                                                                                 'https://elizabethwarren.com/plans/ultra-millionaire-tax',
                                                                                 'https://elizabethwarren.com/plans/valuing-work-women-of-color',
