@@ -65,6 +65,7 @@ CANDIDATES = (
                                                                                              'https://www.mikebloomberg.com/2020/policies/economic-justice',
                                                                                              'https://www.mikebloomberg.com/2020/policies/infrastructure',
                                                                                              'https://www.mikebloomberg.com/2020/policies/plan-for-100-percent-clean-power',
+                                                                                             'https://www.mikebloomberg.com/2020/policies/puerto-rico',
                                                                                              'https://www.mikebloomberg.com/2020/policies/international-climate-priorities',
                                                                                              'https://www.mikebloomberg.com/2020/policies/wildfire-resilience',
                                                                                              'https://www.mikebloomberg.com/2020/women',
