@@ -33,8 +33,11 @@ def validate_candidate(name, host, urls):
     links = candidate_links(name, host)
     for url in not_in_urls(urls, links):
         print(url + ' not in ' + name + '/links')
-    for link in not_in_links(urls, links):
-        print(link + ' not in candidates')
+    nolinks = not_in_links(urls, links)
+    if nolinks:
+        print('Not in candidates')
+    for link in nolinks:
+        print(link)
 
 def candidate_links(name, host):
     links = set([host])

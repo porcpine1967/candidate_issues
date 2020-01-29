@@ -18,6 +18,7 @@ REPLACEMENTS = ((re.compile(r'<head.*</head>'), '',),
                 (re.compile(r'<input.*?/?>'), '',),
                 (re.compile(r'<button.*?</button>'), '',),
                 (re.compile(r'<svg.*?</svg>'), '',),
+                (re.compile(r'<o:p.*?</o:p>'), '',),
                 (re.compile(r'="[^"]*&[^"]*;[^"]*'), '="',),
                 ('</di/v>', '</div>',),)
 PAGE_LOCATION = re.compile(r'#[^/]*$')
