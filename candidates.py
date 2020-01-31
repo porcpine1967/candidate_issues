@@ -48,6 +48,7 @@ CANDIDATES = (
                                                                               'https://www.mikebloomberg.com/policies/gun-safety',
                                                                               'https://www.mikebloomberg.com/policies/health-coverage-plan',
                                                                               'https://www.mikebloomberg.com/policies/housing-and-earned-income-tax-credit-proposals',
+                                                                              'https://www.mikebloomberg.com/policies/housing-affordability-and-homelessness',
                                                                               'https://www.mikebloomberg.com/policies/immigration',
                                                                               'https://www.mikebloomberg.com/policies/international-climate-priorities',
                                                                               'https://www.mikebloomberg.com/policies/job-creation',
