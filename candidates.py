@@ -228,6 +228,7 @@ CANDIDATES = (
                                                                         ),),),),
     ('patrick', 'https://devalpatrick2020.com', (('div', ('class', 'container'), False, ('https://devalpatrick2020.com/an-economy-for-everyone-everywhere/',
                                                                                          'https://devalpatrick2020.com/a-compassionate-and-modern-immigration-system/',
+                                                                                         'https://devalpatrick2020.com/addressing-the-climate-crisis/',
                                                                                          'https://devalpatrick2020.com/china/',
                                                                                          'https://devalpatrick2020.com/civil-and-human-rights/',
                                                                                          'https://devalpatrick2020.com/clean-up-our-politics/',
