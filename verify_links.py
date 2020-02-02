@@ -2,6 +2,9 @@
 """
 Make sure all links in candidates.py are in data/changes/**/links and vice versa
 """
+
+import os
+from subprocess import Popen, PIPE
 import sys
 
 from candidates import CANDIDATES
@@ -89,10 +92,31 @@ def fix():
         for url in missing_links:
             f.write(url + '\n')
 
+def output_added():
+    cmd = ['git',
+               'ls-files',
+               '--others',
+               '--exclude-standard',]
+    p = Popen(cmd, stdout=PIPE)
+    o = p.communicate()
+    files = set()
+    for l in o:
+        if l:
+            filename = l.strip()
+            if os.path.exists(filename):
+                files.add(filename)
+    for filename in files:
+        with open(filename) as f:
+            for l in f:
+                print(l.strip())
+
 if __name__ == '__main__':
     load_keepers()
     load_skippers()
-    if len(sys.argv) > 1 and sys.argv[1] == 'a':
-        fix()
+    if len(sys.argv) > 1:
+        if sys.argv[1] == 'a':
+            fix()
+        elif sys.argv[1] == 'added':
+            output_added()
     else:
         run()

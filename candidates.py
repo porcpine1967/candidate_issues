@@ -56,6 +56,7 @@ CANDIDATES = (
                                                                               'https://www.mikebloomberg.com/policies/opioid-epidemic',
                                                                               'https://www.mikebloomberg.com/policies/political-reform',
                                                                               'https://www.mikebloomberg.com/policies/small-business',
+                                                                              'https://www.mikebloomberg.com/policies/tax-policy',
                                                                               'https://www.mikebloomberg.com/policies/veterans',
                                                                               'https://www.mikebloomberg.com/policies/voter-rights',
                                                                             ),),
