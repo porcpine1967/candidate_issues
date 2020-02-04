@@ -272,6 +272,7 @@ CANDIDATES = (
                                                                            'https://berniesanders.com/issues/expand-social-security/',
                                                                            'https://berniesanders.com/issues/fair-banking-for-all/',
                                                                            'https://berniesanders.com/issues/fair-trade/',
+                                                                           'https://berniesanders.com/issues/fighting-for-disability-rights/',
                                                                            'https://berniesanders.com/issues/free-and-fair-elections/',
                                                                            'https://berniesanders.com/issues/free-college-cancel-debt/',
                                                                            'https://berniesanders.com/issues/green-new-deal/',
