@@ -11,6 +11,7 @@ from candidates import CANDIDATES
 
 KEEPERS = set()
 SKIPPERS = set()
+IGNORED_DUPLICATES = set()
 
 def load_keepers():
     with open ('tokeep') as f:
@@ -32,64 +33,104 @@ def load_skippers():
             else:
                 SKIPPERS.add(url + '/')
 
-def validate_candidate(name, host, urls):
-    links = candidate_links(name, host)
-    for url in not_in_urls(urls, links):
-        print(url + ' not in ' + name + '/links')
-    nolinks = not_in_links(urls, links)
-    if nolinks:
-        print('Not in candidates')
-    for link in nolinks:
-        print(link)
+def load_duplicates():
+    with open ('duplicates') as f:
+        for l in f:
+            url = l.strip()
+            IGNORED_DUPLICATES.add(url)
+            if url.endswith('/'):
+                IGNORED_DUPLICATES.add(url[0:-1])
+            else:
+                IGNORED_DUPLICATES.add(url + '/')
 
-def candidate_links(name, host):
+def validate_candidate(name, host, candidate_urls):
+    links_urls = urls_in_links(name, host)
+    for url in urls_not_in_links(candidate_urls, links_urls):
+        print(url + ' not in ' + name + '/links')
+    all_missing_links = links_not_in_candidates(candidate_urls, links_urls)
+    if all_missing_links:
+        samenamed_urls, missing_links = urls_with_duplicate_filenames(candidate_urls, all_missing_links)
+        if missing_links:
+            print('Not in candidates')
+            for link in missing_links:
+                print(link)
+        if samenamed_urls:
+            print('Duplicated filenames')
+            for duplicate in samenamed_urls:
+                print(duplicate)
+
+def urls_in_links(name, host):
     links = set([host])
     with open('data/changes/{}/links'.format(name)) as f:
         for l in f:
             links.add(l.strip())
     return links
 
-def candidate_urls(host, link_bundles):
-    curls = set((host,))
+def urls_in_candidates(host, link_bundles):
+    candidate_urls = set((host,))
     for tag, attr, bad, urls in link_bundles:
-        curls.update(urls)
-    return curls
+        candidate_urls.update(urls)
+    return candidate_urls
 
-def not_in_links(urls, links):
+def links_not_in_candidates(candidate_urls, links):
     missing_links = set()
     for link in links:
         if link.endswith('/'):
             mod_link = link[0:-1]
         else:
             mod_link = link + '/'
-        if link not in urls and mod_link not in urls and link not in SKIPPERS:
+        if link not in candidate_urls and mod_link not in candidate_urls and link not in SKIPPERS:
             missing_links.add(link)
     return missing_links
 
-def not_in_urls(urls, links):
-    missing_urls = set()
-    for url in urls:
-        if url not in links and url not in KEEPERS:
-            missing_urls.add(url)
-    return missing_urls
+def filename_from_url(url):
+    return [part for part in url.split('/') if part][-1]
+
+def urls_with_duplicate_filenames(candidate_urls, missing_links):
+    duplicates = set()
+    still_missing = set()
+    filenames_in_candidates = set([filename_from_url(url) for url in candidate_urls])
+    for missing_link in missing_links:
+        missing_link_filename = filename_from_url(missing_link)
+        if missing_link_filename in filenames_in_candidates:
+            if missing_link not in IGNORED_DUPLICATES:
+                duplicates.add(missing_link)
+        else:
+            still_missing.add(missing_link)
+    return (duplicates, still_missing,)
+
+def urls_not_in_links(candidate_urls, links):
+    missing_links = set()
+    for candidate_url in candidate_urls:
+        if candidate_url not in links and candidate_url not in KEEPERS:
+            missing_links.add(candidate_url)
+    return missing_links
 
 def run():
     for name, host, link_bundles in CANDIDATES:
-        validate_candidate(name, host, candidate_urls(host, link_bundles))
+        validate_candidate(name, host, urls_in_candidates(host, link_bundles))
 
 def fix():
-    missing_links = set()
-    missing_urls = set()
+    to_skip = set()
+    to_keep = set()
+    accepted_duplicates = set()
     for name, host, link_bundles in CANDIDATES:
-        urls = candidate_urls(host, link_bundles)
-        links = candidate_links(name, host)
-        missing_urls.update(not_in_urls(urls, links))
-        missing_links.update(not_in_links(urls, links))
+        candidate_urls = urls_in_candidates(host, link_bundles)
+        links = urls_in_links(name, host)
+        to_keep.update(urls_not_in_links(candidate_urls, links))
+        all_missing_links = links_not_in_candidates(candidate_urls, links)
+        if all_missing_links:
+            samenamed_urls, missing_links = urls_with_duplicate_filenames(candidate_urls, all_missing_links)
+            to_skip.update(missing_links)
+            accepted_duplicates.update(samenamed_urls)
     with open('tokeep', 'a') as f:
-        for url in missing_urls:
+        for url in to_keep:
             f.write(url + '\n')
     with open('toskip', 'a') as f:
-        for url in missing_links:
+        for url in to_skip:
+            f.write(url + '\n')
+    with open('duplicates', 'a') as f:
+        for url in accepted_duplicates:
             f.write(url + '\n')
 
 def output_added():
@@ -113,6 +154,7 @@ def output_added():
 if __name__ == '__main__':
     load_keepers()
     load_skippers()
+    load_duplicates()
     if len(sys.argv) > 1:
         if sys.argv[1] == 'a':
             fix()
