@@ -69,6 +69,7 @@ CANDIDATES = (
                                                                               'https://www.mikebloomberg.com/policies/small-business',
                                                                               'https://www.mikebloomberg.com/policies/tax-policy',
                                                                               'https://www.mikebloomberg.com/policies/veterans',
+                                                                              'https://www.mikebloomberg.com/policies/veterans-economic-security',
                                                                               'https://www.mikebloomberg.com/policies/voter-rights',
                                                                               'https://www.mikebloomberg.com/policies/wildfire-resilience',
                                                                                   ),),
