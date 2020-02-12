@@ -143,11 +143,14 @@ def output_added():
     files = set()
     for l in o:
         if l:
-            filename = l.strip()
-            if os.path.exists(filename):
-                files.add(filename)
+            for filename in l.strip().split('\n'):
+                if os.path.exists(filename):
+                    files.add(filename)
     for filename in files:
         with open(filename) as f:
+            print('****************************')
+            print(filename)
+            print('****************************')
             for l in f:
                 print(l.strip())
 
