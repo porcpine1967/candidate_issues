@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import HTMLParser
+import os
 import re
 import sys
 import urllib2
@@ -122,6 +123,7 @@ class Candidate(object):
         self.links = set()
         self.lines = []
         self.pages = []
+        self.lines_to_skip = None
 
     def load_links(self):
         c_links = set()
@@ -135,7 +137,22 @@ class Candidate(object):
         cp = ContentHTMLParser(file_as_string(open('data/test/%s.html' % self.name)), content_tag, content_attr, c_lines, bad)
         cp.feed(cp.file_as_string)
         lines = [l.strip() for l in c_lines]
-        self.lines = [l for l in lines if l]
+        self.lines = [l for l in lines if l if not l in self.skip_lines]
+
+    @property
+    def skip_line_file(self):
+        filename = '{}/data/changes/{}/lines_to_skip'.format(os.path.dirname(os.path.realpath(__file__)), self.name)
+        if os.path.exists(filename):
+            return filename
+
+    @property
+    def skip_lines(self):
+        if not self.skip_line_file:
+            return set()
+        if not self.lines_to_skip:
+            with open(self.skip_line_file) as f:
+                self.lines_to_skip = set([l.strip() for l in f])
+        return self.lines_to_skip
 
     def load_pages(self):
         print self.name
@@ -162,11 +179,8 @@ class Candidate(object):
                 cp = ContentHTMLParser(html, tag, attr, c_lines, bad)
                 cp.feed(cp.file_as_string)
                 lines = [l.strip() for l in c_lines]
-                page['lines'] = [l for l in lines if l]
+                page['lines'] = [l for l in lines if l and l not in self.skip_lines]
                 self.pages.append(page)
-
-
-
 
 def test_navigation():
     if len(sys.argv) > 1:
@@ -214,7 +228,8 @@ def test_content():
     cp.feed(cp.file_as_string)
     lines = [l.strip() for l in c_lines]
     for line in [l for l in lines if l]:
-        print line
+        if line not in c.skip_lines:
+            print line
     c.load_links()
     for link in c.links:
         print link
