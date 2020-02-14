@@ -5,6 +5,7 @@ from subprocess import Popen, PIPE
 
 if __name__ == '__main__':
     expected = set([
+        'data/changes/gabbard/lines_to_skip',
         'data/changes/gabbard/record',
         'data/changes/hickenlooper/reproductive-healthcare',
         'data/changes/hickenlooper/affordable-college',
