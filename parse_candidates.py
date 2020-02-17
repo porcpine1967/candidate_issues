@@ -64,6 +64,10 @@ class ContentHTMLParser(HTMLParser.HTMLParser):
     def handle_endtag(self, tag):
         if not self.tags:
             return
+        if self.bad == 'fussy':
+            if tag in BLOCK_TAGS:
+                self.lines.append('')
+            return
         if self.tags == [self.tag] or (self.bad == 'nested' and self.tag == tag):
             self.tags = []
             return
