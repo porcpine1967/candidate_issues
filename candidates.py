@@ -43,6 +43,7 @@ CANDIDATES = (
                                                                                 'https://www.mikebloomberg.com/policies/career-technical-education',
                                                                                 'https://www.mikebloomberg.com/policies/clean-buildings',
                                                                                 'https://www.mikebloomberg.com/policies/clean-transportation',
+                                                                                'https://www.mikebloomberg.com/policies/climate-and-environmental-justice',
                                                                                 'https://www.mikebloomberg.com/policies/climate-change',
                                                                                 'https://www.mikebloomberg.com/policies/climate-change-resilience',
                                                                                 'https://www.mikebloomberg.com/policies/criminal-justice-reform',
