@@ -408,6 +408,7 @@ CANDIDATES = (
                                                                                 'https://elizabethwarren.com/plans/rebuild-the-state-department',
                                                                                 'https://elizabethwarren.com/plans/restore-trust',
                                                                                 'https://elizabethwarren.com/plans/safe-affordable-housing',
+                                                                                'https://elizabethwarren.com/plans/small-businesses',
                                                                                 'https://elizabethwarren.com/plans/social-security',
                                                                                 'https://elizabethwarren.com/plans/stop-economic-crash',
                                                                                 'https://elizabethwarren.com/plans/strengthening-democracy',
