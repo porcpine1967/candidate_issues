@@ -45,8 +45,11 @@ def load_duplicates():
 
 def validate_candidate(name, host, candidate_urls):
     links_urls = urls_in_links(name, host)
-    for url in urls_not_in_links(candidate_urls, links_urls):
-        print(url + ' not in ' + name + '/links')
+    missing_urls = urls_not_in_links(candidate_urls, links_urls)
+    if missing_urls:
+        print('Not in links')
+        for url in missing_urls:
+            print(url)
     all_missing_links = links_not_in_candidates(candidate_urls, links_urls)
     if all_missing_links:
         samenamed_urls, missing_links = urls_with_duplicate_filenames(candidate_urls, all_missing_links)
