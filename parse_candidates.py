@@ -10,6 +10,7 @@ from candidates import CANDIDATES
 
 BLOCK_TAGS = ('h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'div', 'article', 'header', 'section', 'li', 'blockquote', 'nav', 'title', 'footer', 'br', 'main', 'aside', 'iframe', 'table', 'tbody', 'tr', 'center', 'figcaption')
 INLINE_TAGS = ('span', 'a', 'i', 'b', 'strong', 'figure', 'img', 'ul', 'style', 'polygon', 'g', 'svg', 'path', 'ol', 'script', 'source', 'picture', 'sup', 'hr', 'em', 'video', 'cite', 'q', 'u', 'ins', 'small', 'noscript', 'link', 'td', 'font',)
+U200D = chr(226) + chr(128) + chr(141)
 REPLACEMENTS = ((re.compile(r'<head.*</head>'), '',),
                 (re.compile(r'<script.*?</script>'), '',),
                 (re.compile(r'<style.*?</style>'), '',),
@@ -21,6 +22,7 @@ REPLACEMENTS = ((re.compile(r'<head.*</head>'), '',),
                 (re.compile(r'<svg.*?</svg>'), '',),
                 (re.compile(r'<o:p.*?</o:p>'), '',),
                 (re.compile(r'="[^"]*&[^"]*;[^"]*'), '="',),
+                (U200D, '',),
                 ('</di/v>', '</div>',),)
 PAGE_LOCATION = re.compile(r'#[^/]*$')
 
@@ -100,7 +102,7 @@ class NavigationHTMLParser(HTMLParser.HTMLParser):
     def handle_starttag(self, tag, attrs):
         if tag == 'a':
             for attr, value in attrs:
-                if attr == 'href' and not value.startswith('#') and value not in ('', '/',):
+                if attr == 'href' and not value.startswith('#') and not value.startswith('//') and value not in ('', '/',):
                     new_value = re.sub(PAGE_LOCATION, '', value)
                     if value.startswith('/'):
                         self.links.add('{}{}'.format(self.host, new_value))
