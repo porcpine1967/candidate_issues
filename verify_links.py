@@ -80,6 +80,8 @@ def links_not_in_candidates(candidate_urls, links):
     for link in links:
         if link.endswith('/'):
             mod_link = link[0:-1]
+        elif link.endswith('/?'):
+            mod_link = link[0:-2]
         else:
             mod_link = link + '/'
         if link not in candidate_urls and mod_link not in candidate_urls and link not in SKIPPERS:
