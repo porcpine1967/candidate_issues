@@ -69,6 +69,8 @@ CANDIDATES = (
                                                                                 'https://www.mikebloomberg.com/policies/housing-and-earned-income-tax-credit-proposals',
                                                                                 'https://www.mikebloomberg.com/policies/immigration',
                                                                                 'https://www.mikebloomberg.com/policies/infrastructure',
+                                                                                'https://www.mikebloomberg.com/policies/stopping-violence-against-women',
+                                                                                'https://www.mikebloomberg.com/policies/public-lands-parks-and-oceans',
                                                                                 'https://www.mikebloomberg.com/policies/international-climate-priorities',
                                                                                 'https://www.mikebloomberg.com/policies/job-creation',
                                                                                 'https://www.mikebloomberg.com/policies/labor',
