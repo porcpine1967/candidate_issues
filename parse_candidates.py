@@ -105,8 +105,8 @@ class NavigationHTMLParser(HTMLParser.HTMLParser):
                 if attr == 'href' and not value.startswith('#') and not value.startswith('//') and value not in ('', '/',):
                     new_value = re.sub(PAGE_LOCATION, '', value)
                     if value.startswith('/'):
-                        self.links.add('{}{}'.format(self.host, new_value))
-                    elif value.startswith(self.host) or value.startswith('https://medium.com'):
+                        self.links.add('https://{}{}'.format(self.host, new_value))
+                    elif self.host in value or value.startswith('https://medium.com'):
                         self.links.add(new_value)
 
     def handle_endtag(self, tag):
@@ -176,7 +176,7 @@ class Candidate(object):
                 except urllib2.HTTPError as e:
                     print 'Error getting', url, ':', e
                     continue
-                if url.startswith(self.host):
+                if self.host in url:
                     c_links = set()
                     cp = NavigationHTMLParser(html, self.host, c_links)
                     cp.feed(cp.file_as_string)
