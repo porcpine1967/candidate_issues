@@ -1,5 +1,5 @@
 CANDIDATES = (
-    ('biden', 'joebiden.com', (('article', None, False, ('https://joebiden.com/joes-vision/',),),
+    ('biden', 'joebiden.com', (('article', None, False, ('https://joebiden.com/joes-vision-3/',),),
                                        ('div', ('class', 'entry-content',), 'unmatched', ('https://joebiden.com/justice/',),),
                                        ('div', ('class', 'entry-content',), False, ('https://joebiden.com/AmericanLeadership/',
                                                                                     'https://joebiden.com/beyondhs/',
