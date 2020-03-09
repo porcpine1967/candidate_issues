@@ -6,6 +6,7 @@ Make sure all links in candidates.py are in data/changes/**/links and vice versa
 import os
 from subprocess import Popen, PIPE
 import sys
+from urlparse import urlparse
 
 from candidates import CANDIDATES
 
@@ -66,7 +67,10 @@ def urls_in_links(name, host):
     links = set([host])
     with open('data/changes/{}/links'.format(name)) as f:
         for l in f:
-            links.add(l.strip())
+            url = l.strip()
+            parts = urlparse(url)
+            if parts.netloc not in ('www.facebook.com', 'twitter.com',):
+                links.add(l.strip())
     return links
 
 def urls_in_candidates(host, link_bundles):
