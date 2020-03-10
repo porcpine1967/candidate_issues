@@ -77,6 +77,7 @@ def urls_in_candidates(host, link_bundles):
     candidate_urls = set((host,))
     for tag, attr, bad, urls in link_bundles:
         candidate_urls.update(urls)
+        candidate_urls.update([url.lower() for url in urls])
     return candidate_urls
 
 def links_not_in_candidates(candidate_urls, links):
