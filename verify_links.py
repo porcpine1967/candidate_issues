@@ -89,7 +89,7 @@ def links_not_in_candidates(candidate_urls, links):
             mod_link = link[0:-2]
         else:
             mod_link = link + '/'
-        if link not in candidate_urls and mod_link not in candidate_urls and link not in SKIPPERS:
+        if link not in candidate_urls and mod_link not in candidate_urls and link not in SKIPPERS and not link.startswith('http:'):
             missing_links.add(link)
     return missing_links
 
