@@ -78,6 +78,7 @@ CANDIDATES = (
                                                                            'https://berniesanders.com/issues/income-inequality-tax-plan/',
                                                                            'https://berniesanders.com/issues/jobs-for-all/',
                                                                            'https://berniesanders.com/issues/legalizing-marijuana/',
+                                                                           'https://berniesanders.com/lessons-coronavirus-bernie-sanders-addresses-nation/',
                                                                            'https://berniesanders.com/issues/lgbtq-equality/',
                                                                            'https://berniesanders.com/issues/medicare-for-all/',
                                                                            'https://berniesanders.com/issues/money-out-of-politics/',
