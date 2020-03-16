@@ -85,6 +85,7 @@ CANDIDATES = (
                                                                            'https://berniesanders.com/issues/racial-justice/',
                                                                            'https://berniesanders.com/issues/real-wall-street-reform/',
                                                                            'https://berniesanders.com/issues/reinvest-in-public-education/',
+                                                                           'https://berniesanders.com/issues/reproductive-justice-all/',
                                                                            'https://berniesanders.com/issues/responsible-foreign-policy/',
                                                                            'https://berniesanders.com/issues/revitalizing-rural-america/',
                                                                            'https://berniesanders.com/issues/supporting-hbcus-and-msis/',
