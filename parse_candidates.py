@@ -106,7 +106,7 @@ class NavigationHTMLParser(HTMLParser.HTMLParser):
                     new_value = re.sub(PAGE_LOCATION, '', value)
                     if value.startswith('/'):
                         self.links.add('https://{}{}'.format(self.host, new_value))
-                    elif self.host in value or value.startswith('https://medium.com'):
+                    elif self.host in value.split('?')[0] or value.startswith('https://medium.com'):
                         self.links.add(new_value)
 
     def handle_endtag(self, tag):
