@@ -60,6 +60,7 @@ CANDIDATES = (
                                                                            'https://berniesanders.com/issues/criminal-justice-reform/',
                                                                            'https://berniesanders.com/issues/disability-rights/',
                                                                            'https://berniesanders.com/issues/eliminating-medical-debt/',
+                                                                           'https://berniesanders.com/issues/emergency-response-coronavirus-pandemic/',
                                                                            'https://berniesanders.com/issues/empower-puerto-rico/',
                                                                            'https://berniesanders.com/issues/empowering-tribal-nations/',
                                                                            'https://berniesanders.com/issues/expand-social-security/',
