@@ -30,6 +30,7 @@ CANDIDATES = (
                                                                                     'https://joebiden.com/todos-con-biden-policy/',
                                                                                     'https://joebiden.com/vawa/',
                                                                                     'https://joebiden.com/veterans/',
+                                                                                    'https://joebiden.com/women-for-biden-policy/',
                                                                                    ),),),),
     ('sanders', 'berniesanders.com', (('div', ('class', 'container'), False, ('https://berniesanders.com/issues/',
                                                                            'https://berniesanders.com/a-thurgood-marshall-plan-for-public-education/',
