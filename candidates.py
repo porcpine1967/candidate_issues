@@ -20,6 +20,7 @@ CANDIDATES = (
                                                                                     'https://joebiden.com/housing/',
                                                                                     'https://joebiden.com/immigration/',
                                                                                     'https://joebiden.com/infrastructure/',
+                                                                                    'https://joebiden.com/joe-bidens-agenda-for-the-asian-american-pacific-islander-community/',
                                                                                     'https://joebiden.com/joes-agenda-for-students/',
                                                                                     'https://joebiden.com/justice/',
                                                                                     'https://joebiden.com/lgbtq/',
