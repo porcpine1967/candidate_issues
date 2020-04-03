@@ -28,6 +28,7 @@ CANDIDATES = (
                                                                                     'https://joebiden.com/older-americans/',
                                                                                     'https://joebiden.com/opioidcrisis/',
                                                                                     'https://joebiden.com/rural/',
+                                                                                    'https://joebiden.com/the-biden-make-it-work-checklist/',
                                                                                     'https://joebiden.com/todos-con-biden-policy/',
                                                                                     'https://joebiden.com/vawa/',
                                                                                     'https://joebiden.com/veterans/',
