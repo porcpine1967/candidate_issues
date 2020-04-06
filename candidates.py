@@ -65,6 +65,7 @@ CANDIDATES = (
                                                                            'https://berniesanders.com/issues/lgbtq-equality/',
                                                                            'https://berniesanders.com/issues/medicare-for-all/',
                                                                            'https://berniesanders.com/issues/money-out-of-politics/',
+                                                                           'https://berniesanders.com/issues/priorities-next-coronavirus-relief-package/',
                                                                            'https://berniesanders.com/issues/racial-justice/',
                                                                            'https://berniesanders.com/issues/real-wall-street-reform/',
                                                                            'https://berniesanders.com/issues/reinvest-in-public-education/',
