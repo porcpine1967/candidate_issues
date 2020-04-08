@@ -67,10 +67,10 @@ def urls_in_links(name, host):
     links = set([host])
     with open('data/changes/{}/links'.format(name)) as f:
         for l in f:
-            url = l.strip()
+            url = l.lower().strip()
             parts = urlparse(url)
             if parts.netloc not in ('www.facebook.com', 'twitter.com',):
-                links.add(l.strip())
+                links.add(url)
     return links
 
 def urls_in_candidates(host, link_bundles):
