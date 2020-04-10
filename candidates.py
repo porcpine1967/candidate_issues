@@ -4,6 +4,7 @@ CANDIDATES = (
                                                          'https://joebiden.com/covid19-leadership/'),),
                                        ('div', ('class', 'entry-content',), 'unmatched', ('https://joebiden.com/justice/',),),
                                        ('div', ('class', 'entry-content',), False, ('https://joebiden.com/AmericanLeadership/',
+                                                                                    'https://joebiden.com/bankruptcyreform/',
                                                                                     'https://joebiden.com/beyondhs/',
                                                                                     'https://joebiden.com/catholics/',
                                                                                     'https://joebiden.com/centralamerica/',
