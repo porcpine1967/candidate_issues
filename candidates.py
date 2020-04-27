@@ -32,6 +32,7 @@ CANDIDATES = (
                                                                                     'https://joebiden.com/older-americans/',
                                                                                     'https://joebiden.com/opioidcrisis/',
                                                                                     'https://joebiden.com/rural/',
+                                                                                    'https://joebiden.com/smallbusinesses/',
                                                                                     'https://joebiden.com/the-biden-emergency-action-plan-to-save-the-economy/',
                                                                                     'https://joebiden.com/the-biden-make-it-work-checklist/',
                                                                                     'https://joebiden.com/the-biden-plan-to-coordinate-critical-materials-for-all-50-states-and-u-s-territories/',
