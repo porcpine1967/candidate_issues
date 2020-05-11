@@ -32,6 +32,7 @@ CANDIDATES = (
                                                                                     'https://joebiden.com/justice/',
                                                                                     'https://joebiden.com/lgbtq/',
                                                                                     'https://joebiden.com/militaryfamilies/',
+                                                                                    'https://joebiden.com/muslimamerica/',
                                                                                     'https://joebiden.com/older-americans/',
                                                                                     'https://joebiden.com/opioidcrisis/',
                                                                                     'https://joebiden.com/plans-to-support-women-duringcovid19/',
