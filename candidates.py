@@ -28,6 +28,7 @@ CANDIDATES = (
                                                                                     'https://joebiden.com/joe-biden-and-the-jewish-community-a-record-and-a-plan-of-friendship-support-and-action/',
                                                                                     'https://joebiden.com/joe-bidens-4-point-plan-for-our-essential-workers/',
                                                                                     'https://joebiden.com/joe-bidens-agenda-for-the-asian-american-pacific-islander-community/',
+                                                                                    'https://joebiden.com/joe-bidens-commitment-to-indian-country/',
                                                                                     'https://joebiden.com/joes-agenda-for-students/',
                                                                                     'https://joebiden.com/justice/',
                                                                                     'https://joebiden.com/lgbtq/',
