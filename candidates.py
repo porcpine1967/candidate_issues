@@ -11,6 +11,7 @@ CANDIDATES = (
                                                                                     'https://joebiden.com/centralamerica/',
                                                                                     'https://joebiden.com/climate/',
                                                                                     'https://joebiden.com/covid19/',
+                                                                                    'https://joebiden.com/covid19-disabilities/',
                                                                                     'https://joebiden.com/disabilities/',
                                                                                     'https://joebiden.com/education/',
                                                                                     'https://joebiden.com/education/',
