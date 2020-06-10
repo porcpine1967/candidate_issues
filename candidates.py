@@ -1,7 +1,8 @@
 CANDIDATES = (
     ('biden', 'joebiden.com', (('article', None, False, ('https://joebiden.com/joes-vision/',
                                                          'https://joebiden.com/joes-vision-3/',
-                                                         'https://joebiden.com/covid19-leadership/'),),
+                                                         'https://joebiden.com/covid19-leadership/',
+                                                         'https://joebiden.com/lgbtq/',),),
                                        ('div', ('class', 'entry-content',), 'unmatched', ('https://joebiden.com/justice/',),),
                                        ('div', ('class', 'entry-content',), False, ('https://joebiden.com/AmericanLeadership/',
                                                                                     'https://joebiden.com/bankruptcyreform/',
@@ -32,7 +33,7 @@ CANDIDATES = (
                                                                                     'https://joebiden.com/joe-bidens-commitment-to-indian-country/',
                                                                                     'https://joebiden.com/joes-agenda-for-students/',
                                                                                     'https://joebiden.com/justice/',
-                                                                                    'https://joebiden.com/lgbtq/',
+                                                                                    'https://joebiden.com/lgbtq-policy/',
                                                                                     'https://joebiden.com/militaryfamilies/',
                                                                                     'https://joebiden.com/muslimamerica/',
                                                                                     'https://joebiden.com/older-americans/',
