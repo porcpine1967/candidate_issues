@@ -39,6 +39,7 @@ CANDIDATES = (
                                                                                     'https://joebiden.com/older-americans/',
                                                                                     'https://joebiden.com/opioidcrisis/',
                                                                                     'https://joebiden.com/plans-to-support-women-duringcovid19/',
+                                                                                    'https://joebiden.com/reopening/',
                                                                                     'https://joebiden.com/rural/',
                                                                                     'https://joebiden.com/smallbusinesses/',
                                                                                     'https://joebiden.com/the-biden-emergency-action-plan-to-save-the-economy/',
