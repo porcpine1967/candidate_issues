@@ -57,7 +57,7 @@ CANDIDATES = (
                                                                                     'https://joebiden.com/todos-con-biden-policy/',
                                                                                     'https://joebiden.com/vawa/',
                                                                                     'https://joebiden.com/veterans/',
-                                                                                    'https://joebiden.com/women-for-biden-policy/',),),
+                                                                                    ),),
                                                    ('article', None, False, ('https://medium.com/@joebiden/joe-biden-announces-new-plan-to-scale-up-employment-insurance-by-reforming-short-time-compensation-eb0c080ce465',
                                                                              'https://medium.com/@joebiden/joe-biden-presses-donald-trump-and-state-elected-officials-to-drop-lawsuit-attacking-americans-3e999265f3ed',
                                                                              'https://medium.com/@joebiden/joe-biden-outlines-new-steps-to-ease-economic-burden-on-working-people-e3e121037322',
